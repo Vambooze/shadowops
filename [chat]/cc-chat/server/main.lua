@@ -14,6 +14,11 @@ AddEventHandler('onResourceStart', function(resourceName)
     end
     if svConfig.versionChecker == true then
         PerformHttpRequest('https://api.github.com/repos/Concept-Collective/cc-chat/releases/latest', function (err, data, headers)
+            if data == nil then
+                print('An error occurred while checking the version. Your firewall may be blocking access to "github.com". Please check your firewall settings and ensure that "github.com" is allowed to establish connections.')
+                return
+            end
+
             local data = json.decode(data)
             if data.tag_name ~= 'v'..GetResourceMetadata(GetCurrentResourceName(), 'version', 0) then
                 print('\n^1================^0')
@@ -26,3 +31,32 @@ AddEventHandler('onResourceStart', function(resourceName)
         end, 'GET', '')
     end
 end)
+
+-- Antispam System (Beta)
+local users = {}
+function checkSpam(source, message)
+    local BlockedStatus = false
+
+    -- Checks if the user has sent a message before
+    if users[source] == nil then
+        users[source] = {time = os.time()}
+        return false
+    end
+
+    -- Check if the user has sent messages too quickly
+    if os.time() - users[source].time < 2 then
+        BlockedStatus = true
+    end
+
+    -- Check if the message is a repeat of the last message
+    if message == users[source].lastMessage then
+        BlockedStatus = true
+    end
+
+    -- Update the user's information in the table
+    users[source] = {lastMessage = message, time = os.time()}
+
+    return BlockedStatus
+end
+
+exports('checkSpam', checkSpam)
