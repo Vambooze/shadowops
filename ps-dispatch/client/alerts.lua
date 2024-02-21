@@ -427,7 +427,7 @@ local function InjuriedPerson()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = 10,
-        jobs = { 'ems' }
+        jobs = { 'ems', 'leo' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -447,7 +447,7 @@ local function DeceasedPerson()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = 10,
-        jobs = { 'ems' }
+        jobs = { 'ems', 'leo' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -561,7 +561,7 @@ local function Explosion()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'ems' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)

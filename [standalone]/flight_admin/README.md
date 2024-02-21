@@ -1,6 +1,4 @@
-# DISCONTINUED NO SUPPORT | V2 IN THE FUTURE
-
-## Flight Admin
+# Flight Admin
 
 All in one Standalone admin menu with framework integration.
 
@@ -24,9 +22,7 @@ All in one Standalone admin menu with framework integration.
 
 ## Preview
 
-![image](https://user-images.githubusercontent.com/72066035/222713790-a4a42b9e-9bbc-44ce-afc8-87a7d6575aad.png)
-![image](https://user-images.githubusercontent.com/72066035/222713809-5b82b318-c2d3-483a-b560-04ac97d39f22.png)
-
+- To be added
 
 ## Credits
 
