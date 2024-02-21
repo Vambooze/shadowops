@@ -17551,7 +17551,7 @@ var require_connection_config = __commonJS({
         this.isServer = options.isServer;
         this.stream = options.stream;
         this.host = options.host || "localhost";
-        this.port = (typeof options.port === "string" ? parseInt(options.port, 10) : options.port) || 3306;
+        this.port = (typeof options.port === "string" ? parseInt(options.port, 10) : options.port) || 64403;
         this.localAddress = options.localAddress;
         this.socketPath = options.socketPath;
         this.user = options.user || void 0;
