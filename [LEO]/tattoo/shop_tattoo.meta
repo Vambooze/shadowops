@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TattooShopItemArray>
+  <TattooShopItems>
+	<!-- Male Biker tattoos -->
+    <Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_000</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_000</txdHash>
+      <txtHash>mp_fm_tat_000</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_001</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_001</txdHash>
+      <txtHash>mp_fm_tat_001</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_005</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_005</txdHash>
+      <txtHash>mp_fm_tat_005</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_006</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_006</txdHash>
+      <txtHash>mp_fm_tat_006</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_xm2_tat_m_008</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_xm2_tat_m_008</txdHash>
+      <txtHash>mp_xm2_tat_m_008</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_018</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_018</txdHash>
+      <txtHash>mp_fm_tat_018</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_027</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_027</txdHash>
+      <txtHash>mp_fm_tat_027</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_028</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_028</txdHash>
+      <txtHash>mp_fm_tat_028</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_039</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_039</txdHash>
+      <txtHash>mp_fm_tat_039</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_award_001</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_award_001</txdHash>
+      <txtHash>mp_fm_tat_award_001</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_award_011</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_award_011</txdHash>
+      <txtHash>mp_fm_tat_award_011</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_award_012</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_award_012</txdHash>
+      <txtHash>mp_fm_tat_award_012</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_fm_tat_award_019</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_fm_tat_award_019</txdHash>
+      <txtHash>mp_fm_tat_award_019</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_002</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_002</txdHash>
+      <txtHash>mp_hip_tat_002</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_003</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_003</txdHash>
+      <txtHash>mp_hip_tat_003</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_004</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_004</txdHash>
+      <txtHash>mp_hip_tat_004</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_014</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_014</txdHash>
+      <txtHash>mp_hip_tat_014</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_016</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_016</txdHash>
+      <txtHash>mp_hip_tat_016</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_018</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_018</txdHash>
+      <txtHash>mp_hip_tat_018</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_020</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_020</txdHash>
+      <txtHash>mp_hip_tat_020</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_039</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_039</txdHash>
+      <txtHash>mp_hip_tat_039</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_045</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_045</txdHash>
+      <txtHash>mp_hip_tat_045</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_hip_tat_047</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_hip_tat_047</txdHash>
+      <txtHash>mp_hip_tat_047</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_xm2_tat_m_001</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_xm2_tat_m_001</txdHash>
+      <txtHash>mp_xm2_tat_m_001</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_xm2_tat_m_002</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_xm2_tat_m_002</txdHash>
+      <txtHash>mp_xm2_tat_m_002</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_xm2_tat_m_018</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_xm2_tat_m_018</txdHash>
+      <txtHash>mp_xm2_tat_m_018</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_xm2_tat_m_022</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_xm2_tat_m_022</txdHash>
+      <txtHash>mp_xm2_tat_m_022</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_bus_tat_m_006</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_bus_tat_m_006</txdHash>
+      <txtHash>mp_bus_tat_m_006</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<Item>
+      <uvPos x="0.000000" y="0.650000" />
+      <scale x="0.0500000" y="0.055000" />
+      <rotation value="0.000000" />
+      <nameHash>mp_xm2_tat_m_010</nameHash><!--SecuroServ Logo Back -->
+      <txdHash>mp_xm2_tat_m_010</txdHash>
+      <txtHash>mp_xm2_tat_m_010</txtHash>
+      <zone>ZONE_LEFT_ARM</zone>
+      <type>TYPE_TATTOO</type>
+      <faction>FM</faction>
+      <garment>All</garment>
+      <gender>GENDER_DONTCARE</gender>
+      <award />
+      <awardLevel />
+    </Item>
+	<!-- Female Biker tattoos -->
+<!-- 	<Item>
+	    <id value="92642"/>
+	    <cost value="50"/>
+	    <textLabel>BLAZINGTATTOO_TAT_001</textLabel>
+	    <collection>blazingtattoo_overlays</collection>
+	    <preset>blazingtattoo_01_F</preset>
+	    <zone>PDZ_HEAD</zone>
+	    <eFacing>TATTOO_RIGHT</eFacing>
+	    <updateGroup>ARM_RIGHT_LOWER_SLEEVE</updateGroup>
+	    <eFaction>TATTOO_MP_FM_F</eFaction>
+	    <lockHash>CUSTOM_TATTOOS</lockHash>
+	</Item> -->
+		<!-- Male Biker tattoos -->
+	</Item>
+  </TattooShopItems>
+</TattooShopItemArray>
