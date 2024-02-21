@@ -1,0 +1,57 @@
+Loc["en"] = {
+
+    info = {
+        ['button'] = "[E] - ",
+        ['lockpick'] = "Lockpick door",
+        ['enter'] = "Enter house",
+        ['exit'] = "Exit house",
+        ['firstprogressbar'] = "Checking out..",
+        ['secondprogressbar'] = "Grabbing..",
+        ['firstprogressbar_drawers'] = "Opening..",
+        ['secondprogressbar_drawers'] = "Searching through..",
+    },
+
+    error = {
+        ["cops"] = "Try again later..",
+        ["no_lockpick"] = "How are you going to lockpick the door?",
+        ["door_open"] = "The door is already open",
+        ["high_security"] = "The level of security is really high",
+        ["light"] = "Not a smart idea to do this right now..",
+        ["failed"] = "Failed..",
+        ["stolen"] = "Nothing else here..",
+        ["busy"] = "Already being lockpicked..",
+        ["empty"] = "Empty..",
+        ["nothing"] = "You found nothing..",
+        ["cooldown"] = "You are still tired from the last robbery..",
+        ["skill"] = "This is hard for me to break into..",
+        ["no_permission"] = "You don't have permission to use that",
+        ["already_searched"] = "Already being searched..",
+        ["carry"] = "I won't be able to carry both..",
+        ["glitch"] = "Nice try..",
+    },
+
+    success = {
+        ["success"] = "You successfully broken into the house!",
+    },
+
+    group = {
+        ["stage1"] = "Lockpick the door",
+        ["stage2"] = "Search %s/%s spots",
+        ["stage3"] = "Leave the house",
+        ["task_status"] = "House Robbery",
+        ["npc"] = 'Request info about a job',
+        ["gps"] = "I marked your GPS with the target house, you have %s minutes",
+        ["no_group"] = 'You are not in a group',
+        ["no_job"] = "You don't have a group or job",
+        ["not_leader"] = 'You are not the group leader',
+        ["no_location"] = 'I dont have anymore locations, come back later',
+        ["npc_time"] = "I dont't have anymore jobs for you, come back later",
+        ["not_marked"] = "This house isn't marked for robbery..",
+        ["already"] = "Your group is already in an active job!",
+        ["limit"] = "Your group can only have a maximum of %s participants for this.",
+        ["group_busy"] = "Your group is currently busy with a different job.",
+        ["blip_name"] = "Target House",
+        ["not_time"] = "It is dangerous to do this in broad daylight!",
+        ["minimum"] = "You need more people in your group to do this job",
+    },
+}
