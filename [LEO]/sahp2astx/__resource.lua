@@ -5,6 +5,7 @@ files {
     'carvariations.meta',
     'carcols.meta',
     'handling.meta',    
+    "audioconfig/*.dat151.rel",
 	
 }
  
@@ -13,3 +14,4 @@ data_file 'VEHICLE_METADATA_FILE' 'vehicles.meta'
 data_file 'CARCOLS_FILE' 'carcols.meta'
 data_file 'VEHICLE_VARIATION_FILE' 'carvariations.meta'
 client_script 'vehicle_names.lua'
+data_file 'AUDIO_GAMEDATA' 'audioconfig/polbuffalo4_game.dat'
