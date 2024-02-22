@@ -646,7 +646,7 @@ function QBCore.Player.CreateCitizenId()
     local UniqueFound = false
     local CitizenId = nil
     while not UniqueFound do
-        CitizenId = math.random(1111, 9999)
+        CitizenId = tostring(QBCore.Shared.RandomInt(5)):upper()
         local result = MySQL.prepare.await('SELECT COUNT(*) as count FROM players WHERE citizenid = ?', { CitizenId })
         if result == 0 then
             UniqueFound = true
