@@ -31,7 +31,7 @@ Config.Locations = {
         [2] = vector3(-449.811, 6012.909, 31.815),
     },
     ['vehicle'] = {
-        [1] = vector4(448.159, -1017.41, 28.562, 90.654),
+        [1] = vector4(457.34, -985.87, 25.70, 126.37),
         [2] = vector4(471.13, -1024.05, 28.17, 274.5),
         [3] = vector4(-455.39, 6002.02, 31.34, 87.93),
     },
@@ -130,7 +130,7 @@ Config.CarItems = {
 Config.AuthorizedVehicles = {
     -- Grade 0 and higher
     [0] = {
-        ['police'] = 'Police Car 1',
+        ['nkscout2020'] = 'Police Car 1',
         ['police2'] = 'Police Car 2',
         ['police3'] = 'Police Car 3',
         ['police4'] = 'Police Car 4',

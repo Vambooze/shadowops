@@ -1,5 +1,5 @@
 Config = {}
-Config.RequireJob = true                       -- do you need a mech job to use parts?
+Config.RequireJob = false                       -- do you need a mech job to use parts?
 Config.FuelResource = 'ps-fuel'             -- supports any that has a GetFuel() and SetFuel() export
 
 Config.PaintTime = 5                           -- how long it takes to paint a vehicle in seconds
