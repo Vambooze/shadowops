@@ -27,6 +27,5 @@ client_scripts {
 dependencies {
     'qb-core',
     'qb-interior',
-    'illenium-appearance',
     'qb-weathersync',
 }
