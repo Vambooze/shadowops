@@ -27,43 +27,52 @@ Config.Objects = {
 
 Config.Locations = {
     ['duty'] = {
-        [1] = vector3(442.81, -982.21, 30.69),
+        [1] = vector3(441.18, -981.97, 30.69), --Mission Row
         [2] = vector3(-449.811, 6012.909, 31.815),
+        [3] = vector3(362.79, -1590.50, 29.29), --Davis Sheriff
     },
     ['vehicle'] = {
-        [1] = vector4(457.34, -985.87, 25.70, 126.37),
-        [2] = vector4(471.13, -1024.05, 28.17, 274.5),
+        [1] = vector4(445.44, -985.83, 25.70, 269.42), --mrpd
+        [2] = vector4(445.12, -988.76, 25.70, 266.85), --mrpd
         [3] = vector4(-455.39, 6002.02, 31.34, 87.93),
+        [4] = vector4(388.57, -1612.47, 29.29, 226.86), -- Davis Sheriff
     },
     ['stash'] = {
-        [1] = vector3(453.075, -980.124, 30.889),
+        [1] = vector3(462.11, -999.67, 30.69),
     },
     ['impound'] = {
         [1] = vector3(436.68, -1007.42, 27.32),
         [2] = vector3(-436.14, 5982.63, 31.34),
+        [3] = vector3(408.56, -1638.22, 29.29),
+        [4] = vector3(368.55, -1601.71, 29.29), -- Davis Sheriff
     },
     ['helicopter'] = {
         [1] = vector4(449.168, -981.325, 43.691, 87.234),
         [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
+        [3] = vector4(362.73, -1598.48, 36.95, 331.12), --Davis Sheriff
     },
     ['armory'] = {
-        [1] = vector3(462.23, -981.12, 30.68),
+        [1] = vector3(482.55, -995.24, 30.69),
+        [2] = vector3(367.12, -1606.88, 29.29), --Davis Sheriff
     },
     ['trash'] = {
         [1] = vector3(439.0907, -976.746, 30.776),
     },
     ['fingerprint'] = {
-        [1] = vector3(460.9667, -989.180, 24.92),
+        [1] = vector3(473.21, -1007.56, 26.27), --MRP
+        [2] = vector3(360.72, -1613.17, 29.29), -- Davis Sheriff
     },
     ['evidence'] = {
-        [1] = vector3(442.1722, -996.067, 30.689),
+        [1] = vector3(474.89, -995.69, 26.27), --MRPD
         [2] = vector3(451.7031, -973.232, 30.689),
         [3] = vector3(455.1456, -985.462, 30.689),
+        [4] = vector3(380.89, -1599.37, 33.36), --Davis Sheriff
     },
     ['stations'] = {
         [1] = { label = 'Police Station', coords = vector4(428.23, -984.28, 29.76, 3.5) },
         [2] = { label = 'Prison', coords = vector4(1845.903, 2585.873, 45.672, 272.249) },
         [3] = { label = 'Police Station Paleto', coords = vector4(-451.55, 6014.25, 31.716, 223.81) },
+        [4] = { label = 'Davis Sheriff Station' , coords = vector4(366.86, -1602.16, 29.30, 67.97) },
     },
 }
 
@@ -145,7 +154,7 @@ Config.Items = {
     -- Grade 0 and higher
     [0] = {
         {
-            name = 'weapon_pistol',
+            name = 'weapon_combatpistol',
             price = 0,
             amount = 50,
             info = {
