@@ -50,6 +50,7 @@ Config.DurabilityMultiplier = {
     weapon_stone_hatchet         = 0.15,
 
     -- Handguns
+    weapon_fnx45                 = 0.15,
     weapon_pistol                = 0.15,
     weapon_pistol_mk2            = 0.15,
     weapon_combatpistol          = 0.15,
@@ -95,6 +96,7 @@ Config.DurabilityMultiplier = {
     weapon_combatshotgun         = 0.15,
 
     -- Assault Rifles
+    weapon_scarh                 = 0.15,
     weapon_assaultrifle          = 0.15,
     weapon_assaultrifle_mk2      = 0.15,
     weapon_carbinerifle          = 0.15,

@@ -28,6 +28,7 @@ QBShared.Weapons = {
 	[`weapon_candycane`]             = { name = 'weapon_candycane', label = 'Candy Cane', weapontype = 'Melee', ammotype = nil, damagereason = 'Melee Killed / Whacked / Executed / Beat down / Musrdered / Battered / Candy Caned' },
 
 	-- Handguns
+	[`weapon_fnx45`]                 = { name = 'weapon_fnx45', label = 'FN FNX45', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
 	[`weapon_pistol`]                = { name = 'weapon_pistol', label = 'Pistol', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
 	[`weapon_pistol_mk2`]            = { name = 'weapon_pistol_mk2', label = 'Pistol Mk2', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
 	[`weapon_combatpistol`]          = { name = 'weapon_combatpistol', label = 'Combat Pistol', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
@@ -73,6 +74,7 @@ QBShared.Weapons = {
 	[`weapon_combatshotgun`]         = { name = 'weapon_combatshotgun', label = 'Combat Shotgun', weapontype = 'Shotgun', ammotype = 'AMMO_SHOTGUN', damagereason = 'Devastated / Pulverized / Shotgunned' },
 
 	-- Assault Rifles
+	['weapon_scarh']				 = { name = 'weapon_scarh', label = 'SCARH', weapontype = 'Assault Rifle', ammotype = 'AMMO_RIFLE', damagereason = 'Ended / Rifled / Shot down / Floored' },
 	[`weapon_assaultrifle`]          = { name = 'weapon_assaultrifle', label = 'Assault Rifle', weapontype = 'Assault Rifle', ammotype = 'AMMO_RIFLE', damagereason = 'Ended / Rifled / Shot down / Floored' },
 	[`weapon_assaultrifle_mk2`]      = { name = 'weapon_assaultrifle_mk2', label = 'Assault Rifle MK2', weapontype = 'Assault Rifle', ammotype = 'AMMO_RIFLE', damagereason = 'Ended / Rifled / Shot down / Floored' },
 	[`weapon_carbinerifle`]          = { name = 'weapon_carbinerifle', label = 'Carbine Rifle', weapontype = 'Assault Rifle', ammotype = 'AMMO_RIFLE', damagereason = 'Ended / Rifled / Shot down / Floored' },
