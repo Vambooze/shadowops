@@ -8,6 +8,7 @@ Apartments.Locations = {
         coords = {
             enter = vector4(-667.02, -1105.24, 14.63, 242.32),
         },
+        pos = {top = 57, left = 32},
         polyzoneBoxData = {
             heading = 245,
             minZ = 13.5,
@@ -25,6 +26,7 @@ Apartments.Locations = {
         coords = {
             enter = vector4(-1288.52, -430.51, 35.15, 124.81),
         },
+        pos = {top = 67, left = 36},
         polyzoneBoxData = {
             heading = 124,
             minZ = 34.0,
@@ -42,6 +44,7 @@ Apartments.Locations = {
         coords = {
             enter = vector4(269.73, -640.75, 42.02, 249.07),
         },
+        pos = {top = 48, left = 33.5},
         polyzoneBoxData = {
             heading = 250,
             minZ = 40,
@@ -59,6 +62,7 @@ Apartments.Locations = {
         coords = {
             enter = vector4(-619.29, 37.69, 43.59, 181.03),
         },
+        pos = {top = 58, left = 39},
         polyzoneBoxData = {
             heading = 180,
             minZ = 41.0,
@@ -76,6 +80,7 @@ Apartments.Locations = {
         coords = {
             enter = vector4(291.517, -1078.674, 29.405, 270.75),
         },
+        pos = {top = 48, left = 31},
         polyzoneBoxData = {
             heading = 270,
             minZ = 28.5,

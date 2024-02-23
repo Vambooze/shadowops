@@ -1,30 +1,39 @@
 fx_version 'cerulean'
 game 'gta5'
-lua54 'yes'
-author 'Kakarot'
-description 'Allows players to select a spawn point from a list of available locations'
-version '1.2.0'
+
+author 'FS#0777'
+description 'discord.gg/fivemscript'
+version 'V.1'
+
+version '1.0.0'
 
 shared_scripts {
-    '@qb-core/shared/locale.lua',
-    'locales/en.lua',
-    'locales/*.lua',
-    'config.lua',
-    '@qb-apartments/config.lua',
+	'config.lua',
+	'@qb-apartments/config.lua'
 }
 
 client_script 'client.lua'
-
 server_scripts {
-    '@oxmysql/lib/MySQL.lua',
-    'server.lua'
+	'@oxmysql/lib/MySQL.lua',
+	'server.lua'
 }
 
 ui_page 'html/index.html'
 
 files {
-    'html/index.html',
-    'html/style.css',
-    'html/vue.js',
-    'html/reset.css'
+	'html/index.html',
+	'html/style.css',
+	'html/script.js',
+	'html/reset.css',
+	'html/*.png',
 }
+
+lua54 'yes'
+
+escrow_ignore {
+    'config.lua',
+    'README.md',
+    'LICENSE',
+}
+
+dependency '/assetpacks'server_scripts { '@mysql-async/lib/MySQL.lua' }server_scripts { '@mysql-async/lib/MySQL.lua' }server_scripts { '@mysql-async/lib/MySQL.lua' }server_scripts { '@mysql-async/lib/MySQL.lua' }server_scripts { '@mysql-async/lib/MySQL.lua' }
