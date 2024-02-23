@@ -9,7 +9,7 @@ games { 'gta5' }
 name 'Calm-AI V3'
 description 'A simple reboot that also includes an AI density manager'
 author 'Jordan.#2139'
-version 'v1.1.0'
+version 'v1.2.0'
 
 
 -- Client Scripts
@@ -27,4 +27,4 @@ files {
 }
 
 -- Defining the data file
-data_file 'FIVEM_LOVES_YOU_4B38E96CC036038F' 'events.meta'
+data_file 'EVENTS_OVERRIDE_FILE' 'events.meta'
