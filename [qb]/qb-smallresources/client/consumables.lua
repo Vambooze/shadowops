@@ -461,19 +461,16 @@ RegisterNetEvent('consumables:client:UseHeavyArmor', function()
     }, {}, {}, {}, function() -- Done
         if not Config.Disable.vestDrawable then
             if PlayerData.charinfo.gender == 0 then
-                currVest = GetPedDrawableVariation(ped, 9)
-                currVestTexture = GetPedTextureVariation(ped, 9)
-                if GetPedDrawableVariation(ped, 9) == 7 then
-                    SetPedComponentVariation(ped, 9, 19, GetPedTextureVariation(ped, 9), 2)
-                else
-                    SetPedComponentVariation(ped, 9, 5, 2, 2)
-                end
-            else
-                currVest = GetPedDrawableVariation(ped, 30)
-                currVestTexture = GetPedTextureVariation(ped, 30)
-                SetPedComponentVariation(ped, 9, 30, 0, 2)
-            end
-        end
+--                if GetPedDrawableVariation(ped, 9) == 7 then
+--                    SetPedComponentVariation(ped, 9, 19, GetPedTextureVariation(ped, 9), 2)
+--                else
+--                    SetPedComponentVariation(ped, 9, 5, 2, 2)
+--                end
+--            else
+--                currVestTexture = GetPedTextureVariation(ped, 30)
+--                SetPedComponentVariation(ped, 9, 30, 0, 2)
+--            end
+--        end
         TriggerServerEvent('consumables:server:useHeavyArmor')
     end)
 end)
@@ -487,7 +484,6 @@ RegisterNetEvent('consumables:client:ResetArmor', function()
             disableMouse = false,
             disableCombat = true,
         }, {}, {}, {}, function() -- Done
-            SetPedComponentVariation(ped, 9, currVest, currVestTexture, 2)
             SetPedArmour(ped, 0)
             TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['heavyarmor'], 'add')
             TriggerServerEvent('consumables:server:resetArmor')
