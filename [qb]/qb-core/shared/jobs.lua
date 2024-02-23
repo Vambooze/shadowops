@@ -25,7 +25,8 @@ QBShared.Jobs = {
 			['4'] = { name = 'Chief', isboss = true, payment = 150 },
 		},
 	},
-	LCSO = {
+	
+	lcso = {
 		label = 'Los Santo County Sheriff',
 		type = 'leo',
 		defaultDuty = true,
