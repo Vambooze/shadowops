@@ -1,7 +1,7 @@
 Config = {}
 
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
-Config.PauseMapText = ''                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
+Config.PauseMapText = 'Shadow Ops Gaming'                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
 Config.HarnessUses = 20
 Config.DamageNeeded = 100.0                                  -- amount of damage till you can push your vehicle. 0-1000
 
@@ -225,18 +225,11 @@ Config.BlacklistedPeds = {
 }
 
 Config.WeapDraw = {
-    variants = { 130, 122, 3, 6, 8 },
+    variants = { 53, 54, 55, 56, 57, 58, 152, 151, 130 },
     weapons = {
-        --'WEAPON_STUNGUN',
-        'WEAPON_PISTOL',
-        'WEAPON_PISTOL_MK2',
+        'WEAPON_STUNGUN',
         'WEAPON_COMBATPISTOL',
-        'WEAPON_APPISTOL',
-        'WEAPON_PISTOL50',
-        'WEAPON_REVOLVER',
-        'WEAPON_SNSPISTOL',
-        'WEAPON_HEAVYPISTOL',
-        'WEAPON_VINTAGEPISTOL'
+        'weapon_fnx45'
     }
 }
 
