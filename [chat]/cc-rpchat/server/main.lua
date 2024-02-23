@@ -63,7 +63,7 @@ RegisterCommand('ooc', function(source, args, rawCommand)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
@@ -98,7 +98,7 @@ AddEventHandler('chatMessage', function(source, name, message)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
@@ -132,7 +132,7 @@ RegisterCommand('me', function(source, args, rawCommand)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
@@ -166,7 +166,7 @@ RegisterCommand('do', function(source, args, rawCommand)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
@@ -199,7 +199,7 @@ RegisterCommand('news', function(source, args, rawCommand)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
@@ -232,7 +232,7 @@ RegisterCommand('ad', function(source, args, rawCommand)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
@@ -265,7 +265,7 @@ RegisterCommand('twt', function(source, args, rawCommand)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
@@ -298,7 +298,7 @@ RegisterCommand('anon', function(source, args, rawCommand)
         playerName = xPlayer.getName()
     elseif config.qbcore then
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        playerName = xPlayer.PlayerData.charinfo.firstname .. "," .. xPlayer.PlayerData.charinfo.lastname 
+        playerName = xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
     else
         playerName = GetPlayerName(source)
     end
