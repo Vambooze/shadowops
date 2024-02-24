@@ -10,7 +10,7 @@ DREAM_TRANSLATE = {} -- DO NOT MODIFY THIS LINE OF CODE
 Config.LANGUAGE = 'en' -- 'en' | 'es | 'fr' | 'et'
 
 Config.NOTIFY    = 'qb' -- 'qb' | 'ox' | 'esx' | 'esx-new' | 'okok' | 'mythic' | 'chat'
-Config.TARGET    = 'qb' -- 'ox' | 'qb-target'
+Config.TARGET    = 'qb-target' -- 'ox' | 'qb-target'
 Config.FRAMEWORK = 'qb' -- 'qb' | 'esx' | 'esx-old'
 -- COMMENT OUT GET_CORE if using 'esx' or 'esx-old'
 -- optional to fill in, if you use qb-core this is your getCoreObject function you use.
