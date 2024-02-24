@@ -148,7 +148,6 @@ RegisterNetEvent('ik-blackmarket:ShopMenu', function(data, custom)
             QBCore.Functions.TriggerCallback('ik-blackmarket:server:GetItemAmount', function(amt) p:resolve(amt) end, data.k, products[i].name)
             products[i].amount = Citizen.Await(p)
             Wait(100)
-            text = price.."<br>"..Lang:t("menu.weight").." "..(QBCore.Shared.Items[products[i].name].weight / 1000)..Config.Measurement .. "<br>" .. Lang:t('menu.amt')..products[i].amount
         else
             text = price.."<br>"..Lang:t("menu.weight").." "..(QBCore.Shared.Items[products[i].name].weight / 1000)..Config.Measurement
         end

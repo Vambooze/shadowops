@@ -25,7 +25,7 @@ Config.PhoneModels = {
 
 -- Options : keyminigame (default qb-keyminigame) / howdys (https://github.com/HiHowdy/howdy-hackminigame)
 Config.Minigame = "keyminigame"
-Config.Dispatch = "ps-dispatch"
+Config.Dispatch = "qbcore"
 
 Config.Products = {
     ["blackmarket"] = {
