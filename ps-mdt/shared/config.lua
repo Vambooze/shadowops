@@ -33,7 +33,7 @@ Config.sopLink = {
     ['sast'] = '',
     ['sasp'] = '',
     ['doc'] = '',
-    ['lssd'] = '',
+    ['lcso'] = '',
     ['sapr'] = '',
 }
 
@@ -46,7 +46,7 @@ Config.RosterLink = {
     ['sast'] = '',
     ['sasp'] = '',
     ['doc'] = '',
-    ['lssd'] = '',
+    ['lcso'] = '',
     ['sapr'] = '',	
 }
 
@@ -57,7 +57,7 @@ Config.PoliceJobs = {
     ['sast'] = true,
     ['sasp'] = true,
     ['doc'] = true,
-    ['lssd'] = true,
+    ['lcso'] = true,
     ['sapr'] = true,
     ['pa'] = true
 }
@@ -111,7 +111,7 @@ Config.LogPerms = {
     ['doc'] = {
 		[4] = true,
 	},
-    ['lssd'] = {
+    ['lcso'] = {
 		[4] = true,
 	},
 }
@@ -138,7 +138,7 @@ Config.RemoveIncidentPerms = {
     ['doc'] = {
 		[4] = true,
 	},
-    ['lssd'] = {
+    ['lcso'] = {
 		[4] = true,
 	},
 }
@@ -165,7 +165,7 @@ Config.RemoveReportPerms = {
     ['doc'] = {
 		[4] = true,
 	},
-    ['lssd'] = {
+    ['lcso'] = {
 		[4] = true,
 	},
 }
@@ -192,7 +192,7 @@ Config.RemoveWeaponsPerms = {
     ['doc'] = {
 		[4] = true,
 	},
-    ['lssd'] = {
+    ['lcso'] = {
 		[4] = true,
 	},
 }
