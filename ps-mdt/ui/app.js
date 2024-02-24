@@ -3808,7 +3808,7 @@ $(document).ready(() => {
       image: "img/LSPD.webp",
       name: "LOS SANTOS POLICE",
     },
-    bcso: {
+    lcso: {
       color1: "#333333",
       color2: "#57471a",
       color3: "#614f1d",
@@ -3820,7 +3820,23 @@ $(document).ready(() => {
       color9: "#6E707C",
       color10: "#8F741B",
       image: "img/BCSO.webp",
-      name: "BLAINE COUNTY SHERIFF OFFICE",
+      name: 
+      "LOS SANTOS COUNTY SHERIFF OFFICE",
+    },
+    lcso: {
+      color1: "#333333",
+      color2: "#57471a",
+      color3: "#614f1d",
+      color4: "#594b27",
+      color5: "#4d3f17",
+      color6: "#433714",
+      color7: "#57471a",
+      color8: "#2554cc",
+      color9: "#6E707C",
+      color10: "#8F741B",
+      image: "img/BCSO.webp",
+      name: 
+      "LOS SANTOS COUNTY SHERIFF OFFICE",
     },
     sasp: {
       color1: "#423f39",
@@ -3834,7 +3850,7 @@ $(document).ready(() => {
       color9: "#9c9485",
       color10: "#8F741B",
       image: "img/sasp_badge.webp",
-      name: "SAN ANDREAS STATE POLICE",
+      name: "SAN ANDREAS STATE POLICE1",
     },
     sast: {
       color1: "#2c2c2c",
