@@ -217,11 +217,7 @@ function StartRun()
         GotJob = true
         data = Config.ShopLocations[math.random(#Config.ShopLocations)]
         if Config.Phone == 'qb' then
-            exports["lb-phone"]:SendNotification({
-                app = "Email", -- the app to send the notification to (optional)
-                title = "CURRENT TASK", -- the title of the notification
-                content = 'CURRENT TASK', 'You got '..givenboxes..' packages to deliver', -- the description of the notification
-            })
+            TriggerEvent('qb-phone:client:CustomNotification', 'CURRENT TASK', 'You got '..givenboxes..' packages to deliver', 'fas fa-truck', '#83a9f7', 5500)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = 'CURRENT TASK', message = 'You got '..givenboxes..' packages to deliver', img= '/html/static/img/icons/messages.png'})
         end
@@ -265,7 +261,7 @@ CreateThread(function()
     while true do
         if GotJob then
             local ped = PlayerPedId()
-            QBCore.Functions.TriggerCallback('QBCore.Functions.HasItem', function(Package)
+            QBCore.Functions.TriggerCallback('QBCore:HasItem', function(Package)
                 if Package then
                     local boxhash = data.BoxModel[math.random(#data.BoxModel)]
                     if not HasBox then
@@ -372,11 +368,7 @@ RegisterNetEvent('kevin-deliveries:Deliver', function ()
         deliveredboxes = deliveredboxes + 1
         TriggerServerEvent('kevin-deliveries:RemovePackage')
         if Config.Phone == 'qb' then
-            exports["lb-phone"]:SendNotification({
-                app = "Email", -- the app to send the notification to (optional)
-                title = "Current Task", -- the title of the notification
-                content = 'CURRENT TASK', deliveredboxes..' / '.. givenboxes..' Packages Delivered', -- the description of the notification
-            })
+            TriggerEvent('qb-phone:client:CustomNotification', 'CURRENT TASK', deliveredboxes..' / '.. givenboxes..' Packages Delivered', 'fas fa-truck', '#83a9f7', 5500)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = 'CURRENT TASK', message = deliveredboxes..' / '.. givenboxes..' Packages Delivered', img= '/html/static/img/icons/messages.png'})
         end
@@ -384,11 +376,7 @@ RegisterNetEvent('kevin-deliveries:Deliver', function ()
             PackageDelivered = true
             Wait(2000)
             if Config.Phone == 'qb' then
-                exports["lb-phone"]:SendNotification({
-                    app = "Email", -- the app to send the notification to (optional)
-                    title = "Current Task", -- the title of the notification
-                    content = 'TASK COMPLETED', givenboxes..' Packages Delivered', -- the description of the notification
-                })
+                TriggerEvent('qb-phone:client:CustomNotification', 'TASK COMPLETED', givenboxes..' Packages Delivered', 'fas fa-truck', '#83a9f7', 5500)
             elseif Config.Phone == 'gks' then
                 TriggerEvent('gksphone:notifi', {title = 'TASK COMPLETED', message = givenboxes..' Packages Delivered', img= '/html/static/img/icons/messages.png'})
             end
@@ -459,11 +447,7 @@ function ReturnVehicle()
     Wait(1000)
     RemoveBlip(RetBlip)
     if Config.Phone ==  'qb' then
-        exports["lb-phone"]:SendNotification({
-            app = "Email", -- the app to send the notification to (optional)
-            title = "TASK COMPLETED", -- the title of the notification
-            content = "Return to to dock and return the truck", -- the description of the notification
-        })
+        TriggerEvent('qb-phone:client:CustomNotification', 'TASK COMPLETED', 'Return to to dock and return the truck', 'fas fa-truck', '#83a9f7', 5500)
     elseif Config.Phone == 'gks' then
         TriggerEvent('gksphone:notifi', {title = 'TASK COMPLETED', message = 'Return to to dock and return the truck', img= '/html/static/img/icons/messages.png'})
     end
@@ -474,11 +458,7 @@ RegisterNetEvent('kevin-deliveries:finish', function ()
     if Config.Interaction == 'target' then
         TriggerServerEvent('kevin-deliveries:Payouts', data)
         if Config.Phone == 'qb' then
-            exports["lb-phone"]:SendNotification({
-                app = "Email", -- the app to send the notification to (optional)
-                title = "TASK COMPLETED", -- the title of the notification
-                content = 'Get into the vehicle and deliver package/s', -- the description of the notification
-            })
+            TriggerEvent('qb-phone:client:CustomNotification', 'TASK COMPLETED', 'Get into the vehicle and deliver package/s', 'fas fa-truck', '#83a9f7', 5500)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = 'TASK COMPLETED', message = 'Get into the vehicle and deliver package/s', img= '/html/static/img/icons/messages.png'})
         end
@@ -497,11 +477,7 @@ RegisterNetEvent('kevin-deliveries:finish', function ()
             ReturnZone:destroy()
             TriggerServerEvent('kevin-deliveries:Payouts', data)
             if Config.Phone == 'qb' then
-                exports["lb-phone"]:SendNotification({
-                    app = "Email", -- the app to send the notification to (optional)
-                    title = "TASK COMPLETED", -- the title of the notification
-                    content = 'Get into the vehicle and deliver package/s', -- the description of the notification
-                })
+                TriggerEvent('qb-phone:client:CustomNotification', 'TASK COMPLETED', 'Get into the vehicle and deliver package/s', 'fas fa-truck', '#83a9f7', 5500)
             elseif Config.Phone == 'gks' then
                 TriggerEvent('gksphone:notifi', {title = 'TASK COMPLETED', message = 'Get into the vehicle and deliver package/s', img= '/html/static/img/icons/messages.png'})
             end

@@ -126,11 +126,7 @@ RegisterNetEvent('kevin-methruns:client:GetTask', function ()
         Goodies = true
         if Config.Notify == 'phone' then
             if Config.Phone == 'qb' then
-                TriggerServerEvent('qb-phone:server:sendNewMail', {
-                    sender = ('Boss'),
-                    subject = ('Meth Run'),
-                    message = ('Get the vehicle marked on your gps..'),
-                    })
+                TriggerEvent('qb-phone:client:CustomNotification', 'TASK NOTIFICATION', 'Get the vehicle marked on your gps..', 'fas fa-bars', '#c07ef2', 8500)
             elseif Config.Phone == 'gks' then
                 TriggerEvent('gksphone:notifi', {title = "TASK NOTIFICATION", message = "Get the vehicle marked on your gps..", img= '/html/static/img/icons/messages.png'})
             end
@@ -183,11 +179,7 @@ end)
 function Start()
     if Config.Notify == 'phone' then
         if Config.Phone == 'qb' then
-            TriggerServerEvent('qb-phone:server:sendNewMail', {
-                sender = ('Boss'),
-                subject = ('Meth Run'),
-                message = ('Meet the supplier and get the products.'),
-                })
+            TriggerEvent('qb-phone:client:CustomNotification', 'TASK NOTIFICATION', 'Meet the supplier and get the products', 'fas fa-bars', '#c07ef2', 8500)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = "TASK NOTIFICATION", message = 'Meet the supplier and get the products', img= '/html/static/img/icons/messages.png'})
         end
@@ -304,7 +296,7 @@ function Collect()
 end
 
 RegisterNetEvent('kevin-methruns:coptracker', function (x,y,z)
-    if PlayerData.job.type == Config.PoliceJobName then
+    if PlayerData.job.name == Config.PoliceJobName then
         RemoveBlip(MethVehBlip)
         MethVehBlip =  AddBlipForCoord(x,y,z)
         SetBlipSprite(MethVehBlip, 161)
@@ -329,11 +321,7 @@ function Phase2()
     Alert()
     if Config.Notify == 'phone' then
         if Config.Phone == 'qb' then
-            TriggerServerEvent('qb-phone:server:sendNewMail', {
-                sender = ('Boss'),
-                subject = ('Meth Run'),
-                message = ('Wait for a Drop Location'),
-                })
+            TriggerEvent('qb-phone:client:CustomNotification', 'TASK NOTIFICATION', 'Wait for a Drop Location', 'fas fa-bars', '#c07ef2', 8500)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = "TASK NOTIFICATION", message = 'Wait for a Drop Location', img= '/html/static/img/icons/messages.png'})
         end
@@ -345,11 +333,7 @@ function Phase2()
     RemoveBlip(MethVehBlip)
     if Config.Notify == 'phone' then
         if Config.Phone == 'qb' then
-            TriggerServerEvent('qb-phone:server:sendNewMail', {
-                sender = ('Boss'),
-                subject = ('Meth Run'),
-                message = ('Deliver the goods and vehicle.'),
-                })
+            TriggerEvent('qb-phone:client:CustomNotification', 'TASK NOTIFICATION', 'Deliver the goods and vehicle', 'fas fa-bars', '#c07ef2', 8500)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = "TASK NOTIFICATION", message = 'Deliver the goods and vehicle', img= '/html/static/img/icons/messages.png'})
         end
@@ -419,11 +403,7 @@ function DropOff()
                 CanCollect = true
                 if Config.Notify == 'phone' then
                     if Config.Phone == 'qb' then
-                        TriggerServerEvent('qb-phone:server:sendNewMail', {
-                            sender = ('Boss'),
-                            subject = ('Meth Run'),
-                            message = ('Return to the boss for payment.'),
-                            })
+                        TriggerEvent('qb-phone:client:CustomNotification', 'TASK NOTIFICATION', 'Return to the boss for payment', 'fas fa-bars', '#c07ef2', 8500)
                     elseif Config.Phone == 'gks' then
                         TriggerEvent('gksphone:notifi', {title = "TASK NOTIFICATION", message = 'Return to the boss for payment', img= '/html/static/img/icons/messages.png'})
                     end

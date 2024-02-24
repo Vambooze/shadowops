@@ -73,11 +73,7 @@ RegisterNetEvent('kevin-oxyruns:initiate', function ()
     else
         if Config.Notifications == 'phone' then
             if Config.Phone == 'qb' then
-                exports["lb-phone"]:SendNotification({
-                    app = "Mail", -- the app to send the notification to (optional)
-                    title = "NOTIFICATION", -- the title of the notification
-                    content = "No deliveries available at this time", -- the description of the notification
-                })                
+                TriggerEvent('qb-phone:client:CustomNotification', 'NOTIFICATION', 'No deliveries available at this time', 'fas fa-bars', '#86F9A1', 4000)
             elseif Config.Phone == 'gks' then
                 TriggerEvent('gksphone:notifi', {title = "NOTIFICATION", message = 'No deliveries available at this time', img= '/html/static/img/icons/messages.png'})
             end
@@ -90,11 +86,7 @@ end)
 RegisterNetEvent('kevin-oxyruns:OxyStart', function ()
     if Config.Notifications == 'phone' then
         if Config.Phone == 'qb' then
-            exports["lb-phone"]:SendNotification({
-                app = "Mail", -- the app to send the notification to (optional)
-                title = "NOTIFICATION", -- the title of the notification
-                content = "Meet With supplier and collect packages", -- the description of the notification
-            })
+            TriggerEvent('qb-phone:client:CustomNotification', 'NOTIFICATION', 'Meet With supplier and collect packages', 'fas fa-bars', '#86F9A1', 4000)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = "NOTIFICATION", message = 'Meet With supplier and collect packages', img= '/html/static/img/icons/messages.png'})
         end
@@ -167,11 +159,7 @@ function Collect()
 
     if Config.Notifications == 'phone' then
         if Config.Phone == 'qb' then
-            exports["lb-phone"]:SendNotification({
-                app = "Mail", -- the app to send the notification to (optional)
-                title = "NOTIFICATION", -- the title of the notification
-                content = 'NOTIFICATION', PackagesCollected..' / '..RecievedPackages..' Collected Packages.', -- the description of the notification
-            })
+            TriggerEvent('qb-phone:client:CustomNotification', 'NOTIFICATION', PackagesCollected..' / '..RecievedPackages..' Collected Packages.', 'fas fa-bars', '#86F9A1', 4000)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = "NOTIFICATION", message = PackagesCollected..' / '..RecievedPackages..' Collected Packages.', img= '/html/static/img/icons/messages.png'})
         end
@@ -203,11 +191,7 @@ function GetLocation()
 
         if Config.Notifications == 'phone' then
             if Config.Phone == 'qb' then
-                exports["lb-phone"]:SendNotification({
-                    app = "Mail", -- the app to send the notification to (optional)
-                    title = "NOTIFICATION", -- the title of the notification
-                    content = "Go to the area on the gps to sell package", -- the description of the notification
-                })
+                TriggerEvent('qb-phone:client:CustomNotification', 'NOTIFICATION', 'Go to the area on the gps to sell package', 'fas fa-bars', '#86F9A1', 4000)
             elseif Config.Phone == 'gks' then
                 TriggerEvent('gksphone:notifi', {title = "NOTIFICATION", message = 'Go to the area on the gps to sell package', img= '/html/static/img/icons/messages.png'})
             end
@@ -236,11 +220,7 @@ end
 function SpawnBuyers()
     if Config.Notifications == 'phone' then
         if Config.Phone == 'qb' then
-            exports["lb-phone"]:SendNotification({
-                app = "Mail", -- the app to send the notification to (optional)
-                title = "NOTIFICATION", -- the title of the notification
-                content = "Buyers have been notified...now you wait.", -- the description of the notification
-            })
+            TriggerEvent('qb-phone:client:CustomNotification', 'NOTIFICATION', 'Buyers have been notified...now you wait.', 'fas fa-bars', '#86F9A1', 4000)
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = "NOTIFICATION", message = 'Buyers have been notified...now you wait.', img= '/html/static/img/icons/messages.png'})
         end
@@ -307,11 +287,7 @@ function GivePackage()
 
         if Config.Notifications == 'phone' then
             if Config.Phone == 'qb' then
-                exports["lb-phone"]:SendNotification({
-                    app = "Mail", -- the app to send the notification to (optional)
-                    title = "NOTIFICATION", -- the title of the notification
-                    content = "All packages sold.", -- the description of the notification
-                })
+                TriggerEvent('qb-phone:client:CustomNotification', 'NOTIFICATION', 'All packages sold.', 'fas fa-bars', '#86F9A1', 4000)
             elseif Config.Phone == 'gks' then
                 TriggerEvent('gksphone:notifi', {title = "NOTIFICATION", message = "All packages sold.", img= '/html/static/img/icons/messages.png'})
             end
@@ -399,11 +375,11 @@ end
 ----- ALERTS PORTION
 function Alert()
     if Config.Dispatch == 'ps-dispatch' then
-        exports['ps-dispatch']:SuspiciousActivity()
+        exports['ps-dispatch']:Oxy()
     elseif Config.Dispatch == 'cd-dispatch' then
         local data = exports['cd_dispatch']:GetPlayerInfo()
         TriggerServerEvent('cd_dispatch:AddNotification', {
-            job_table = {'LEO'},
+            job_table = {'police'},
             coords = data.coords,
             title = '10-31 - Drug Activity',
             message = 'Drug Activity at '..data.street,

@@ -10,7 +10,7 @@ Config.AlertChance = 45 --45% chance
 Config.CoolDown = 10 * 1000 -- Cooldown to do deliveries
 Config.Notifications = 'phone' -- phone/qbcore (type of notifications to use on the job)
 Config.Phone = 'qb' -- qb / gks
-Config.CopsNeeded = 0
+Config.CopsNeeded = 1
 Config.BuyerTimer = math.random(60, 180) * 1000 -- Timer till the buyer spawns default 1-3 minutes
 
 Config.PedDrivingStyle = 786603 -- suggest not changing this tbh

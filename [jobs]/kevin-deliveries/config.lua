@@ -12,7 +12,7 @@ Config.JobPedLocation = vector4(-429.53, -2786.3, 6.0, 53.77) -- Where the start
 Config.JobBlipName = 'Kevin-Deliveries' -- Blip of where the starting ped is
 Config.PackageName = 'delivery-box'
 Config.FuelScript = 'ps-fuel' -- ps-fuel/lj-fuel/LegacyFuel Change to the fuel system you use here
-Config.VehicleSpawn = vector4(-444.16, -2793.09, 6.0, 39.34) -- Spot the vehicle spawns
+Config.VehicleSpawn = vector4(-445.69, -2789.91, 5.39, 43.89) -- Spot the vehicle spawns
 
 Config.Packages = math.random(1, 2) -- random amount of packages given for delivery
 Config.TrunkItems = {

@@ -1,8 +1,8 @@
 Config = Config or {}
-Config.UseMethCooldown = false -- true/false
-Config.CoolDown = 1 --- Cooldown until can start next run default is 10 minutes
+Config.UseMethCooldown = true -- true/false
+Config.CoolDown = 10 --- Cooldown until can start next run default is 10 minutes
 Config.CopNeeded = 0 -- Cops needed to do the runs
-Config.PoliceJobName = 'leo'
+Config.PoliceJobName = 'police'
 Config.Dispatch = 'ps-dispatch'  -- ps-dispatch / cd-dispatch  (type of dispatch you use)
 Config.PedHash = `g_m_y_lost_02` -- Ped model of the starting ped
 Config.PedPos = vector4(923.02, -1304.02, 26.07, 215.21) -- Starting ped location

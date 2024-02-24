@@ -7,7 +7,6 @@ game 'gta5'
 
 shared_script {
 	'config.lua',
-    'locales/en.lua',
 }
 
 client_scripts {
