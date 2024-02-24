@@ -389,6 +389,6 @@ QBShared.Items = {
     -- Addons
     cash_bag                        = { name = 'cash_bag', label = 'Gruppe 6 Cash Bag', weight = 1000, type = 'item', image = 'cash_bag.png', unique = false, useable = false, shouldClose = false, combinable = nil, description = 'Bag full of un-inked cash' },
 	inked_cash_bag                        = { name = 'inked_cash_bag', label = 'Gruppe 6 Inked Cash Bag', weight = 1000, type = 'item', image = 'inked_cash_bag.png', unique = false, useable = false, shouldClose = false, combinable = nil, description = 'Bag full of useless inked cash.' },
-
+    ["crocodile_clips"] 			 = {["name"] = "crocodile_clips", 			["label"] = "Wire Taps", 	   			["weight"] = 150, 		["type"] = "item", 		["image"] = "crocodile_clips.png", 			["unique"] = false,   	["useable"] = false,   	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = "Do some wiring work..", },
 
 }
