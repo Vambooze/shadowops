@@ -1,55 +1,27 @@
---[[ FX Information ]]
+fx_version 'cerulean'
+game 'gta5'
+lua54 'yes'
+author 'Kakarot'
+description 'Allows players to purchase vehicles and manage shops through a job'
+version '2.1.0'
 
-fx_version "cerulean"
-game "gta5"
-lua54 "yes"
-
---[[ Resource Information ]]
-name "0r-vehicleshop"
-author "aliko. <Discord: aliko.>"
-version "1.0.0"
-description "Fivem Script: Vehicle Shop ESX/QB ?"
-
---[[ Manifest ]]
-shared_scripts {
-    "@ox_lib/init.lua", -- if you are using ox
-    "shared/**/*"
+shared_script {
+    'config.lua',
+    '@qb-core/shared/locale.lua',
+    'locales/en.lua',
+    'locales/*.lua'
 }
 
 client_scripts {
-    "client/utils.lua",
-    "client/variables.lua",
-    "client/functions.lua",
-    "client/events.lua",
-    "client/nui.lua",
-    "client/threads.lua"
+    '@PolyZone/client.lua',
+    '@PolyZone/BoxZone.lua',
+    '@PolyZone/EntityZone.lua',
+    '@PolyZone/CircleZone.lua',
+    '@PolyZone/ComboZone.lua',
+    'client.lua'
 }
 
 server_scripts {
-    "@oxmysql/lib/MySQL.lua",
-    "server/utils.lua",
-    "server/variables.lua",
-    "server/functions.lua",
-    "server/callbacks.lua",
-    "server/commands.lua",
-    "server/events.lua",
-    "server/threads.lua"
+    '@oxmysql/lib/MySQL.lua',
+    'server.lua'
 }
-
-ui_page "ui/build/index.html"
-
-files {
-    "locales/**/*",
-    "ui/build/index.html",
-    "ui/build/**/*"
-}
-
-escrow_ignore {
-    "locales/**/*",
-    "shared/**/*",
-    "client/**/*",
-    "server/**/*",
-    "ui/**/*",
-}
-
-dependency '/assetpacks'

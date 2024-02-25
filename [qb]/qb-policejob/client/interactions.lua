@@ -392,7 +392,7 @@ RegisterNetEvent('police:client:GetCuffed', function(playerId, isSoftcuff)
                 QBCore.Functions.Notify("You are cuffed, but you can walk")
             end
         end
-    end, 3, 6)
+    end, 3, 5)
 
     else
         isHandcuffed = false

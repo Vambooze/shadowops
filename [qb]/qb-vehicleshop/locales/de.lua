@@ -1,12 +1,12 @@
 local Translations = {
     error = {
-        testdrive_alreadyin = "Already in test drive",
-        testdrive_return = "This is not your test drive vehicle",
-        Invalid_ID = "Invalid Player Id Supplied",
-        playertoofar = "This player is not close enough",
-        notenoughmoney = "Not enough money",
-        minimumallowed = "Minimum payment allowed is $",
-        overpaid = "You overpaid",
+        testdrive_alreadyin = "Bereits in der Probefahrt",
+        testdrive_return = "Dies ist kein Fahrzeug für eine Probefahrt",
+        Invalid_ID = "Ungültige Bürger-ID angegeben",
+        playertoofar = "Dieser Bürger ist nicht nah genug dran",
+        notenoughmoney = "Nicht genug Geld",
+        minimumallowed = "Die zulässige Mindestzahlung beträgt $",
+        overpaid = "Sie haben zu viel bezahlt",
         alreadypaid = "Vehicle is already paid off",
         notworth = "Vehicle is not worth that much",
         downtoosmall = "Down payment too small",
@@ -17,8 +17,7 @@ local Translations = {
         vehinfo = "Couldn\'t get vehicle info",
         notown = "You don\'t own this vehicle",
         buyertoopoor = "The buyer doesn\'t have enough money",
-        nofinanced = "You don't have any financed vehicles at this location",
-        financed = "This vehicle is financed",
+        nofinanced = "You don't have any financed vehicles",
     },
     success = {
         purchased = "Congratulations on your purchase!",
@@ -76,7 +75,10 @@ local Translations = {
     }
 }
 
-Lang = Lang or Locale:new({
-    phrases = Translations,
-    warnOnMissing = true
-})
+if GetConvar('qb_locale', 'en') == 'de' then
+    Lang = Locale:new({
+        phrases = Translations,
+        warnOnMissing = true,
+        fallbackLang = Lang,
+    })
+end
