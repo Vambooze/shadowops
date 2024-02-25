@@ -51,7 +51,7 @@ Config.GaragePedModel = "s_m_y_hwaycop_01"
 Config.Locations = {
     ["duty"] = {
         [1] = vector3(441.85, -981.95, 31.88), -- LSPD
-        [2] = vector3(362.69, -1590.45, 29.29), -- BCSO
+        [2] = vector3(362.58, -1590.62, 29.29), -- BCSO
         [3] = vector3(1832.68, 3678.4, 34.28), -- Sandy
     },
     ["vehicle"] = {

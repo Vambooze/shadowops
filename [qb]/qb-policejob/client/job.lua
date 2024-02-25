@@ -674,6 +674,8 @@ RegisterNetEvent('qb-policejob:ToggleDuty', function()
     TriggerServerEvent("police:server:UpdateCurrentCops")
 end)
 
+
+
 RegisterNetEvent('qb-police:client:scanFingerPrint', function()
     local player, distance = GetClosestPlayer()
     if player ~= -1 and distance < 2.5 then
@@ -1164,23 +1166,22 @@ end
 if Config.UseTarget then
     CreateThread(function()
         -- Toggle Duty
-        for k, v in pairs(Config.Locations["duty"]) do
-            AddBoxZone("PoliceDuty_"..k, {
-                Position = vector3(v.x, v.y, v.z),
-                Distance = 1.5,
-                Height   = 1.0,
-                Options  = {
+        for k, v in pairs(Config.Locations['duty']) do
+            exports['qb-target']:AddCircleZone('PoliceDuty_' .. k, vector3(v.x, v.y, v.z), 0.5, {
+                name = 'PoliceDuty_' .. k,
+                useZ = true,
+                debugPoly = false,
+            }, {
+                options = {
                     {
-                        icon  = 'fas fa-sign-in-alt',
-                        label = Lang:t('target.duty'),
-                        canInteract = function(entity,distance,data)
-                          if PlayerJob.type == "leo" then return true end
-                        end,
-                        action = function(entity)
-                          TriggerEvent("qb-policejob:ToggleDuty")
-                        end,
+                        type = 'client',
+                        event = 'qb-policejob:ToggleDuty',
+                        icon = 'fas fa-sign-in-alt',
+                        label = Lang:t('target.sign_in'),
+                        jobType = 'leo',
                     },
                 },
+                distance = 1.5
             })
         end
 
