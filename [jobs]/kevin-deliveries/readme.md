@@ -38,7 +38,7 @@
 ```
 
 # By default you might have to get into the vehicle trunk at the side so to fix that issue please refer to the link below
-* https://github.com/qbcore-framework/qb-inventory/pull/292/commits/0e4996fc3071a6757fa668186defaa236d214c7a
+* https://github.com/qbcore-framework/origen_inventory /pull/292/commits/0e4996fc3071a6757fa668186defaa236d214c7a
 
 # Any problems please join my discord
 Discord: https://discord.gg/SCnKXKN7cA

@@ -1,9 +1,9 @@
 # Dependencies
 - QBCore (latest)
 - qb-target https://github.com/qbcore-framework/qb-target
-- qb-inventory
+- origen_inventory 
 
-# qb-inventory/html/js/app.js (Line 577 - 650) you can search for stickynote and you will see where it needs to be placed
+# origen_inventory /html/js/app.js (Line 577 - 650) you can search for stickynote and you will see where it needs to be placed
 
 * ```lua
 } else if (itemData.name == "bounty-contract") {
@@ -17,4 +17,4 @@
 	["bounty-contract"] 			     		 = {["name"] = "bounty-contract",				    		["label"] = "Bounty Contract",			   			["weight"] = 500,    	["type"] = "item",		["image"] = "bounty-contract.png",         			["unique"] = true,		["useable"] = false,	    ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "",								["created"] = nil, 		["decay"] = 1.0 },
   ```
 
-# Take imange from the image folder and drop into your qb-inventory>html>images
+# Take imange from the image folder and drop into your origen_inventory >html>images

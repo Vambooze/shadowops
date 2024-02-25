@@ -218,3 +218,7 @@ CreateThread(function()
         Wait(0)
     end
 end)
+
+exports('GetCurrentWeapon', function()
+    return CurrentWeaponData
+end)
