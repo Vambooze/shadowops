@@ -38,12 +38,12 @@ Config.CuffItems = {
 
 Config.BlipColors = {
     ['police'] = 29, -- Dark Blue
-    ['bcso'] = 47, -- Orange
+    ['lcso'] = 47, -- Orange
     ['sasp'] = 2, -- Green
     ['ambulance'] = 1 -- Red
 }
 
-Config.FuelScript = 'LegacyFuel'
+Config.FuelScript = 'ps-fuel'
 Config.LicenseRank = 2
 Config.BlockWallThermals = true -- true/false; lowers thermal cam intensity to stop penetration through walls or tunnels
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true'
@@ -244,7 +244,7 @@ Config.CarItems = {
     [3] = {name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3,},
 }
 
-Config.QuickEquip = false -- Set this to true if you want to give certain items automatically and configure the quick = {} part on each item
+Config.QuickEquip = true -- Set this to true if you want to give certain items automatically and configure the quick = {} part on each item
 Config.Items = {
     label = "Police Armory",
     slots = 30,
