@@ -698,7 +698,7 @@ QBCore.Functions.CreateCallback('police:server:GetEvidenceByType', function(sour
     local EvidenceBags = Inventory.GetItem(source, 'filled_evidence_bag')
     if not EvidenceBags then TriggerClientEvent('QBCore:Notify', source, Lang:t('error.dont_have_evidence_bag'), 'error') end
     local ItemList = {}
-    if Config.Inventory == 'qb-inventory' or Config.Inventory == 'ps-inventory' then
+    if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
         for k,v in pairs(EvidenceBags) do
             if v.info.type == type then
                 if type == 'casing' then if v.info.serie == Lang:t('info.unknown') then ItemList[#ItemList+1] = v end
@@ -792,7 +792,7 @@ AddEventHandler('onResourceStop', function()
         for i = 1, #Config.Locations['trash'] do
             exports.ox_inventory:ClearInventory(('policetrash_%s'):format(i))
         end
-    elseif Config.Inventory == 'qb-inventory' or Config.Inventory == 'ps-inventory' then
+    elseif Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
         CreateThread(function()
             MySQL.query("DELETE FROM stashitems WHERE stash = 'policetrash'")
         end)
@@ -1380,7 +1380,7 @@ end)
 
 RegisterNetEvent('police:server:setEvidenceBagNote', function(item, note)
     local Player = QBCore.Functions.GetPlayer(source)
-    if Config.Inventory == 'qb-inventory' or Config.Inventory == 'ps-inventory' then
+    if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
         item.info.evidenceNote = note
         item.info.noteWrite = Player.PlayerData.charinfo.firstname..' '..Player.PlayerData.charinfo.lastname
         if Inventory.RemoveItem(source, 'filled_evidence_bag', 1, item.slot) then
@@ -1408,7 +1408,7 @@ end)
 
 RegisterNetEvent('police:server:UpdateEvidenceBag', function(Item, Slot)
     if Item then
-        if Config.Inventory == 'qb-inventory' or Config.Inventory == 'ps-inventory' then
+        if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             if Item.info.type == 'casing' then
                 Item.info.serie = Item.info.serie2
                 Item.info.ammotype = Item.info.ammotype2

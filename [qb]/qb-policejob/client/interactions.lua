@@ -96,7 +96,7 @@ RegisterNetEvent('police:client:SearchPlayer', function()
     local player, distance = QBCore.Functions.GetClosestPlayer()
     if player ~= -1 and distance < 2.5 then
         local playerId = GetPlayerServerId(player)
-        if Config.Inventory == 'qb-inventory' or Config.Inventory == 'ps-inventory' then
+        if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             TriggerServerEvent("inventory:server:OpenInventory", "otherplayer", playerId)
         elseif Config.Inventory == 'ox_inventory' then
             exports.ox_inventory:openNearbyInventory()
@@ -149,7 +149,7 @@ RegisterNetEvent('police:client:RobPlayer', function()
                 local pos = GetEntityCoords(ped)
                 if #(pos - plyCoords) < 2.5 then
                     StopAnimTask(ped, "random@shop_robbery", "robbery_action_b", 1.0)
-                    if Config.Inventory == 'qb-inventory' or Config.Inventory == 'ps-inventory' then
+                    if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
                         TriggerServerEvent("inventory:server:OpenInventory", "otherplayer", playerId)
                     elseif Config.Inventory == 'ox_inventory' then
                         exports.ox_inventory:openNearbyInventory()
