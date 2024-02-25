@@ -55,6 +55,8 @@ Config.MoneyWash = {
         Job = { -- Service job list; these jobs will not see a blip for wash, cannot access and will force ped to change location
             {name = 'police'},
             {name = 'ambulance'},
+            {name = 'bcso'},
+            {name = 'lcso'},
         }
     },
     Ped = { -- Ped information

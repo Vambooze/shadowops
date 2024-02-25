@@ -13,20 +13,14 @@ Config.PhoneModels = {
 }
 
 Config.Location = {
+    Coords = vector4(-279.14, 2206.02, 129.85 - 1.00, 67.35),
     ModelName = "a_m_y_epsilon_02",
     ModelHash = 0xAA82FF9B,
     SetBlipSprite = 303,
     SetBlipDisplay = 6,
     SetBlipScale = 0.85,
     SetBlipColour = 40,
-    BlipName = "BlackMarket Dealer",
-    ["coords"] = {
-        [1] = vector4(-426.25, 2971.43, 15.5, 331.7),
-        -- [2] = vector4(2482.51, 3722.28, 43.92, 39.98),
-        -- [3] = vector4(462.67, -1789.16, 28.59, 317.53),
-        -- [4] = vector4(-115.15, 6369.07, 31.52, 232.08),
-        -- [5] = vector4(752.52, -3198.33, 6.07, 301.72)
-        }
+    BlipName = "BlackMarket Dealer"
 }
 
 Config.Icons = {
