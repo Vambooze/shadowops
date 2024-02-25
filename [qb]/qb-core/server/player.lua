@@ -110,6 +110,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     -- Metadata
     PlayerData.metadata = PlayerData.metadata or {}
     PlayerData.metadata['hunger'] = PlayerData.metadata['hunger'] or 100
+    PlayerData.metadata['methruns'] = PlayerData.metadata['methruns'] or 0
     PlayerData.metadata['thirst'] = PlayerData.metadata['thirst'] or 100
     PlayerData.metadata['stress'] = PlayerData.metadata['stress'] or 0
     PlayerData.metadata['isdead'] = PlayerData.metadata['isdead'] or false

@@ -387,8 +387,15 @@ QBShared.Items = {
     newsbmic                     = { name = 'newsbmic', label = 'Boom Microphone', weight = 100, type = 'item', image = 'newsbmic.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'A Useable BoomMic' },
 
     -- Addons
-    cash_bag                        = { name = 'cash_bag', label = 'Gruppe 6 Cash Bag', weight = 1000, type = 'item', image = 'cash_bag.png', unique = false, useable = false, shouldClose = false, combinable = nil, description = 'Bag full of un-inked cash' },
-	inked_cash_bag                        = { name = 'inked_cash_bag', label = 'Gruppe 6 Inked Cash Bag', weight = 1000, type = 'item', image = 'inked_cash_bag.png', unique = false, useable = false, shouldClose = false, combinable = nil, description = 'Bag full of useless inked cash.' },
-    ["crocodile_clips"] 			 = {["name"] = "crocodile_clips", 			["label"] = "Wire Taps", 	   			["weight"] = 150, 		["type"] = "item", 		["image"] = "crocodile_clips.png", 			["unique"] = false,   	["useable"] = false,   	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = "Do some wiring work..", },
+    cash_bag                     = { name = 'cash_bag', label = 'Gruppe 6 Cash Bag', weight = 1000, type = 'item', image = 'cash_bag.png', unique = false, useable = false, shouldClose = false, combinable = nil, description = 'Bag full of un-inked cash' },
+	inked_cash_bag               = { name = 'inked_cash_bag', label = 'Gruppe 6 Inked Cash Bag', weight = 1000, type = 'item', image = 'inked_cash_bag.png', unique = false, useable = false, shouldClose = false, combinable = nil, description = 'Bag full of useless inked cash.' },
+    ["crocodile_clips"] 	     = {["name"] = "crocodile_clips", 			["label"] = "Wire Taps", 	   			["weight"] = 150, 		["type"] = "item", 		["image"] = "crocodile_clips.png", 			["unique"] = false,   	["useable"] = false,   	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = "Do some wiring work..", },
+    ["oxy-box"] 			     = {["name"] = "oxy-box",				    ["label"] = "Drug Package",			   	["weight"] = 40000,    	["type"] = "item",		["image"] = "oxy-box.png",         	["unique"] = true,		["useable"] = false,	    ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Box of Pills", },
+
+    ["methcontainer"] 			 = {["name"] = "methcontainer",				    ["label"] = "Meth Container",			   	["weight"] = 9500,    	["type"] = "item",		["image"] = "methcontainer.png",         ["unique"] = true,		["useable"] = false,	    ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Container full of white powder"},
+    ["methcase"] 			     = {["name"] = "methcase",				    ["label"] = "Shiny Case",			   	["weight"] = 4500,    	["type"] = "item",		["image"] = "securitycase.png",         ["unique"] = true,		["useable"] = true,	    ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Briefcase full of money"},
+    ["floor-cleaner"] 			 = {["name"] = "floor-cleaner",				    ["label"] = "Floor Cleaner",			["weight"] = 1000,    	["type"] = "item",		["image"] = "floorcleaner.png",         	["unique"] = true,		["useable"] = false,	    ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Floor Cleaner", ["created"] = nil, ["decay"] = 0.0	},
+
+    ["delivery-box"] 			 = {["name"] = "delivery-box",				    		["label"] = "Delivery Package",			   			["weight"] = 50000,    	["type"] = "item",		["image"] = "delivery-box.png",         			["unique"] = true,		["useable"] = false,	    ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Delivery Box",	["created"] = nil, 		["decay"] = 1.0 },
 
 }
