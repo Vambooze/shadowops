@@ -24,9 +24,8 @@ Config.Rewards = {
             { item = 'diamond_ring',    min = 1, max = 1 },
             { item = 'goldchain',       min = 1, max = 1 },
             { item = 'weed_skunk',      min = 1, max = 3 },
-            { item = 'thermite',        min = 1, max = 1 },
             { item = 'cryptostick',     min = 1, max = 1 },
-            { item = 'weapon_golfclub', min = 1, max = 1 },
+            { item = 'lockpick', min = 1, max = 2 },
         },
         ['kitchen'] = {
             { item = 'tosti',     min = 1, max = 3 },
@@ -48,9 +47,9 @@ Config.Rewards = {
             { item = 'rolex',        min = 1, max = 1 },
             { item = 'diamond_ring', min = 1, max = 1 },
             { item = 'goldchain',    min = 1, max = 1 },
-            { item = 'thermite',     min = 1, max = 1 },
             { item = 'cryptostick',  min = 1, max = 1 },
-            { item = 'tablet',       min = 1, max = 1 },
+            { item = 'crocodile_clips',       min = 1, max = 1 },
+            { item = 'electronickit',     min = 1, max = 1 },
             { item = 'pistol_ammo',  min = 1, max = 3 }
         }
     }
