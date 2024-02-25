@@ -17,38 +17,43 @@ end)
 
 -- Target and ped model
 
-RegisterNetEvent('ik-blackmarket:client:CreatePed', function ()
-    QBCore.Functions.TriggerCallback('ik-blackmarket:server:PedLocation', function(data)
-        local bm = data.bm
-        loc = data.loc
-        local sdata = data.data
-        if not sdata["hideblip"] then -- Create blip if set to false
-            StoreBlip = AddBlipForCoord(b)
-            SetBlipSprite(StoreBlip, sdata["blipsprite"])
-            SetBlipScale(StoreBlip, 0.7)
-            SetBlipDisplay(StoreBlip, 6)
-            SetBlipColour(StoreBlip, sdata["blipcolour"])
-            SetBlipAsShortRange(StoreBlip, true)
-            BeginTextCommandSetBlipName("STRING")
-            AddTextComponentSubstringPlayerName(sdata["label"])
-            EndTextCommandSetBlipName(StoreBlip)
+CreateThread(function()
+    if Config.UseBlip then
+        local BlackMarketBlip = AddBlipForCoord(Config.Location.Coords)
+        SetBlipSprite (BlackMarketBlip, Config.Location.SetBlipSprite)
+        SetBlipDisplay(BlackMarketBlip, Config.Location.SetBlipDisplay)
+        SetBlipScale  (BlackMarketBlip, Config.Location.SetBlipScale)
+        SetBlipAsShortRange(BlackMarketBlip, true)
+        SetBlipColour(BlackMarketBlip, Config.Location.SetBlipColour)
+        BeginTextCommandSetBlipName("STRING")
+        AddTextComponentSubstringPlayerName(Config.Location.BlipName)
+        EndTextCommandSetBlipName(BlackMarketBlip)
+    end
+    local Coords = Config.Location.Coords
+    local PedHash = Config.Location.ModelHash
+    local PedModel = Config.Location.ModelName
+    if not DoesEntityExist(TRClassicBlackMarketPed) then
+        RequestModel( GetHashKey(PedModel) )
+        while ( not HasModelLoaded( GetHashKey(PedModel) ) ) do
+            Wait(1)
         end
-        -- Create ped for random location number in m
-        local i = math.random(1, #sdata["model"]) -- Get random ped model
-        RequestModel(sdata["model"][i]) while not HasModelLoaded(sdata["model"][i]) do Wait(0) end
-        if ped["['"..bm.."("..loc..")']"] == nil then ped["['"..bm.."("..loc..")']"] = CreatePed(0, sdata["model"][i], sdata["coords"][loc].x, sdata["coords"][loc].y, sdata["coords"][loc].z-1.0, sdata["coords"][loc].a, false, false) end
-        if not sdata["killable"] then SetEntityInvincible(ped["['"..bm.."("..loc..")']"], true) end
-        local scenarios = { "WORLD_HUMAN_MUSCLE_FREE_WEIGHTS", "WORLD_HUMAN_GUARD_PATROL", "WORLD_HUMAN_JANITOR", "WORLD_HUMAN_MUSCLE_FLEX", "WORLD_HUMAN_MUSCLE_FREE_WEIGHTS", "PROP_HUMAN_STAND_IMPATIENT", }
-        local scenario = math.random(1, #scenarios) -- Get random scenario
-        TaskStartScenarioInPlace(ped["['"..bm.."("..loc..")']"], scenarios[scenario], -1, true)
-        SetBlockingOfNonTemporaryEvents(ped["['"..bm.."("..loc..")']"], true)
-        FreezeEntityPosition(ped["['"..bm.."("..loc..")']"], true)
-        SetEntityNoCollisionEntity(ped["['"..bm.."("..loc..")']"], PlayerPedId(), false)
-        if Config.Debug then print("Ped Created for Shop - ['"..bm.."("..loc..")']") end
-
-        if Config.Debug then print("Shop - ['"..bm.."("..loc..")']") end
-        exports['qb-target']:AddCircleZone("['"..bm.."("..loc..")']", vector3(sdata["coords"][loc].x, sdata["coords"][loc].y, sdata["coords"][loc].z), 2.0, { name="['"..bm.."("..loc..")']", debugPoly=Config.Debug, useZ=true, },{ options = { { event = "ik-blackmarket:ShopMenu", icon = "fas fa-certificate", label = Lang:t("target.browse"),item = (sdata.openwith or nil),gang = (sdata.gang or nil), shoptable = sdata, products = productstable, name = sdata["label"], k = bm, l = loc, }, }, distance = 2.0 })
-    end)
+        TRClassicBlackMarketPed = CreatePed(1, PedHash, Coords, false, true)
+        FreezeEntityPosition(TRClassicBlackMarketPed, true)
+        SetEntityInvincible(TRClassicBlackMarketPed, true)
+        SetBlockingOfNonTemporaryEvents(TRClassicBlackMarketPed, true)
+    end
+    exports['qb-target']:AddTargetEntity(TRClassicBlackMarketPed, {
+        options = {
+            {
+                num = 1,
+                type = "client",
+                event = "tr-blackmarket:OpenShop",
+                label = Config.Text["TargetLabel"],
+                icon = Config.Icons["Eyeicon"],
+            }
+        },
+        distance = 1.5
+    })
 end)
 
 if Config.EnableHacking then
