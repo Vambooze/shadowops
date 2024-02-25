@@ -221,8 +221,9 @@ function StartRun()
         elseif Config.Phone == 'gks' then
             TriggerEvent('gksphone:notifi', {title = 'CURRENT TASK', message = 'You got '..givenboxes..' packages to deliver', img= '/html/static/img/icons/messages.png'})
         end
-        QBCore.Functions.LoadModel('mule6')
-        JobVeh = CreateVehicle('mule6', vehspawn.x, vehspawn.y, vehspawn.z, vehspawn.w, true, true)
+        QBCore.Functions.LoadModel('boxville4')
+        JobVeh = CreateVehicle('boxville4', vehspawn.x, vehspawn.y, vehspawn.z, vehspawn.w, true, true)
+        TriggerEvent('vehiclekeys:client:SetOwner', GetVehicleNumberPlateText(JobVeh))
         SetVehicleLivery(JobVeh, data.VehicleLivery)
         SetVehicleDirtLevel(JobVeh, 0)
         if Config.FuelScript == 'LegacyFuel' then
@@ -261,7 +262,7 @@ CreateThread(function()
     while true do
         if GotJob then
             local ped = PlayerPedId()
-            QBCore.Functions.TriggerCallback('QBCore:HasItem', function(Package)
+            QBCore.Functions.TriggerCallback('QBCore.Functions.HasItem', function(Package)
                 if Package then
                     local boxhash = data.BoxModel[math.random(#data.BoxModel)]
                     if not HasBox then
