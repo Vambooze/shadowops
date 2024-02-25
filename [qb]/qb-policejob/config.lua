@@ -17,10 +17,10 @@ Config.CutTieItem = 'flush_cutter'
 Config.CutCuffItem = 'bolt_cutter'
 Config.BrokenCuffItem = 'broken_handcuffs'
 Config.BreakOutCuffing = {active = true, duration = math.random(2500,5000), pos = math.random(10, 30), width = math.random(10, 20)}
-Config.BreakoutMinigame = 'qb-skillbar' -- Choose the cuff breakout minigame : qb-skillbar / ps-ui (circle) / ox_lib
+Config.BreakoutMinigame = 'ps-ui' -- Choose the cuff breakout minigame : qb-skillbar / ps-ui (circle) / ox_lib
 Config.PSUIConfig = {numcircle = 2, ms = 20} -- If minigame is ps-ui then choose number of circles and ms 
 Config.OXLibConfig = {difficulty = 'medium', inputs = {'w', 'a', 's', 'd'}} -- If minigame is ox_lib then choose difficulty and input characters
-Config.TargetSystem = 'ox_target' -- Target system you want to use : qb-target / qtarget / ox_target
+Config.TargetSystem = 'qb-target' -- Target system you want to use : qb-target / qtarget / qb-target
 Config.ContextSystem = 'qb-menu' -- Menu system you want to use : qb-menu / ox_lib
 Config.Inventory = 'origen_inventory' -- Inventory system : origen_inventory, origen_inventory, ox_inventory 
 Config.StashSettings = {maxweight = 4000000, slots = 30,} -- Stash settings for qb / ps inventory
@@ -51,17 +51,17 @@ Config.GaragePedModel = "s_m_y_hwaycop_01"
 Config.Locations = {
     ["duty"] = {
         [1] = vector3(441.85, -981.95, 31.88), -- LSPD
-        [2] = vector3(-447.73, 6015.58, 32.28), -- BCSO
+        [2] = vector3(362.69, -1590.45, 29.29), -- BCSO
         [3] = vector3(1832.68, 3678.4, 34.28), -- Sandy
     },
     ["vehicle"] = {
         [1] = vector4(442.1, -1013.92, 28.63, 184.47), -- LSPD
-        [2] = vector4(-458.86, 6031.5, 31.34, 139.15), --BCSO
+        [2] = vector4(384.00, -1612.44, 29.29, 214.51), --BCSO
         [3] = vector4(1858.95, 3681.95, 33.83, 219.83), -- Sandy
     },
     ["vehspawn"] = { -- The numbers [1] must match the numbers in [vehicle]
         [1] = vector4(442.4, -1025.02, 28.29, 4.11), -- LSPD
-        [2] = vector4(-474.63, 6030.38, 30.95, 226.12), -- BCSO
+        [2] = vector4(389.37, -1613.18, 29.29, 231.87), -- BCSO
         [3] = vector4(1850.89, 3673.04, 33.37, 211.26), -- Sandy
     },
     ["stash"] = {
@@ -83,7 +83,7 @@ Config.Locations = {
     },
     ["armory"] = {
         [1] = vector3(482.51, -995.62, 30.69), -- LSPD
-        [2] = vector3(-444.12, 6013.53, 37.00), -- BCSO
+        [2] = vector3(367.05, -1606.77, 29.29), -- BCSO
         [3] = vector3(1836.2, 3687.01, 34.19), -- Sandy
     },
     ["trash"] = {
@@ -103,7 +103,7 @@ Config.Locations = {
     },
     ["stations"] = {
         [1] = {label = "Los Santos Police Department", coords = vector4(428.23, -984.28, 29.76, 3.5), sprite= 137, scale= 0.7, colour= 29},
-        [2] = {label = "San Andreas State Prison", coords = vector4(1845.903, 2585.873, 45.672, 272.249), sprite= 137, scale= 0.7, colour= 1},
+        [2] = {label = "Los Santo County Sheriff", coords = vector4(357.07, -1586.63, 29.53, 47.77), sprite= 137, scale= 0.7, colour= 1},
         [3] = {label = "Blaine County Sheriffs Office", coords = vector4(-448.26, 6007.83, 44.01, 225.93), sprite= 137, scale= 0.7, colour= 47},
     },
 }
@@ -190,27 +190,35 @@ Config.CarExtras = { -- Extra options to be enabled / disabled
 Config.AuthorizedVehicles = {
     -- Garage 1 vehicles (LSPD)
     [1] = {
-        ["police"] = {label = "Police Car 1", ranks = {1,2}, livery = 1, price = 10},
-        ["police2"] = {label = "Police Car 2", ranks = {1,2}, livery = 1, price = 10},
-        ["police3"] = {label = "Police Car 3", ranks = {3}, livery = 1, price = 10},
-        ["police4"] = {label = "Police Car 4", ranks = {3}, livery = 1, price = 10},
-        ["policeb"] = {label = "Police Car 5", ranks = {3,4}, livery = 1, price = 10},
-        ["policet"] = {label = "Police Car 6", ranks = {3,4}, livery = 1, price = nil},
-        ["fbi"] = {label = "Unmarked FBI", ranks = {3,4}, livery = 1, price = 15},
-        ["fbi2"] = {label = "Unmarked FBI2", ranks = {3,4}, livery = 1, price = nil},
+        ["buffalosxpol"] = {label = "Police Car 1", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["dnscout"] = {label = "2020 SUV", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["lssdbuffalosx"] = {label = "Police Car 3", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["nkcoquette"] = {label = "Coquette", ranks = {1,2,3,43}, livery = 1, price = 10},
+        ["nkgauntlet4"] = {label = "Police Car 5", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["nktorrence"] = {label = "Police Car 6", ranks = {1,2,3,4}, livery = 1, price = nil},
+        ["umkalamo"] = {label = "Unmarked SUV", ranks = {1,2,3,4}, livery = 1, price = 15},
+        ["fbi2"] = {label = "Unmarked FBI2", ranks = {1,2,3,4}, livery = 1, price = nil},
     },
-    -- Garage 2 vehicles (BCSO)
+    -- Garage 2 vehicles (LCSO -DAVIS)
     [2] = {
-        ["sheriff"] = {label = "Sheriff Car 1", ranks = {1,2}, livery = 1, price = 10},
-        ["sheriff2"] = {label = "Sheriff Car 2", ranks = {2,3,4}, livery = 1, price = 10},
-        ["fbi"] = {label = "Unmarked FBI", ranks = {3,4}, livery = 1, price = 10},
-        ["fbi2"] = {label = "Unmarked FBI2", ranks = {3,4}, livery = 1, price = nil},
+        ["buffalosxpol"] = {label = "Police Car 1", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["dnscout"] = {label = "Police Car 2", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["lssdbuffalosx"] = {label = "Police Car 3", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["nkcoquette"] = {label = "Police Car 4", ranks = {1,2,3,43}, livery = 1, price = 10},
+        ["nkgauntlet4"] = {label = "Police Car 5", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["nktorrence"] = {label = "Police Car 6", ranks = {1,2,3,4}, livery = 1, price = nil},
+        ["umkalamo"] = {label = "Unmarked FBI", ranks = {1,2,3,4}, livery = 1, price = 15},
+        ["fbi2"] = {label = "Unmarked FBI2", ranks = {1,2,3,4}, livery = 1, price = nil},
     },
     -- Garage 1 vehicles (Sandy)
     [3] = {
-        ["sheriff"] = {label = "Sheriff Car 1", ranks = {1,2}, livery = 1, price = 10},
-        ["sheriff2"] = {label = "Sheriff Car 2", ranks = {2,3,4}, livery = 1, price = 10},
-        ["fbi"] = {label = "Unmarked FBI", ranks = {3,4}, livery = 1, price = 10},
+        ["buffalosxpol"] = {label = "Police Car 1", ranks = {1,2,3,4}, livery = 1, price = 10},
+        ["dnscout"] = {label = "Police Car 2", ranks = {1,2}, livery = 1, price = 10},
+        ["lssdbuffalosx"] = {label = "Police Car 3", ranks = {3}, livery = 1, price = 10},
+        ["nkcoquette"] = {label = "Police Car 4", ranks = {3}, livery = 1, price = 10},
+        ["nkgauntlet4"] = {label = "Police Car 5", ranks = {3,4}, livery = 1, price = 10},
+        ["nktorrence"] = {label = "Police Car 6", ranks = {3,4}, livery = 1, price = nil},
+        ["umkalamo"] = {label = "Unmarked FBI", ranks = {3,4}, livery = 1, price = 15},
         ["fbi2"] = {label = "Unmarked FBI2", ranks = {3,4}, livery = 1, price = nil},
     },
 }
@@ -244,7 +252,7 @@ Config.CarItems = {
     [3] = {name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3,},
 }
 
-Config.QuickEquip = true -- Set this to true if you want to give certain items automatically and configure the quick = {} part on each item
+Config.QuickEquip = false -- Set this to true if you want to give certain items automatically and configure the quick = {} part on each item
 Config.Items = {
     label = "Police Armory",
     slots = 30,

@@ -33,7 +33,7 @@ v1.3.4
 - Fixed general evidence stash not opening problem
 - Added ps-ui option for breakout system
 - Officier will get notification when successfully cuffed or citizen broke out
-- Added support for qb-target / qtarget / ox_target
+- Added support for qb-target / qtarget / qb-target
 - Fixed fingerprint image showing wrong person
 - Added more possibility to drop bullet when shooting
 - If you are LEO then you can't drop bullets when shooting
