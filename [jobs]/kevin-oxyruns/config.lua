@@ -7,10 +7,10 @@ Config.PedLocation = vector4(569.92, -1016.13, 33.56, 104.47)
 
 Config.Dispatch = 'ps-dispatch'  -- ps-dispatch / cd-dispatch  (type of dispatch you use)
 Config.AlertChance = 45 --45% chance
-Config.CoolDown = 10 * 1000 -- Cooldown to do deliveries
+Config.CoolDown = 0 * 1 -- Cooldown to do deliveries
 Config.Notifications = 'phone' -- phone/qbcore (type of notifications to use on the job)
 Config.Phone = 'qb' -- qb / gks
-Config.CopsNeeded = 1
+Config.CopsNeeded = 0
 Config.BuyerTimer = math.random(60, 180) * 1000 -- Timer till the buyer spawns default 1-3 minutes
 
 Config.PedDrivingStyle = 786603 -- suggest not changing this tbh
