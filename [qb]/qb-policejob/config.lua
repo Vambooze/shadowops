@@ -38,7 +38,7 @@ Config.CuffItems = {
 
 Config.BlipColors = {
     ['police'] = 29, -- Dark Blue
-    ['lcso'] = 47, -- Orange
+    ['bcso'] = 47, -- Orange
     ['sasp'] = 2, -- Green
     ['ambulance'] = 1 -- Red
 }
@@ -56,7 +56,7 @@ Config.Locations = {
     },
     ["vehicle"] = {
         [1] = vector4(442.1, -1013.92, 28.63, 184.47), -- LSPD
-        [2] = vector4(383.46, -1612.27, 29.29, 229.48), --BCSO
+        [2] = vector4(388.78, -1622.24, 29.29, 322.69), --BCSO
         [3] = vector4(1858.95, 3681.95, 33.83, 219.83), -- Sandy
     },
     ["vehspawn"] = { -- The numbers [1] must match the numbers in [vehicle]
