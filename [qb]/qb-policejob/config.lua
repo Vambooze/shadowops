@@ -311,7 +311,7 @@ Config.Items = {
             },
             type = "weapon",
             slot = 3,
-            authorizedJobGrades = {2, 3, 4, 5, 6, 7},,
+            authorizedJobGrades = {2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         },
         [5] = {
@@ -438,7 +438,7 @@ Config.Items = {
             info = {},
             type = "item",
             slot = 16,
-            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},,
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
         [17] = {
