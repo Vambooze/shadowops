@@ -375,7 +375,7 @@ Config.Locations = {
 
     ['robsliquor5'] = {
         ['label'] = 'Rob\'s Liqour',
-        ['coords'] = vector41135.70, -982.58, 46.42, 92.55),
+        ['coords'] = vector4(1135.70, -982.58, 46.42, 92.55),
         ['ped'] = 'mp_m_shopkeep_01',
         ['scenario'] = 'WORLD_HUMAN_STAND_MOBILE',
         ['radius'] = 1.5,
