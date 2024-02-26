@@ -523,7 +523,7 @@ Config.Locations = {
             text = "PD Motorworks",
         },
         restrictions = {
-            job = { 'police', 'bcso', 'sast' },
+            job = { 'police', 'lcso', 'sast' },
             allowedClasses = { 18 },
         },
         zones = {

@@ -56,7 +56,7 @@ Config.Locations = {
     },
     ["vehicle"] = {
         [1] = vector4(442.1, -1013.92, 28.63, 184.47), -- LSPD
-        [2] = vector4(384.00, -1612.44, 29.29, 214.51), --BCSO
+        [2] = vector4(383.46, -1612.27, 29.29, 229.48), --BCSO
         [3] = vector4(1858.95, 3681.95, 33.83, 219.83), -- Sandy
     },
     ["vehspawn"] = { -- The numbers [1] must match the numbers in [vehicle]

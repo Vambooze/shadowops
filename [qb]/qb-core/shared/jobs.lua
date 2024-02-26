@@ -13,7 +13,7 @@ QBShared.Jobs = {
 	hotdog = { label = 'Hotdog', defaultDuty = true, offDutyPay = false, grades = { ['0'] = { name = 'Sales', payment = 50 } } },
 
 	police = {
-		label = 'Law Enforcement',
+		label = 'Los Santos Police',
 		type = 'leo',
 		defaultDuty = true,
 		offDutyPay = false,
@@ -26,7 +26,7 @@ QBShared.Jobs = {
 		},
 	},
 	
-	lcso = {
+	bcso = {
 		label = 'Los Santo County Sheriff',
 		type = 'leo',
 		defaultDuty = true,
@@ -38,7 +38,7 @@ QBShared.Jobs = {
 			['3'] = { name = 'Sergeant', payment = 300 },
 			['4'] = { name = 'Lieutenant', payment = 325 },
 			['5'] = { name = 'Captain', payment = 350 },
-			['6'] = { name = 'UnderSheriff', payment = 375 },
+			['6'] = { name = 'UnderSheriff', isboss = true, payment = 375 },
 			['7'] = { name = 'Sheriff', isboss = true, payment = 400 },
 		},
 	},

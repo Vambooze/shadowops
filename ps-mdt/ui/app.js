@@ -3808,7 +3808,7 @@ $(document).ready(() => {
       image: "img/LSPD.webp",
       name: "LOS SANTOS POLICE",
     },
-    lcso: {
+    bcso: {
       color1: "#333333",
       color2: "#57471a",
       color3: "#614f1d",
