@@ -5,7 +5,7 @@ Config.UseCarItems = true -- Change into true if you want to use trunk items. Lo
 Config.CustomExtras = true -- Set this true if you want custom car extra's. Look down for Config.CarExtras to set up extras
 Config.CustomLivery = false -- Set this true if you want custom livery for your cars. Look down for Config.CarExtras to set up livery
 Config.MaxMod = true -- Set this to true if you want your vehicle max modded. Look down for Config.CarMods to enable / disable the desired parts to max mod
-Config.fuelsystem = "ps-fuel" -- Set your fuel system, LegacyFuel, ps-fuel or other fuel system
+Config.fuelsystem = "ps-fuel" -- Set your fuel system, ps-fuel, ps-fuel or other fuel system
 
 Garage = {
     ["LCSO"] = {

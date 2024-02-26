@@ -226,8 +226,8 @@ function StartRun()
         TriggerEvent('vehiclekeys:client:SetOwner', GetVehicleNumberPlateText(JobVeh))
         SetVehicleLivery(JobVeh, data.VehicleLivery)
         SetVehicleDirtLevel(JobVeh, 0)
-        if Config.FuelScript == 'LegacyFuel' then
-            exports['LegacyFuel']:SetFuel(JobVeh, 100)
+        if Config.FuelScript == 'ps-fuel' then
+            exports['ps-fuel']:SetFuel(JobVeh, 100)
         elseif Config.FuelScript == 'ps-fuel' then
             exports['ps-fuel']:SetFuel(JobVeh, 100)
         elseif Config.FuelScript == 'lj-fuel' then

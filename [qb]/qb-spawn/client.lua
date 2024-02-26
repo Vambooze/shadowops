@@ -4,22 +4,24 @@ local camZPlus2 = 50
 local pointCamCoords = 75
 local pointCamCoords2 = 0
 local cam1Time = 500
-local cam2Time = 3000
+local cam2Time = 1000
 local choosingSpawn = false
 local Houses = {}
 local cam = nil
 local cam2 = nil
 
+-- Functions
+
 local function SetDisplay(bool)
     choosingSpawn = bool
-    DisplayRadar(true) 
-
     SetNuiFocus(bool, bool)
     SendNUIMessage({
-        type = "ui",
+        action = "showUi",
         status = bool
     })
 end
+
+-- Events
 
 RegisterNetEvent('qb-spawn:client:openUI', function(value)
     SetEntityVisible(PlayerPedId(), false)
@@ -51,29 +53,34 @@ RegisterNetEvent('qb-spawn:client:setupSpawns', function(cData, new, apps)
                     }
                 end
             end
-            Wait(400)
-            local Apartment = nil
-            local ApartmentName = nil
-            QBCore.Functions.TriggerCallback('apartments:GetOwnedApartment', function(result)
-                Apartment = Apartments.Locations[result.type]  
-                ApartmentName = result.name
-            end)
-            Wait(400)
+
+            Wait(500)
             SendNUIMessage({
                 action = "setupLocations",
                 locations = QB.Spawns,
                 houses = myHouses,
-                Apartment = Apartment,
-                ApartmentNames = ApartmentName,
-                Access = QB.SpawnAccess,
+                isNew = new
             })
         end, cData.citizenid)
     elseif new then
         SendNUIMessage({
             action = "setupAppartements",
             locations = apps,
+            isNew = new
         })
     end
+end)
+
+-- NUI Callbacks
+
+RegisterNUICallback("exit", function(_, cb)
+    SetNuiFocus(false, false)
+    SendNUIMessage({
+        action = "showUi",
+        status = false
+    })
+    choosingSpawn = false
+    cb("ok")
 end)
 
 local function SetCam(campos)
@@ -83,6 +90,7 @@ local function SetCam(campos)
     if DoesCamExist(cam) then
         DestroyCam(cam, true)
     end
+    Wait(cam1Time)
 
     cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", campos.x, campos.y, campos.z + camZPlus2, 300.00,0.00,0.00, 110.00, false, 0)
     PointCamAtCoord(cam, campos.x, campos.y, campos.z + pointCamCoords2)
@@ -93,14 +101,11 @@ end
 RegisterNUICallback('setCam', function(data, cb)
     local location = tostring(data.posname)
     local type = tostring(data.type)
-
     DoScreenFadeOut(200)
     Wait(500)
     DoScreenFadeIn(200)
-
     if DoesCamExist(cam) then DestroyCam(cam, true) end
     if DoesCamExist(cam2) then DestroyCam(cam2, true) end
-
     if type == "current" then
         QBCore.Functions.GetPlayerData(function(PlayerData)
             SetCam(PlayerData.position)
@@ -136,6 +141,7 @@ end)
 
 local function PreSpawnPlayer()
     SetDisplay(false)
+    DoScreenFadeOut(500)
     Wait(2000)
 end
 
@@ -148,22 +154,8 @@ local function PostSpawnPlayer(ped)
     DestroyCam(cam2, true)
     SetEntityVisible(PlayerPedId(), true)
     Wait(500)
-    TriggerEvent("backitems:start")
     DoScreenFadeIn(250)
 end
-
-RegisterNUICallback('spawnplayerappartment2', function(data, cb)
-    PreSpawnPlayer()
-    local Data = data.spawnloc
-    local Data2 = data.apartName
-    TriggerServerEvent('QBCore:Server:OnPlayerLoaded')
-    TriggerEvent('QBCore:Client:OnPlayerLoaded')
-    TriggerServerEvent('qb-houses:server:SetInsideMeta', 0, false)
-    TriggerServerEvent('qb-apartments:server:SetInsideMeta', 0, 0, false)
-    TriggerEvent('qb-apartments:client:LastLocationHouse', Data, Data2)
-    PostSpawnPlayer()
-    cb('ok')
-end)
 
 RegisterNUICallback('spawnplayer', function(data, cb)
     local location = tostring(data.spawnloc)
@@ -171,7 +163,6 @@ RegisterNUICallback('spawnplayer', function(data, cb)
     local ped = PlayerPedId()
     local PlayerData = QBCore.Functions.GetPlayerData()
     local insideMeta = PlayerData.metadata["inside"]
-
     if type == "current" then
         PreSpawnPlayer()
         QBCore.Functions.GetPlayerData(function(pd)
@@ -216,22 +207,6 @@ RegisterNUICallback('spawnplayer', function(data, cb)
     cb('ok')
 end)
 
-RegisterNetEvent('qb-spawn:client:OpenUIForSelectCoord', function()
-    local PlayerCoord = GetEntityCoords(PlayerPedId(), 1)
-    local PlayerHeading = GetEntityHeading(PlayerPedId())
-    SendNUIMessage({
-        action = "AddCoord",
-        Coord = {x = PlayerCoord[1], y = PlayerCoord[2], z = PlayerCoord[3], h = PlayerHeading},
-            
-    })
-    SetNuiFocus(true, true)
-end)
-
-RegisterNUICallback('CloseAddCoord', function(_, cb)
-    SetNuiFocus(false, false)
-    cb('ok')
-end)
-
 -- Threads
 
 CreateThread(function()
@@ -244,5 +219,3 @@ CreateThread(function()
         end
     end
 end)
-
--- discord.gg/qbcoreframework -- QBCore#4011 Only Buy From Him
