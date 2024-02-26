@@ -103,7 +103,7 @@ Config.Locations = {
     },
     ["stations"] = {
         [1] = {label = "Los Santos Police Department", coords = vector4(428.23, -984.28, 29.76, 3.5), sprite= 137, scale= 0.7, colour= 29},
-        [2] = {label = "Los Santo County Sheriff", coords = vector4(357.07, -1586.63, 29.53, 47.77), sprite= 137, scale= 0.7, colour= 1},
+        [2] = {label = "Los Santo County Sheriff", coords = vector4(357.07, -1586.63, 29.53, 47.77), sprite= 137, scale= 0.7, colour= 47},
         [3] = {label = "Blaine County Sheriffs Office", coords = vector4(-448.26, 6007.83, 44.01, 225.93), sprite= 137, scale= 0.7, colour= 47},
     },
 }
@@ -258,7 +258,7 @@ Config.Items = {
     slots = 30,
     items = {
         [1] = {
-            name = "weapon_pistol",
+            name = "weapon_combatpistol",
             price = 0,
             amount = 1,
             info = {
@@ -269,10 +269,25 @@ Config.Items = {
             },
             type = "weapon",
             slot = 1,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
         [2] = {
+            name = "weapon_fnx45",
+            price = 0,
+            amount = 1,
+            info = {
+                serie = "",
+                attachments = {
+                    {component = "COMPONENT_AT_PI_FLSH", label = "Flashlight"},
+                }
+            },
+            type = "weapon",
+            slot = 1,
+            authorizedJobGrades = {2, 3, 4, 7},
+            quick = {equip = true, amount = 1}
+        },
+        [3] = {
             name = "weapon_stungun",
             price = 0,
             amount = 1,
@@ -281,10 +296,10 @@ Config.Items = {
             },
             type = "weapon",
             slot = 2,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
-        [3] = {
+        [4] = {
             name = "weapon_pumpshotgun",
             price = 0,
             amount = 1,
@@ -296,23 +311,7 @@ Config.Items = {
             },
             type = "weapon",
             slot = 3,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
-            quick = {equip = false, amount = 1}
-        },
-        [4] = {
-            name = "weapon_smg",
-            price = 0,
-            amount = 1,
-            info = {
-                serie = "",
-                attachments = {
-                    {component = "COMPONENT_AT_SCOPE_MACRO_02", label = "1x Scope"},
-                    {component = "COMPONENT_AT_AR_FLSH", label = "Flashlight"},
-                }
-            },
-            type = "weapon",
-            slot = 4,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {2, 3, 4, 5, 6, 7},,
             quick = {equip = false, amount = 1}
         },
         [5] = {
@@ -328,7 +327,7 @@ Config.Items = {
             },
             type = "weapon",
             slot = 5,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         },
         [6] = {
@@ -338,7 +337,7 @@ Config.Items = {
             info = {},
             type = "weapon",
             slot = 6,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
         [7] = {
@@ -348,47 +347,48 @@ Config.Items = {
             info = {},
             type = "item",
             slot = 7,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 5}
         },
         [8] = {
-            name = "smg_ammo",
-            price = 0,
-            amount = 5,
-            info = {},
-            type = "item",
-            slot = 8,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
-            quick = {equip = false, amount = 1}
-        },
-        [9] = {
             name = "shotgun_ammo",
             price = 0,
             amount = 5,
             info = {},
             type = "item",
             slot = 9,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         },
-        [10] = {
+        [9] = {
             name = "rifle_ammo",
             price = 0,
             amount = 5,
             info = {},
             type = "item",
             slot = 10,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         },
-        [11] = {
+        [10] = {
             name = "handcuffs",
             price = 0,
             amount = 1,
             info = {},
             type = "item",
             slot = 11,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
+            quick = {equip = true, amount = 1}
+        },
+        
+        [11] = {
+            name = "cuffkeys",
+            price = 0,
+            amount = 1,
+            info = {},
+            type = "item",
+            slot = 11,
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
         [12] = {
@@ -398,7 +398,7 @@ Config.Items = {
             info = {},
             type = "weapon",
             slot = 12,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
         [13] = {
@@ -408,27 +408,27 @@ Config.Items = {
             info = {},
             type = "item",
             slot = 13,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         },
         [14] = {
-            name = "police_stormram",
+            name = "ifaks",
             price = 0,
             amount = 50,
             info = {},
             type = "item",
             slot = 14,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         },
         [15] = {
-            name = "armor",
+            name = "firstaid",
             price = 0,
             amount = 50,
             info = {},
             type = "item",
             slot = 15,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
         [16] = {
@@ -438,7 +438,7 @@ Config.Items = {
             info = {},
             type = "item",
             slot = 16,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},,
             quick = {equip = true, amount = 1}
         },
         [17] = {
@@ -448,7 +448,7 @@ Config.Items = {
             info = {},
             type = "item",
             slot = 17,
-            authorizedJobGrades = {0, 1, 2, 3, 4},
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         }
     }
