@@ -8,7 +8,6 @@ version '1.7.2.1'
 shared_scripts {
 	'locales/*.lua',
 	'config.lua',
-	"AutoStart.lua",
 	'shared/*.lua',
 	--'@ox_lib/init.lua'
 }
@@ -59,7 +58,7 @@ lua54 'yes'
 
 dependencies {
     "oxmysql",
-   -- "qb-core"
+    "qb-core"
 }
 
 escrow_ignore {
