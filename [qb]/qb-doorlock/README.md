@@ -32,7 +32,7 @@ This doorlock system is based on [nui_doorlock by thelindat](https://github.com/
             objName = 'hei_v_ilev_bk_gate2_pris', -- Door object name can be a string or a number. Alias: objHash = 'hei_v_ilev_bk_gate2_pris',
             objCoords  = vec3(261.83, 221.39, 106.41), -- Object coords
             textCoords = vec3(261.83, 221.39, 106.41), -- Coords for the interaction text
-            authorizedJobs = { ['police'] = 0 }, -- Job access (checks for a minimum grade of 0)
+            authorizedJobs = { ['bcso'] = 0 }, -- Job access (checks for a minimum grade of 0)
             authorizedGangs = { ['vagos'] = 0 }, -- Gang access (checks for a minimum grade of 0)
             authorizedCitizenIDs = { ['BUI05180'] = true }, -- Citizen ID access
             items = { ['keycard'] = 1, ['banana'] = 3 }, -- Item access, can be a string or table | the value of the item is the amount of items needed when using a table, if it is a string it will always check if this person has one or more of the item
@@ -72,7 +72,7 @@ This doorlock system is based on [nui_doorlock by thelindat](https://github.com/
 			},
 		},
             textCoords = vec3(-448.67, 6007.52, 31.86523), -- Coords for the interaction text
-            authorizedJobs = { ['police'] = 0 }, -- Job access (checks for a minimum grade of 0)
+            authorizedJobs = { ['bcso'] = 0 }, -- Job access (checks for a minimum grade of 0)
             authorizedGangs = { ['vagos'] = 0 }, -- Gang access (checks for a minimum grade of 0)
             authorizedCitizenIDs = { ['BUI05180'] = true }, -- Citizen ID access
             items = { ['keycard'] = 1, ['banana'] = 3 }, -- Item access, can be a string or table | the value of the item is the amount of items needed when using a table, if it is a string it will always check if this person has one or more of the item
