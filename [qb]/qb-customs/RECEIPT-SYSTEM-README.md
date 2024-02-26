@@ -17,7 +17,7 @@
 2.) Add `qb-customs` to your `server.cfg`. --- `ensure qb-customs`
 3.) Customize `shared/locations.lua` to your liking, support can be provided if needed. - `https://imgur.com/a/ED5gMLC`, 
 4.) Add information provided into your `qb-core/shared.lua` or `qb-core/shared/items.lua`.
-5.) Add image provided into your `origen_inventory /html/images`.
+5.) Add image provided into your `origen_inventory/html/images`.
 ### LJ-INVENTORY 
 6.) If you are using lj-inventory, go to style.css file **lj-inventory/html/css/main.css** and find `.ply-iteminfo-container` and set max-height to **50%** `max-height: 50%;`. 
 `https://imgur.com/a/OThxUHx`
@@ -27,7 +27,7 @@
 * [QBCore Framework](https://github.com/qbcore-framework)
 
 
-### origen_inventory /html/js/app.js at 'FormatItemInfo(itemData) 
+### origen_inventory/html/js/app.js at 'FormatItemInfo(itemData) 
 `https://imgur.com/a/Lqq8A6q`
 
 ```js 

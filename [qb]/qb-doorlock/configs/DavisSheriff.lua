@@ -7,7 +7,7 @@ Config.DoorList['DavisSheriff-MainLeft'] = {
     doorLabel = 'Main1',
     doorRate = 1.0,
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     doors = {
         {objName = -667323357, objYaw = 49.999969482422, objCoords = vec3(372.199127, -1585.901611, 29.441765)},
         {objName = -667323357, objYaw = 230.00003051758, objCoords = vec3(370.536957, -1587.882568, 29.441765)}
@@ -21,7 +21,7 @@ Config.DoorList['DavisSheriff-MainRight'] = {
     doorLabel = 'Main2',
     doorRate = 1.0,
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     doors = {
         {objName = -667323357, objYaw = 320.0, objCoords = vec3(358.710968, -1592.919067, 29.442465)},
         {objName = -667323357, objYaw = 139.99998474121, objCoords = vec3(356.730286, -1591.257080, 29.442465)}
@@ -35,7 +35,7 @@ Config.DoorList['DavisSheriff-Outside1'] = {
     doorLabel = 'Outside1',
     doorRate = 1.0,
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     doors = {
         {objName = 471928866, objYaw = 320.0, objCoords = vec3(354.861084, -1592.874756, 29.439089)},
         {objName = -1360054856, objYaw = 320.0, objCoords = vec3(353.212128, -1594.865479, 29.442665)}
@@ -52,7 +52,7 @@ Config.DoorList['DavisSheriff-Cell1'] = {
     doorType = 'door',
     doorLabel = 'Cell1',
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     objName = -1842288246,
 }
 
@@ -66,7 +66,7 @@ Config.DoorList['DavisSheriff-Cell2'] = {
     doorType = 'door',
     doorLabel = 'Cell2',
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     objName = -1842288246,
 }
 
@@ -80,7 +80,7 @@ Config.DoorList['DavisSheriff-Cell3'] = {
     doorType = 'door',
     doorLabel = 'Cell3',
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     objName = -1842288246,
 }
 
@@ -94,7 +94,7 @@ Config.DoorList['DavisSheriff-Cell4'] = {
     doorType = 'door',
     doorLabel = 'Cell4',
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     objName = -1842288246,
 }
 
@@ -108,7 +108,7 @@ Config.DoorList['DavisSheriff-Cell5'] = {
     doorType = 'door',
     doorLabel = 'General',
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     objName = -1842288246,
 }
 
@@ -122,7 +122,7 @@ Config.DoorList['DavisSheriff-Desk'] = {
     doorType = 'door',
     doorLabel = 'BehindDesk',
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     objName = -1685865813,
 }
 
@@ -133,7 +133,7 @@ Config.DoorList['DavisSheriff-BackDoor'] = {
     doorLabel = 'BackDouble',
     doorRate = 1.0,
     locked = true,
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     doors = {
         {objName = -1047370197, objYaw = 320.0, objCoords = vec3(368.275299, -1608.237915, 29.441477)},
         {objName = 1738519111, objYaw = 320.0, objCoords = vec3(369.934418, -1606.260620, 29.441477)}
@@ -142,7 +142,7 @@ Config.DoorList['DavisSheriff-BackDoor'] = {
 
 -- Impound created by Decryption
 Config.DoorList['DavisSheriff-Impound'] = {
-    authorizedJobs = { ['lcso'] = 0 },
+    authorizedJobs = { ['bcso'] = 0 },
     objCoords = vec3(391.860168, -1636.070190, 29.974377),
     doorRate = 1.0,
     objName = -1156020871,
