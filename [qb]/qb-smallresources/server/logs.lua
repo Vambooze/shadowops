@@ -38,6 +38,7 @@ local Webhooks = {
     ['palert'] = '',
     ['house'] = '',
     ['qbjobs'] = '',
+    ['pshousing'] = 'yourdiscordwebhookhere',
 }
 
 local colors = { -- https://www.spycolor.com/
