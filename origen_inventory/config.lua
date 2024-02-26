@@ -8,7 +8,7 @@ Config.MaxWeight = 1200000
 ----------------------------------------
 Config.repairWeapons = true
 Config.UseInvetoryComsumables = true -- config your items comsumables at inventory
-Config.WeaponSystem = true -- If true, you need remove your qb-weapons
+Config.WeaponSystem = false -- If true, you need remove your qb-weapons
 Config.CraftSystem = false -- Coming soon
 ----------------------------------------
 ----------------------------------------
@@ -47,7 +47,7 @@ Config.TrunkSpace = {
 }
 
 
-Config.SaveStashDecay = true
+Config.SaveStashDecay = false
 
 
 BackEngineVehicles = {
