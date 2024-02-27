@@ -1870,6 +1870,41 @@ Config.Garages = {
         },
 
     },
+    ['Davissheriff'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(408.25, -1616.21),
+                vector2(391.28, -1602.03),
+                vector2(381.76, -1612.42),
+                vector2(373.68, -1605.75),
+                vector2(360.80, -1619.07),
+                vector2(387.21, -1641.25)
+            },
+            ['minZ'] = 12.00,  -- min height of the parking zone
+            ['maxZ'] = 20.0,  -- max height of the parking zone
+        },
+        label = 'Sheriff Garage',
+        type = 'job',
+        job = "bcso",
+        vehicleCategories = {'emergency'},
+        drawText = 'Sheriff Garage',
+        showBlip = true,
+        blipName = 'Garage',
+        blipNumber = 666,
+        blipColor = 50,
+        ParkingDistance = 100.0,
+        SpawnDistance = 100.0,
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(395.50, -1626.57, 29.29, 42.72),
+            vector4(397.26, -1623.96, 29.29, 43.00),
+            vector4(399.40, -1621.58, 29.29, 48.83),
+            vector4(401.14, -1619.11, 29.29, 47.14),
+            vector4(403.52, -1617.11, 29.29, 37.82)
+        },
+
+    },
+    
 }
 
 Config.HouseGarages = {} -- DO NOT TOUCH!
