@@ -66,14 +66,14 @@ Config.Locations = {                -- Edit the various interaction points for p
         [1] = vector3(309.78, -596.6, 43.29),
     },
     ['beds'] = {
-        { coords = vector4(353.1, -584.6, 43.11, 152.08),    taken = false, model = 1631638868 },
-        { coords = vector4(356.79, -585.86, 43.11, 152.08),  taken = false, model = 1631638868 },
-        { coords = vector4(354.12, -593.12, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(350.79, -591.8, 43.1, 336.32),    taken = false, model = 2117668672 },
-        { coords = vector4(346.99, -590.48, 43.1, 336.32),   taken = false, model = 2117668672 },
-        { coords = vector4(360.32, -587.19, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(349.82, -583.33, 43.02, 152.08),  taken = false, model = -1091386327 },
-        { coords = vector4(326.98, -576.17, 43.02, 152.08),  taken = false, model = -1091386327 },
+        { coords = vector4(319.21, -581.38, 44.20, 331.64),    taken = false, model = 1631638868 },
+        { coords = vector4(324.21, -582.75, 44.20, 153.79),  taken = false, model = 1631638868 },
+        { coords = vector4(313.94, -578.83, 44.20, 152.78),   taken = false, model = 2117668672 },
+        { coords = vector4(309.21, -577.30, 44.20, 150.20),    taken = false, model = 2117668672 },
+        { coords = vector4(307.69, -582.06, 44.20, 339.15),   taken = false, model = 2117668672 },
+        { coords = vector4(311.16, -583.09, 44.20, 330.20),  taken = false, model = -1091386327 },
+        { coords = vector4(314.51, -584.30, 44.20, 333.22),  taken = false, model = -1091386327 },
+        { coords = vector4(317.71, -585.25, 44.20, 335.42),  taken = false, model = -1091386327 },
         --- paleto
         { coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672 },
         { coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672 },
@@ -92,7 +92,7 @@ Config.Locations = {                -- Edit the various interaction points for p
 
 Config.AuthorizedVehicles = { -- Grade is key, don't add same vehicle in multiple grades. Higher rank can see lower
     [0] = {
-        ['ambulance'] = 'Ambulance'
+        ['sandbulance'] = 'Ambulance'
     }
 }
 

@@ -355,6 +355,7 @@ Config.Locations = {
         ['blipscale'] = 0.6,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(-2961.49, 376.25, 15.02, 111.41)
+      
     },
 
     ['robsliquor4'] = {
@@ -375,7 +376,7 @@ Config.Locations = {
 
     ['robsliquor5'] = {
         ['label'] = 'Rob\'s Liqour',
-        ['coords'] = vector4(1135.70, -982.58, 46.42, 92.55),
+        ['coords'] = vector4(1134.21, -982.49, 46.42, 278.66),
         ['ped'] = 'mp_m_shopkeep_01',
         ['scenario'] = 'WORLD_HUMAN_STAND_MOBILE',
         ['radius'] = 1.5,

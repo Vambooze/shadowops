@@ -32,7 +32,7 @@ Config.WearableParts = { -- unused if Config.UseWearableParts is false (feel fre
 
 Config.Shops = {
     mechanic = { -- City location
-        managed = true,
+        managed = false,
         shopLabel = 'LS Customs',
         showBlip = true,
         blipSprite = 72,
