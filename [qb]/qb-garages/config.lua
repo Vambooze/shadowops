@@ -124,24 +124,19 @@ Config.CustomIMG = {
 Config.BFakePlates = false --If you use Brazzers-FakePlates change this to true
 
 Config.JobVehicles = {
-	['someRandomIdentifier'] = { -- <-- jobGarageIdentifier
+	['Davissheriff'] = { -- <-- jobGarageIdentifier
         label = "Police Vehicles",
         vehicles = {
             -- Grade 0
             [0] = {
-                -- !! IMPORTANT !! - READ THIS
-                -- you can either define the configName, model and label like this and use the vehicle settings below to define extras and liveries for your vehicles
-                -- this way you can define a single config and can reuse it for any vehicle you want or you can just use the old way without configuring extras and liveries
-                [1] = { label = "Police Car 1", model = "police", configName = "myUniqueNameForThisCarConfiguration", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
-                -- [2] = { label = "My Police / Swat Helicopter", model = "myhelomodel",  configName = "myUniqueNameForThisHeloConfiguration3", job = {"police", "swat"} }, -- example
-                -- [3] = { label = "My Ambulance Helicopter", model = "myhelomodel", configName = "myUniqueNameForThisHeloConfiguration4", job = "ambulance" or { "ambulance" } },  -- example              
-                ["police2"] = "Police Car 2",
-                ["police3"] = "Police Car 3",
-                ["police4"] = "Police Car 4",
-                ["policeb"] = "Police Car 5",
-                ["policet"] = "Police Car 6",
-                ["sheriff"] = "Sheriff Car 1",
-                ["sheriff2"] = "Sheriff Car 2",
+
+                [1] = { label = "buffalosxpol", model = "buffalosxpol", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [2] = { label = "dnscout", model = "dnscout", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [3] = { label = "lssdbuffalosx", model = "lssdbuffalosx", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [4] = { label = "nkcoquette", model = "nkcoquette", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [5] = { label = "nkgauntlet4", model = "nkgauntlet4", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [6] = { label = "nktorrence", model = "nktorrence", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [7] = { label = "umkalamo", model = "umkalamo", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
             },
             -- Grade 1
             [1] = {
@@ -193,7 +188,7 @@ Config.JobVehicles = {
 }
 
 Config.VehicleSettings = {
-    ['myUniqueNameForThisCarConfiguration'] = { -- configName
+    ['default'] = { -- configName
         ["livery"] = 1,
         ["extras"] = {
             ["1"] = true, -- on/off
@@ -1873,15 +1868,13 @@ Config.Garages = {
     ['Davissheriff'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(408.25, -1616.21),
-                vector2(391.28, -1602.03),
-                vector2(381.76, -1612.42),
-                vector2(373.68, -1605.75),
-                vector2(360.80, -1619.07),
-                vector2(387.21, -1641.25)
+                vector2(408.18, -1616.16),
+                vector2(403.01, -1612.533),
+                vector2(386.77, -1627.40),
+                vector2(387.61, -1640.72),
+                vector2(408.18, -1616.16)
             },
-            ['minZ'] = 12.00,  -- min height of the parking zone
-            ['maxZ'] = 20.0,  -- max height of the parking zone
+          
         },
         label = 'Sheriff Garage',
         type = 'job',
@@ -1892,6 +1885,7 @@ Config.Garages = {
         blipName = 'Garage',
         blipNumber = 666,
         blipColor = 50,
+        blipcoords = vector3(389.06, -1620.95, 29.29),
         ParkingDistance = 100.0,
         SpawnDistance = 100.0,
         debug = false,
