@@ -140,48 +140,62 @@ Config.JobVehicles = {
             },
             -- Grade 1
             [1] = {
-                ["police"] = "Police Car 1",
-                ["police2"] = "Police Car 2",
-                ["police3"] = "Police Car 3",
-                ["police4"] = "Police Car 4",
-                ["policeb"] = "Police Car 5",
-                ["policet"] = "Police Car 6",
-                ["sheriff"] = "Sheriff Car 1",
-                ["sheriff2"] = "Sheriff Car 2",
+                [1] = { label = "buffalosxpol", model = "buffalosxpol", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [2] = { label = "dnscout", model = "dnscout", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [3] = { label = "lssdbuffalosx", model = "lssdbuffalosx", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [4] = { label = "nkcoquette", model = "nkcoquette", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [5] = { label = "nkgauntlet4", model = "nkgauntlet4", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [6] = { label = "nktorrence", model = "nktorrence", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [7] = { label = "umkalamo", model = "umkalamo", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
 
             },
             -- Grade 2
             [2] = {
-                ["police"] = "Police Car 1",
-                ["police2"] = "Police Car 2",
-                ["police3"] = "Police Car 3",
-                ["police4"] = "Police Car 4",
-                ["policeb"] = "Police Car 5",
-                ["policet"] = "Police Car 6",
-                ["sheriff"] = "Sheriff Car 1",
-                ["sheriff2"] = "Sheriff Car 2",
+                [1] = { label = "buffalosxpol", model = "buffalosxpol", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [2] = { label = "dnscout", model = "dnscout", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [3] = { label = "lssdbuffalosx", model = "lssdbuffalosx", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [4] = { label = "nkcoquette", model = "nkcoquette", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [5] = { label = "nkgauntlet4", model = "nkgauntlet4", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [6] = { label = "nktorrence", model = "nktorrence", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [7] = { label = "umkalamo", model = "umkalamo", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
             },
             -- Grade 3
             [3] = {
-                ["police"] = "Police Car 1",
-                ["police2"] = "Police Car 2",
-                ["police3"] = "Police Car 3",
-                ["police4"] = "Police Car 4",
-                ["policeb"] = "Police Car 5",
-                ["policet"] = "Police Car 6",
-                ["sheriff"] = "Sheriff Car 1",
-                ["sheriff2"] = "Sheriff Car 2",
+                [1] = { label = "buffalosxpol", model = "buffalosxpol", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [2] = { label = "dnscout", model = "dnscout", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [3] = { label = "lssdbuffalosx", model = "lssdbuffalosx", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [4] = { label = "nkcoquette", model = "nkcoquette", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [5] = { label = "nkgauntlet4", model = "nkgauntlet4", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [6] = { label = "nktorrence", model = "nktorrence", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [7] = { label = "umkalamo", model = "umkalamo", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
             },
             -- Grade 4
             [4] = {
-                ["police"] = "Police Car 1",
-                ["police2"] = "Police Car 2",
-                ["police3"] = "Police Car 3",
-                ["police4"] = "Police Car 4",
-                ["policeb"] = "Police Car 5",
-                ["policet"] = "Police Car 6",
-                ["sheriff"] = "Sheriff Car 1",
-                ["sheriff2"] = "Sheriff Car 2",
+                [1] = { label = "buffalosxpol", model = "buffalosxpol", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [2] = { label = "dnscout", model = "dnscout", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [3] = { label = "lssdbuffalosx", model = "lssdbuffalosx", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [4] = { label = "nkcoquette", model = "nkcoquette", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [5] = { label = "nkgauntlet4", model = "nkgauntlet4", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [6] = { label = "nktorrence", model = "nktorrence", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [7] = { label = "umkalamo", model = "umkalamo", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+            },
+            [5] = {
+                [1] = { label = "buffalosxpol", model = "buffalosxpol", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [2] = { label = "dnscout", model = "dnscout", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [3] = { label = "lssdbuffalosx", model = "lssdbuffalosx", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [4] = { label = "nkcoquette", model = "nkcoquette", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [5] = { label = "nkgauntlet4", model = "nkgauntlet4", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [6] = { label = "nktorrence", model = "nktorrence", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [7] = { label = "umkalamo", model = "umkalamo", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+            },
+            [6] = {
+                [1] = { label = "buffalosxpol", model = "buffalosxpol", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [2] = { label = "dnscout", model = "dnscout", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [3] = { label = "lssdbuffalosx", model = "lssdbuffalosx", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [4] = { label = "nkcoquette", model = "nkcoquette", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [5] = { label = "nkgauntlet4", model = "nkgauntlet4", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [6] = { label = "nktorrence", model = "nktorrence", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
+                [7] = { label = "umkalamo", model = "umkalamo", configName = "default", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job
             }
         }
     }
@@ -1879,7 +1893,7 @@ Config.Garages = {
         label = 'Sheriff Garage',
         type = 'job',
         job = "bcso",
-        vehicleCategories = {'emergency'},
+        vehicleCategories = {'car', 'motorcycle', 'other', 'emergency'},
         drawText = 'Sheriff Garage',
         showBlip = true,
         blipName = 'Garage',

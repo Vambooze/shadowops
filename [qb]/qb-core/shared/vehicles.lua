@@ -699,6 +699,13 @@ local Vehicles = {
     { model = 'predator',      name = 'Police Predator',               brand = 'Unknown',         price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
     { model = 'polgauntlet',   name = 'Gauntlet Interceptor',          brand = 'Bravado',         price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
     { model = 'police5',       name = 'Stanier LE Cruiser',            brand = 'Vapid',           price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
+    { model = 'dnscout',       name = 'Scout',                         brand = 'Vapid',           price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
+    { model = 'buffalosxpol',  name = 'Buffalo',                       brand = 'Vapid',           price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
+    { model = 'nkcoquette',    name = 'Coquett',                       brand = 'Vapid',           price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
+    { model = 'nkgauntlet4',   name = 'Gauntlet',                      brand = 'Vapid',           price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
+    { model = 'nktorrence',    name = 'Torrence',                      brand = 'Vapid',           price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
+    { model = 'umkalamo',      name = 'Alamo',                         brand = 'Vapid',           price = 40000,   category = 'emergency',      type = 'automobile', shop = 'none' },
+ 
     --- Military (19)
     { model = 'vetir',         name = 'Vetir',                         brand = 'Unknown',         price = 100000,  category = 'military',       type = 'automobile', shop = 'none' },
     { model = 'kosatka',       name = 'Kosatka',                       brand = 'Rune',            price = 100000,  category = 'military',       type = 'automobile', shop = 'none' },

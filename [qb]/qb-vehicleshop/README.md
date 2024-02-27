@@ -202,7 +202,9 @@ Config.Shops = {
             }
         }
     } -- Add your next table under this comma
+
 }
+
 ```
 
 # License
