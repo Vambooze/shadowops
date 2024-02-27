@@ -8,7 +8,7 @@ Config = {
 	Lan = "en",
 	Debug = false,
 	Notify = "qb",		-- "qb" | "okok" | "t" | "infinity" | "rr"
-	Menu = "ox",
+	Menu = "qb",
 
 	---------------------------------
 	-- Default Job Payment Systems --
@@ -118,7 +118,7 @@ Config = {
 	-- The /polcharge command requires specific jobs to be set
 	-- No tickets for these, it's just commission (0.25 = 25%)
 	FineJobs = {
-		['police'] = { Commission = 0.25, },
+		['bcso'] = { Commission = 0.25, },
 		['ambulance'] = { Commission = 0.25, },
 	},
 	FineJobConfirmation = false, --"true" makes it so fines need confirmation, "false" skips this ands just removes the money
