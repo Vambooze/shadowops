@@ -235,9 +235,11 @@ QBShared.Items = {
     twerks_candy                 = { name = 'twerks_candy', label = 'Twerks', weight = 100, type = 'item', image = 'twerks_candy.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Some delicious candy :O' },
     snikkel_candy                = { name = 'snikkel_candy', label = 'Snikkel', weight = 100, type = 'item', image = 'snikkel_candy.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Some delicious candy :O' },
     sandwich                     = { name = 'sandwich', label = 'Sandwich', weight = 200, type = 'item', image = 'sandwich.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Nice bread for your stomach' },
-    bleeder                     = { name = 'bleeder', label = 'Bleeder Burger', weight = 200, type = 'item', image = 'sandwich.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Nice bread for your stomach' },
+    bleeder                      = { name = 'bleeder', label = 'Bleeder Burger', weight = 200, type = 'item', image = 'bleeder.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Nice bread for your stomach' },
+    heartstopper                 = { name = 'heartstopper', label = 'Heartstopper Burger', weight = 200, type = 'item', image = 'heartstopper.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Nice bread for your stomach' },
 
     -- Drink ITEMS
+    softdrink                    = { name = 'softdrink', label = 'SoftDrink', weight = 500, type = 'item', image = 'softdrink.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'For all the thirsty out there' },
     water_bottle                 = { name = 'water_bottle', label = 'Bottle of Water', weight = 500, type = 'item', image = 'water_bottle.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'For all the thirsty out there' },
     coffee                       = { name = 'coffee', label = 'Coffee', weight = 200, type = 'item', image = 'coffee.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Pump 4 Caffeine' },
     kurkakola                    = { name = 'kurkakola', label = 'Cola', weight = 500, type = 'item', image = 'cola.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'For all the thirsty out there' },
