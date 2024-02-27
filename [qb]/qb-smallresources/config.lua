@@ -91,6 +91,7 @@ Config.Disable = {
 
 Config.Consumables = {
     eat = { -- default food items
+        ['bleeder'] = math.random(45, 65),
         ['sandwich'] = math.random(35, 54),
         ['tosti'] = math.random(40, 50),
         ['twerks_candy'] = math.random(35, 54),
