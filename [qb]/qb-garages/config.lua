@@ -132,7 +132,7 @@ Config.JobVehicles = {
                 -- !! IMPORTANT !! - READ THIS
                 -- you can either define the configName, model and label like this and use the vehicle settings below to define extras and liveries for your vehicles
                 -- this way you can define a single config and can reuse it for any vehicle you want or you can just use the old way without configuring extras and liveries
-                [1] = { label = "Police Car 1", model = "police", configName = "myUniqueNameForThisCarConfiguration", job = "police" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
+                [1] = { label = "Police Car 1", model = "police", configName = "myUniqueNameForThisCarConfiguration", job = "bcso" }, -- job is optional, leave it away if this garage will only be accessed by the same job 
                 -- [2] = { label = "My Police / Swat Helicopter", model = "myhelomodel",  configName = "myUniqueNameForThisHeloConfiguration3", job = {"police", "swat"} }, -- example
                 -- [3] = { label = "My Ambulance Helicopter", model = "myhelomodel", configName = "myUniqueNameForThisHeloConfiguration4", job = "ambulance" or { "ambulance" } },  -- example              
                 ["police2"] = "Police Car 2",
@@ -295,7 +295,7 @@ Config.Garages = {
         blipName = 'Public Parking',
         blipNumber = 357,
         type = 'public',
-        vehicleCategories = {'car', 'motorcycle', 'other'},
+        vehicleCategories = {'car', 'motorcycle', 'other',},
         drawText = 'Parking',
         debug = false,
         ['ParkingSpots'] = {
