@@ -701,3 +701,127 @@ local function getKeyHolderData()
 end
 
 exports('getKeyHolderData', getKeyHolderData)
+
+QBCore.Functions.CreateCallback('jpr-phonesystem:server:GetPlayerHouses', function(source, cb, serie)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local MyHouses = {}
+    local CitizenId = MySQL.query.await('SELECT * FROM jpr_phonesystem_base WHERE idtelemovel = ?', {serie})
+    
+    if (CitizenId[1]) then
+        local result = MySQL.query.await('SELECT * FROM player_houses WHERE citizenid = ?',
+            {CitizenId[1].citizenid})
+        local DonoData = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {CitizenId[1].citizenid})
+        if result and result[1] and DonoData[1] then
+            local nome = DonoData[1]
+            DonoData = json.decode(DonoData[1].charinfo)
+            for k, v in pairs(result) do
+                MyHouses[#MyHouses+1] = {
+                    name = v.house,
+                    keyholders = {},
+                    owner = CitizenId[1].citizenid,
+                    price = Config.Houses[v.house].price,
+                    label = Config.Houses[v.house].adress,
+                    tier = Config.Houses[v.house].tier,
+                    garage = Config.Houses[v.house].garage
+                }
+
+                if v.keyholders ~= "null" then
+                    v.keyholders = json.decode(v.keyholders)
+                    if v.keyholders then
+                        for _, data in pairs(v.keyholders) do
+                            local keyholderdata = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?',
+                                {data})
+                            if keyholderdata[1] then
+                                keyholderdata[1].charinfo = json.decode(keyholderdata[1].charinfo)
+
+                                local userKeyHolderData = {
+                                    charinfo = {
+                                        firstname = keyholderdata[1].charinfo.firstname,
+                                        lastname = keyholderdata[1].charinfo.lastname
+                                    },
+                                    citizenid = keyholderdata[1].citizenid,
+                                    name = keyholderdata[1].name
+                                }
+                                MyHouses[k].keyholders[#MyHouses[k].keyholders+1] = userKeyHolderData
+                            end
+                        end
+                    else
+                        MyHouses[k].keyholders[1] = {
+                            charinfo = {
+                                firstname = DonoData.charinfo.firstname,
+                                lastname = DonoData.charinfo.lastname
+                            },
+                            citizenid = CitizenId[1].citizenid,
+                            name = nome.name
+                        }
+                    end
+                else
+                    MyHouses[k].keyholders[1] = {
+                        charinfo = {
+                            firstname = DonoData.charinfo.firstname,
+                            lastname = DonoData.charinfo.lastname
+                        },
+                        citizenid = CitizenId[1].citizenid,
+                        name = nome.name
+                    }
+                end
+            end
+
+            SetTimeout(100, function()
+                cb(MyHouses)
+            end)
+        else
+            cb({})
+        end
+    else
+        cb({})
+    end
+end)
+
+QBCore.Functions.CreateCallback('jpr-phonesystem:server:GetHouseKeys', function(source, cb, serie)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local MyKeys = {}
+    local CitizenId = MySQL.query.await('SELECT * FROM jpr_phonesystem_base WHERE idtelemovel = ?', {serie})
+    
+    if (CitizenId[1]) then
+        local result = MySQL.query.await('SELECT * FROM player_houses', {})
+        for _, v in pairs(result) do
+            if v.keyholders ~= "null" then
+                v.keyholders = json.decode(v.keyholders)
+                for _, p in pairs(v.keyholders) do
+                    if p == CitizenId[1].citizenid and (v.citizenid ~= CitizenId[1].citizenid) then
+                        MyKeys[#MyKeys+1] = {
+                            HouseData = Config.Houses[v.house]
+                        }
+                    end
+                end
+            end
+
+            if v.citizenid == CitizenId[1].citizenid then
+                MyKeys[#MyKeys+1] = {
+                    HouseData = Config.Houses[v.house]
+                }
+            end
+        end
+    end
+    cb(MyKeys)
+end)
+
+QBCore.Functions.CreateCallback('jpr-phonesystem:server:TransferCid', function(_, cb, NewCid, house)
+    local result = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {NewCid})
+    if result[1] then
+        local HouseName = house.name
+        housekeyholders[HouseName] = {}
+        housekeyholders[HouseName][1] = NewCid
+        houseownercid[HouseName] = NewCid
+        houseowneridentifier[HouseName] = result[1].license
+        MySQL.update(
+            'UPDATE player_houses SET citizenid = ?, keyholders = ?, identifier = ? WHERE house = ?',
+            {NewCid, json.encode(housekeyholders[HouseName]), result[1].license, HouseName})
+        cb(true)
+    else
+        cb(false)
+    end
+end)

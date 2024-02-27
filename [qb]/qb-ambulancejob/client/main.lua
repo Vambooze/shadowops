@@ -676,11 +676,12 @@ RegisterNetEvent('hospital:client:SendBillEmail', function(amount)
             gender = Lang:t('info.mrs')
         end
         local charinfo = QBCore.Functions.GetPlayerData().charinfo
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
-            sender = Lang:t('mail.sender'),
-            subject = Lang:t('mail.subject'),
-            message = Lang:t('mail.message', { gender = gender, lastname = charinfo.lastname, costs = amount }),
-            button = {}
+        TriggerServerEvent('jpr-phonesystem:server:sendEmail', {
+            Enviado = Lang:t('mail.sender'),
+            Assunto = Lang:t('mail.subject'),
+            Conteudo = Lang:t('mail.message', { gender = gender, lastname = charinfo.lastname, costs = amount }),
+            Destinatario = QBCore.Functions.GetPlayerData().citizenid, -- Target
+            Event = {}
         })
     end)
 end)
