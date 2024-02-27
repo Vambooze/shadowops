@@ -25,7 +25,7 @@ Config.MoneyWash = {
         Take = {
             Marked = { 
                 Use = true, -- True = will take marked bills to wash
-                Item = {name = 'markedbills', label = 'Marked Bills'}
+                Item = {name = 'markedbills', label = 'Marked Money'}
             },
             Item = {
                 Use = false, -- True = will take item to wash
@@ -46,8 +46,10 @@ Config.MoneyWash = {
     },
     Blacklist = {
         Job = { -- Blacklisted job list; these jobs will not see a blip for wash and cannot access
-            --{name = 'police'},
+            {name = 'police'},
             {name = 'ambulance'},
+            {name = 'bcso'},
+        
         }
     },
     Services = {
