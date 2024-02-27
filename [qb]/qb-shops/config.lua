@@ -61,6 +61,11 @@ Config.Products = {
         {name = 'diving_gear', price = 2500, amount = 10, info = {}, type = 'item'},
         {name = 'jerry_can',   price = 200,  amount = 50, info = {}, type = 'item'},
     },
+    ['burgershot'] = {
+        {name = 'bleeder', price = 250, amount = 10, info = {}, type = 'item'},
+        {name = 'heartstopper',   price = 200,  amount = 50, info = {}, type = 'item'},
+        {name = 'softdrink',   price = 200,  amount = 50, info = {}, type = 'item'},
+    },
     ['leisureshop'] = {
         {name = 'parachute',   price = 2500, amount = 10, info = {}, type = 'item'},
         {name = 'binoculars',  price = 50,   amount = 50, info = {}, type = 'item'},
@@ -682,6 +687,23 @@ Config.Locations = {
         ['blipscale'] = 0.8,
         ['blipcolor'] = 0,
         ['delivery'] = vector4(-1674.18, -1073.7, 13.15, 333.56)
+    },
+
+    -- Restraunt Locations
+    ['burgershot'] = {
+        ['label'] = 'BurgerShot',
+        ['coords'] = vector4(-1193.53, -894.37, 13.89, 341.62),
+        ['ped'] = 'csb_burgerdrug',
+        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+        ['radius'] = 1.5,
+        ['targetIcon'] = 'fas fa-burger',
+        ['targetLabel'] = 'BurgerShot',
+        ['products'] = Config.Products['burgershot'],
+        ['showblip'] = true,
+        ['blipsprite'] = 52,
+        ['blipscale'] = 0.8,
+        ['blipcolor'] = 0,
+        ['delivery'] = vector4(-1190.30, -887.87, 13.89, 214.15)
     },
 
     -- Leisure Shop Locations
