@@ -327,3 +327,5 @@ RegisterServerEvent('jim-mechanic:ItemRemove', function(data)
 		Player.Functions.RemoveItem(Config.RepairFuel, data.cost)
 	end
 end)
+
+
