@@ -33,6 +33,12 @@ Config.ImageURL = "https://cfx-nui-qb-inventory/html/images" -- Make sure in qb-
 Config.MDTTable = {
 	["weapon_pistol"] = { 
 		class = 1
+	},
+	["weapon_pistol_mk2"] = { 
+		class = 1
+	},
+	["weapon_doubleaction"] = { 
+		class = 1
 	}
 }
 

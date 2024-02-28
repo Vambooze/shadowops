@@ -32,6 +32,7 @@ RegisterServerEvent('AttackTransport:akceptujto', function()
 end)
 
 RegisterServerEvent('qb-armoredtruckheist:server:callCops', function(streetLabel, coords)
+	exports['ps-dispatch']:VanRobbery()
 	-- local place = "Armored Truck"
 	-- local msg = "The Alarm has been activated from a "..place.. " at " ..streetLabel
 	-- Why is this unused?
