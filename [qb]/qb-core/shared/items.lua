@@ -562,6 +562,11 @@ vehicletrackertablet        = { name = 'vehicletrackertablet', label = 'Vehicle 
 vehicletrackerscanner       = { name = 'vehicletrackerscanner', label = 'Vehicle Tracker Scanner', weight = 1000, type = 'item', image = 'vehicletrackerscanner.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Scans a vehicle for existence of GPS tracker.'},
 
 
+["pistol_parts"] 	= {["name"] = "pistol_parts", 	["label"] = "Pistol Parts", 	["weight"] = 500, 	["type"] = "item", 		["image"] = "pistol_parts.png", 	["unique"] = false, ["useable"] = false, ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Pistol Parts"},
+["smg_parts"] 		= {["name"] = "smg_parts", 		["label"] = "SMG Parts", 		["weight"] = 500, 	["type"] = "item", 		["image"] = "smg_parts.png", 		["unique"] = false, ["useable"] = false, ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "SMG Parts"},
+["shotgun_parts"] 	= {["name"] = "shotgun_parts", 	["label"] = "Shotgun Parts",	["weight"] = 500, 	["type"] = "item", 		["image"] = "shotgun_parts.png", 	["unique"] = false, ["useable"] = false, ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Shotgun Parts"},
+["rifle_parts"] 	= {["name"] = "rifle_parts", 	["label"] = "Rifle Parts", 		["weight"] = 500, 	["type"] = "item", 		["image"] = "rifle_parts.png", 		["unique"] = false, ["useable"] = false, ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Rifle Parts"},
+
 }
 
 

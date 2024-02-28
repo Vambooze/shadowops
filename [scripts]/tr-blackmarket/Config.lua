@@ -40,7 +40,7 @@ Config.Text = {
     SubMachineGuns = "SubMachine Guns",
     AssaultWeapons = "Assault Rifles",
     Shotguns = "Shotguns",
-    Miscellanceous = "Miscellanceous",
+    Miscellanceous = "Miscellanceous"
 
 }
 
@@ -48,14 +48,6 @@ Config.PistolShop = {
     label = "Black Market Pistols",
     slots = 10,
     items = {
-        [1] = {
-            name = "weapon_combatpistol",
-            price = 1500,
-            amount = 100,
-            info = { quality = 100, },
-            type = "item",
-            slot = 1,
-        },
         [2] = {
             name = "weapon_pistol_mk2",
             price = 2500,
@@ -72,8 +64,16 @@ Config.PistolShop = {
             type = "item",
             slot = 3,
         },
+        [3] = {
+            name = "weapon_doubleaction",
+            price = 7500,
+            amount = 100,
+            info = { quality = 100, },
+            type = "item",
+            slot = 3,
+        },
         [4] = {
-            name = "weapon_marksmanpistol",
+            name = "weapon_appistol",
             price = 10000,
             amount = 100,
             info = { quality = 100, },
@@ -81,20 +81,12 @@ Config.PistolShop = {
             slot = 4,
         },
         [5] = {
-            name = "weapon_snspistol_mk2",
-            price = 5000,
+            name = "weapon_pistol50",
+            price = 8500,
             amount = 100,
             info = { quality = 100, },
             type = "item",
             slot = 5,
-        },
-        [6] = {
-            name = "weapon_de",
-            price = 7500,
-            amount = 100,
-            info = { quality = 100, },
-            type = "item",
-            slot = 6,
         }
     }
 }
@@ -129,7 +121,7 @@ Config.SubMachineGunShop = {
         },
         [4] = {
             name = "weapon_combatpdw",
-            price = 6000,
+            price = 25000,
             amount = 100,
             info = { quality = 100, },
             type = "item",
@@ -230,7 +222,7 @@ Config.AssaultWeaponsShop = {
             slot = 2,
         },
         [3] = {
-            name = "weapon_carbinerifle",
+            name = "weapon_carbinerifle_mk2",
             price = 150000,
             amount = 100,
             info = { quality = 100, },
@@ -270,7 +262,7 @@ Config.MiscellanceousShop = {
     items = {
         [1] = {
             name = "heavyarmor",
-            price = 15000,
+            price = 5000,
             amount = 100,
             info = { quality = 100, },
             type = "item",
@@ -325,30 +317,28 @@ Config.MiscellanceousShop = {
             slot = 7,
         },
 	    [8] = {
-            name = "weed_ak47_seed",
-            price = 2000,
+            name = "electronickit",
+            price = 3000,
             amount = 100,
             info = { quality = 100, },
             type = "item",
             slot = 8,
 	    },
         [9] = {
-            name = "swap_token",
-            price = 1000,
+            name = "trojan_usb",
+            price = 1500,
             amount = 100,
             info = { quality = 100, },
             type = "item",
             slot = 9,
 	    },
         [10] = {
-            name = "handcuffs",
+            name = "ziptie",
             price = 1500,
             amount = 100,
             info = { quality = 100, },
             type = "item",
             slot = 10,
-	    },
+	    }
     }
 }
-
-

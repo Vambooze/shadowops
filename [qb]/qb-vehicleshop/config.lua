@@ -147,6 +147,8 @@ Config.Shops = {
             },
         }
     },                         -- Add your next table under this comma
+
+    
     ['boats'] = {
         ['Type'] = 'free-use', -- no player interaction is required to purchase a vehicle
         ['Zone'] = {
@@ -194,6 +196,43 @@ Config.Shops = {
             },
         },
     },
+    ['sheriff'] = {
+        ['Type'] = 'managed', -- meaning a real player has to sell the car
+        ['Zone'] = {
+            ['Shape'] = {
+                vector2(390.92, -1635.44),
+                vector2(387.15, -1640.40),
+                vector2(381.18, -1635.38),
+                vector2(385.86, -1630.67)
+            },
+
+            ['size'] = 2.75    -- size of the vehicles zones
+        },
+        ['Job'] = 'bcso', -- Name of job or none
+        ['ShopLabel'] = 'Emergency Vehicle Shop',
+        ['showBlip'] = false,   -- true or false
+        ['blipSprite'] = 326,  -- Blip sprite
+        ['blipColor'] = 3,     -- Blip color
+        ['TestDriveTimeLimit'] = 0.5,
+        ['Location'] = vector3(-1255.6, -361.16, 36.91),
+        ['ReturnLocation'] = vector3(-1231.46, -349.86, 37.33),
+        ['VehicleSpawn'] = vector4(389.07, -1623.63, 29.29, 320.17),
+        ['FinanceZone'] = vector3(-1256.18, -368.23, 36.91),
+        ['ShowroomVehicles'] = {
+            [1] = {
+                coords = vector4(384.55, -1634.92, 29.29, 318.57),
+                defaultVehicle = 'nktorrence',
+                chosenVehicle = 'nktorrence'
+            },
+            [2] = {
+                coords = vector4(387.23, -1636.94, 29.29, 313.09),
+                defaultVehicle = 'dnscout',
+                chosenVehicle = 'dnscout'
+            }
+          
+        }
+    },  
+ 
     ['air'] = {
         ['Type'] = 'free-use', -- no player interaction is required to purchase a vehicle
         ['Zone'] = {
@@ -241,6 +280,7 @@ Config.Shops = {
             },
         },
     },
+
     ['truck'] = {
         ['Type'] = 'free-use', -- no player interaction is required to purchase a car
         ['Zone'] = {

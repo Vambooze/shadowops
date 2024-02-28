@@ -1474,7 +1474,7 @@ Config.Garages = {
         
     },
 
-    ['mechanic'] = {
+    ['mechanic2'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
                 vector2(-197.64, -1311.30),

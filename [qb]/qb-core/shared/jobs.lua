@@ -157,4 +157,14 @@ QBShared.Jobs = {
 			['4'] = { name = 'Manager', isboss = true, payment = 150 },
 		},
 	},
+	["ammunation1"] = {
+		label = "Ammunation Employee",
+		defaultDuty = true,
+		grades = {
+            ['0'] = { name = 'Trainee', payment = 100 },
+			['1'] = { name = 'Employee', payment = 175 },
+			['2'] = { name = 'Manager', isboss = true, payment = 250 },
+			['3'] = { name = 'CEO', isboss = true, payment = 400 },
+        },
+	},
 }

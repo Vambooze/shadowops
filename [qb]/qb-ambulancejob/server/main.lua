@@ -194,7 +194,7 @@ RegisterNetEvent('hospital:server:RevivePlayer', function(playerId, isOldMan)
 	local Patient = QBCore.Functions.GetPlayer(playerId)
 	local oldMan = isOldMan or false
 	if Patient then
-		if Player.PlayerData.job.name == 'ambulance' or Player.PlayerData.job.name == 'lcso' or QBCore.Functions.HasItem(src, 'firstaid', 1) then
+		if Player.PlayerData.job.name == 'ambulance' or Player.PlayerData.job.name == 'bcso' or QBCore.Functions.HasItem(src, 'firstaid', 1) then
 			if oldMan then
 				if Player.Functions.RemoveMoney('cash', 5000, 'revived-player') then
 					Player.Functions.RemoveItem('firstaid', 1)
