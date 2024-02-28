@@ -18,7 +18,7 @@ Config.CutCuffItem = 'bolt_cutter'
 Config.BrokenCuffItem = 'broken_handcuffs'
 Config.BreakOutCuffing = {active = true, duration = math.random(2500,5000), pos = math.random(10, 30), width = math.random(10, 20)}
 Config.BreakoutMinigame = 'ps-ui' -- Choose the cuff breakout minigame : qb-skillbar / ps-ui (circle) / ox_lib
-Config.PSUIConfig = {numcircle = 2, ms = 20} -- If minigame is ps-ui then choose number of circles and ms 
+Config.PSUIConfig = {numcircle = 2, ms = 9} -- If minigame is ps-ui then choose number of circles and ms 
 Config.OXLibConfig = {difficulty = 'medium', inputs = {'w', 'a', 's', 'd'}} -- If minigame is ox_lib then choose difficulty and input characters
 Config.TargetSystem = 'qb-target' -- Target system you want to use : qb-target / qtarget / qb-target
 Config.ContextSystem = 'qb-menu' -- Menu system you want to use : qb-menu / ox_lib
@@ -70,8 +70,7 @@ Config.Locations = {
         [3] = vector3(1837.89, 3688.08, 34.19), -- Sandy
     },
     ["impound"] = {
-        [1] = vector3(479.08, -1022.54, 28.01),
-        [2] = vector3(1822.14, 3689.16, 33.97),
+        [1] = vector3(408.95, -1638.87, 28.86)
     },
     ["helicopter"] = {
         [1] = vector4(460.24, -980.18, 43.69, 181.43), -- LSPD

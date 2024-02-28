@@ -1351,18 +1351,18 @@ Config.Garages = {
     ['impoundlot'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-            vector2(-128.76565551758, -1186.7231445312),
-            vector2(-128.95680236816, -1158.9990234375),
-            vector2(-155.75888061524, -1158.6616210938),
-            vector2(-155.84657287598, -1186.7335205078)
+            vector2(388.82, -1642.58),
+            vector2(410.30, -1621.47),
+            vector2(421.47, -1631.65),
+            vector2(417.74, -1650.00),
+            vector2(409.48, -1660.21),
             },
-            ['minZ'] = 22.25,  -- min height of the parking zone
-            ['maxZ'] = 26.31,  -- max height of the parking zone
+
             debug = false,
         },
         label = "Impound Lot",
         showBlip = true,
-        blipcoords = vector3(-143.15, -1175.06, 23.77),
+        blipcoords = vector3(408.95, -1638.87, 28.86),
         blipName = "Impound Lot",
         blipNumber = 68,
         type = 'depot',                --public, job, gang, depot
@@ -1370,16 +1370,13 @@ Config.Garages = {
         drawText = 'Impound',                 --car, air, sea
         debug = false,
         ['ParkingSpots'] = {
-            vector4(-152.91, -1170.13, 23.14, 270.11),
-            vector4(-153.26, -1166.51, 23.14, 270.74),
-            vector4(-147.67, -1161.83, 23.14, 179.67),
-            vector4(-144.19, -1161.83, 23.14, 179.02),
-            vector4(-139.1, -1161.6, 23.14, 178.95),
-            vector4(-131.92, -1166.54, 23.14, 89.09),
-            vector4(-132.01, -1170.05, 23.14, 90.24),
-            vector4(-132.03, -1175.15, 23.14, 90.94),
-            vector4(-131.99, -1178.68, 23.14, 90.07),
-            vector4(-131.95, -1182.25, 23.14, 90.11),
+            vector4(410.44, -1636.35, 29.29, 226.82),
+            vector4(408.39, -1638.65, 29.29, 228.55),
+            vector4(-396.26, -1644.46, 29.29, 318.79),
+            vector4(398.56, -1646.31, 29.29, 324.53),
+            vector4(401.19, -1648.45, 29.29, 320.38),
+            vector4(403.32, -1650.59, 29.29, 322.03),
+            vector4(-132.01, -1170.05, 23.14, 90.24)
         }
     },
     ['police'] = {
@@ -1466,12 +1463,36 @@ Config.Garages = {
         label = 'LS Customs',
         type = 'job',
         vehicleCategories = {'car', 'motorcycle', 'other'},
-        drawText = 'Parking',
+        drawText = 'LS Customs',
         job = 'mechanic',
         debug = false,
         ['ParkingSpots'] = {
             vector4(961.17, -979.94, 39.50, 0.54),
             vector4(957.55, -959.18, 39.50, 89.36)
+        }
+    
+        
+    },
+
+    ['mechanic'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(-197.64, -1311.30),
+                vector2(-188.69, -1311.22),
+                vector2(-189.47, -1323.44),
+                vector2(-197.10, -1324.06)
+            },
+          
+            debug = false,
+        },
+        label = 'Bennys',
+        type = 'job',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Bennys',
+        job = 'mechanic',
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(-193.93, -1317.41, 30.89, 81.82)
         }
     
         
