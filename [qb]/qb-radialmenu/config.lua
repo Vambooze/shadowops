@@ -16,7 +16,7 @@ Config.MenuItems = {
                 title = 'Give Contact Details',
                 icon = 'address-book',
                 type = 'client',
-                event = 'qb-phone:client:GiveContactDetails',
+                event = 'jpr-phonesystem:client:GiveContactDetails',
                 shouldClose = true
             }, {
                 id = 'getintrunk',
