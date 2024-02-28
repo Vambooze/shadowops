@@ -23,6 +23,7 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
     <script src="./js/phonesystem.js" rel="preload"></script>
+    <script src="./js/linksupdate.js" rel="preload"></script>
     <script src="./js/newapps.js" rel="preload"></script>
     <script src="./js/translate.js" rel="preload"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -79,8 +80,33 @@
                             <h1 data-translation-key="translation6">Quick Start</h1>
                             <h2 data-translation-key="translation7">Welcome</h2>
                             <h3 data-translation-key="translation8">If you want to perform a faster installation, bring your other device.<br><br>If your other device does not show options, it is probably too old. Make sure Bluetooth is enabled and it is a compatible device.<br><br>You can also choose to set up manually.</h3>
+                            <div class="oldDevice">
+                                <span data-translation-key="translation421">Restore old device</span>
+                            </div>
                             <div class="continuar">
                                 <span data-translation-key="translation9">Continue</span>
+                            </div>
+
+                            <div class="forcarcordevices" style="display: none;"></div>
+                            <div class="oldDevices">
+                                <h1>Device List</h1>
+                                <div class="sairaba" id="fecharQuickStart">
+                                    <i class="fa-solid fa-xmark" style="line-height: inherit;"></i>
+                                </div>
+                                <div class="forcarcor"></div>
+                                
+                                <div class="espacodefinicoes" style="top: 10.3%;">
+                                    <div class="caixadefinicao" id="addDevicesQuickStart">
+                                        <div class="aparelho">
+                                            <img src="./img/definicoes/imagemtelemovel.png" alt="">
+                                            <div class="infos" style="border: none;">
+                                                <h1>iPhone de João</h1>
+                                                <i>Este iPhone 14 Pro Max</i>  
+                                                <span id="restoreQuickStart"><i class="fa-solid fa-cloud-arrow-down"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="menuprivacidade">
@@ -2224,6 +2250,7 @@
                             <i id="sairareaconta" style="position: absolute; font-size: 1.2vh; color: #3478f5;left: 5%;top: 8%;cursor: pointer; font-style: normal;z-index: 1;"><i class="fa-solid fa-chevron-left" style="margin-top: 5%;"></i> <i style="font-size: 1.2vh; color: #3478f5;left: 5%;top: 8%;cursor: pointer; font-style: normal; z-index: 1;" data-translation-key="translation15">Return</i></i>                            
                             <h1 data-translation-key="translation162">Account area</h1>
                             <div class="phone-contact-firstletter">J</div>
+                            <span id="updateName"><i class="fa-solid fa-gear fa-spin" style="font-size: 0.9vh; color: #3478f5; top: 24% !important; position: absolute; right: 10% !important;"></i></span>
                             <h2>João Matsho</h2>
                             <h3>joaomacho123@jpresources.com</h3>
 
@@ -2254,15 +2281,23 @@
                                         </div>
                                     </div>    
                                     <div class="definicao">
-                                        <div class="infos" style="border: none;">
+                                        <div class="infos">
                                             <h1 data-translation-key="translation166">Residence</h1>
                                             <i id="residenciadefs" data-translation-key="translation4">Portugal</i>  
                                         </div>
-                                    </div>            
+                                    </div>    
+                                    <div class="definicao">
+                                        <div class="infos" style="border: none;" id="devicenameChange">
+                                            <h1 data-translation-key="translation422">Device name</h1>
+                                            <span><i class="fa-solid fa-gear fa-spin" style="font-size: 0.6vh; color: #3478f5; top: 10% !important; position: absolute; right: 2% !important;"></i></span>
+                                            
+                                            <i id="devicename">Phone System #1</i>  
+                                        </div>
+                                    </div>          
                                 </div>
                             </div>
 
-                            <div class="espacodefinicoes" style="top: 65%;">
+                            <div class="espacodefinicoes" style="top: 70%;">
                                 <div class="caixadefinicao">
                                     <div class="definicao">
                                         <div class="infos">
@@ -2303,7 +2338,7 @@
                                 </div>
                             </div>
 
-                            <div class="espacodefinicoes" style="top: 100%;">
+                            <div class="espacodefinicoes" style="top: 105%;">
                                 <div class="caixadefinicao" id="adicionardispositivos" style="max-height: 175%; overflow-y: scroll;">
                                     <!-- auto -->
                                                
@@ -2602,7 +2637,7 @@
                             <h1 data-translation-key="translation186">See what is happening in the world right now.</h1>
                             <input type="text" placeholder="Nickname" id="nicknametwt" data-translation-placeholder-key="translation349">
                             
-                            <input type="text" placeholder="Password" id="passwordtwt" data-translation-placeholder-key="translation350">
+                            <input type="password" placeholder="Password" id="passwordtwt" data-translation-placeholder-key="translation350">
                             
                             <div class="botaoconfirmarnicktwt">
                                 <h1 data-translation-key="translation187">Sign in</h1>
@@ -2640,7 +2675,7 @@
                             <i id="certonometwitter" class="fa-solid fa-circle-xmark" style="position: absolute; font-size: 1.5vh; color: #d21616;right: 5%;top: 40%;filter: drop-shadow(0 0 0.85rem rgba(54, 54, 54, 0.252));"></i>
                             
                             <h4 data-translation-key="translation197">Password</h4>
-                            <input type="text" placeholder="Password" style="top: 50.2%;" id="fazerpasstwitter" data-translation-placeholder-key="translation350">
+                            <input type="password" placeholder="Password" style="top: 50.2%;" id="fazerpasstwitter" data-translation-placeholder-key="translation350">
                             <div class="avançar" id="avançartwitter3">
                                 <h1 data-translation-key="translation193">Next</h1>
                             </div>
@@ -3810,7 +3845,7 @@
 
                             <input type="text" placeholder="Nickname" id="nicknameinsta" data-translation-placeholder-key="translation349">
                             
-                            <input type="text" placeholder="Password" id="passwordinsta" data-translation-placeholder-key="translation350">
+                            <input type="password" placeholder="Password" id="passwordinsta" data-translation-placeholder-key="translation350">
                             
                             <div class="botaoconfirmarnick">
                                 <h1 data-translation-key="translation187">Sign in</h1>
@@ -3823,7 +3858,7 @@
                             <h2 style="opacity: 0;">test</h2>
                             <h2 style="opacity: 0;">test</h2>
                             <input type="text" placeholder="Nickname" id="nicknameinstaregistro" data-translation-placeholder-key="translation349">
-                            <input type="text" placeholder="Password" id="passwordinstaregistro" data-translation-placeholder-key="translation350">
+                            <input type="password" placeholder="Password" id="passwordinstaregistro" data-translation-placeholder-key="translation350">
                             <div class="idsoftware">
                                 <p id="idsoftwareinsta">123123213</p>
                             </div>
@@ -4060,7 +4095,7 @@
 
                             <img src="./img/tinder/nav.png" alt="">
                             <input type="text" placeholder="O teu nome" oninput="VerificarNomeTinder()" id="nomeTinder" data-translation-placeholder-key="translation349">
-                            <input type="text" placeholder="A tua password" id="passwordTinder" data-translation-placeholder-key="translation350">
+                            <input type="password" placeholder="A tua password" id="passwordTinder" data-translation-placeholder-key="translation350">
                             <input type="date" oninput="VerificarIdadeTinder()" id="nascimentoTinder">
 
                             <h2><i class="fa-solid fa-circle-xmark" style="color: rgb(178, 48, 48);" id="verificacaoNomeTinder"></i> - <i style="font-style: normal; text-decoration: none;" data-translation-key="translation419">Nome tem de ser único</i></h2>
@@ -4196,7 +4231,7 @@
                             
                             <input type="text" placeholder="Nickname" id="nicknametiktok" data-translation-placeholder-key="translation349">
                             
-                            <input type="text" placeholder="Password" id="passwordtiktok" data-translation-placeholder-key="translation350">
+                            <input type="password" placeholder="Password" id="passwordtiktok" data-translation-placeholder-key="translation350">
                             
                             <div class="botaoconfirmarnick">
                                 <h1 data-translation-key="translation187">Sign in</h1>
@@ -4209,7 +4244,7 @@
                             <h2 style="opacity: 0;">test</h2>
                             <h2 style="opacity: 0;">test</h2>
                             <input type="text" placeholder="Nickname" id="nicknametiktokregistro" data-translation-placeholder-key="translation349">
-                            <input type="text" placeholder="Password" id="passwordtiktokregistro" data-translation-placeholder-key="translation350">
+                            <input type="password" placeholder="Password" id="passwordtiktokregistro" data-translation-placeholder-key="translation350">
                             <div class="idsoftware">
                                 <p id="idsoftwaretiktok">123123213</p>
                             </div>
@@ -4595,8 +4630,8 @@
                         <h1 data-translation-key="translation319">Change Password</h1>
                         <span data-translation-key="translation320">Change password interaction:</span>
 
-                        <input type="text" placeholder="Old password" id="passwordantiga1" data-translation-placeholder-key="translation362">
-                        <input type="text" placeholder="New password" style="top: 55%;" id="passwordnova2" data-translation-placeholder-key="translation363">
+                        <input type="password" placeholder="Old password" id="passwordantiga1" data-translation-placeholder-key="translation362">
+                        <input type="password" placeholder="New password" style="top: 55%;" id="passwordnova2" data-translation-placeholder-key="translation363">
 
                         <div class="opcoescaixapasswords">
                             <div class="opcaocaixapasswords" id="cancelarcaixapasswords">

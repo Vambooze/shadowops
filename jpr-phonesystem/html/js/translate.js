@@ -47,7 +47,7 @@ var Traducoes = {
     "44": " - Retweeted tweet",
     "45": "New tweet posted by",
     "46": "New tweet posted",
-    "47": "Entered in",
+    "47": "Entered in ",
     "48": "Following",
     "49": "Followers",
     "50": "Tell this user to change their description!",
@@ -163,6 +163,7 @@ var Traducoes = {
     "161": "Change display name",
     "162": "Change nickname",
     "163": "Requested:",
+    "164": "Custom sound",
 }
 
 /// months
@@ -2295,5 +2296,15 @@ var HTMLTranslations = {
         "en": "You have to be over 18",
         "bg": "Трябва да сте навършили 18 години",
         "pt": "Tens de ser maior que 18 anos"
+    },
+    "translation421": {
+        "en": "Restore old device",
+        "bg": "Възстановяване от устройство",
+        "pt": "Recuperar de um dispositivo"
+    },
+    "translation422": {
+        "en": "Device name",
+        "bg": "Име на устройството",
+        "pt": "Nome do dispositivo"
     },
 };

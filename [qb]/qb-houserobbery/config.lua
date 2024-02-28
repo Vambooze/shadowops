@@ -1,6 +1,6 @@
 Config = {}
 
-Config.PoliceOnDutyRequired = 2           -- amount of police required to be on duty to rob a house
+Config.PoliceOnDutyRequired = 0           -- amount of police required to be on duty to rob a house
 
 Config.LimitTime = true                   -- Use in-game clock hours to set the time the houses can be robbed
 Config.MinimumTime = 6                    -- only needed if LimitTime is true

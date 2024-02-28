@@ -125,13 +125,14 @@ RegisterNetEvent('qb-storerobbery:server:callCops', function(type, safe, streetL
     else
         cameraId = Config.Registers[safe].camId
     end
-    local alertData = {
-        title = '10-33 | Shop Robbery',
-        coords = { x = coords.x, y = coords.y, z = coords.z },
-        description = Lang:t('email.someone_is_trying_to_rob_a_store', { street = streetLabel, cameraId1 = cameraId })
-    }
-    TriggerClientEvent('qb-storerobbery:client:robberyCall', -1, type, safe, streetLabel, coords)
-    TriggerClientEvent('qb-phone:client:addPoliceAlert', -1, alertData)
+--    local alertData = {
+--        title = '10-33 | Shop Robbery',
+--        coords = { x = coords.x, y = coords.y, z = coords.z },
+--        description = Lang:t('email.someone_is_trying_to_rob_a_store', { street = streetLabel, cameraId1 = cameraId })
+--    }
+    exports['ps-dispatch']:StoreRobbery(camId)
+    --TriggerClientEvent('qb-storerobbery:client:robberyCall', -1, type, safe, streetLabel, coords)
+    --TriggerClientEvent('qb-phone:client:addPoliceAlert', -1, alertData)
 end)
 
 RegisterNetEvent('qb-storerobbery:server:removeAdvancedLockpick', function()

@@ -567,6 +567,8 @@ vehicletrackerscanner       = { name = 'vehicletrackerscanner', label = 'Vehicle
 ["shotgun_parts"] 	= {["name"] = "shotgun_parts", 	["label"] = "Shotgun Parts",	["weight"] = 500, 	["type"] = "item", 		["image"] = "shotgun_parts.png", 	["unique"] = false, ["useable"] = false, ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Shotgun Parts"},
 ["rifle_parts"] 	= {["name"] = "rifle_parts", 	["label"] = "Rifle Parts", 		["weight"] = 500, 	["type"] = "item", 		["image"] = "rifle_parts.png", 		["unique"] = false, ["useable"] = false, ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Rifle Parts"},
 
+["rentalpapers"]				 = {["name"] = "rentalpapers", 					["label"] = "Rental Papers", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "rentalpapers.png", 		["unique"] = true, 		["useable"] = false, 	["shouldClose"] = false, 	["combinable"] = nil, 	["description"] = "Yea, this is my car i can prove it!"},
+
 }
 
 

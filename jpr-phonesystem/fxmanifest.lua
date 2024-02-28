@@ -1,4 +1,4 @@
-fx_version 'adamant'
+fx_version 'cerulean'
 
 game 'gta5'
 
@@ -62,8 +62,6 @@ files {
     'html/img/frames/*.png',
     'html/img/whatsapp/*.png',
     'html/img/ubereats/*.jpg',
-    'html/img/spotify/*.png',
-    'html/img/spotify/*.jpg',
     'html/img/olx/*.png',
     'html/img/definicoes/*.png',
     'html/img/definicoes/*.jpg',
@@ -100,7 +98,6 @@ files {
     'html/sounds/notif/*.mp3',
     'html/sounds/alarm/*.mp3',
     'html/sounds/misc/*.mp3',
-    'html/sounds/spotify/*.mp3',
     'html/img/appstore/*.jpg',
 }
 
@@ -131,8 +128,6 @@ preloads {
     'html/img/camera/*.png',
     'html/img/apps/*.jpg',
     'html/img/appsimessage/*.png',
-    'html/img/spotify/*.png',
-    'html/img/spotify/*.jpg',
     'html/img/backgrounds/*.jpg',
     'html/img/twitter/*.png',
     'html/img/twitter/*.jpg',
@@ -163,7 +158,6 @@ preloads {
     'html/sounds/notif/*.mp3',
     'html/sounds/alarm/*.mp3',
     'html/sounds/misc/*.mp3',
-    'html/sounds/spotify/*.mp3',
 }
 
 exports {

@@ -390,13 +390,39 @@ body::-webkit-scrollbar {
 }
 
 .menuquickstart > .continuar {
-    color: #3478f5;
+    color: white;
     cursor: pointer;
     font-size: 1.2vh;
-    position: absolute;
-    bottom: 7%;
+    top: 87.5%;
     font-weight: 500;
-    left: 40%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 85%;
+    left: 7.5%;
+    height: 5.5%;
+    border-radius: 0.8vh;
+    background-color: #008bfb;
+}
+
+.menuquickstart > .continuar > span {
+    position: relative;
+    line-height: 2.85vh;
+}
+
+.menuquickstart > .oldDevice {
+    color: #3478f5;
+    cursor: pointer;
+    font-size: 1.1vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    font-family: ProLight;
+    margin: auto;
+    top: 42%;
+    cursor: pointer;
+    font-weight: 500;
     text-align: center;
 }
 
@@ -1559,10 +1585,12 @@ body::-webkit-scrollbar {
     text-align: left;
     top: 19%;
     left: 26%;
-    height: 13%;
     font-size: 1.4vh;
     transition: 0.5s ease;
     max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-phone > .areautil > .jogador > span {
@@ -5547,10 +5575,12 @@ Contactos
     text-align: left;
     top: 19%;
     left: 26%;
-    height: 13%;
     font-size: 1.4vh;
     transition: 0.5s ease;
     max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-contactos > .espacoutil > .jogador > span {
@@ -10379,6 +10409,11 @@ olx
     height: 13%;
     font-size: 1.8vh;
     transition: 0.5s ease;
+
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-olx > .olx-menu5 > h2 {
@@ -11661,6 +11696,10 @@ camara
     top: 25%;
     left: 27%;
     cursor: pointer;
+    max-width: 59%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-definicoes > .definicoes-inicio > .espacodefinicoes > .caixadefinicao > .areaconta > span {
@@ -12320,6 +12359,11 @@ transition: 0.6 ease;
     top: 11.5%;
     font-size: 1.3vh;
     transition: 0.5s ease;
+    max-width: 85%;
+    left: 7.5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-definicoes > .definicoes-areaconta > h3 {
@@ -20519,16 +20563,21 @@ spotify
     left: 0;
     font-size: 0.8vh;
     transition: 0.5s ease;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-spotify > .spotify-menu1 > .playlistspotify > .musica1 > h2 {
-    color: rgb(241, 240, 250);
+    color: rgb(196, 196, 201);
     font-family: ProLight;
     position: absolute;
     text-align: left;
     top: 85.5%;
     left: 0;
     font-size: 0.8vh;
+    max-width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -20572,6 +20621,11 @@ spotify
     left: 5%;
     font-size: 0.9vh;
     transition: 0.5s ease;
+
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-spotify > .spotify-menu1 > .randomspotify > .fotomusicaparati {
@@ -20730,7 +20784,7 @@ spotify
 .app-spotify > .spotify-menu2 > .musicasfavoritos {
     position: absolute;
     width: 95%;
-    height: 100%;
+    height: 70%;
     left: 2.5%;
     top: 18%;
     transition: 0.5s ease;
@@ -20757,7 +20811,7 @@ spotify
     position: relative;
     display: inline-block;
     width: 93%;
-    height: 6%;
+    height: 9.5%;
     top: 0;
     left: 4%;
     border-radius: 0.3vh;
@@ -20798,6 +20852,10 @@ spotify
     left: 17%;
     font-size: 0.9vh;
     transition: 0.5s ease;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-spotify > .spotify-menu2 > .musicasfavoritos > .musicafavorito > i {
@@ -20917,6 +20975,7 @@ spotify
     padding-left: 9.8%;
     font-size: 1.13vh;
     color: #848484;
+    transition: 0.5s ease;
 }
 
 .app-spotify > .spotify-menu3 > .pesquisa > input::before {
@@ -20940,7 +20999,7 @@ spotify
 .app-spotify > .spotify-menu3 > .musicasfavoritos {
     position: absolute;
     width: 95%;
-    height: 90%;
+    height: 67%;
     left: 2.5%;
     top: 22%;
     font-size: 0;
@@ -20967,7 +21026,7 @@ spotify
     position: relative;
     display: inline-block;
     width: 93%;
-    height: 7%;
+    height: 10%;
     top: 0;
     left: 4%;
     border-radius: 0.3vh;
@@ -21028,6 +21087,10 @@ spotify
     left: 17%;
     font-size: 0.9vh;
     transition: 0.5s ease;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .app-spotify > .spotify-menu3 > .musicasfavoritos > .musicafavorito > h2 {
@@ -33442,4 +33505,193 @@ tinder
     background-color: #000000dd;
     z-index: 999;
     display: none;
+}
+
+#updateName {
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+#updateName:hover {
+    transform: rotate(360deg), scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+.menuquickstart > .oldDevices > h1 {
+    position: relative;
+    font-size: 1.35vh;
+    color: black;
+    font-family: ProBold;
+    top: 3%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.menuquickstart > .oldDevices {
+    position: absolute;
+    z-index: 100;
+    width: 90%;
+    left: 100%;
+    height: 60%;
+    top: 20%;
+    border-radius: 1.5vh;
+    filter: drop-shadow(0 0 0.5rem rgba(54, 54, 54, 0.001));
+    backdrop-filter: blur(7px);
+    clip-path: inset(0);
+    transition: 0.5s ease;
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes {
+    position: absolute;
+    width: 105%;
+    left: 5%;
+    top: 26%;
+    height: 87%;
+    font-size: 0;
+    overflow-y: scroll;
+    border-radius: 0.8vh;
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho {
+    position: relative;
+    width: 100%;
+    height: 4vh;
+    font-size: 1.5vh;
+    cursor: default;
+    transition: 0.5s ease;
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho:hover {
+    transform: scale(1.02);
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho > .infos {
+    position: absolute;
+    width: 80%;
+    top: 0;
+    left: 20%;
+    height: 100%;
+    border-bottom: 0.1px solid var(--coratualbordas);
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho > .infos > h1 {
+    position: absolute;
+    font-size: 1.15vh;
+    color: var(--modoatualtexto);
+    font-family: ProLight;
+    top: 20%;
+    cursor: pointer;
+     max-width: 84%;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+
+ .menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho > .infos > i {
+    position: absolute;
+    font-size: 1vh;
+    top: 49%;
+    left: 0;
+    cursor: default;
+    color: #848484;
+
+    color: #848484;
+    font-family: ProLight;
+    font-weight: 500;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho > .infos > span {
+    position: absolute;
+    font-size: 1.2vh;
+    top: 12.5%;
+    right: 5%;
+    cursor: pointer;
+    color: #3478f5;
+    transition: 0.5s ease;
+}
+
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho > .infos > span:hover {
+    transform: scale(1.05);
+}
+
+#adicionardispositivos::-webkit-scrollbar {
+    display: none;
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao > .aparelho > img {
+    position: absolute;
+    width: 10%;
+    left: 4%;
+}
+
+.menuquickstart > .oldDevices > .espacodefinicoes > .caixadefinicao {
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    left: 0;
+    top: 0;
+    height: auto;
+    background-color: var(--modoatualfundo3);
+    overflow: hidden;
+    border-radius: 0.5vh;
+    margin-bottom: 10%;
+    filter: drop-shadow(0 0 0.5rem rgba(54, 54, 54, 0.001));
+    
+}
+
+.menuquickstart > .oldDevices > .sairaba {
+    position: absolute;
+    height: 1.5vh;
+    width: 1.5vh;
+    margin: .5vh;
+    top: 1.5%;
+    right: 2.5%;
+    text-align:center;
+    vertical-align:middle;
+    display:inline-block;
+    font-size: 0.8vh;
+    line-height: 1.5vh;
+    border-radius: 50%;
+    font-family: ProLight;
+    background: rgba(0, 0, 0, 0.479);
+    filter: drop-shadow(0 0 0.35rem rgba(54, 54, 54, 0.122));
+    color: rgba(242, 240, 240, 0.9);
+    cursor: pointer;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.menuquickstart > .oldDevices > .forcarcor {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5vh;
+    background-color: var(--modoatualfundonotifs);
+    opacity: 0.65;
+}
+
+.menuquickstart > .forcarcordevices {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5vh;
+    display: block;
+    background-color: var(--modoatualtexto);
+    opacity: 0.40;
+    z-index: 100;
 }

@@ -3,6 +3,10 @@ local QBCore                  = exports[Config.CoreName]:GetCoreObject()
 function VehicleKeys(plate, vehicle)
     Citizen.Wait(1000) -- leave this
     TriggerEvent("vehiclekeys:client:SetOwner", plate)
+
+    if Config.HouseScriptName == "jpr-housing" then
+        TriggerServerEvent("jpr-phonesystem:server:updateJPRHousingSystem", plate)
+    end
 end
 
 function OpenPhone()
