@@ -16,24 +16,25 @@ Config.WeatherScript = "qb-weathersync" --- if you renamed your qb-weathersync n
 Config.RepeatTimeout = 4000 --- Depends of ringtone
 Config.CallRepeats = 10 --- Depends of ringtone
 Config.VoiceScript = "pma"  -- pma, mumble, salty, tokovoip
-Config.EmailDomain = "@shadowopsgaming.net"
+Config.EmailDomain = "@jpresources.com"
 Config.JobManageScript = "qb-management"
 Config.ScreenScript = "screenshot-basic"
-Config.AddVerifiedInstagramCommand = "verificadoinstagram" -- account id, true or false
-Config.AddVerifiedTwitterCommand = "verificadotwitter" -- account id, true or false
-Config.AddVerifiedTiktokCommand = "verificadotiktok" -- account id, true or false
+Config.AddVerifiedInstagramCommand = "verifiedInstagram" -- account id, true or false
+Config.AddVerifiedTwitterCommand = "verifiedTwitter" -- account id, true or false
+Config.AddVerifiedTiktokCommand = "verifiedTiktok" -- account id, true or false
 Config.PhoneModel = `prop_amb_phone`
 Config.BillingCommand = "sendbill"
 Config.AllowKeyMapping = true
-Config.DefaultKey = 'M' -- you need to have phone item on first slot
+Config.DefaultKey = 'G' -- you need to have phone item on first slot
 Config.CloseAndOpenPhoneWithSameKey = false
-Config.Inventory = "origen_inventory"
+Config.Inventory = "qb-inventory" 
 Config.UniquePhones = true
 Config.CustomEventsFramework = false -- set true if you use exports[Config.CoreName]: instead of QBCore.Functions., if you dont know this, let it false
 Config.PhoneItems = {"phone", "phone_white", "phone_gold", "phone_red", "phone_blue", "phone_green", "phone_pink", "phone_greenLight"}
 Config.AnimationLib = 'cellphone@'
 Config.AnimationLibCar = 'anim@cellphone@in_car@ps'
 Config.WalkWithCamera = false
+Config.ServerSidedClockMessages = true
 
 Config.PhotoWebhook = "https://discord.com/api/webhooks/1013060271574622278/-i1aqLpOPUtvF5gLmCY6Exaki1jKSgVZKBP_BaP25QkxSnEPRUSHxklRjK2sUGMUyGMm"
 
@@ -62,12 +63,13 @@ Config.StartingAlarm = "radar"
 Config.Ringtones = {
     {"toquetelemovel", "Default"},
     {"mestrekassamba", "Mestre Kassamba"},
-    {"iphone_13_call", "Old Style"}
+    {"iphone_13_call", "Old Style"},
+    {"https://youtu.be/XwxLwG2_Sxk?si=mOIyT964YmhNSe9C", "The Weeknd - Blinding Lights"},
 }
 Config.NotifySounds = {
     {"somoriginal", "Default"},
     {"iphone_notification", "Tulurum"},
-    {"iphone_notification2", "Titlan"}
+    {"https://www.youtube.com/watch?v=2ljMkQjg68w&ab_channel=PopularStuff", "Titlan"}
 }
 Config.AlarmSounds = {
     {"radar", "Radar"},
@@ -78,8 +80,8 @@ Config.StartingSettings = '{"modovoo":false,"airdrop":true,"dadosmoveis":true,"n
 
 Config.CityContacts = {
     {
-        job = "bcso",
-        name = "Sheriff",
+        job = "police",
+        name = "Police",
         apelido = "Los Santos",
     },
     {
@@ -99,7 +101,7 @@ Config.CityContacts = {
     },
 }
 
-Config.BatterySystem = false
+Config.BatterySystem = true
 Config.BatteryTicket = 190000 -- How many time to discount 1% of battery in MS ? 
 -- example website: https://www.inchcalculator.com/convert/minute-to-millisecond/
 -- in this website you can convert minutes to ms 
@@ -118,6 +120,11 @@ Config.BatteryDamageToDamageDisplay = 50
 Config.ChanceToDisableDisplayWithBatteryDamage = 10 -- 0 to 100   60% of battery life have a chance to disable display (with Config.BatteryDamageToStartBlinkingDisplay)
 
 Config.UseTargetToBatteryZones = true
+Config.BlipSpriteChargingZone = 354
+Config.BlipColourChargingZone = 5
+Config.BlipScaleChargingZone = 0.7
+Config.BlipLabelChargingZone = "Charging Zone"
+
 Config.ChargingZones = {
     {coords = vector3(438.55, -986.8, 30.69), distance = 5, name = "Zona 1"},
 }
@@ -165,8 +172,8 @@ Config.TiktokWebhookLog = "https://discord.com/api/webhooks/1169262891292164147/
 
 Config.GetCryptoInfosCallBack = "qb-crypto:server:GetCryptoData"
 Config.CryptoName = "qbit"
-Config.CryptoLabelName = "ShadowOpsBit"
-Config.CryptoLabelNameDesc = "(SOB)"
+Config.CryptoLabelName = "JPResources"
+Config.CryptoLabelNameDesc = "(JPR)"
 Config.CryptoLogo = "./img/logo.jpg"
 
 Config.UberEatsItems = {
@@ -179,12 +186,20 @@ Config.UberEatsVehicleModel = "faggio"
 Config.UberEatsMaxSpawnRange = 400
 
 Config.SpotifyMusics = {
-    {sound = "sound.mp3", artist = "The Weekend", name = "Out of time", image = "./img/spotify/sound.jpg", description = "A fantastic music."},
-    {sound = "sound2.mp3", artist = "The Weekend", name = "I Feel it Coming", image = "./img/spotify/sound2.jpg", description = "A fantastic music."},
-    {sound = "sound3.mp3", artist = "The Weekend", name = "In Your Eyes", image = "./img/spotify/sound3.jpg", description = "A fantastic music."},
-    {sound = "sound4.mp3", artist = "Mishlawi", name = "Uber Driver", image = "./img/spotify/sound4.jpg", description = "A fantastic music."},
-    {sound = "sound5.mp3", artist = "Ivandro", name = "Scroll", image = "./img/spotify/sound5.jpg", description = "A fantastic music."},
-    {sound = "https://www.computerhope.com/jargon/m/example.mp3", artist = "Link2", name = "Link2", image = "./img/spotify/sound5.jpg", description = "A fantastic music."},
+    {sound = "https://youtu.be/wXhTHyIgQ_U?si=Xl_3KOU-tyLO9sUg", artist = "Post Malone", name = "Circles", description = "A fantastic music."},
+    {sound = "https://www.youtube.com/watch?v=VbfpW0pbvaU&ab_channel=ShawnMendesVEVO", artist = "Shawn Mendes", name = "Stitches", description = "A fantastic music."},
+    {sound = "https://youtu.be/lY2yjAdbvdQ?si=d-JqaPrxkvZ08WP_", artist = "Shawn Mendes", name = "Treat You Better", description = "A fantastic music."},
+    {sound = "https://youtu.be/2fDzCWNS3ig?si=f3dlpnhRlFzlMA1a", artist = "The Weeknd", name = "Out of Time", description = "A fantastic music."},
+    {sound = "https://youtu.be/u6wOyMUs74I?si=S8lPwaKCCu8QBYOH", artist = "Ed Sheeran", name = "Eyes Closed", description = "A fantastic music."},
+    {sound = "https://youtu.be/XXYlFuWEuKI?si=kRbDhOSBN0MmUOoi", artist = "The Weeknd", name = "Save Your Tears", description = "A fantastic music."},
+    {sound = "https://youtu.be/M4ZoCHID9GI?si=epP9kKTcpgyT7DAy", artist = "The Weeknd", name = "Call Out My Name", description = "A fantastic music."},
+    {sound = "https://youtu.be/4NRXx6U8ABQ?si=D-tFbhilZXWcNfqY", artist = "The Weeknd", name = "Blinding Lights", description = "A fantastic music."},
+    {sound = "https://youtu.be/f1r0XZLNlGQ?si=k3EjRybj11qTD55H", artist = "The Weeknd, JENNIE & Lily Rose Depp", name = "One Of The Girls", description = "A fantastic music."},
+    {sound = "https://youtu.be/VPRjCeoBqrI?si=BbjE4Qw48O42n5-B", artist = "Coldplay", name = "A Sky Full Of Stars", description = "A fantastic music."},
+    {sound = "https://youtu.be/dvgZkm1xWPE?si=k_w1MKU1Z5XCXQkI", artist = "Coldplay", name = "Viva La Vida", description = "A fantastic music."},
+    {sound = "https://youtu.be/YykjpeuMNEk?si=-c8I6sAM7BG20Eg1", artist = "Coldplay", name = "Hymn For The Weekend", description = "A fantastic music."},
+    {sound = "https://youtu.be/WdcLH96pMZA?si=PZgy_ZUD5IbSIO0J", artist = "Van Zee", name = "Amar de Cor", description = "A fantastic music."},
+    {sound = "https://youtu.be/5tXh_MfrMe0?si=aXbKVcneoKp-VPdM", artist = "Rascal Flatts", name = "Life Is a Highway", description = "A fantastic music."},
 }
 
 Config.HouseScriptName = "qb-houses"
@@ -319,12 +334,12 @@ Config.CinemaJob = "police"
 
 Config.GarageNPCModel = "s_m_y_valet_01"
 Config.GarageMaxSpawnRange = 400
-Config.FuelScript = "ps-fuel" --- script name
+Config.FuelScript = "LegacyFuel" --- script name
 Config.DoCarDamageValet = true
 Config.ValetPrice = 400
 Config.ImpoundState = 2
 
-Config.ShopToRepairAndHack = false
+Config.ShopToRepairAndHack = true
 Config.TargetScript = "qb-target"
 Config.TargetIcon = 'fa-solid fa-battery-full'
 Config.TargetIcon2 = 'fa-solid fa-unlock'

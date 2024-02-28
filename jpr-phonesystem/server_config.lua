@@ -99,6 +99,7 @@ if Config.CustomEventsFramework == false then
         local biller = QBCore.Functions.GetPlayer(source)
         local billed = QBCore.Functions.GetPlayer(tonumber(args[1]))
         local amount = tonumber(args[2])
+
         if biller.PlayerData.job.name == "police" or biller.PlayerData.job.name == 'ambulance' or biller.PlayerData.job.name == 'mechanic' then
             if billed ~= nil then
                 if biller.PlayerData.citizenid ~= billed.PlayerData.citizenid then
@@ -131,6 +132,7 @@ else
         local biller = exports[Config.CoreName]:GetPlayer(source)
         local billed = exports[Config.CoreName]:GetPlayer(tonumber(args[1]))
         local amount = tonumber(args[2])
+
         if biller.PlayerData.job.name == "police" or biller.PlayerData.job.name == 'ambulance' or biller.PlayerData.job.name == 'mechanic' then
             if billed ~= nil then
                 if biller.PlayerData.citizenid ~= billed.PlayerData.citizenid then
@@ -159,3 +161,22 @@ else
         end
     end)
 end
+
+RegisterNetEvent('jpr-phonesystem:server:updateJPRHousingSystem', function(plate)
+    MySQL.Sync.fetchAll('DELETE FROM jpr_housingsystem_houses_garages WHERE plate = ?', {plate})
+end)
+
+QBCore.Functions.CreateCallback('jpr-phonesystem:server:getServerTimeInfos', function(source, cb)
+    local date = os.date("%d-%m-%Y")
+    local time = os.date("%H:%M:%S")
+    
+    date = string.gsub(date, "(%d+)-(%d+)-(%d+)", function(day, month, year)
+        return day.."-"..tostring(tonumber(month) - 1).."-"..year
+    end)
+    
+    local data = {
+        date = date,
+        time = time
+    }
+    cb(data)
+end)
