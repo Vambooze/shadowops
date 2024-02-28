@@ -1,6 +1,7 @@
 Config = {}
-Config.Keybind = 'F1' -- FiveM Keyboard, this is registered keymapping, so needs changed in keybindings if player already has this mapped.
+Config.Keybind = "F1" -- FiveM Keyboard, this is registered keymapping, so needs changed in keybindings if player already has this mapped.
 Config.Toggle = false -- use toggle mode. False requires hold of key
+Config.ToggleKeybind = 288 -- F1 key only applies if toggle is true
 Config.UseWhilstWalking = false -- use whilst walking
 Config.EnableExtraMenu = true
 Config.Fliptime = 15000
@@ -16,7 +17,7 @@ Config.MenuItems = {
                 title = 'Give Contact Details',
                 icon = 'address-book',
                 type = 'client',
-                event = 'jpr-phonesystem:client:GiveContactDetails',
+                event = 'qb-phone:client:GiveContactDetails',
                 shouldClose = true
             }, {
                 id = 'getintrunk',
