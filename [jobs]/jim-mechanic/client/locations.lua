@@ -38,9 +38,9 @@ Config.Locations = {
 					out = vector4(-42.38, -1035.11, 28.52, 68.01),
 					list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" } },
 		payments = { coords = vector3(-35.91, -1040.47, 28.6), heading = 340.0, img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/b/be/BennysOriginalMotorWorks-GTAO-Logo.png width=150px></p>" },
---		blip = vector3(-43.05, -1043.99, 28.76),
---		bliplabel = "Bennys Workshop",    -- Bennys Workshop next to PDM
---		blipcolor = 1,
+		blip = vector3(-203.34, -1319.89, 30.91),
+		bliplabel = "Bennys Workshop",    -- Bennys Workshop next to PDM
+		blipcolor = 1,
 		discordlink = "",
 		discordcolour = 16711680,
 		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/b/be/BennysOriginalMotorWorks-GTAO-Logo.png",
