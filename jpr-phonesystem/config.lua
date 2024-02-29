@@ -101,7 +101,7 @@ Config.CityContacts = {
     },
 }
 
-Config.BatterySystem = true
+Config.BatterySystem = false
 Config.BatteryTicket = 190000 -- How many time to discount 1% of battery in MS ? 
 -- example website: https://www.inchcalculator.com/convert/minute-to-millisecond/
 -- in this website you can convert minutes to ms 

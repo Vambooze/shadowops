@@ -16,11 +16,11 @@ Config.Renewed = false
 Config.QBManagement = true
 
 -- If set true you can set commision bonuses, if not true all money goes to the worked
-Config.Commision = true
+Config.Commision = false
 Config.BusinessComission = 0.1 -- How much the business gets from each transaction
-Config.PlayerCommision = 0.45 -- How much the player gets from each transaction
+Config.PlayerCommision = 0.9 -- How much the player gets from each transaction
 
-Config.MaxBill = 5000 -- The maximum a seller can bill someone
+Config.MaxBill = 10000 -- The maximum a seller can bill someone
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -32,12 +32,6 @@ Config.ImageURL = "https://cfx-nui-qb-inventory/html/images" -- Make sure in qb-
 
 Config.MDTTable = {
 	["weapon_pistol"] = { 
-		class = 1
-	},
-	["weapon_pistol_mk2"] = { 
-		class = 1
-	},
-	["weapon_doubleaction"] = { 
 		class = 1
 	}
 }
@@ -51,7 +45,7 @@ Config.MDTTable = {
 -- Deliveries
 
 Config.VehicleModel = "kuruma2" -- What delivery vehicle you want to use
-Config.FuelExport = "ps-fuel" -- This is what Fuel You Use in your server for the delivery Vans
+Config.FuelExport = "LegacyFuel" -- This is what Fuel You Use in your server for the delivery Vans
 Config.FuelLevel = 100 -- How much fuel should be put into the Vehicle
 
 --Where they have to go to pickup stock
@@ -75,29 +69,14 @@ Config.Recipes = {
         label = "Pistol",
         desc = "5x Pistol Parts",
         items_required = {
-            ["pistol_parts"] = 5,
-        },
-    },
-	["weapon_pistol_mk2"] = {
-        label = "Pistol MK2",
-        desc = "7x Pistol Parts",
-        items_required = {
-            ["pistol_parts"] = 7,
-        },
-    },
-	["weapon_doubleaction"] = {
-        label = "Colt Python",
-        desc = "10x Pistol Parts",
-        items_required = {
-            ["pistol_parts"] = 10,
+            ["pistol_parts"] = 1,
         },
     },
 }
 
 -- Configure it so the user needs a weapons license or not
 Config.SaleProducts = {
-	["weapon_pistol_mk2"] = {license_required = true, label = "Pistol MK2"},
-	["weapon_doubleaction"] = {license_required = true, label = "Colt Python"},
+	["weapon_pistol"] = {license_required = false, label = "Pistol"},
 	["weapon_snspistol"] = {license_required = true, label = "SNS Pistol"},
 	["pistol_ammo"] = {license_required = false, label = "Pistol Ammo"}
 }
@@ -105,8 +84,6 @@ Config.SaleProducts = {
 -- Used for Weapon Showcase
 Config.WeaponModels = {
 	['weapon_pistol'] = 'w_pi_pistol',
-	['weapon_pistol_mk2'] = 'w_pi_pistol_mk2',
-	['weapon_doubleaction'] = 'w_pi_wep1_gun',
 	['weapon_ceramicpistol'] = 'w_pi_ceramic_pistol',
 	['weapon_combatpistol'] = 'w_pi_combatpistol',
 	['weapon_snspistol'] = 'w_pi_sns_pistol',
@@ -174,14 +151,6 @@ Config.ShopItems = {
         [3] = {
             name = "shotgun_ammo",
             price = 5,
-            amount = 1000,
-            info = {},
-            type = "item",
-            slot = 3,
-        },
-		[3] = {
-            name = "pistol_parts",
-            price = 250,
             amount = 1000,
             info = {},
             type = "item",
