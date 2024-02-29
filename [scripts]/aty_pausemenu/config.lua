@@ -34,26 +34,15 @@ Config = {
             }
         },
         
-        {
-            icon = "new.svg",
-            title = "News",
-            subtitle = "Lorem Ipsum is simply dummy text of the printing",
-            contents = {
+
                 {
-                    title = "New Number #1",
-                    desc = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.",
-                }
-            }
-        },
-        
-        {
             icon = "new.svg",
-            title = "Not sure yet",
-            subtitle = "Lorem Ipsum is simply dummy text of the printing",
+            title = "GUIDE",
+            subtitle = "This have some useful information",
             contents = {
                 {
                     title = "Csutom Number #1",
-                    desc = "not sure?.",
+                    desc = "",
                 }
             }
         }
