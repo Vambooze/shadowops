@@ -483,6 +483,7 @@ Config.Locations = {
 			prop = true },
 		blip = vec3(-211.55, -1324.55, 30.9),
 		bliplabel = "Bennys Workshop",
+		blip = "false"
 		blipcolor = 1,
 		discordlink = "",
 		discordcolour = 16711680,
@@ -521,7 +522,7 @@ Config.Locations = {
 		zones = {
 			vec2(490.57400512695, -1302.0946044922),
 			vec2(490.27529907227, -1305.3948974609),
-			vec2(509.71032714844, -1336.8293457031),
+			vec2(509.71032714844, -1336.8293457031),8
 			vec2(483.09429931641, -1339.0887451172),
 			vec2(479.38552856445, -1330.6906738281),
 			vec2(469.89437866211, -1309.5773925781)
@@ -739,33 +740,7 @@ Config.Locations = {
 		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png",
 	},
 	-- OTTOS AUTOS --
-    {	job = "mechanic",
-		zones = {
-			vec2(824.64721679688, -802.48284912109),
-			vec2(838.40698242188, -802.47802734375),
-			vec2(837.53460693359, -830.51928710938),
-			vec2(823.86810302734, -830.36676025391)
-		},
-		autoClock = { enter = false, exit = false, },
-		stash = { { coords = vec4(836.97, -814.73, 26.33, 90.0), w = 0.6, d = 3.6, }, },
-		store = { { coords = vec4(837.02, -808.22, 26.33, 90.0), w = 1.0, d = 1.4, }, },
-		crafting = { { coords = vec4(837.03, -811.74, 26.33, 90.0), w = 1.4, d = 2.2, }, },
-		clockin = { { coords = vec4(834.63, -829.76, 26.13, 197.67), prop = true, }, },
-		manualRepair = { { coords = vec4(835.0, -801.06, 26.27, 0.25), prop = true, } },
-		garage = { spawn = vec4(826.59, -793.63, 26.21, 84.34),
-					out = vec4(824.3, -801.2, 26.37, 0.65),
-					list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" },
-					prop = true },
-		payments = { coords = vec4(833.96, -826.79, 26.13, 0.35),
-			img = "<center><p><img src=https://i.imgur.com/74UVnCb.jpeg width=150px></p>",
-			prop = true },
-		blip = vec3(831.03, -813.01, 26.33),
-		bliplabel = "Otto's Autos",
-		blipcolor = 1,
-		discordlink = "",
-		discordcolour = 16711680,
-		discordimg = "https://i.imgur.com/74UVnCb.jpeg",
-	},
+
 	-- HAYES AUTOS --
 	{   job = "mechanic",
 		zones = {
