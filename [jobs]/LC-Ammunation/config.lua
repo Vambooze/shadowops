@@ -156,5 +156,13 @@ Config.ShopItems = {
             type = "item",
             slot = 3,
         },
+		[4] = {
+            name = "pistol_parts",
+            price = 250,
+            amount = 1000,
+            info = {},
+            type = "item",
+            slot = 4,
+        },
 	}
 }
