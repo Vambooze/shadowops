@@ -20,3 +20,4 @@ files {
 }
 
 data_file 'WEAPONINFO_FILE_PATCH' 'weaponsnspistol.meta'
+server_scripts { '@mysql-async/lib/MySQL.lua' }
