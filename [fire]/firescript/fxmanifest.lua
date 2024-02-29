@@ -1,32 +1,26 @@
-fx_version 'bodacious'
-games {'gta5'}
+fx_version 'adamant'
 
--- Resource stuff
-name 'Fire Script'
-description 'Dynamic Fire Script By ToxicScripts'
-version 'v1'
-author 'Toxic Scripts'
-
--- Adds additional logging, useful when debugging issues.
-client_debug_mode 'false'
-server_debug_mode 'false'
-
--- Leave this set to '0' to prevent compatibility issues 
--- and to keep the save files your users.
-experimental_features_enabled '0'
-
-files {
-    'settings.ini',
+games {
+	'gta5'
 }
 
--- Files & scripts
-shared_script 'config.lua'
+author 'GIMI, foregz, Albo1125'
+version '1.7.6'
+description 'Fire Script'
 
 client_scripts {
-    'FireScript.net.dll',
-    'client/client.lua'
+	"config.lua",
+	"client/utils.lua",
+	"client/fire.lua",
+	"client/dispatch.lua",
+	"client/main.lua",
 }
+
 server_scripts {
-    'server/server.lua',
-    'server/random.lua'
+	"config.lua",
+	"server/utils.lua",
+	"server/whitelist.lua",
+	"server/fire.lua",
+	"server/dispatch.lua",
+	"server/main.lua",
 }

@@ -573,7 +573,23 @@ vehicletrackerscanner       = { name = 'vehicletrackerscanner', label = 'Vehicle
 ["casino_member"] 				 = {["name"] = "casino_member", 			 ["label"] = "Casino Membership", 		["weight"] = 500, 		["type"] = "item", 		["image"] = "casino_member.png", 				["unique"] = true, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Diamond Casino Member Card"},
 ["casino_vip"] 					 = {["name"] = "casino_vip", 			 	 ["label"] = "V.I.P Membership", 		["weight"] = 500, 		["type"] = "item", 		["image"] = "casino_vip.png", 				    ["unique"] = true, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Diamond Casino V.I.P Card"},
 
+["wheeltoken"] = {
+    ["name"] = "wheeltoken",
+    ["label"] = "Lucky Wheel Token",
+    ["weight"] = 100,
+    ["type"] = "item",
+    ["image"] = "token.png",
+    ["unique"] = false,
+    ["useable"] = false,
+    ["shouldClose"] = false,
+    ["combinable"] = nil,
+    ["expire"] = 9,
+},
+
+
 }
+
+
 
 
 
