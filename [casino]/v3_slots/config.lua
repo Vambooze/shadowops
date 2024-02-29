@@ -3,8 +3,8 @@ Config.Locale = 'en'
 Framework = QBCore
 
 Config.Play = {
-	Item  = false,				-- Do NOT put true the Money is also true, use one of them
-	Money = true,				-- Do NOT put true the Item is also true, use one of them
+	Item  = true,				-- Do NOT put true the Money is also true, use one of them
+	Money = false,				-- Do NOT put true the Item is also true, use one of them
 	
 	ItemName = 'casinochips',	-- The item name in DB
 	AccountType = 'bank'		-- Usually the options are "cash", "bank". (QB)
