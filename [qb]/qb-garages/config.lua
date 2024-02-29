@@ -875,10 +875,10 @@ Config.Garages = {
     ['mechanic2'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
-                vector2(-197.64, -1311.30),
-                vector2(-188.69, -1311.22),
-                vector2(-189.47, -1323.44),
-                vector2(-197.10, -1324.06)
+                vector2(-195.45, -1322.08),
+                vector2(-195.45, -1326.74),
+                vector2(-201.96, -1326.74),
+                vector2(-201.96, -1322.09)
             },
           
             debug = false,
@@ -890,7 +890,7 @@ Config.Garages = {
         job = 'mechanic',
         debug = false,
         ['ParkingSpots'] = {
-            vector4(-193.93, -1317.41, 30.89, 81.82)
+            vector4(-198.15, -1324.75, 31.13, 81.96)
         }
     
         
