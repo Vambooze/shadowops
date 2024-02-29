@@ -65,11 +65,11 @@ Config.Locations = {
 	['JewelBuyer'] = { -- The Location of the jewel buyer, I left this as Vangelico, others will proabably change to pawn shops
         Enable = true,
         positions = {
-            { name = "Jewel Buyer", coords = vec4(-629.86, -240.35, 38.16, 110.05), sprite = 527, col = 617, blipTrue = false, model = `S_M_M_HighSec_03`, scenario = "WORLD_HUMAN_CLIPBOARD", },
+            { name = "Jewel Buyer", coords = vec4(151.68, -1050.39, 29.23, 256.62), sprite = 527, col = 617, blipTrue = false, model = `S_M_M_HighSec_03`, scenario = "WORLD_HUMAN_CLIPBOARD", },
         },
     },
     ["Smelting"] = {
-        { name = "Foundary", coords = vec3(1112.29, -2009.9, 31.46), sprite = 436, col = 1, blipTrue = false, },
+        { name = "Foundary", coords = vec3(726.27, -1067.2, 28.31), sprite = 436, col = 1, blipTrue = false, },
     },
 
     ["Mines"] = {
@@ -89,21 +89,21 @@ Config.Locations = {
                 },
             },
             Store = {
-                { name = "Foundary Store", coords = vec4(1074.89, -1988.19, 30.89, 235.07), model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
+                { name = "Foundary Store", coords = vec4(737.95, -1080.3, 22.17, 97.29), model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
             },
             Smelting = {
-                { blipEnable = true, name = "Foundary", coords = vec3(1112.29, -2009.9, 31.46), sprite = 436, col = 1,  },
+                { blipEnable = true, name = "Foundary", coords = vec3(726.27, -1067.2, 28.31), sprite = 436, col = 1,  },
             },
             Cracking = {
                 { blipEnable = false, name = "Stone Cracking", coords = vec4(1109.19, -1992.8, 30.98, 146.88), sprite = 566, col = 81, prop = "prop_vertdrill_01" },
                 { blipEnable = false, name = "Stone Cracking", coords = vec4(1105.56, -1992.53, 30.94, 238.19), sprite = 566, col = 81, prop = "prop_vertdrill_01" },
             },
             OreBuyer = {
-                { blipEnable = false, name = "Ore Buyer", coords = vec4(1090.18, -1999.51, 30.93, 146.24), sprite = 568, col = 81, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
+                { blipEnable = false, name = "Ore Buyer", coords = vec4(732.44, -1072.57, 28.19, 144.9), sprite = 568, col = 81, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
             },
             JewelCut = {
-                { blipEnable = false, name = "Jewel Cutting", coords = vec4(1077.11, -1984.22, 31.02, 235.8), sprite = 566, col = 81, prop = `gr_prop_gr_speeddrill_01c` },
-                { blipEnable = false, name = "Jewel Cutting", coords = vec4(1075.19, -1985.45, 30.92, 144.89), sprite = 566, col = 81, prop = `gr_prop_gr_speeddrill_01c` },
+                { blipEnable = false, name = "Jewel Cutting", coords = vec4(724.88, -1074.52, 28.31, 284.27), sprite = 566, col = 81, prop = `gr_prop_gr_speeddrill_01c` },
+                { blipEnable = false, name = "Jewel Cutting", coords = vec4(724.83, -1073.31, 28.31, 279.52), sprite = 566, col = 81, prop = `gr_prop_gr_speeddrill_01c` },
             },
         },
         ["MineShaft"] = {
