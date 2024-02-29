@@ -23,7 +23,7 @@ Config.Discord = {
 Config.UseESX = false
 
 --If you use qbus enable this
-Config.UseQBUS = false
+Config.UseQBUS = true
 
 --Required Job To Use The FireHose
 Config.JobName = "firefighter"
