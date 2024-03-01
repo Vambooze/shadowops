@@ -298,7 +298,7 @@ Config.Garages = {
             ['minZ'] = 30.6,  -- min height of the parking zone
             ['maxZ'] = 32.6,  -- max height of the parking zone
         },
-        label = 'Lower Power St Parking',
+        label = 'Pillbox Garage',
         showBlip = true,
         blipcoords = vector3(37.08, -616.99, 34.19),
         blipName = 'Public Parking',

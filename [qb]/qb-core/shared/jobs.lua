@@ -44,46 +44,9 @@ QBShared.Jobs = {
 		},
 	},
 
-	firefighter = {
-		label = 'Firefighter',
-		defaultDuty = true,
-		offDutyPay = true,
-		grades = {
-            ['0'] = {
-                name = 'Recruit',
-                payment = 500
-            },
-            ['1'] = {
-                name = 'Firefighter',
-                payment = 600
-            },
-			['2'] = {
-                name = 'Shift Leader',
-                payment = 800
-            },
-			['3'] = {
-                name = 'Lieutenant',
-                payment = 850
-            },
-            ['4'] = {
-                name = 'Captain',
-                payment = 900
-            },
-            ['5'] = {
-                name = 'Asst. Chief',
-                isboss = true,
-                payment = 950
-            },
-			['6'] = {
-                name = 'Chief',
-				isboss = true,
-                payment = 1000
-            },
-        },
-	},
 
 	ambulance = {
-		label = 'EMS',
+		label = 'Fire Department',
 		type = 'ems',
 		defaultDuty = true,
 		offDutyPay = false,
