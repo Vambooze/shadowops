@@ -35,7 +35,7 @@ local function CustomAlert(data)
             offset = data.offset or "false", -- Blip / radius offset
             flash = data.flash or "false" -- Blip flash
         },
-        jobs = { 'leo' },
+        jobs = { 'leo', 'bcso' },
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -82,7 +82,7 @@ local function Shooting()
         gender = GetPlayerGender(),
         weapon = GetWeaponName(),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -103,7 +103,7 @@ local function Hunting()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -130,7 +130,7 @@ local function VehicleShooting()
         class = vehicle.class,
         doors = vehicle.doors,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -156,7 +156,7 @@ local function SpeedingVehicle()
         class = vehicle.class,
         doors = vehicle.doors,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -176,7 +176,7 @@ local function Fight()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -196,7 +196,7 @@ local function PrisonBreak()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -217,7 +217,7 @@ local function StoreRobbery(camId)
         street = GetStreetAndZone(coords),
         camId = camId,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -238,7 +238,7 @@ local function FleecaBankRobbery(camId)
         street = GetStreetAndZone(coords),
         camId = camId,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -259,7 +259,7 @@ local function PaletoBankRobbery(camId)
         street = GetStreetAndZone(coords),
         camId = camId,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -280,7 +280,7 @@ local function PacificBankRobbery(camId)
         street = GetStreetAndZone(coords),
         camId = camId,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -301,7 +301,7 @@ local function VangelicoRobbery(camId)
         street = GetStreetAndZone(coords),
         camId = camId,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -321,7 +321,7 @@ local function HouseRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -341,7 +341,7 @@ local function YachtHeist()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -361,7 +361,7 @@ local function DrugSale()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -381,7 +381,7 @@ local function SuspiciousActivity()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -407,7 +407,7 @@ local function CarJacking(vehicle)
         class = vehicle.class,
         doors = vehicle.doors,
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -427,7 +427,7 @@ local function InjuriedPerson()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = 10,
-        jobs = { 'ems', 'leo' }
+        jobs = { 'ems', 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -447,7 +447,7 @@ local function DeceasedPerson()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = 10,
-        jobs = { 'ems', 'leo' }
+        jobs = { 'ems', 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -469,7 +469,7 @@ local function OfficerDown()
         name = PlayerData.charinfo.firstname .. " " .. PlayerData.charinfo.lastname,
         callsign = PlayerData.metadata["callsign"],
         alertTime = 10,
-        jobs = { 'ems', 'leo' }
+        jobs = { 'ems', 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -493,7 +493,7 @@ local function OfficerBackup()
         name = PlayerData.charinfo.firstname .. " " .. PlayerData.charinfo.lastname,
         callsign = PlayerData.metadata["callsign"],
         alertTime = 10,
-        jobs = { 'ems', 'leo' }
+        jobs = { 'ems', 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -517,7 +517,7 @@ local function OfficerInDistress()
         name = PlayerData.charinfo.firstname .. " " .. PlayerData.charinfo.lastname,
         callsign = PlayerData.metadata["callsign"],
         alertTime = 10,
-        jobs = { 'ems', 'leo' }
+        jobs = { 'ems', 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -539,7 +539,7 @@ local function EmsDown()
         name = PlayerData.charinfo.firstname .. " " .. PlayerData.charinfo.lastname,
         callsign = PlayerData.metadata["callsign"],
         alertTime = 10,
-        jobs = { 'ems', 'leo' }
+        jobs = { 'ems', 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -561,7 +561,7 @@ local function Explosion()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo', 'ems' }
+        jobs = { 'leo', 'ems', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -616,7 +616,7 @@ local function ArtGalleryRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 end
@@ -635,7 +635,7 @@ local function HumaneRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 
@@ -655,7 +655,7 @@ local function TrainRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 
@@ -675,7 +675,7 @@ local function VanRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 
@@ -695,7 +695,7 @@ local function UndergroundRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 end
@@ -714,7 +714,7 @@ local function DrugBoatRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -734,7 +734,7 @@ local function UnionRobbery()
         gender = GetPlayerGender(),
         street = GetStreetAndZone(coords),
         alertTime = nil,
-        jobs = { 'leo' }
+        jobs = { 'leo', 'bcso' }
     }
 
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
@@ -786,3 +786,32 @@ local function SignRobbery()
     TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
 end
 exports('SignRobbery', SignRobbery)
+
+
+local function PlaneTooHigh(vehicle)
+    local vehicle = GetVehiclePedIsIn(PlayerPedId())
+    if vehicle then
+        local vehdata = vehicleData(vehicle)
+        local currentPos = GetEntityCoords(PlayerPedId())
+        local locationInfo = getStreetandZone(currentPos)
+        local gender = GetPedGender()
+        TriggerServerEvent("dispatch:server:notify",{
+            dispatchcodename = "planetoohigh", -- has to match the codes in sv_dispatchcodes.lua so that it generates the right blip
+            dispatchCode = "10-60",
+            firstStreet = locationInfo,
+            gender = gender,
+            model = vehdata.name,
+            plate = vehdata.plate,
+            priority = 2,
+            firstColor = vehdata.colour,
+            automaticGunfire = false,
+            origin = {
+                x = currentPos.x,
+                y = currentPos.y,
+                z = currentPos.z
+            },
+            dispatchMessage = "Plane flying low and dropping packages...", -- message
+            job = {"LEO", "bcso"} -- type or jobs that will get the alerts
+        })
+    end
+end exports('PlaneTooHigh', PlaneTooHigh)

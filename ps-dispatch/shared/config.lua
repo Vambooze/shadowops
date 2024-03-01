@@ -431,6 +431,17 @@ Config.Blips = {
         sound2 = 'GTAO_FM_Events_Soundset',
         offset = true,
         flash = false
+    },
+    ['planetoohigh'] = {
+        radius = 120
+        sprite = 307,
+        color = 45,
+        scale = 0,
+        length = 2,
+        sound = 'Lose_1st',
+        sound2 = 'GTAO_FM_Events_Soundset',
+        offset = true,
+        flash = true
     }
 }
 
