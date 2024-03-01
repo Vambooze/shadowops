@@ -2,8 +2,8 @@
 
 Config = {}
 
-Config.UseESX = true						-- Use ESX Framework
-Config.UseQBCore = false					-- Use QBCore Framework (Ignored if Config.UseESX = true)
+Config.UseESX = false						-- Use ESX Framework
+Config.UseQBCore = true					-- Use QBCore Framework (Ignored if Config.UseESX = true)
 
 Config.UseThirdEye = true				-- If true uses third eye.
 Config.ThirdEyeName = 'qb-target' 			-- Name of third eye aplication
@@ -37,7 +37,7 @@ Config.Notify = {
 		{
 			coords = vector3(xxx, yyy, zzz), heading = 0.0, level = "Floor 2", label = "Roof",
 			jobs = {
-				["police"] = 0,
+				["bcso"] = 0,
 				["ambulance"] = 0,
 				["casino"] = 0,
 			},
@@ -50,7 +50,7 @@ Config.Notify = {
 		{
 			coords = vector3(xxx, yyy, zzz), heading = 0.0, level = "Floor 1", label = "Penthouse",
 			jobs = {
-				["police"] = 0,
+				["bcso"] = 0,
 				["ambulance"] = 0,
 				["casino"] = 0,
 			},
@@ -69,192 +69,20 @@ Config.Elevators = {
 
 	VPDMainElevator = {	
 		{
-			coords = vector3(-1096.22, -850.763, 38.20), heading = 36.8, level = "Floor 6", label = "Roof Access",
+			coords = vector3(339.53, -583.96, 74.17), heading = 36.8, level = "Floor 2", label = "Roof Access",
 			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
+				["bcso"] = 0,
+				["ems"] = 0,
 				["ambulance"] = 0,
 			},
 		},
 		{
-			coords = vector3(-1096.22, -850.763, 34.40), heading = 36.8, level = "Floor 5", label = "Detective Bureau",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
+			coords = vector3(335.27, -592.44, 43.27), heading = 36.8, level = "Floor 1", label = "Main Level",
+			
 		},
 		{
-			coords = vector3(-1096.22, -850.763, 30.80), heading = 36.8, level = "Floor 4", label = "Operations Center",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
+			coords = vector3(323.48, -583.35, 28.85), heading = 36.8, level = "Floor 0", label = "Lower Level",
+			
 		},
-		{
-			coords = vector3(-1096.22, -850.763, 27.00), heading = 36.8, level = "Floor 3", label = "Division Offices & Briefing Room",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(-1096.22, -850.763, 23.00), heading = 36.8, level = "Floor 2", label = "Cafe",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(-1096.22, -850.763, 19.00), heading = 36.8, level = "Floor 1", label = "Main Hall",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(-1096.22, -850.763, 4.80), heading = 36.8, level = "Floor -1", label = "Detention Cells & Interrogation",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(-1096.22, -850.763, 10.20), heading = 36.8, level = "Floor -2", label = "Crime Lab & Evidence Rooms",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(-1096.22, -850.763, 13.70), heading = 36.8, level = "Floor -3", label = "Garage & Armory",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-	},
-
-	VPDPublicElevator = {
-		{
-			coords = vector3(-1066.05, -833.71, 26.82318), heading = 36.1, level = "Floor 3", label = "Division Offices",
-		},
-		{
-			coords = vector3(-1066.05, -833.71, 23.03471), heading = 36.1, level = "Floor 2", label = "UNDER RENOVATIONS",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(-1066.05, -833.713, 18.9964), heading = 36.1, level = "Floor 1", label = "Main Hall",
-		},
-		{
-			coords = vector3(-1066.05, -833.71, 4.88), heading = 36.1, level = "Floor -1", label = "Detention Cells & Interrogation",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(-1066.05, -833.71, 10.27282), heading = 36.1, level = "Floor -2", label = "Crime Lab & Evidence Rooms",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			}
-		},
-		{
-			coords = vector3(-1066.05, -833.71, 13.69069), heading = 36.1, level = "Floor -3", label = "Garage & Armory",
-			jobs = {
-				["police"] = 0,
-				["sheriff"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-	},
-
-	SkybarElevatorSouth = {
-		{
-			coords = vector3(315.49, -929.32, 52.81), heading = 176.67, level = "Skybar 5th Floor", label = "Bar Level for Skybar",
-		},
-		{
-			coords = vector3(315.49, -929.32, 29.47), heading = 176.67, level = "Skybar Ground", label = "Street Level for Skybar",
-		},
-	},
-	
-	SkybarElevatorNorth = {
-		{
-			coords = vector3(309.81, -929.05, 52.81), heading = 176.67, level = "Skybar 5th Floor", label = "Bar Level for Skybar",
-		},
-		{
-			coords = vector3(309.81, -929.05, 29.47), heading = 176.67, level = "Skybar Ground", label = "Street Level for Skybar",
-		},
-	},
-	PillboxElevatorNorth = {
-		{
-			coords = vector3(332.37, -595.56, 43.28), heading = 70.65, level = "Upper Pillbox", label = "Pillbox - Main Floor",
-		},
-		{
-			coords = vector3(344.31, -586.12, 28.79), heading = 252.84, level = "Lower Pillbox", label = "Pillbox - Lower Pillbox",
-			jobs = {
-				["police"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(340.05, -584.98, 28.79), heading = 88.21, level = "Parking", label = "Pillbox - Parking Facilities",
-			jobs = {
-				["police"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-	},
-
-	PillboxElevatorSouth = {
-		{
-			coords = vector3(330.45, -601.07, 43.28), heading = 67.64, level = "Upper Pillbox", label = "Pillbox - Main Floor",
-		},
-		{
-			coords = vector3(345.68, -582.34, 28.79), heading = 248.30, level = "Lower Pillbox", label = "Pillbox - Lower Pillbox",
-			jobs = {
-				["police"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-		{
-			coords = vector3(341.58, -580.88, 28.79), heading = 70.59, level = "Parking", label = "Pillbox - Parking Facilities",
-			jobs = {
-				["police"] = 0,
-				["ambulance"] = 0,
-			},
-		},
-	},
-
-	PillboxRoofTop = {
-		{
-			coords = vector3(338.52, -583.84, 74.16), heading = 254.13, level = "Rooftop", label = "Pillbox - HeliPad",
-			jobs = {
-				["police"] = 0,
-				["ambulance"] = 2,
-			},
-		},
-		{
-			coords = vector3(327.17, -603.87, 43.28), heading = 338.36, level = "Upper Pillbox", label = "Pillbox - Main Floor",
-			jobs = {
-				["police"] = 0,
-				["ambulance"] = 2,
-			},
-		},
-	},
-
+	}
 }

@@ -15,7 +15,7 @@ elseif Framework == "ESX" then
 end
 ----------
 ----------
-Config.Debug = true -- enables debug poly for zones and prints
+Config.Debug = false -- enables debug poly for zones and prints
 ----------
 Config.InventoryType = 'qb' -- (qb, ox, lj, neither) What inventory you are using? if you are using a renamed resource you can adjust the event in server.lua "Pug:server:GivePaintballItems".
 Config.Target = "qb-target" -- (ox_target, qb-target) if you have change the resource name of qb-target you can use there here as well
