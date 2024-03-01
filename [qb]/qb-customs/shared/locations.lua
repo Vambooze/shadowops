@@ -293,4 +293,52 @@ Config.Locations = {
             { coords = vector3(340.38, -570.8, 28.8), length = 8.8, width = 4.2, heading = 340.0, minZ = 27.5, maxZ = 31.5 },
         }
     },
+
+
+
+    ['DavisFire'] = {
+        settings = {
+            label = 'Davis Fire Motorworks',
+            welcomeLabel = "Welcome to Davis Fire Motorworks!",
+            enabled = true,
+            ---------- Receipt system ----------
+            useReceiptSystem = false,  -- In the case of "useReceiptSystem" = false everyone will need 
+            -- pay for evenry modification and all modifications will be saved on the vehicle. 
+            -- In the case of "useReceiptSystem = true" only players who don't have any job from list below "saveUpgrades"
+            -- will receive a receipt and not have to pay for modifications. 
+
+            
+            saveUpgrades = { 
+                jobs = {"mechanic"}, -- If a player has some of these jobs, they will need to pay for every 
+                                     -- modification, and all will be saved on the vehicle.
+                dutyCheck = false, 
+            } ,
+
+            upgradesMenuAccess = {
+                jobs = {"mechanic"}, -- If a player has some of these jobs, they will have access to the "upgrades menu" - engine upgrades, brake upgrades...
+                dutyCheck = false,
+            },
+            ------------------------------------
+        },
+        categories = {
+            repair = true,
+            respray = true,
+            liveries = true,
+            tint = true,
+            extras = true,
+            plate = true,
+            cosmetics = true,
+        },
+        drawtextui = {
+            text = "Davis Fire Motorworks"
+        },
+        restrictions = {
+            job = { 'ambulance' },
+            allowedClasses = { 18 },
+        },
+        zones = {
+            { coords = vector3(176.75, -1656.88, 29.80), length = 9.4, width = 4.2, heading = 340.0, minZ = 27.5, maxZ = 30.5 },
+            { coords = vector3(181.31, -1660.68, 29.80), length = 8.8, width = 4.2, heading = 340.0, minZ = 27.5, maxZ = 30.5 },
+        }
+    },
 }
