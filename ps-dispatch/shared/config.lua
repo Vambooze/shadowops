@@ -433,7 +433,7 @@ Config.Blips = {
         flash = false
     },
     ['planetoohigh'] = {
-        radius = 120
+        radius = 120,
         sprite = 307,
         color = 45,
         scale = 0,
