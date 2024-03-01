@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+  <style type="text/css">
+    html,body {
+      left: 0;
+      top: 0;
+      outline: none;
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    #bg {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;   
+
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;   
+    }
+
+    #container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+
+      transform: translate(-50%,-50%);
+
+      background-image: url('img/bg.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .slot {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+
+      border: 2px solid rgba(50,50,50,0.7);
+      border-radius: 10px;
+      box-shadow: inset 0 0 20px rgba(30,30,30,1.0);
+      background-color: rgba(40,40,40,0.7);
+
+      background-size: 80% 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .slot:hover {      
+      background-color: rgba(80,80,80,0.7);     
+    }
+
+    #close {
+      top: calc(100% - 60px);
+      left: calc(100% - 60px);
+      position: absolute;
+      width: 50px;
+      height: 50px;
+
+      border: 2px solid rgba(50,50,50,0.7);
+      border-radius: 10px;
+      box-shadow: inset 0 0 20px rgba(30,30,30,1.0);
+      background-color: rgba(40,40,40,0.7);
+
+      background-size: 80% 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('img/close.png');
+    }
+
+    #close:hover {
+      background-color: rgba(80,80,80,0.7);      
+    }
+
+    .slot > span {
+      position: absolute;
+      top: 65%;
+      left: 78%;
+      text-align: left;
+      color: white;
+      font-family: Impact;
+      font-size: 16px;
+      user-select: none;
+      text-align: right;
+    }
+
+    .drop-slot {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+
+      border: 2px solid rgba(50,50,50,0.7);
+      border-radius: 10px;
+      box-shadow: inset 0 0 20px rgba(30,30,30,1.0);
+      background-color: rgba(40,40,40,0.7);
+
+      background-size: 80% 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .drop-slot:hover {
+      background-color: rgba(80,80,80,0.7);      
+    }
+
+    #reel {
+      top: 70%;
+      left: 0%;
+      background-image: url('img/reel_bg.png');
+    }
+
+    #line {
+      top: 35%;
+      left: 32.5%;
+      background-image: url('img/line_bg.png');
+    }
+
+    #hook {
+      top: 0%;
+      left: 65%;
+      background-image: url('img/hook_bg.png');
+    }
+
+    #bait {
+      top: 20%;
+      left: 100%;
+      background-image: url('img/bait_bg.png');
+    }
+
+  </style>
+</head>
+<body>
+  <div id="bg"></div>
+  <div id="container">
+    <div class="slot" id="reel"><span>D</span></div>
+    <div class="slot" id="line"><span>D</span></div>
+    <div class="slot" id="hook"><span>D</span></div>
+    <div class="slot" id="bait"><span>D</span></div>
+
+    <div id="close" onclick="Close()"></div>
+  </div>
+
+  <script type="text/javascript">
+    var playerItems = {
+      line:[
+        {
+          label: "King Braid",
+          name: "kingbraid"
+        },
+        {
+          label: "Lightning Braid",
+          name: "lightningbraid"
+        },
+        {
+          label: "Mobey Mobo",
+          name: "mobeymono"
+        },
+        {
+          label: "Mobey Mobo",
+          name: "mobeymono"
+        }
+      ],
+      reel:[
+        {
+          label: "Gold Reel",
+          name: "gold_reel"
+        },
+        {
+          label: "Silver Reel",
+          name: "silver_reel"
+        },
+      ],
+      hook:[
+        {
+          label: "Gold Hook",
+          name: "gold_hook"
+        },
+        {
+          label: "Silver Hook",
+          name: "silver_hook"
+        },
+      ]
+    };
+
+    var rodSetup = {};
+
+    var selectedSlot = false;
+
+    ClearDropSlots = function() {      
+      var dropSlots = document.getElementsByClassName('drop-slot');
+      for (var i=dropSlots.length-1;i>=0;i--) {
+        var dropSlot = dropSlots[i];
+        dropSlot.remove();
+      }
+    }
+
+
+    CreateDropTab = function(items,parent) {
+      ClearDropSlots();
+
+      if (!selectedSlot || selectedSlot != parent) {
+        var seen = [];
+        HasSeen = function(name) {
+          for (var i=0;i<seen.length;i++) {
+            if (seen[i] == name) {
+              return true;
+            }
+          }
+          return false;
+        }
+
+        var container = document.getElementById('container');
+        for (var i=0;i<items.length;i++) {
+          let item = items[i];
+
+          if (!HasSeen(item.name) && rodSetup[parent.id].name != item.name) {
+            seen.push(item.name);
+            var rect = parent.getBoundingClientRect();
+            var dropSlot = document.createElement('div');
+            dropSlot.className  = "drop-slot";
+            dropSlot.style.backgroundImage = `url('img/${item.name}.png')`;
+            dropSlot.style.left = rect.left + "px";
+            dropSlot.style.top  = rect.top + ((seen.length) * 75) + "px";
+
+            document.body.appendChild(dropSlot);
+
+            dropSlot.onclick = function() {
+              ClearDropSlots();
+
+              if (parent.item) {
+                UnsetItem(parent.id,parent.item);
+              }
+              SetItem(parent.id,item);
+              selectedSlot = false;
+            }
+          }
+        }
+        selectedSlot = parent;
+      } else {
+        selectedSlot = false;
+      }
+    }
+
+    SetupRod = function(items) {
+      rodSetup = items;
+
+      if (items.line) {
+        var lineSlot = document.getElementById('line');
+        lineSlot.style.backgroundImage = `url('img/${items.line}.png')`; 
+        lineSlot.childNodes[0].textContent = "I";
+      } else {
+        var lineSlot = document.getElementById('line');
+        lineSlot.style.backgroundImage = "url('img/line_bg.png')";
+        lineSlot.childNodes[0].textContent = "D";
+      }
+
+      if (items.reel) {
+        var reelSlot = document.getElementById('reel');
+        reelSlot.style.backgroundImage = `url('img/${items.reel}.png')`; 
+        reelSlot.childNodes[0].textContent = "I";
+      } else {     
+        var reelSlot = document.getElementById('reel');   
+        reelSlot.style.backgroundImage = "url('img/reel_bg.png')";
+        reelSlot.childNodes[0].textContent = "D";
+      }
+
+      if (items.hook) {
+        var hookSlot = document.getElementById('hook');
+        hookSlot.style.backgroundImage = `url('img/${items.hook}.png')`;
+        hookSlot.childNodes[0].textContent = "I";
+      } else {
+        var hookSlot = document.getElementById('hook');
+        hookSlot.style.backgroundImage = "url('img/hook_bg.png')";
+        hookSlot.childNodes[0].textContent = "D";
+      }
+
+      if (items.rodtype) {
+        var rodImage = document.getElementById('container');
+        rodImage.style.backgroundImage = `url('img/${items.rodtype}.png')`;
+      } else {
+        var rodImage = document.getElementById('container');
+        rodImage.style.backgroundImage = "url('img/bg.png')";
+      }
+    }
+
+    SetItem = function(type,item) {
+      var slot = document.getElementById(type);
+      slot.item = item;
+      slot.style.backgroundImage = `url('img/${item.name}.png')`;
+      slot.childNodes[0].textContent = "I";
+
+      var filtered = [];
+      var found = false;
+      for (var i=0;i<playerItems[type].length;i++) {
+        if (playerItems[type][i].name == item.name && !found) {
+          found = true;
+        } else {
+          filtered.push(playerItems[type][i]);
+        }
+      }
+
+      rodSetup[type] = item;
+
+      playerItems[type] = filtered;
+      var Name = item.name;
+      $.post('https://nc-fishing/setitem',JSON.stringify({item:Name,type:type}));
+    }
+
+    UnsetItem = function(type,prev) {
+      var slot = document.getElementById(type);
+      slot.item = undefined;
+      slot.style.backgroundImage = `url('img/${type}_bg.png')`;
+      slot.childNodes[0].textContent = "D";
+
+      rodSetup[type] = false;
+
+      playerItems[type].push(prev);
+      $.post('https://nc-fishing/unsetitem',JSON.stringify({item:prev.name,type:type}));
+    }
+
+    Close = function() {
+      document.body.style.display = "none";
+      $.post('https://nc-fishing/closed');
+    }
+
+    window.addEventListener('message',function(event) {
+      switch (event.data.message) {
+        case "Open":
+          playerItems = event.data.items;
+          SetupRod(event.data.rod);
+          document.body.style.display = "block";
+        break;
+
+        case "Clear":
+          UnsetItem(event.data.type,event.data.name);
+          ClearDropSlots();
+        break;
+
+        case "ClearBait":
+          UnsetItem(event.data.type,event.data.name);
+          ClearDropSlots();
+        break;
+
+        case "Close":
+          document.body.style.display = "none";
+        break;
+      }
+    });
+
+    document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+    });
+
+    var slots = document.getElementsByClassName('slot');
+    for (var i=0;i<slots.length;i++) {
+      var slot = slots[i];
+      slot.onmousedown = function(e) {
+        if (e.button == 0) {
+          CreateDropTab(playerItems[this.id],this);
+        } else {
+          if (this.item) {
+            UnsetItem(this.id,this.item);
+            ClearDropSlots();
+          }
+        }
+      }
+    }
+
+/*    SetupRod({
+      line:false,
+      reel:false,
+      hook:false
+    });
+    document.body.style.display = "block";*/
+  </script>
+</body>
+</html>
