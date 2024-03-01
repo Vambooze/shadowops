@@ -265,7 +265,8 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
                                 TriggerServerEvent('qb-bankrobbery:server:setBankState', closestBank)
                             end
                             if copsCalled or not Config.SmallBanks[closestBank]["alarm"] then return end
-                            TriggerServerEvent("qb-bankrobbery:server:callCops", "small", closestBank, pos)
+                            local camId = Config.SmallBanks[closestBank]["camId"]
+                            exports['ps-dispatch']:FleecaBankRobbery(camId)
                             copsCalled = true
                             SetTimeout(60000 * Config.OutlawCooldown, function() copsCalled = false end)
                         end, function() -- Cancel
