@@ -18,25 +18,26 @@ Config.vehicleList = {
 -- Blips 
 Config.Locations = {
     ["rentalstations"] = {
-        [1] = {label = "Rental Stations", coords = vector4(1152.44, -372.97, 67.2, 270.36)},
-        [2] = {label = "Rental Stations", coords = vector4(462.75, -1676.62, 29.29, 5.02)},
+        [1] = {label = "Rental Stations", coords = vector4(-1026.29, -2743.89, 20.17, 52.64)},
+        [2] = {label = "Rental Stations", coords = vector4(109.46, -1089.13, 29.30, 333.25)},
         [3] = {label = "Rental Stations", coords = vector4(-1442.49, -673.65, 26.53, 288.07)},
+        [4] = {label = "Rental Stations", coords = vector4(1224.63, 2728.56, 38.01, 181.86)},
     },
 }
 
 Config.vehicleSpawn = {
-    --- Mirror Park
+    --- Airport
 	[1] = { 
 		workSpawn = {
-			coords = vector3(1144.69, -383.79, 67.05),
-			heading = 344.69,
+			coords = vector3(-1027.53, -2733.63, 20.08),
+			heading = 234.35,
 		},
 	},
     --- Davis 
     [2] = { 
 		workSpawn = {
-			coords = vector3(460.1, -1699.62, 29.3),
-			heading = 323.94,
+			coords = vector3(111.37, -1080.81, 29.19),
+			heading = 159.01,
 		},
 	},
  --- Marathon Avenue
@@ -44,6 +45,13 @@ Config.vehicleSpawn = {
 		workSpawn = {
 			coords = vector3(-1444.12, -680.25, 26.39),
 			heading = 122.5,
+		},
+	},
+ --- Harmony   
+    [4] = { 
+		workSpawn = {
+			coords = vector3(1213.44, 2723.28, 38.00),
+			heading = 173.12,
 		},
 	},
 }
