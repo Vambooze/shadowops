@@ -260,6 +260,8 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
                         }, {}, {}, {}, function() -- Done
                             StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)
                             TriggerServerEvent('qb-bankrobbery:server:removeElectronicKit')
+                            local camId = Config.SmallBanks[closestBank]["camId"]
+                            exports['ps-dispatch']:FleecaBankRobbery(camId)
                             local success = exports['qb-minigames']:Hacking(5, 30) -- code block size & seconds to solve
                             if success then
                                 TriggerServerEvent('qb-bankrobbery:server:setBankState', closestBank)
