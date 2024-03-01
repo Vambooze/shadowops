@@ -69,7 +69,7 @@ Config.Elevators = {
 
 	VPDMainElevator = {	
 		{
-			coords = vector3(-1096.22, -850.763, 38.20), heading = 36.8, level = "Floor 2", label = "Roof Access",
+			coords = vector3(339.53, -583.96, 74.17), heading = 36.8, level = "Floor 2", label = "Roof Access",
 			jobs = {
 				["bcso"] = 0,
 				["ems"] = 0,
@@ -77,12 +77,12 @@ Config.Elevators = {
 			},
 		},
 		{
-			coords = vector3(-1096.22, -850.763, 34.40), heading = 36.8, level = "Floor 1", label = "Main Floor",
-			jobs = {
-				["bcso"] = 0,
-				["ems"] = 0,
-				["ambulance"] = 0,
-			},
+			coords = vector3(335.27, -592.44, 43.27), heading = 36.8, level = "Floor 1", label = "Main Level",
+			
+		},
+		{
+			coords = vector3(323.48, -583.35, 28.85), heading = 36.8, level = "Floor 0", label = "Lower Level",
+			
 		},
 	}
 }
