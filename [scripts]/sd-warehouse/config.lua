@@ -3,7 +3,7 @@ Config = {}
 
 -- Minimum Police Requirement
 
-Config.MinimumPolice = 2 -- minimum police to start heist
+Config.MinimumPolice = 0 -- minimum police to start heist
 
 -- Cooldown time limit in minutes
 

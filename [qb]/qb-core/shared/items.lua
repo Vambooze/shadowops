@@ -585,8 +585,7 @@ vehicletrackerscanner       = { name = 'vehicletrackerscanner', label = 'Vehicle
     ["combinable"] = nil,
     ["expire"] = 9,
 },
-
-
+['thermite_h'] = {['name'] = 'thermite_h', ['label'] = 'Thermite', ['weight'] = 1000, ['type'] = 'item', ['ammotype'] = nil, ['image'] = 'thermite_h.png', ['unique'] = true, ['useable'] = true, ['description'] = 'A low-yield thermite charge..'},
 ['cokelabnote']                        = {['name'] = 'cokelabnote',                          ['label'] = 'Lab Note',           ['weight'] = 1000,          ['type'] = 'item',    ['image'] = 'cokelabnote.png',                ['unique'] = true,          ['useable'] = true,      ['shouldClose'] = true,      ['combinable'] = nil,   ['description'] = 'A Useable note that has some information on it...'},
 
 
