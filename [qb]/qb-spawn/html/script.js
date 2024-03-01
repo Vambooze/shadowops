@@ -1,9 +1,7 @@
-var Mainlocation = null
-var MainspawnType = null
-
 $(document).ready(function() {
 
     $(".container").hide();
+    $("#submit-spawn").hide()
 
     window.addEventListener('message', function(event) {
         var data = event.data;
@@ -16,247 +14,93 @@ $(document).ready(function() {
         }
 
         if (data.action == "setupLocations") {
-            setupNewLocations(data.locations, data.houses, data.Apartment, data.ApartmentNames, data.Access)
+            setupLocations(data.locations, data.houses)
         }
 
         if (data.action == "setupAppartements") {
             setupApps(data.locations)
         }
-
-        if (data.action == "AddCoord") {
-            $(".AddBlipForMap").html("")
-
-            $(".AddCoord").fadeIn(250);
-            $("#VecX").val(data.Coord.x);
-            $("#VecY").val(data.Coord.y);
-            $("#VecZ").val(data.Coord.z);
-            $("#VecH").val(data.Coord.h);
-
-            $("#BlipTop").val(50);
-            $("#BlipLeft").val(50);
-            $('.AddBlipForMap').append('<i style="top:'+50+'%; left:'+50+'%;" id="BlipSetting" class="fas fa-map-marker-alt location-pin IconClassStyle"></i>')
-        }
     })
 })
 
-$("#BlipTop").keyup(function(){
-    var Top = this.value
-    $("#BlipSetting").css({"top":Top+"%"});
-});
+var currentLocation = null
 
-$("#BlipLeft").keyup(function(){
-    var Left = this.value
-    $("#BlipSetting").css({"left":Left+"%"});
-});
-
-var SelectLocForSpawn = null
-var apartNames = null
-$(document).on('click', '#IconClassStyle', function(evt){
-    evt.preventDefault();
-    var location = $(this).data('location');
-    var type = $(this).data('type');
-    var label = $(this).data('label');
-    if (type == "appartment2") {
-        apartNames = $(this).data('apartname')
-    }
-    $(".TextFoJSCode").html("Select a Location")
+$(document).on('click', '.location', function(evt){
+    evt.preventDefault(); //dont do default anchor stuff
+    var location = $(this).data('location'); //get the text
+    var type = $(this).data('type'); //get the text
+    var label = $(this).data('label'); //get the text
     if (type !== "lab") {
-
+        $("#spawn-label").html("Confirm")
+        $("#submit-spawn").attr("data-location", location);
+        $("#submit-spawn").attr("data-type", type);
+        $("#submit-spawn").fadeIn(100)
         $.post('https://qb-spawn/setCam', JSON.stringify({
             posname: location,
             type: type,
         }));
-
-        if(SelectLocForSpawn == null){
-            SelectLocForSpawn = this
-            Mainlocation = location
-            MainspawnType = type
-            $(this).addClass('selected');
-            if(MainspawnType == "appartment"){
-                $(".TextFoJSCode").html("Appartment: "+label)
-            }else{
-                $(".TextFoJSCode").html(label)
-            }
-        }else if(SelectLocForSpawn == this){
-            $(this).removeClass("selected");
-            if(MainspawnType == "appartment"){
-                $(".TextFoJSCode").html("Select a Appartment")
-            }else{
-                $(".TextFoJSCode").html("Select a Location")
-            }
-            SelectLocForSpawn = null
-            Mainlocation = null
-            MainspawnType = null
-            
-        }else{
-            $(SelectLocForSpawn).removeClass("selected");
-            $(this).addClass('selected');
-            Mainlocation = location
-            MainspawnType = type
-            SelectLocForSpawn = this
-            if(MainspawnType == "appartment"){
-                $(".TextFoJSCode").html("Appartment: "+label)
-            }else{
-                $(".TextFoJSCode").html(label)
-            }
+        if (currentLocation !== null) {
+            $(currentLocation).removeClass('selected');
         }
+        $(this).addClass('selected');
+        currentLocation = this
     }
 });
 
-$(document).on('click', '.GreenBTN', function(evt){
-    evt.preventDefault();
-
-    if (Mainlocation !== null){
-        $(".container").addClass("hideContainer").fadeOut("9000");
-        setTimeout(function(){
-            $(".hideContainer").removeClass("hideContainer");
-        }, 900);
-
-        $(SelectLocForSpawn).removeClass("selected");
-        SelectLocForSpawn = null
-
-        if (MainspawnType == "apartment1") {
-            $.post('https://qb-spawn/spawnplayerappartment1', JSON.stringify({
-                spawnloc: Mainlocation,
-                apartName: apartNames,
-            }));
-        } else if(MainspawnType !== "appartment"){
-            $.post('https://qb-spawn/spawnplayer', JSON.stringify({
-                spawnloc: Mainlocation,
-                typeLoc: MainspawnType
-            }));
-        }else {
-            $.post('https://qb-spawn/chooseAppa', JSON.stringify({
-                appType: Mainlocation,
-            }));
-        } 
-    } else {
-        console.log('Error: Not location selected')
-    }
-
-});
-
-$(document).on('click', '.CloseBTN', function(evt){
-    evt.preventDefault();
-    CloseAddCoord()
-});
-
-function setupNewLocations(locations, myHouses, Apartment, ApartmentName, Access) {
-    var parent = $('.spawn-locations-new')
-    $(parent).html("");
-    $('.dropdown-menu').html("");
-
-    $(".RedBTN").fadeIn(1);
-    $(".LastBTN").fadeIn(1);
-    $(".TextFoJSCode").html('SPAWN <i style="color: black;" class="fas fa-map-marked-alt"></i>')
-
-    $(".TextFoJSCode").html("Select a Location")
-    Mainlocation = null
-    MainspawnType = null
-    if(SelectLocForSpawn !== null){
-        $(SelectLocForSpawn).removeClass("selected");
-        SelectLocForSpawn = null
-    }
-
-    if(Access.houses == false){
-        $(".RedBTN").fadeOut(1);
-    }
-    if(Access.lastLoc == false){
-        $(".LastBTN").fadeOut(1);
-    }
-
+$(document).on('click', '#submit-spawn', function(evt){
+    evt.preventDefault(); //dont do default anchor stuff
+    var location = $(this).data('location');
+    var spawnType = $(this).data('type');
+    $(".container").addClass("hideContainer").fadeOut("9000");
     setTimeout(function(){
-        if(Access.apartments == true){
-            if(Apartment.pos !== undefined){
-                $(parent).append('<i style="top:'+Apartment.pos.top+'%; left:'+Apartment.pos.left+'%;" data-location="'+Apartment.name+'" data-type="appartment2" data-label="'+Apartment.label+'" data-apartname="'+ApartmentName+'" id="IconClassStyle" class="fas fa-building IconClassStyle2"></i>')
-            }
-        }
+        $(".hideContainer").removeClass("hideContainer");
+    }, 900);
+    if (spawnType !== "appartment") {
+        $.post('https://qb-spawn/spawnplayer', JSON.stringify({
+            spawnloc: location,
+            typeLoc: spawnType
+        }));
+    } else {
+        $.post('https://qb-spawn/chooseAppa', JSON.stringify({
+            appType: location,
+        }));
+    }
+});
 
+function setupLocations(locations, myHouses) {
+    var parent = $('.spawn-locations')
+    $(parent).html("");
+
+    $(parent).append('<div class="loclabel" id="location" data-location="null" data-type="lab" data-label="Where would you like to start?"><p><span id="null">Where would you like to start?</span></p></div>')
+    
+    setTimeout(function(){
+        $(parent).append('<div class="location" id="location" data-location="current" data-type="current" data-label="Last Location"><p><span id="current-location">Last Location</span></p></div>');
+        
         $.each(locations, function(index, location){
-            $(parent).append('<i style="top:'+location.pos.top+'%; left:'+location.pos.left+'%;" data-location="'+location.location+'" data-type="normal" data-label="'+location.label+'" id="IconClassStyle" class="fas fa-map-marker-alt IconClassStyle"></i>')
+            $(parent).append('<div class="location" id="location" data-location="'+location.location+'" data-type="normal" data-label="'+location.label+'"><p><span id="'+location.location+'">'+location.label+'</span></p></div>')
         });
 
-        if(Access.houses == true){
-            if (myHouses != undefined) {
-                $.each(myHouses, function(index, house){             
-                    $(".dropdown-menu").append('<li id="IconClassStyle" data-location="'+house.house+'" data-type="house" data-label="'+house.label+'"><p><span id="'+house.house+'">'+house.label+'</span></p></li>');
-                });
-            }
+        if (myHouses != undefined) {
+            $.each(myHouses, function(index, house){
+                $(parent).append('<div class="location" id="location" data-location="'+house.house+'" data-type="house" data-label="'+house.label+'"><p><span id="'+house.house+'">'+house.label+'</span></p></div>')
+            });
         }
 
+        $(parent).append('<div class="submit-spawn" id="submit-spawn"><p><span id="spawn-label"></span></p></div>');
+        $('.submit-spawn').hide();
     }, 100)
 }
 
 function setupApps(apps) {
-    var parent = $('.spawn-locations-new')
+    var parent = $('.spawn-locations')
     $(parent).html("");
 
-    $(".RedBTN").fadeOut(1);
-    $(".LastBTN").fadeOut(1);
-    $(".TextFoJSCode").html('SELECT <i style="color: black;" class="fas fa-check"></i>')
-
-    $(".TextFoJSCode").html("Select a Appartment")
-    Mainlocation = null
-    MainspawnType = null
-    if(SelectLocForSpawn !== null){
-        $(SelectLocForSpawn).removeClass("selected");
-        SelectLocForSpawn = null
-    }
+    $(parent).append('<div class="loclabel" id="location" data-location="null" data-type="lab" data-label="Choose a apartment"><p><span id="null">Choose An Apartment</span></p></div>')
 
     $.each(apps, function(index, app){
-        if(app.pos !== undefined){
-            $(parent).append('<i style="top:'+app.pos.top+'%; left:'+app.pos.left+'%;" data-location="'+app.name+'" data-type="appartment" data-label="'+app.label+'" id="IconClassStyle" class="fas fa-building IconClassStyle2"></i>')
-        }
+        $(parent).append('<div class="location" id="location" data-location="'+app.name+'" data-type="appartment" data-label="'+app.label+'"><p><span id="'+app.name+'">'+app.label+'</span></p></div>')
     });
+
+    $(parent).append('<div class="submit-spawn" id="submit-spawn"><p><span id="spawn-label"></span></p></div>');
+    $('.submit-spawn').hide();
 }
-
-function CloseAddCoord() {
-    $.post('https://qb-spawn/CloseAddCoord', JSON.stringify({}));
-    $(".AddCoord").fadeOut(250);
-}
-
-const copyToClipboard = str => {
-    const el = document.createElement('textarea');
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-};
-
-$(document).on('click', '.ApartBTN', function(e){
-    e.preventDefault();
-    let source = '["'+$("#VecName").val()+'"] = {'+
-                    'name = "'+$("#VecName").val()+'",'+
-                    'label = "'+$("#VecLabel").val()+'",'+
-                    'coords = {'+
-                        'enter = vector4('+$("#VecX").val()+', '+$("#VecY").val()+', '+$("#VecZ").val()+', '+$("#VecH").val()+'),'+
-                    '},'+
-                    'pos = {top = '+$("#BlipTop").val()+', left = '+$("#BlipLeft").val()+'},'+
-                '},';
-    copyToClipboard(source)
-    CloseAddCoord()
-});
-
-$(document).on('click', '.SpawnBTN', function(e){
-    e.preventDefault();
-    let source = '["'+$("#VecName").val()+'"] = {'+
-                    'coords = vector4('+$("#VecX").val()+', '+$("#VecY").val()+', '+$("#VecZ").val()+', '+$("#VecH").val()+'),'+
-                    'location = "'+$("#VecName").val()+'",'+
-                    'label = "'+$("#VecLabel").val()+'",'+
-                    'pos = {top = '+$("#BlipTop").val()+', left = '+$("#BlipLeft").val()+'},'+
-                '},';
-    copyToClipboard(source)
-    CloseAddCoord()
-});
-
-$('.dropdown').click(function () {
-    $(this).attr('tabindex', 1).focus();
-    $(this).toggleClass('active');
-    $(this).find('.dropdown-menu').slideToggle(300);
-});
-
-$('.dropdown').focusout(function () {
-    $(this).removeClass('active');
-    $(this).find('.dropdown-menu').slideUp(300);
-});

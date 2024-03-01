@@ -1,386 +1,171 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Bebas Neue');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 .container {
-    font-family: 'Bebas Neue';
-    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
 }
-
-.Stylecontainer{
-    display: none;
-    background: #1f3836;
-    max-width: auto;
-    max-height: auto;
-    object-fit: cover;
-    overflow: hidden;
-}
-
-.MapStyle{
-    height: 110%;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+ 
+.spawn-locations {
+    text-transform: uppercase;
     position: absolute;
-    overflow: hidden;
+    top: 10vh;
+    left: 10vh;
+    background: linear-gradient(-45deg, #351c1ca1, #2b1010ab,#270505a6,#2c0808a1,#290202b0);
+    background-size: 400% 400%;
+    border-radius: .8vh;
+    padding: 30px;
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(var(--angle), #dc143c,#c3252500,#c3252500,#c3252500,#dc143c) 1;
+    animation:5s rotate linear infinite, shake-slow2 30s ease-in-out infinite;
+}
+
+
+.location {
+    width: 30vh;
+    height: 4.5vh;
+    margin-bottom: 2vh;
+    transition: 0.2s;
+    transition: .1s linear;
+    border-radius: .3vh;
 
 }
 
-.choose{
-    position: absolute;
-    height: 4.3vh;
-    width: 33%;
-    margin-top: 42px;
-    margin-left: -155px;
-    color: white;
-    font-family: 'Bebas Neue';
-    line-height: 5.4vh;
-    font-weight: 200;
-    font-size: 30px;
+.location > p {
+    position: relative;
+    color: #ededed;
     text-align: center;
-    overflow: hidden;
-
+    line-height: 4.5vh;
+    font-size: 1.8vh;
 }
 
-.spawn{ 
-    position: absolute;
-    height: 4.3vh;
-    width: 33%;
-    margin-top: 90px;
-    margin-left: -88px;
-    color: #ff0;
-    font-family: 'Bebas Neue';
-    line-height: 5.4h;
-    font-weight: 200;
-    font-size: 90px;
-    text-align: center;
-    overflow: hidden;
-
+.location:hover {
+    border: 2px solid;
+    border-image: linear-gradient(var(--angle), #dc143c,#c3252500,#c3252500,#c3252500,#dc143c) 1;
+    animation: blinkxd 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite,5s rotate linear infinite, shake-slow2 30s ease-in-out infinite;
+    background-color: rgb(0, 0, 0, 0.3);
+    transition: 0.2s;
 }
 
 .selected {
-    color: whitesmoke !important;
-    transition: 0.15s;
-}
-.selected:hover {
-    color: whitesmoke !important;
-}
-
-.spawn-locations-new{
-    width: 100%;
-    height: 100%;
+    border: 3px solid;
+    border-image: linear-gradient(var(--angle), #dc143c,#c3252500,#c3252500,#c3252500,#dc143c) 1;
+    animation: blinkxd 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite,8s rotate linear infinite, shake-slow1 10s ease-in-out infinite;
+    background-color: rgb(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px #ff0c0c8f !important;
 }
 
-.IconClassStyle{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    color: rgb(255, 0, 0);
-    font-size: 3.4vh;
-    transition: 0.15s;
-    animation: hithere 1s ease infinite;
+.submit-spawn {
+    animation:gradient 10s ease infinite,8s rotate linear infinite;
+    border-radius: 4px;
+    width: 28vh;
+    height: 4.5vh;
+    margin-bottom: .75vh;
+    transition: 0.2s;
+    border-radius: .3vh;
+    box-shadow: 0 0 10px #ff0c0c8f !important;
+    background: linear-gradient(-45deg, #be4b62c2, #bb324ec9,#a71b37c0,#d3163cc4,#ff0033c4);
+    background-size: 400% 400%;
 }
 
-.IconClassStyle:hover{
-    color: whitesmoke;
+.submit-spawn > p {
+    position: relative;
+    color: white;
+    text-align: center;
+    line-height: 4.5vh;
+    font-size: 1.6vh;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
-@keyframes hithere {
+.submit-spawn:hover {
+    animation:0.4s rotate linear infinite,gradient 15s ease infinite;
+
+    border:2px solid black;
+    box-shadow: 0 0 30px #0cffe38f !important;
+    background-color: rgb(190, 0, 0);
+    transition: 0.2s;
+    background: linear-gradient(-45deg, #be4b62c2, #bb324ec9,#a71b37c0,#d3163cc4,#ff0033c4);
+    background-size: 400% 400%;
+    border-image: linear-gradient(var(--angle), #dc143c,#c3252500,#c3252500,#c3252500,#dc143c) 1;
+}
+
+#spawn-label {
+    color: #ededed;
+    font-weight: bold;
+}
+
+.loclabel {
+    width: 28vh;
+    height: 4vh;
+    transition: 0.2s;
+}
+
+.loclabel > p {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    position: relative;
+    color: #ededed;
+    text-align: center;
+    font-size: 1.5vh;
+}
+
+
+@keyframes shake-slow{
+    0%{transform:translate(0, 0) rotate(0)}
+    15%{transform:translate(4px, 2px) rotate(-.1deg)}
+    30%{transform:translate(3px, -5px) rotate(0.5deg)}
+    50%{transform:translate(4px, -3px) rotate(-.5deg)}
+    70%{transform:translate(-3px, 3px) rotate(1.2deg)}
+    85%{transform:translate(-3px, 3px) rotate(1.2deg)}
+    100%{transform:translate(0, 0) rotate(0)}
+
+}
+
+@keyframes shake-slow2{
+    0%{transform:translate(0, 0) rotate(0) perspective(1600px) rotateY(30deg)}
+    15%{transform:translate(4px, 2px) rotate(-.1deg) perspective(1600px) rotateY(30deg)}
+    30%{transform:translate(3px, -5px) rotate(0.5deg) perspective(1600px) rotateY(30deg)}
+    50%{transform:translate(4px, -3px) rotate(-.5deg) perspective(1600px) rotateY(30deg)}
+    70%{transform:translate(-3px, 3px) rotate(1.2deg) perspective(1600px) rotateY(30deg)}
+    85%{transform:translate(-3px, 3px) rotate(1.2deg) perspective(1600px) rotateY(30deg)}
+    100%{transform:translate(0, 0) rotate(0) perspective(1600px) rotateY(30deg)}
+
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes blinkxd {
     0% {
-    transform: scale(0.3, 0.3);
+        filter: brightness(0.75)
     }
     50% {
-    transform: scale(0.8, 0.8);
+        filter: brightness(1.75)
     }
     100% {
-    transform: scale(0.3, 0.3);
+        filter: brightness(0.75)
     }
 }
 
-.IconClassStyle2{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    color: red;
-    font-size: 2.4vh;
-    text-shadow: 0px 2px 2px black;
-    transition: 0.15s;
-    animation: hithere 1s ease infinite;
-}
-
-.IconClassStyle2:hover{
-    color: white;
-}
-
-.BtnBodyClass{
-    position: absolute;
-    display: block;
-    bottom: 0%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 20%;
-    padding: 0.6% 0;
-    text-align: center;
-    font-family: 'Bebas Neue';
-    font-weight: 200;
-    font-size: 2.5vh;
-    text-shadow: 0 0 20px white;
-}
-
-.BTNStyleForSelect{
-    display: inline-block;
-    border-radius: 10px;
-    color: black; 
-    padding: 2%;
-    box-shadow: 1px 1px 6px rgba(5, 5, 5, 0.152);
-    transition: 0.25s;
-    font-weight: bold;
-    font-size: 1.4vh;
-}
-
-.GreenBTN{
-   	position: absolute;
-    width: 181px;
-    height: 1.px;
-    right: 5.0vh;
-    top: 85.0vh;
-    text-align: center;
-    background-color: white;
-    font-family: 'Bebas Neue';
-    font-weight: 200;
-    line-height: .5vh;
-    font-size: 5vh;
-    color: #1f3836;
-    cursor: pointer; 
-    overflow: hidden;
-    outline: 0;
-    transition: all .3s ease-out;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px white;
-}
-
-
-
-.GreenBTN:hover{
-   position: absolute;
-    width: 180px;
-    height: 0.2px; 
-    right: 5.0vh;
-    top: 85.0vh;
-    text-align: center;
-    line-height: .5vh;
-    font-family: 'Bebas Neue';
-    font-weight: 200;
-    font-size: 3.4vh;
-    color: #1f3836;
-    cursor: pointer; 
-    overflow: hidden;
-    outline: 0;
-    transition: all .3s ease-out;
-    text-transform: uppercase;
-}
-
-.RedBTN{
-    position: absolute;
-    width: 181px;
-    height: 70%;
-    right: 5.0vh;
-    top: 5vh;
-    background-color: #1f3836 !important;
-    text-align: center;
-    font-family: 'Bebas Neue';
-    font-weight: 300;
-    font-size: 4vh;
-    color: white;
-    cursor: pointer; 
-    overflow: hidden;
-    outline: 0;
-    transition: all .3s ease-out;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px white;
-}
-
-.RedBTN:hover{
-    background: #d5af49;
-}
-
-.LastBTN{
-    position: absolute;
-    width: 180px;
-    height: 0.2px; 
-    right: 30.0vh;
-    top: 85.1vh;
-    text-align: center;
-    background-color: white !important;
-    line-height: .5vh;
-    font-family: 'Bebas Neue';
-    font-weight: 200;
-    font-size: 3.4vh;
-    color: #1f3836;
-    cursor: pointer; 
-    border: 2px solid white;
-    overflow: hidden;
-    outline: 0;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px white;
-}
-
-.LastBTN:hover{
-    text-shadow: 0 0 20px #1f3836;
-   
-}
-
-.SelectLoc-Border-Btn{
-    margin: 4% 10%;
-    width: 80%;
-    border-bottom: 0.3vh solid  white;
-}
-
-.AddCoord{
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-
-.AddCoordBody{
-    position: absolute;
-    display: block;
-    top: 5%;
-    left: 1%;
-    z-index: 1;
-    width: 15%;
-    background: #202731;
-    padding: 0.6%;
-    box-shadow: 1px 1px 6px rgb(5, 5, 5);
-    color: whitesmoke;
-    font-family: sans-serif;
-    font-size: 1.8vh;
-    border-radius: 5px;
-}
-
-.StyleTextBTNN{
-    display: inline;
-}
-
-.InputStule{
-    position: relative;
-    margin-left: 1%;
-    margin-bottom: 5%;
-    width: 82%;
-    border: none;
-    background: none;
-    outline: none;
-    text-indent: 1vh;
-    text-align: left;
-    line-height: 3.9vh;
-    font-size: 1.75vh;
-    overflow: hidden;
-    color: white;
-    border-bottom: .1vh solid #f5f5f5ad;
-    transition: 0.25s;
-}
-
-.InputStule:focus {
-    border-bottom: .1vh solid #8ee074;
-}
-
-.InputStule::-webkit-inner-spin-button {
-    display: none;
-}
-
-.AddBlipForMap{
-    width: 100%;
-    height: 100%;
-}
-
-.BTNStyleForCopy{
-    display: inline-block;
-    border-radius: 10px;
-    color: black;
-    padding: 2%;
-    margin: 1% 0;
-    box-shadow: 1px 1px 6px rgba(5, 5, 5, 0.152);
-    transition: 0.25s;
-    font-weight: bold;
-    font-size: 1.4vh;
-    width: 85%;
-}
-
-.ApartBTN{
-    background: #44cafa;
-}
-.ApartBTN:hover{
-    background: #3aaad3;
-}
-
-.SpawnBTN{
-    background: #8ee074;
-}
-.SpawnBTN:hover{
-    background: #6cac59;
-}
-
-.CloseBTN{
-    background: #f5a15b;
-}
-.CloseBTN:hover{
-    background: #c27e47;
-}
-
-.dropdown {
-    transition: all .5s ease;
-    outline: none;
-    font-size: 2vh;
-    color: black;
-}
-
-.dropdown .select {
-    cursor: pointer;
-    display: block;
-}
-
-.dropdown .select > i {
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-    float: right;
-}
-
-.dropdown.active .select > i {
-    transform: rotate(-90deg)
-}
-
-.dropdown .dropdown-menu {
-    position: absolute;
-    width: auto;
-    overflow: auto;
-    display: none;
-    height: 100%;
-    overflow-y: scroll;
-    align-items: center;
-    z-index: 9;
-    margin-top: 2rem;
-}
-
-.dropdown .dropdown-menu li {
-    width: auto;
-    height: auto;
-    align-items: center;
-    font-size: 2vh;
-    text-decoration: none;
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-    border-bottom: .1vh solid #f5f5f5;
-    margin-top: 20px;
-}
-
-.dropdown .dropdown-menu {
-    list-style: none
-}
-
-.dropdown .dropdown-menu li:hover {
-    text-shadow: 0 0 20px white;
-}
-
-.dropdown .dropdown-menu li:active {
-    background-color: #00000093;
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
