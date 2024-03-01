@@ -56,7 +56,7 @@ CreateThread(function()
 				if CheckWeapon(newWeap) then
 					if holstered then
 						job = QBCore.Functions.GetPlayerData().job.name
-						if job == "police" or job == "security" or job == "ambulance" then
+						if job == "bcso" or job == "security" or job == "ambulance" then
 							canFire = false
 							currentHoldster = GetPedDrawableVariation(ped, 7)
 							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
@@ -79,7 +79,7 @@ CreateThread(function()
 							canFire = true
 						end
 					elseif newWeap ~= currWeapon and CheckWeapon(currWeapon) then
-						if job == "police" or job == "security" or job == "ambulance" then
+						if job == "bcso" or job == "security" or job == "ambulance" then
 							canFire = false
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
 							Wait(500)
@@ -108,7 +108,7 @@ CreateThread(function()
 							canFire = true
 						end
 					else
-						if job == "police" or job == "security" or job == "ambulance" then
+						if job == "bcso" or job == "security" or job == "ambulance" then
 							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
 							currentHoldster = GetPedDrawableVariation(ped, 7)
 							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
@@ -133,7 +133,7 @@ CreateThread(function()
 					end
 				else
 					if not holstered and CheckWeapon(currWeapon) then
-						if job == "police" or job == "security" or job == "ambulance" then
+						if job == "bcso" or job == "security" or job == "ambulance" then
 							canFire = false
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
 							Wait(500)
