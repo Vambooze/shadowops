@@ -449,6 +449,16 @@ Config.Items = {
             slot = 17,
             authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
+        },
+        [18] = {
+            name = "leo-gps",
+            price = 0,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 18,
+            authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
+            quick = {equip = false, amount = 1}
         }
     }
 }
