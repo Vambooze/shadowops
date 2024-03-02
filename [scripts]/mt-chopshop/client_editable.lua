@@ -93,13 +93,13 @@ function makeProp(data, freeze, synced)
 end
 
 function PoliceAlert()
-    local chance = 75
+    local chance = 99
     if Attempt == false then
         if GetClockHours() >= 0 and GetClockHours() <= 6 then
-            chance = 50
+--            chance = 50
         end
         if math.random(1, 100) <= chance then
-            TriggerServerEvent('police:server:policeAlert', 'VEHICLE DISMANTLE ALERT!!')
+            exports['ps-dispatch']:SuspiciousActivity()
             Attempt = true
         end
     end

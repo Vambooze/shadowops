@@ -75,7 +75,7 @@ end)
 -- Police Alert
 
 function policeAlert()
-	 exports['ps-dispatch']:SuspiciousActivity()
+    exports['ps-dispatch']:Warehouse()
 	-- TriggerServerEvent('police:server:policeAlert', 'Bobcat Robbery') -- Regular qbcore
     -- These are just examples, you'll have to implement your own police alert system!
 end 

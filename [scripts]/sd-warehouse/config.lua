@@ -43,11 +43,9 @@ Config.Box1 = {
 }
 
 Config.Box2 = {
-    "weapon_smg",
-    "weapon_microsmg",
     "weapon_pistol50",
     "heavyarmor",
-    "weapon_smokegrenade"
+    "10kgoldchain"
 }
 
 Config.Box3 = {
@@ -66,7 +64,7 @@ Config.Box4 = {
 
 Config.Box5 = {
     "weapon_smg",
-    "weapon_microsmg",
+    "security_card_01",
     "weapon_pistol50",
     "heavyarmor"
 

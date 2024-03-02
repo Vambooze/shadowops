@@ -348,6 +348,26 @@ local function YachtHeist()
 end
 exports('YachtHeist', YachtHeist)
 
+local function Warehouse()
+    local coords = GetEntityCoords(cache.ped)
+
+    local dispatchData = {
+        message = locale('Warehouse'),
+        codeName = 'Warehouse',
+        code = '10-65',
+        icon = 'fas fa-house',
+        priority = 2,
+        coords = coords,
+        gender = GetPlayerGender(),
+        street = GetStreetAndZone(coords),
+        alertTime = nil,
+        jobs = { 'leo', 'bcso' }
+    }
+
+    TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
+end
+exports('Warehouse', Warehouse)
+
 local function DrugSale()
     local coords = GetEntityCoords(cache.ped)
 
@@ -462,6 +482,7 @@ local function OfficerDown()
         codeName = 'officerdown',
         code = '10-99',
         icon = 'fas fa-skull',
+        sound = 'panicbutton',
         priority = 1,
         coords = coords,
         gender = GetPlayerGender(),

@@ -158,6 +158,7 @@ Config.Blips = {
         scale = 1.5,
         length = 2,
         sound = 'panicbutton',
+        sound2 = 'GTAO_FM_Events_Soundset',
         offset = false,
         flash = true
     },
@@ -294,6 +295,17 @@ Config.Blips = {
         sound = 'robberysound',
         offset = false,
         flash = false
+    },
+    ['Warehouse'] = {
+        radius = 0,
+        sprite = 40,
+        color = 5,
+        scale = 1.5,
+        length = 2,
+        sound = 'Lose_1st',
+        sound2 = 'GTAO_FM_Events_Soundset',
+        offset = false,
+        flash = true
     },
     ['vehicletheft'] = {
         radius = 0,
