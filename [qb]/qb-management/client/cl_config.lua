@@ -4,11 +4,11 @@ Config = Config or {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
 
 Config.BossMenus = {
-    ['police'] = {
-        vector3(461.45, -986.2, 30.73),
+    ['bcso'] = {
+        vector3(364.43, -1583.07, 33.84),
     },
     ['ambulance'] = {
-        vector3(335.46, -594.52, 43.28),
+        vector3(197.25, -1658.61, 34.48),
     },
     ['realestate'] = {
         vector3(-716.11, 261.21, 84.14),
@@ -25,10 +25,10 @@ Config.BossMenus = {
 }
 
 Config.BossMenuZones = {
-    ['police'] = {
-        { coords = vector3(447.23, -974.3, 31.47), length = 1.35, width = 1.45, heading = 351.0, minZ = 30.00, maxZ = 31.73 }, },
+    ['bcso'] = {
+        { coords = vector3(364.43, -1583.07, 33.84), length = 1.35, width = 1.45, heading = 215.73, minZ = 31.00, maxZ = 35.73 }, },
     ['ambulance'] = {
-        { coords = vector3(335.46, -594.52, 43.28), length = 1.2, width = 0.6, heading = 341.0, minZ = 43.13, maxZ = 43.73 },
+        { coords = vector3(197.25, -1658.61, 34.48), length = 1.2, width = 0.6, heading = 51.05, minZ = 32.13, maxZ = 35.73 },
     },
     ['realestate'] = {
         { coords = vector3(-716.11, 261.21, 84.14), length = 0.6, width = 1.0, heading = 25.0, minZ = 83.943, maxZ = 84.74 },
