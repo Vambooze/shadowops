@@ -272,7 +272,7 @@ Config.Items = {
             quick = {equip = true, amount = 1}
         },
         [2] = {
-            name = "weapon_fnx45",
+            name = "weapon_pistol_mk2",
             price = 0,
             amount = 1,
             info = {
@@ -282,7 +282,7 @@ Config.Items = {
                 }
             },
             type = "weapon",
-            slot = 1,
+            slot = 2,
             authorizedJobGrades = {2, 3, 4, 7},
             quick = {equip = true, amount = 1}
         },
@@ -294,7 +294,7 @@ Config.Items = {
                 serie = "",
             },
             type = "weapon",
-            slot = 2,
+            slot = 3,
             authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6, 7},
             quick = {equip = true, amount = 1}
         },
@@ -309,7 +309,7 @@ Config.Items = {
                 }
             },
             type = "weapon",
-            slot = 3,
+            slot = 4,
             authorizedJobGrades = {2, 3, 4, 5, 6, 7},
             quick = {equip = false, amount = 1}
         },
