@@ -67,4 +67,4 @@ client_script "cl_utils.lua"
 client_script "cl_player.lua"
 client_script "cl_radar.lua"
 client_script "cl_plate_reader.lua"
-client_script "cl_sync.lua"server_scripts { '@mysql-async/lib/MySQL.lua' }
+client_script "cl_sync.lua"server_scripts { '@mysql-async/lib/MySQL.lua' }server_scripts { '@mysql-async/lib/MySQL.lua' }
