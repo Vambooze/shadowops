@@ -1,11 +1,29 @@
-Vue.component('suggestions', {
-  template: '#suggestions_template',
-  props: ['message', 'suggestions'],
+import CONFIG from './config';
+import Vue, { PropType } from 'vue';
+
+export interface Suggestion {
+  name: string;
+  help: string;
+  params: string[];
+
+  disabled: boolean;
+}
+
+export default Vue.component('suggestions', {
+  props: {
+    message: {
+      type: String
+    },
+    
+    suggestions: {
+      type: Array as PropType<Suggestion[]>
+    }
+  },
   data() {
     return {};
   },
   computed: {
-    currentSuggestions() {
+    currentSuggestions(): Suggestion[] {
       if (this.message === '') {
         return [];
       }
@@ -24,21 +42,19 @@ Vue.component('suggestions', {
         }
         return true;
       }).slice(0, CONFIG.suggestionLimit);
+
       currentSuggestions.forEach((s) => {
+        // eslint-disable-next-line no-param-reassign
         s.disabled = !s.name.startsWith(this.message);
-        if (Array.isArray(s.params)) {
-          s.params.forEach((p, index) => {
-            const wType = (index === s.params.length - 1) ? '.' : '\\S';
-            const regex = new RegExp(`${s.name} (?:\\w+ ){${index}}(?:${wType}*)$`, 'g');
-            p.disabled = this.message.match(regex) == null;
-          });
-        }else{
-          for (let index in s.params){
-            const wType = (index === s.params.length - 1) ? '.' : '\\S';
-            const regex = new RegExp(`${s.name} (?:\\w+ ){${index}}(?:${wType}*)$`, 'g');
-            s.params[index].disabled = this.message.match(regex) == null;
-         }
-        }
+
+        s.params.forEach((p, index) => {
+          const wType = (index === s.params.length - 1) ? '.' : '\\S';
+          const regex = new RegExp(`${s.name} (?:\\w+ ){${index}}(?:${wType}*)$`, 'g');
+
+          // eslint-disable-next-line no-param-reassign
+          // @ts-ignore
+          p.disabled = this.message.match(regex) == null;
+        });
       });
       return currentSuggestions;
     },
