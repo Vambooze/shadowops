@@ -10,7 +10,7 @@ Config.UseESX = false
 Config.UseQBUS = true
 
 --Required Job To Use The FireHose
-Config.JobName = "firefighter"
+Config.JobName = "ambulance"
 
 --Standalone identifier whitelist
 --Set UseWhitelist To True To Use The Whitelist

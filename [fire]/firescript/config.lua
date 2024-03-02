@@ -15,7 +15,7 @@ Config.Fire = {
         chance = 50, -- Fire spawn chance (out of 100 chances, how many lead to spawning a fire?); Set to values between 1-100
         players = 1, -- Sets the minimum number of players subscribed to dispatch for the spawner to spawn fires.
         firefighterJobs = { -- If using ESX (Config.Dispatch.enableESX), you can specify which players will count as firefighters in Config.Fire.spawner.players above; If not using ESX you can set this to nil
-            ["firefighter"] = true -- Always set the job name in the key, value has to be true
+            ["ambulance"] = true -- Always set the job name in the key, value has to be true
         }
     }
 }
