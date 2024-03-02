@@ -430,34 +430,7 @@ RegisterNetEvent("jim-mechanic:client:Garage:Blip", function(data)
 end)
 
 Config.Locations = {
-	-- BENNYS NEXT TO PDM --
-	{	job = "mechanic",
-		zones = {
-			vec2(-39.657638549805, -1026.12890625),
-			vec2(-54.971218109131, -1066.3665771484),
-			vec2(-20.210899353027, -1079.1593017578),
-			vec2(-6.8900542259216, -1038.0417480469),
-		},
-		autoClock = { enter = false, exit = false, },
-		stash = { { coords = vec4(-40.9, -1056.62, 28.4, 70.0), w = 3.6, d = 0.6 }, },
-		store = { { coords = vec4(-37.53, -1036.11, 28.6, 340.0), w = 1.6, d = 0.6 }, },
-		crafting = { { coords = vec4(-38.25, -1038.99, 28.6, 340.0), w = 4.0, d = 0.6 }, },
-		clockin = { { coords = vec4(-34.95, -1040.71, 28.59, 8.0), prop = true, }, },
-		manualRepair = { { coords = vec4(-45.11, -1048.54, 28.4, 249.94), prop = true, } },
-		garage = { spawn = vec4(-49.14, -1031.25, 27.76, 339.67),
-					out = vec4(-42.38, -1035.11, 28.52, 68.01),
-					list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" },
-					prop = true, },
-		payments = { coords = vec4(-35.91, -1040.47, 28.6, 340.0),
-			img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/b/be/BennysOriginalMotorWorks-GTAO-Logo.png width=150px></p>",
-			prop = true, },
-		blip = vec3(-43.05, -1043.99, 28.76),
-		bliplabel = "Bennys Workshop",    -- Bennys Workshop next to PDM
-		blipcolor = 1,
-		discordlink = "",
-		discordcolour = 16711680,
-		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/b/be/BennysOriginalMotorWorks-GTAO-Logo.png",
-	},
+	
 	-- ALTA STREET BENNYS --
 	{	job = "mechanic",
 		zones = {
@@ -517,35 +490,7 @@ Config.Locations = {
 		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png",
 	},
 	-- HAYES AUTOS --
-	{	job = "mechanic",
-		zones = {
-			vec2(490.57400512695, -1302.0946044922),
-			vec2(490.27529907227, -1305.3948974609),
-			vec2(509.71032714844, -1336.8293457031),
-			vec2(483.09429931641, -1339.0887451172),
-			vec2(479.38552856445, -1330.6906738281),
-			vec2(469.89437866211, -1309.5773925781)
-		},
-		autoClock = { enter = false, exit = false, },
-		stash = { { coords = vec4(478.84, -1326.94, 29.21, 27.0), w = 1.6, d = 0.6, }, },
-		store = { { coords = vec4(474.83, -1308.06, 29.21, 295.0), w = 1.6, d = 0.5, }, },
-		crafting = { { coords = vec4(472.54, -1313.22, 29.21, 30.0), w = 3.2, d = 1.0, }, },
-		clockin = { { coords = vec4(471.51, -1310.97, 29.22, 23.0), w = 0.45, d = 0.4, }, },
-		manualRepair = { { coords = vec4(483.51, -1302.66, 29.3, 180.38), prop = true, } },
-		garage = { spawn = vec4(487.67, -1308.78, 28.6, 233.44),
-					out = vec4(483.06, -1311.35, 29.21, 298.78),
-					list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" },
-					prop = true },
-		payments = { coords = vec4(485.88, -1319.49, 29.11, 284.0),
-			img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/0/0c/HayesAutoBodyShop-GTAV-Logo.png width=150px></p>",
-			prop = true },
-		blip = vec3(480.52, -1318.24, 29.2),
-		bliplabel = "Hayes Autos",
-		blipcolor = 57,
-		discordlink = "",
-		discordcolour = 39135,
-		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/0/0c/HayesAutoBodyShop-GTAV-Logo.png",
-	},
+	
 	-- LS CUSTOMS ROUTE 68 --
 	{	job = "mechanic",
 		zones = {
@@ -603,40 +548,7 @@ Config.Locations = {
 		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/4/40/Beeker%27s_logo_GTA_V.png",
 	},
 	-- GABZ LS TUNER SHOP --
-	{	job = "mechanic",
-		zones = {
-			vec2(154.69816589355, -3007.0153808594),
-			vec2(120.64015197754, -3006.7275390625),
-			vec2(120.48593902588, -3051.8874511719),
-			vec2(154.61296081543, -3051.5419921875)
-		},
-		autoClock = { enter = true, exit = true, },
-		stash = {
-			{ coords = vec4(144.38, -3051.3, 7.04, 0.0), w = 0.6, d = 3.6, },
-			{ coords = vec4(128.45, -3007.83, 7.04, 0.0), w = 2.4, d = 3.5, },
-		},
-		store = { { coords = vec4(128.64, -3014.68, 7.04, 0.0), w = 1.6, d = 3.0, }, },
-		crafting = { { coords = vec4(136.71, -3051.29, 7.04, 0.0), w = 0.6, d = 1.0, }, },
-		clockin = {
-			{ coords = vec4(145.29, -3012.93, 6.94, 86.0), prop = true, },
-			{ coords = vec4(125.55, -3007.25, 6.94, 350.0), w = 0.4, d = 0.45, },
-		},
-		manualRepair = { { coords = vec4(121.0, -3047.69, 7.04, 270.11), prop = true, } },
-		nosrefill = { { coords = vec4(121.17, -3044.73, 7.04, 268.96) } },
-		garage = { spawn = vec4(163.22, -3009.31, 5.27, 89.72),
-					out = vec4(157.37, -3016.57, 7.04, 179.58),
-					list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" },
-					prop = true, },
-		payments = { coords = vec4(146.44, -3014.09, 6.94, 195.0),
-			img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png width=150px></p>",
-			prop = true, },
-		blip = vec3(139.91, -3023.83, 7.04),
-		bliplabel = "LS Tuner Shop",
-		blipcolor = 81,
-		discordlink = "",
-		discordcolour = 2571775,
-		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png",
-	},
+	
 	-- AIRPORT LS CUSTOMS --
 	{	job = "mechanic",
 		zones = {
@@ -666,34 +578,7 @@ Config.Locations = {
 		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png",
 	},
 	-- POPULAR STREET LS CUSTOMS --
-	{	job = "mechanic",
-		zones = {
-			vec2(712.07940673828, -1092.9447021484),
-			vec2(712.08245849609, -1052.4462890625),
-			vec2(767.2265625, -1053.3394775391),
-			vec2(770.71307373047, -1113.0911865234),
-			vec2(741.73657226562, -1108.9860839844)
-		},
-		autoClock = { enter = false, exit = false, },
-		stash = { { coords = vec4(736.25, -1063.52, 22.17, 87.0), w = 3.2, d = 0.6, heading = 87.0 }, },
-		store = { { coords = vec4(738.35, -1073.36, 22.17, 359.0), w = 3.8, d = 0.6, heading = 359.0 }, },
-		crafting = { { coords = vec4(724.49, -1075.09, 22.17, 91.0), w = 0.8, d = 1.0, heading = 91.0 }, },
-		clockin = { { coords = vec4(738.26, -1087.66, 21.97, 276.0), prop = true, }, },
-		manualRepair = { { coords = vec4(732.89, -1093.79, 22.17, 351.08), prop = true, } },
-		garage = { spawn = vec4(716.22, -1069.58, 21.6, 1.08),
-					out = vec4(719.63, -1068.84, 22.24, 89.2),
-					list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" },
-					prop = true },
-		payments = { coords = vec4(738.34, -1090.52, 21.97, 220.0),
-			img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png width=150px></p>",
-			prop = true, },
-		blip = vec3(731.69, -1088.84, 22.17),
-		bliplabel = "Los Santos Customs",
-		blipcolor = 81,
-		discordlink = "",
-		discordcolour = 2571775,
-		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png",
-	},
+	
 	-- LA MESA IMPORT SHOP --
 	{   job = "mechanic",
 		zones = {
@@ -741,32 +626,7 @@ Config.Locations = {
 	-- OTTOS AUTOS --
 
 	-- HAYES AUTOS --
-	{   job = "mechanic",
-		zones = {
-			vec2(-1439.9047851563, -443.4548034668),
-			vec2(-1426.0206298828, -466.5227355957),
-			vec2(-1400.1343994141, -451.71572875977),
-			vec2(-1414.7999267578, -427.64019775391)
-		},
-		autoClock = { enter = false, exit = false, },
-		stash = { { coords = vec4(-1414.94, -452.35, 35.91, 302.0), w = 4.0, d = 1.0, }, },
-		store = { { coords = vec4(-1408.04, -448.04, 35.91, 302.0), w = 5.5, d = 1.0, }, },
-		crafting = { { coords = vec4(-1407.68, -442.32, 35.91, 302.0), w = 0.6, d = 1.0, }, },
-		clockin = { { coords = vec4(-1427.19, -457.51, 35.71, 300.0), prop = true, }, },
-		manualRepair = { { coords = vec4(-1421.91, -455.41, 35.91, 33.32), prop = true, } },
-		garage = { spawn = vec4(-1379.84, -451.82, 34.44, 124.0),
-					out = vec4(-1401.57, -451.19, 34.48, 212.71),
-					list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" } },
-		payments = { coords = vec4(-1429.02, -453.6, 35.97, 350.0),
-			img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/0/0c/HayesAutoBodyShop-GTAV-Logo.png width=150px></p>",
-			prop = true, },
-		blip = vec3(-1417.12, -445.9, 35.91),
-		bliplabel = "Hayes Autos",
-		blipcolor = 57,
-		discordlink = "",
-		discordcolour = 39135,
-		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/0/0c/HayesAutoBodyShop-GTAV-Logo.png",
-	},
+	
 }
 
 AddEventHandler('onResourceStop', function(r) if r ~= GetCurrentResourceName() then return end

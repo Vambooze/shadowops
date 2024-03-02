@@ -561,20 +561,16 @@ Config.Stores = {
 
 Config.ClothingRooms = {
     {
-        job = "police",
-        coords = vector4(454.91, -990.89, 30.69, 193.4),
+        job = "bcso",
+        coords = vector4(368.31, -1602.43, 29.29, 333.05),
         size = vector3(4, 4, 4),
         rotation = 45,
         usePoly = false,
         points = {
-            vector3(460.41918945312, -993.11444091797, 30.69),
-            vector3(449.39508056641, -993.60614013672, 30.69),
-            vector3(449.88696289062, -990.23779296875, 30.69),
-            vector3(450.97882080078, -989.71411132812, 30.69),
-            vector3(451.0325012207, -987.89904785156, 30.69),
-            vector3(453.47863769531, -987.76928710938, 30.69),
-            vector3(454.35513305664, -988.46459960938, 30.69),
-            vector3(460.4231262207, -987.94573974609, 30.69)
+            vector3(365.08, -1601.01, 29.29),
+            vector3(366.48, -1599.36, 29.29),
+            vector3(371.70, -1603.68, 29.29),
+            vector3(370.17, -1605.36, 29.29)
         }
     }
 }
@@ -601,92 +597,386 @@ Config.PlayerOutfitRooms = {
 }
 
 Config.Outfits = {
-    ["police"] = {
+    ["bcso"] = {
         ["Male"] = {
             {
-                name = "Short Sleeve",
+                name = "Short Sleeve Patrol", -- Deputy
                 outfitData = {
-                    ["pants"] = {item = 24, texture = 0}, -- Pants
-                    ["arms"] = {item = 19, texture = 0}, -- Arms
-                    ["t-shirt"] = {item = 58, texture = 0}, -- T Shirt
-                    ["vest"] = {item = 0, texture = 0}, -- Body Vest
-                    ["torso2"] = {item = 55, texture = 0}, -- Jacket
-                    ["shoes"] = {item = 51, texture = 0}, -- Shoes
-                    ["accessory"] = {item = 0, texture = 0}, -- Neck Accessory
-                    ["bag"] = {item = 0, texture = 0}, -- Bag
-                    ["hat"] = {item = -1, texture = -1}, -- Hat
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
-                    ["mask"] = {item = 0, texture = 0} -- Mask
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 174, texture = 0}
                 },
-                grades = {0, 1, 2, 3, 4},
+                grades = {0},
             },
             {
-                name = "Trooper Tan",
+                name = "Short Sleeve Patrol", -- --SrDeputy
                 outfitData = {
-                    ["pants"] = {item = 24, texture = 0}, -- Pants
-                    ["arms"] = {item = 20, texture = 0}, -- Arms
-                    ["t-shirt"] = {item = 58, texture = 0}, -- T Shirt
-                    ["vest"] = {item = 0, texture = 0}, -- Body Vest
-                    ["torso2"] = {item = 317, texture = 3}, -- Jacket
-                    ["shoes"] = {item = 51, texture = 0}, -- Shoes
-                    ["accessory"] = {item = 0, texture = 0}, -- Neck Accessory
-                    ["bag"] = {item = 0, texture = 0}, -- Bag
-                    ["hat"] = {item = 58, texture = 0}, -- Hat
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
-                    ["mask"] = {item = 0, texture = 0} -- Mask
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 174, texture = 1}
                 },
-                grades = {0, 1, 2, 3, 4},
+                grades = {1},
             },
             {
-                name = "Long Sleeve",
+                name = "Short Sleeve Patrol", --Corporal
                 outfitData = {
-                    ["pants"] = {item = 24, texture = 0}, -- Pants
-                    ["arms"] = {item = 20, texture = 0}, -- Arms
-                    ["t-shirt"] = {item = 58, texture = 0}, -- T Shirt
-                    ["vest"] = {item = 0, texture = 0}, -- Body Vest
-                    ["torso2"] = {item = 317, texture = 0}, -- Jacket
-                    ["shoes"] = {item = 51, texture = 0}, -- Shoes
-                    ["accessory"] = {item = 0, texture = 0}, -- Neck Accessory
-                    ["bag"] = {item = 0, texture = 0}, -- Bag
-                    ["hat"] = {item = -1, texture = -1}, -- Hat
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
-                    ["mask"] = {item = 0, texture = 0} -- Mask
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 174, texture = 3}
                 },
-                grades = {1, 2, 3, 4},
+                grades = {2},
             },
             {
-                name = "Trooper Black",
+                name = "Short Sleeve Patrol", --Sergeant
                 outfitData = {
-                    ["pants"] = {item = 24, texture = 0}, -- Pants
-                    ["arms"] = {item = 20, texture = 0}, -- Arms
-                    ["t-shirt"] = {item = 58, texture = 0}, -- T Shirt
-                    ["vest"] = {item = 0, texture = 0}, -- Body Vest
-                    ["torso2"] = {item = 317, texture = 8}, -- Jacket
-                    ["shoes"] = {item = 51, texture = 0}, -- Shoes
-                    ["accessory"] = {item = 0, texture = 0}, -- Neck Accessory
-                    ["bag"] = {item = 0, texture = 0}, -- Bag
-                    ["hat"] = {item = 58, texture = 3}, -- Hat
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
-                    ["mask"] = {item = 0, texture = 0} -- Mask
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 174, texture = 2}
                 },
-                grades = {2, 3, 4},
+                grades = {3},
             },
             {
-                name = "SWAT",
+                name = "Short Sleeve Patrol", --Lieutenant
                 outfitData = {
-                    ["pants"] = {item = 130, texture = 1}, -- Pants
-                    ["arms"] = {item = 172, texture = 0}, -- Arms
-                    ["t-shirt"] = {item = 15, texture = 0}, -- T Shirt
-                    ["vest"] = {item = 15, texture = 2}, -- Body Vest
-                    ["torso2"] = {item = 336, texture = 3}, -- Jacket
-                    ["shoes"] = {item = 24, texture = 0}, -- Shoes
-                    ["accessory"] = {item = 133, texture = 0}, -- Neck Accessory
-                    ["hat"] = {item = 150, texture = 0}, -- Hat
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
-                    ["mask"] = {item = 52, texture = 0} -- Mask
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 181, texture = 6}
                 },
-                grades = {3, 4},
-            }
+                grades = {4},
+            },
+            {
+                name = "Short Sleeve Patrol", --Captain
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 181, texture = 7}
+                },
+                grades = {5},
+            },
+            {
+                name = "Short Sleeve Patrol", --Undersheriff
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 181, texture = 10}
+                },
+                grades = {6},
+            },
+            {
+                name = "Short Sleeve Patrol", --Sheriff
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 513, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 180, texture = 0}
+                },
+                grades = {7},
+            },
+            {
+                name = "Long Sleeve Patrol", --Deputy
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 182, texture = 0}
+                },
+                grades = {0},
+            },
+            {
+                name = "Long Sleeve Patrol", --SrDeputy
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 182, texture = 1}
+                },
+                grades = {1},
+            },
+            {
+                name = "Jacket Patrol", --SrDeputy
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 507, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 182, texture = 1}
+                },
+                grades = {1, 2, 3, 4, 5, 6, 7},
+            },
+            {
+                name = "Polo Patrol", --SrDeputy
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 62, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 505, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 0, texture = 0}, -- Bag
+                    ["hat"] = {item = 197, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 0, texture = 0}
+                },
+                grades = {2, 3, 4, 5, 6, 7},
+            },
+            {
+                name = "Long Sleeve Patrol", --Corporal
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 182, texture = 3}
+                },
+                grades = {2},
+            },
+            {
+                name = "Supervisor Polo", --Corporal
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 12, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 62, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 497, texture = 2}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 0, texture = 0}
+                },
+                grades = {2, 3},
+            },
+            {
+                name = "Command Polo", --Corporal
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 12, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 62, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 497, texture = 8}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 0, texture = 0}
+                },
+                grades = {2, 3},
+            },
+            {
+                name = "Long Sleeve Patrol", --Sergeant
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 12, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 182, texture = 2}
+                },
+                grades = {3},
+            },
+            {
+                name = "Long Sleeve Patrol", --Lieutenant
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 178, texture = 6}
+                },
+                grades = {4},
+            },
+            {
+                name = "Long Sleeve Patrol", -- Captain
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 178, texture = 7}
+                },
+                grades = {5},
+            },
+            {
+                name = "Long Sleeve Patrol", --Undersheriff
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 178, texture = 10}
+                },
+                grades = {6},
+            },
+            {
+                name = "Long Sleeve Patrol", --Sheriff
+                outfitData = {
+                    ["pants"] = {item = 179, texture = 0}, -- Pants
+                    ["arms"] = {item = 11, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 38, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 64, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 516, texture = 0}, -- Jacket
+                    ["shoes"] = {item = 25, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 8, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 113, texture = 0}, -- Bag
+                    ["hat"] = {item = 196, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 178, texture = 11}
+                },
+                grades = {7},
+            },
+            {
+                name = "Sheriff Formal", --Sheriff
+                outfitData = {
+                    ["pants"] = {item = 28, texture = 0}, -- Pants
+                    ["arms"] = {item = 12, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 130, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 62, texture = 1}, -- Body Vest
+                    ["torso2"] = {item = 349, texture = 1}, -- Jacket
+                    ["shoes"] = {item = 9, texture = 2}, -- Shoes
+                    ["accessory"] = {item = 0, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 114, texture = 0}, -- Bag
+                    ["hat"] = {item = 0, texture = -1}, -- Hat
+                    ["glass"] = {item = 7, texture = 0}, -- Glasses
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["decals"] = {item = 0, texture = 0}
+                },
+                grades = {6, 7},
+            },
         },
         ["Female"] = {
             {

@@ -43,10 +43,12 @@ Config.Locations = {                -- Edit the various interaction points for p
     ['duty'] = {
         [1] = vector3(353.92, -592.15, 28.85),
         [2] = vector3(-254.88, 6324.5, 32.58),
+        [3] = vector3(198.25, -1638.78, 29.80), --Davis Fire
     },
     ['vehicle'] = {
         [1] = vector4(363.46, -568.45, 28.85, 65.53),
         [2] = vector4(-234.28, 6329.16, 32.15, 222.5),
+        [3] = vector4(178.99, -1657.39, 29.80, 227.51), -- Davis Fire
     },
     ['helicopter'] = {
         [1] = vector4(352.09, -588.32, 74.17, 31.66),
@@ -55,6 +57,7 @@ Config.Locations = {                -- Edit the various interaction points for p
     ['armory'] = {
         [1] = vector3(350.41, -596.15, 28.85),
         [2] = vector3(-245.13, 6315.71, 32.82),
+        [3] = vector3(195.94, -1646.22, 29.80), -- Davis Fire
     },
     ['roof'] = {
         [1] = vector4(338.5, -583.85, 74.16, 245.5),
@@ -86,7 +89,8 @@ Config.Locations = {                -- Edit the various interaction points for p
         { coords = vector4(1771.85, 2591.85, 45.66, 91.51),  taken = false, model = 2117668672 },
     },
     ['stations'] = {
-        { label = Lang:t('info.pb_hospital'), coords = vector3(343.44, -584.47, 28.85) }
+        { label = Lang:t('info.pb_hospital'), coords = vector3(343.44, -584.47, 28.85) },
+        { label = "Davis Fire Department", coords = vector3(205.31, -1651.85, 29.80) }
     }
 }
 
