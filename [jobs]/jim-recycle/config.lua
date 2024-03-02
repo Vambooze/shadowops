@@ -21,13 +21,13 @@ Config = {
 
 	Locations =  {
 		['Recycle'] = {
-			{ name = "Recycle Center", coords = vector4(1515.78, -2137.36, 76.73, 191.97), blipTrue = false, sprite = 365, col = 2, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
+			{ name = "Recycle Center", coords = vector4(1515.78, -2137.36, 76.73, 191.97), blipTrue = false sprite = 365, col = 2, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
 		},
 		['Trade'] ={
-			{ name = "Recyclable Trader", coords = vector4(742.36309814453, -1373.9674072266, 12.631042480469, 234.4), blipTrue = false, sprite = 365, col = 2, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
+			{ name = "Recyclable Trader", coords = vector4(742.36309814453, -1373.9674072266, 12.631042480469, 234.4), blipTrue = true, sprite = 365, col = 2, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
 		},
 		['BottleBanks'] = {
-			{ name = "Bottle Bank", coords = vector4(2549.38, -315.24, 93.09, 175.72), blipTrue = false, sprite = 642, col = 2, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
+			{ name = "Bottle Bank", coords = vector4(2549.38, -315.24, 93.09, 175.72), blipTrue = true, sprite = 642, col = 2, model = `G_M_M_ChemWork_01`, scenario = "WORLD_HUMAN_CLIPBOARD", },
 		},
 	},
 	Prices = {
