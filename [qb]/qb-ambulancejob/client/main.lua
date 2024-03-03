@@ -338,17 +338,14 @@ local function CheckWeaponDamage(ped)
         if HasPedBeenDamagedByWeapon(ped, k, 0) then
             detected = true
             if not IsInDamageList(k) then
-                TriggerEvent('chat:addMessage', {
-                    color = { 255, 0, 0 },
-                    multiline = false,
-                    args = { Lang:t('info.status'), v.damagereason }
-                })
-                CurrentDamageList[#CurrentDamageList + 1] = k
+                local src = GetPlayerServerId(PlayerId())
+                exports['okokChatV2']:Message('linear-gradient(90deg, rgba(42, 42, 42, 0.9) 0%, rgba(101, 0, 0, 0.9) 100%)', '#ff0000', 'fas fa-crutch', 'STATUS CHECK', '', v.damagereason, src)
+                CurrentDamageList[#CurrentDamageList+1] = k
             end
         end
     end
     if detected then
-        TriggerServerEvent('hospital:server:SetWeaponDamage', CurrentDamageList)
+        TriggerServerEvent("hospital:server:SetWeaponDamage", CurrentDamageList)
     end
     ClearEntityLastDamageEntity(ped)
 end

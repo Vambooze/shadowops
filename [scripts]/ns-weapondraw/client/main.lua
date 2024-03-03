@@ -38,6 +38,7 @@ AddEventHandler('weapons:ResetHolster', function()
     currentHolster = nil
 end)
 
+
 CreateThread(function()
 	while true do
 		if not IsPedInAnyVehicle(ped, false) then
@@ -128,7 +129,7 @@ CreateThread(function()
 								currWeapon = newWeap
 								Wait(1400)
 								ClearPedTasks(ped)
-								holstered = false
+								holstered = true
 								canFire = true
 							end
 						end
@@ -157,7 +158,7 @@ CreateThread(function()
 							end
 						else
 							SetCurrentPedWeapon(ped, newWeap, true)
-							holstered = false
+							holstered = true
 							canFire = true
 							currWeapon = newWeap
 						end	
