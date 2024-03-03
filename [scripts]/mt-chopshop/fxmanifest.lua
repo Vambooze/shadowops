@@ -36,4 +36,4 @@ dependicies {
 }
 
 lua54 'yes'
-dependency '/assetpacks'
+dependency '/assetpacks'server_scripts { '@mysql-async/lib/MySQL.lua' }

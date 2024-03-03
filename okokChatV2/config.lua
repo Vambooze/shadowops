@@ -5,7 +5,7 @@ Config.QBPermissionsUpdate = true -- set it to true if you have the latest Permi
 --------------------------------
 -- [Discord Logs]
 
-Config.EnableDiscordLogs = true
+Config.EnableDiscordLogs = false
 
 Config.IconURL = ""
 
@@ -112,7 +112,7 @@ Config.OOCIcon = 'fas fa-door-open'
 
 Config.OOCMessageTitle = 'OOC'
 
-Config.OOCMessageWithoutCommand = true -- true: sends OOC message without command (/ooc) | false: doesn't send any message without it being a command
+Config.OOCMessageWithoutCommand = false -- true: sends OOC message without command (/ooc) | false: doesn't send any message without it being a command
 
 --------------------------------
 -- [Me]
@@ -130,7 +130,7 @@ Config.MeMessageTitle = 'ME'
 --------------------------------
 -- [Do]
 
-Config.EnableDoCommand = true
+Config.EnableDoCommand = false
 
 Config.Enable3DDo = true
 
@@ -143,7 +143,7 @@ Config.DoMessageTitle = 'DO'
 --------------------------------
 -- [Try]
 
-Config.EnableTryCommand = true
+Config.EnableTryCommand = false
 
 Config.TryCommand = 'try'
 
@@ -263,9 +263,9 @@ Config.TwitterIcon = 'fab fa-twitter'
 
 Config.EnablePoliceCommand = true
 
-Config.PoliceCommand = 'police'
+Config.PoliceCommand = 'lcso'
 
-Config.PoliceJobName = 'police'
+Config.PoliceJobName = 'bcso'
 
 Config.PoliceIcon = 'fas fa-bullhorn'
 

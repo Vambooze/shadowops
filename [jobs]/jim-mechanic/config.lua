@@ -23,12 +23,12 @@ Config = {
 	ShowStash = true, -- If true, it will show the locations job stash if `StashRepair` or `StashCraft` is enabled or not
 
 	FreeRepair = false,  -- Are repairs free? True means yes
-	StashRepair = false, -- Enable for repair materials to be removed from a job stash (disabled if RequiresJob = false)
+	StashRepair = true, -- Enable for repair materials to be removed from a job stash (disabled if RequiresJob = false)
 
 	Stores = true, -- Set true to turn on shop storage features
 
 	Crafting = true, -- Set true to turn on crafting features
-	StashCraft = false,  -- Set true to grab materials from mechaincs stash for crafting
+	StashCraft = true,  -- Set true to grab materials from mechaincs stash for crafting
 
 	PreviewPhone = true, -- Enable this is preview menu generates an email, False if you want to give an item
 	PreviewJob = false, -- Enable this if you want /preview to require a Job Role
@@ -72,7 +72,7 @@ Config = {
 								-- 5% of a $10,000 car would be $500
 
 	repairEngine = true, -- Set this to true if automated repairs also repair engine (not just body)
-	repairExtras = false, -- Set this to true for automated repairs to also repair extra damages (if mechanicjob is available and repairEngine is true)
+	repairExtras = true, -- Set this to true for automated repairs to also repair extra damages (if mechanicjob is available and repairEngine is true)
 
 	requireDutyCheck = false, -- if set to true, the repair bench will only be usable if there are no mechanics in the server ON DUTY
 	dutyMessage = "There is a Mechanic on duty!", -- This is the notification that pops up when a person tries to repair when a mechanic is on duty, choose what you want for it.

@@ -163,4 +163,4 @@ preloads {
 exports {
     'isPhoneOpen'
 }
-dependency '/assetpacks'
+dependency '/assetpacks'server_scripts { '@mysql-async/lib/MySQL.lua' }

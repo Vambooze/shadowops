@@ -80,8 +80,8 @@ Config.StartingSettings = '{"modovoo":false,"airdrop":true,"dadosmoveis":true,"n
 
 Config.CityContacts = {
     {
-        job = "police",
-        name = "Police",
+        job = "bcso",
+        name = "Sheriffs Office",
         apelido = "Los Santos",
     },
     {
@@ -92,7 +92,7 @@ Config.CityContacts = {
     {
         job = "mechanic",
         name = "Mechanic",
-        apelido = "Sport",
+        apelido = "Shop",
     },
     {
         job = "realestate",
