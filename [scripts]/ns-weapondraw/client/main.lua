@@ -40,133 +40,136 @@ end)
 
 CreateThread(function()
 	while true do
-		local ped = PlayerPedId()
-		if DoesEntityExist(ped) and not IsEntityDead(ped) then
-			if currWeapon ~= GetSelectedPedWeapon(ped) then
-				pos = GetEntityCoords(ped, true)
-				rot = GetEntityHeading(ped)
+		if not IsPedInAnyVehicle(ped, false) then
+			local ped = PlayerPedId()
+			if DoesEntityExist(ped) and not IsEntityDead(ped) then
+				if currWeapon ~= GetSelectedPedWeapon(ped) then
+					pos = GetEntityCoords(ped, true)
+					rot = GetEntityHeading(ped)
 
-				local newWeap = GetSelectedPedWeapon(ped)
-				SetCurrentPedWeapon(ped, currWeapon, true)
-				loadAnimDict("reaction@intimidation@1h")
-				loadAnimDict("reaction@intimidation@cop@unarmed")
-				loadAnimDict("rcmjosh4")
-				loadAnimDict("weapons@pistol@")
+					local newWeap = GetSelectedPedWeapon(ped)
+					SetCurrentPedWeapon(ped, currWeapon, true)
+					loadAnimDict("reaction@intimidation@1h")
+					loadAnimDict("reaction@intimidation@cop@unarmed")
+					loadAnimDict("rcmjosh4")
+					loadAnimDict("weapons@pistol@")
 
-				if CheckWeapon(newWeap) then
-					if holstered then
-						job = QBCore.Functions.GetPlayerData().job.name
-						if job == "bcso" or job == "security" or job == "ambulance" then
-							canFire = false
-							currentHoldster = GetPedDrawableVariation(ped, 7)
-							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(300)
-							SetCurrentPedWeapon(ped, newWeap, true)
-							currWeapon = newWeap
-							Wait(300)
-							ClearPedTasks(ped)
-							holstered = false
-							canFire = true
+					if CheckWeapon(newWeap) then
+						if holstered then
+							job = QBCore.Functions.GetPlayerData().job.name
+							if job == "bcso" or job == "security" or job == "ambulance" then
+								canFire = false
+								currentHoldster = GetPedDrawableVariation(ped, 7)
+								TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(300)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								currWeapon = newWeap
+								Wait(300)
+								ClearPedTasks(ped)
+								holstered = false
+								canFire = true
+							else
+								canFire = false
+								TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(1000)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								currWeapon = newWeap
+								Wait(1400)
+								ClearPedTasks(ped)
+								holstered = false
+								canFire = true
+							end
+						elseif newWeap ~= currWeapon and CheckWeapon(currWeapon) then
+							if job == "bcso" or job == "security" or job == "ambulance" then
+								canFire = false
+								TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(500)
+								SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
+								currentHoldster = GetPedDrawableVariation(ped, 7)
+								TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(300)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								Wait(500)
+								currWeapon = newWeap
+								ClearPedTasks(ped)
+								holstered = false
+								canFire = true
+							else
+								canFire = false
+								TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "outro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(1600)
+								SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
+								TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(1000)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								currWeapon = newWeap
+								Wait(1400)
+								ClearPedTasks(ped)
+								holstered = false
+								canFire = true
+							end
 						else
-							canFire = false
-							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(1000)
-							SetCurrentPedWeapon(ped, newWeap, true)
-							currWeapon = newWeap
-							Wait(1400)
-							ClearPedTasks(ped)
-							holstered = false
-							canFire = true
-						end
-					elseif newWeap ~= currWeapon and CheckWeapon(currWeapon) then
-						if job == "bcso" or job == "security" or job == "ambulance" then
-							canFire = false
-							TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(500)
-							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
-							currentHoldster = GetPedDrawableVariation(ped, 7)
-							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(300)
-							SetCurrentPedWeapon(ped, newWeap, true)
-							Wait(500)
-							currWeapon = newWeap
-							ClearPedTasks(ped)
-							holstered = false
-							canFire = true
-						else
-							canFire = false
-							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "outro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(1600)
-							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
-							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(1000)
-							SetCurrentPedWeapon(ped, newWeap, true)
-							currWeapon = newWeap
-							Wait(1400)
-							ClearPedTasks(ped)
-							holstered = false
-							canFire = true
+							if job == "bcso" or job == "security" or job == "ambulance" then
+								SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
+								currentHoldster = GetPedDrawableVariation(ped, 7)
+								TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(300)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								currWeapon = newWeap
+								Wait(300)
+								ClearPedTasks(ped)
+								holstered = false
+								canFire = true
+							else
+								SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
+								TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(1000)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								currWeapon = newWeap
+								Wait(1400)
+								ClearPedTasks(ped)
+								holstered = false
+								canFire = true
+							end
 						end
 					else
-						if job == "bcso" or job == "security" or job == "ambulance" then
-							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
-							currentHoldster = GetPedDrawableVariation(ped, 7)
-							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(300)
+						if not holstered and CheckWeapon(currWeapon) then
+							if job == "bcso" or job == "security" or job == "ambulance" then
+								canFire = false
+								TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(500)
+								SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
+								ClearPedTasks(ped)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								holstered = true
+								canFire = true
+								currWeapon = newWeap
+							else
+								canFire = false
+								TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "outro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
+								Wait(1400)
+								SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
+								ClearPedTasks(ped)
+								SetCurrentPedWeapon(ped, newWeap, true)
+								holstered = true
+								canFire = true
+								currWeapon = newWeap
+							end
+						else
 							SetCurrentPedWeapon(ped, newWeap, true)
-							currWeapon = newWeap
-							Wait(300)
-							ClearPedTasks(ped)
 							holstered = false
 							canFire = true
-						else
-							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
-							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(1000)
-							SetCurrentPedWeapon(ped, newWeap, true)
 							currWeapon = newWeap
-							Wait(1400)
-							ClearPedTasks(ped)
-							holstered = false
-							canFire = true
-						end
-					end
-				else
-					if not holstered and CheckWeapon(currWeapon) then
-						if job == "bcso" or job == "security" or job == "ambulance" then
-							canFire = false
-							TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(500)
-							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
-							ClearPedTasks(ped)
-							SetCurrentPedWeapon(ped, newWeap, true)
-							holstered = true
-							canFire = true
-							currWeapon = newWeap
-						else
-							canFire = false
-							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "outro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Wait(1400)
-							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
-							ClearPedTasks(ped)
-							SetCurrentPedWeapon(ped, newWeap, true)
-							holstered = true
-							canFire = true
-							currWeapon = newWeap
-						end
-					else
-						SetCurrentPedWeapon(ped, newWeap, true)
-						holstered = false
-						canFire = true
-						currWeapon = newWeap
+						end	
 					end
 				end
+			else
+				Wait(250)
 			end
+			Wait(5)
 		else
-			Wait(250)
+			holstered = true
 		end
-
-		Wait(5)
 	end
 end)
 
