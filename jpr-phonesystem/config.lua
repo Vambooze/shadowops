@@ -334,8 +334,8 @@ Config.CinemaJob = "police"
 
 Config.GarageNPCModel = "s_m_y_valet_01"
 Config.GarageMaxSpawnRange = 400
-Config.FuelScript = "LegacyFuel" --- script name
-Config.DoCarDamageValet = true
+Config.FuelScript = "ps-fuel" --- script name
+Config.DoCarDamageValet = false
 Config.ValetPrice = 400
 Config.ImpoundState = 2
 
