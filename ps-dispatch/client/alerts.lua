@@ -68,6 +68,32 @@ local function VehicleTheft()
 end
 exports('VehicleTheft', VehicleTheft)
 
+local function BlackMarket()
+    local coords = GetEntityCoords(cache.ped)
+    local vehicle = GetVehicleData(cache.vehicle)
+
+    local dispatchData = {
+        message = locale('blackmarket'),
+        codeName = 'blackmarket',
+        code = '10-90',
+        icon = 'fas fa-car-burst',
+        priority = 2,
+        coords = coords,
+        street = GetStreetAndZone(coords),
+        heading = GetPlayerHeading(),
+        vehicle = vehicle.name,
+        plate = vehicle.plate,
+        color = vehicle.color,
+        class = vehicle.class,
+        doors = vehicle.doors,
+        alertTime = nil,
+        jobs = { 'leo' }
+    }
+
+    TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
+end
+exports('BlackMarket', BlackMarket)
+
 local function Shooting()
     local coords = GetEntityCoords(cache.ped)
 
@@ -482,7 +508,7 @@ local function OfficerDown()
         codeName = 'officerdown',
         code = '10-99',
         icon = 'fas fa-skull',
-        sound = 'panicbutton',
+        sound = "panicbutton", -- Alert sound
         priority = 1,
         coords = coords,
         gender = GetPlayerGender(),

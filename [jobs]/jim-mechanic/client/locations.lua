@@ -430,14 +430,14 @@ RegisterNetEvent("jim-mechanic:client:Garage:Blip", function(data)
 end)
 
 Config.Locations = {
-	
+	-- jax bennys
 	-- ALTA STREET BENNYS --
 	{	job = "mechanic",
 		zones = {
-			vec2(-188.81, -1343.11),
-			vec2(-188.75, -1307.43),
-			vec2(-239.89, -1305.36),
-			vec2(-242.79, -1341.97)
+			vec2(-319.45, -130.84),
+			vec2(-344.40, -121.93),
+			vec2(-349.04, -138.97),
+			vec2(-324.78, -147.92)
 		},
 		autoClock = { enter = false, exit = false, },
 		stash = { { coords = vec4(-224.24, -1320.01, 30.89, 3.98), w = 3.6, d = 0.6, }, },
@@ -459,6 +459,8 @@ Config.Locations = {
 		discordcolour = 16711680,
 		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/b/be/BennysOriginalMotorWorks-GTAO-Logo.png",
 	},
+
+	--Nicks SHop
 	-- LS CUSTOMS IN CITY --
 	{	job = "mechanic",
 		zones = {

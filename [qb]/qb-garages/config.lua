@@ -386,6 +386,35 @@ Config.Garages = {
             vector4(269.97, -322.62, 44.5, 248.07),
         }
     },
+    ['dealerparking'] = {
+        ['Zone'] = {
+            ['Shape'] = {
+                vector2(-1197.01, -372.96),
+                vector2(-1201.35, -342.08),
+                vector2(-1263.56, -376.21),
+                vector2(-1250.40, -401.11)
+            },
+
+        },
+        label = 'Luxury Dealer Parking',
+        showBlip = true,
+        blipcoords = vector3(-1203.39, -362.30, 62.43),
+        blipName = 'Public Parking',
+        blipNumber = 357,
+        type = 'public',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Parking',
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(-1222.35, -383.80, 37.29, 28.63),
+            vector4(-1215.41, -379.73, 37.29, 22.52),
+            vector4(-1207.27, -375.69, 37.29, 17.12),
+            vector4(-1200.05, -372.29, 37.29, 21.33),
+            vector4(-1226.03, -385.22, 37.29, 38.28),
+            vector4(-1237.01, -390.38, 37.29, 16.93),
+
+        }
+    },
     ['mirrorpark'] = {
         ['Zone'] = {
             ['Shape'] = {
@@ -891,6 +920,30 @@ Config.Garages = {
         debug = false,
         ['ParkingSpots'] = {
             vector4(-198.15, -1324.75, 31.13, 81.96)
+        }
+    
+        
+    },
+
+    ['mechanic3'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(-379.02, -149.47),
+                vector2(-373.72, -146.41),
+                vector2(-383.64, -128.34),
+                vector2(-389.25, -131.06)
+            },
+          
+            debug = false,
+        },
+        label = 'LS Customs North',
+        type = 'job',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'LS Customs',
+        job = 'mechanic',
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(-382.97, -137.68, 38.69, 298.26)
         }
     
         

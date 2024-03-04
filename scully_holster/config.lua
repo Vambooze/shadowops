@@ -31,7 +31,7 @@ Config = {
     Holsters = { -- Add your holster EUP numbers below, don't ask for assistance with this as every server is different.
         Male = {
             [7] = { -- The clothing drawable ID: https://docs.fivem.net/natives/?_0x67F3780DD425D4FC
-                {Main = 8, Empty = 2}, -- You need to have a holster that is empty and not empty for this to work properly with each entry.
+                {Main = 1, Empty = 3}, {Main = 6, Empty = 5}, {Main = 8, Empty = 2}, -- You need to have a holster that is empty and not empty for this to work properly with each entry.
             }
         },
         Female = {

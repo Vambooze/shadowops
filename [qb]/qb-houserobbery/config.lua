@@ -13,7 +13,7 @@ Config.RequireScrewdriver = true          -- if true, you need a screwdriver to 
 Config.ChanceToBreakLockPick = 30         -- chance in percent to break a normal lockpick if failed
 Config.ChanceToBreakAdvancedLockPick = 15 -- chance in percent to break a advanced lockpick if failed
 
-Config.ChanceToAlertPolice = 20           -- chance in percent to call the police if a house robbery is in progress
+Config.ChanceToAlertPolice = 75           -- chance in percent to call the police if a house robbery is in progress
 
 Config.MinZOffset = 45
 

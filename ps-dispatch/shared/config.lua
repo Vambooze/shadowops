@@ -307,6 +307,16 @@ Config.Blips = {
         offset = false,
         flash = true
     },
+    ['blackmarket'] = {
+        radius = 0,
+        sprite = 500,
+        color = 2,
+        scale = 1.5,
+        length = 2,
+        sound = 'robberysound',
+        offset = false,
+        flash = true
+    },
     ['vehicletheft'] = {
         radius = 0,
         sprite = 595,

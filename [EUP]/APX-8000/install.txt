@@ -1,0 +1,18 @@
+Male On Belt Variant: mods\update\x64\dlcpacks\eup\dlc.rpf\x64\eup_componentpeds.rpf\mp_m_freemode_01
+
+Male Over Shoulder Variant: mods\update\x64\dlcpacks\eup\dlc.rpf\x64\eup_componentpeds.rpf\mp_m_freemode_01_male_freemode_business2
+
+Female On Belt Variant: mods\update\x64\dlcpacks\sup\dlc.rpf\x64\sup_componentpeds.rpf\mp_f_freemode_01_female_heist
+
+Female Over Shoulder Variant: mods\update\x64\dlcpacks\eup\dlc.rpf\x64\eup_componentpeds.rpf\mp_f_freemode_01_female_apt01
+
+DRAG AND DROP
+This product was made by NOVO#0001 - discord.gg/tzurbpruVn
+
+-------------------
+
+Terms Of Service:
+
+1 This product is not to be ripped nor modified in any way.
+
+-------------------
