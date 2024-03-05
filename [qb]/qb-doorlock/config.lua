@@ -1188,4 +1188,35 @@ Config.DoorList = {
 		pickable = false,
 		distance = 2.0
 	},
+	--BOBCAT
+	{
+		textCoords = vector3(881.6171, -2264.669, 32.59156),
+		authorizedJobs = { 'bcso' },
+		locking = false,
+		locked = true,
+		pickable = false,
+		distance = 1,
+		doors = {
+			{
+				objName = -551608542,
+				objYaw = 174.87878417969,
+				objCoords = vector3(881.6171, -2264.669, 32.59156),
+			}
+		}
+	},
+	{
+		textCoords = vector3(882.3368, -2295.273, 32.59156),
+		authorizedJobs = { 'bcso' },
+		locking = false,
+		locked = true,
+		pickable = false,
+		distance = 1,
+		doors = {
+			{
+				objName = -311575617,
+				objYaw = 354.86846923828,
+				objCoords = vector3(882.3368, -2295.273, 32.59156),
+			}
+		}
+	},
 }

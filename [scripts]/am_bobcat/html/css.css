@@ -1,0 +1,130 @@
+@font-face {
+    font-family: bankgothic;
+    src: url('./bankgothic.ttf');
+}
+
+body {
+	margin: 0;
+	padding: 0;
+  }
+  
+  .container {
+	
+	width: 30%;
+	position: absolute;
+	top: 70%;
+	left: 70%;
+    animation: scaleUp 1.10s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+	
+	
+  }
+
+.box{
+	position: absolute;
+    width: 13rem;
+    height: 3rem;
+    background: #00000056;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00000056, #07070756);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00000056, #07070756); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 0.625rem;
+	color: rgb(255, 255, 255);
+	top: 200px;
+	left: 50px;
+}
+  
+  
+.texttitule {
+	font-family:bankgothic;
+	position: absolute;
+    width: 13rem;
+    height: 3rem;
+	text-align: center;
+	font-size: 25px;
+	color: rgb(255, 255, 255);
+	text-shadow: 5px 5px 10px black;
+	top: 8px;
+	left: 8px;
+}
+
+
+  .container p{
+	font-family:bankgothic;
+	position: absolute;
+	width: 50%;
+	text-align: center;
+	align-content: center;
+	font-size: 15px;
+     text-shadow: 2px 2px 5px black;
+	color: rgb(0, 0, 0);
+			top: 235px;
+	left: 30px;
+  }
+  
+  .Loading {
+	position: absolute;
+	display: inline-block;
+	width: 45%;
+	height: 30px;
+background: #00000097;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #00000097, #00000097);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #00000097, #00000097); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+	border-radius: 4px;
+	overflow: hidden;
+			top: 245px;
+	left: 65px;
+  }
+  
+	#bar{
+	content: '';
+	position: absolute;	
+	left: 0;
+	width: 30%;
+	background-color: white;
+	height: 100%;
+	border-radius: 4px;
+  }
+
+.help-in {
+    animation: roadRunnerIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+
+/* ANIMACIONES AQUI */
+
+
+@keyframes roadRunnerIn {
+  0% {
+    transform:translateX(-1500px) skewX(30deg) scaleX(1.3);
+  }
+  70% {
+    transform:translateX(30px) skewX(0deg) scaleX(.9);
+  }
+  100% {
+    transform:translateX(0px) skewX(0deg) scaleX(1);
+  }
+}
+
+
+
+@keyframes scaleUp {
+  0% {
+    transform:scale(.8) translateY(100px);
+    opacity:0;
+  }
+  100% {
+    transform:scale(1) translateY(0px);
+    opacity:1;
+  }
+}
+@keyframes blowUpContentTwo {
+  0% {
+    transform:scale(2);
+    opacity:0;
+  }
+  100% {
+    transform:scale(1);
+    opacity:1;
+  }
+}
