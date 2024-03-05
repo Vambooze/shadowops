@@ -1,0 +1,120 @@
+@font-face {
+    font-family: bankgothic;
+    src: url('./bankgothic.ttf');
+}
+
+
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+	
+}
+
+.boxcar {
+    position: absolute;
+    left:70vh;
+    top: 90vh;
+    width: 28.5vh;
+    height: 15vh;
+
+		background: #000000b8;
+	border-radius: 25px 25px 5px 5px;
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 8px 3px;
+	animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+.content {
+    width: 50%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-gap: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.overlay {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-size: 90px;
+    border-radius: 20px;
+    opacity: 0.25;
+
+}
+
+.slot {
+	background: #8EC5FCb6;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 10px;
+	
+}
+
+.slot:hover {
+    background-color: #E0C3FCb5;
+	animation-name:shake-slow;animation-duration:9s;animation-timing-function:ease-in-out;animation-iteration-count:infinite;
+
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    align-self: center;
+}
+
+
+
+@keyframes fadeIn {
+    0% {opacity:0; top:140%}
+    50%{top:51%}
+    100% {opacity:1; top:50%}
+}
+@keyframes fadeOut {
+    0% {opacity:1; top:50%}
+
+    100% {opacity:0; top:140%}
+}
+
+
+.slide-left {
+	animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.slide-right {
+  animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.slide-right2 {
+  animation: slide-right2 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+/* Definición de la animación */
+@keyframes slide-right {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(50px); /* Cambia el valor según sea necesario */
+  }
+}
+
+@keyframes slide-left {
+  0% {
+            transform: translateY(50px);
+  }
+  100% {
+
+            transform: translateY(-100px);
+  }
+}

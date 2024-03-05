@@ -54,7 +54,7 @@ See Changelog.md file.
 ````
 
 
-- Update the filled evidence bag in your origen_inventory/html/js/app.js
+- Update the filled evidence bag in your qb-inventory/html/js/app.js
 ```
 else if (itemData.name == "filled_evidence_bag") {
     $(".item-info-title").html("<p>" + itemData.label + "</p>");

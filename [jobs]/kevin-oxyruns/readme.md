@@ -3,7 +3,7 @@
 - qb-target https://github.com/qbcore-framework/qb-target
 - polyzone
 - qb-phone
-- origen_inventory/lj-inventory
+- qb-inventory/lj-inventory
 
 ------------------------------------------------------------------------------------
 
