@@ -266,7 +266,7 @@ Config.Locations = {
 --		discordcolour = 39135,
 --		discordimg = "https://static.wikia.nocookie.net/gtawiki/images/0/0c/HayesAutoBodyShop-GTAV-Logo.png",
 --	},
-}
+
 
 local till = {}
 local laptop = {}
