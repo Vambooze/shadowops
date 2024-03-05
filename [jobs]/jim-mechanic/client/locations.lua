@@ -434,10 +434,10 @@ Config.Locations = {
 	-- ALTA STREET BENNYS --
 	{	job = "mechanic",
 		zones = {
-			vec2(-319.45, -130.84),
-			vec2(-344.40, -121.93),
-			vec2(-349.04, -138.97),
-			vec2(-324.78, -147.92)
+			vec2(-191.56, -1311.96),
+			vec2(-243.13, -1313.17),
+			vec2(-242.50, -1341.60),
+			vec2(-191.52, -1341.73)
 		},
 		autoClock = { enter = false, exit = false, },
 		stash = { { coords = vec4(-224.24, -1320.01, 30.89, 3.98), w = 3.6, d = 0.6, }, },
