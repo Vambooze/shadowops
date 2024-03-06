@@ -70,6 +70,12 @@ QBCore.Functions.CreateCallback('garbagejob:server:NextStop', function(source, c
         TriggerClientEvent('QBCore:Notify', source, Lang:t('info.found_crypto'))
     end
 
+    if (math.random(100) >= Config.VPNChance) and Config.GiveVPN then
+        Player.Functions.AddItem('vpn', 1, false)
+        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['vpn'], 'add')
+        TriggerClientEvent('QBCore:Notify', source, Lang:t('info.found_vpn'))
+    end
+
     if distance <= 20 then
         if currentStopNum >= #Routes[CitizenId].stops then
             Routes[CitizenId].stopsCompleted = tonumber(Routes[CitizenId].stopsCompleted) + 1

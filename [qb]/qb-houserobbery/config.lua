@@ -30,7 +30,8 @@ Config.Rewards = {
         ['kitchen'] = {
             { item = 'tosti',     min = 1, max = 3 },
             { item = 'sandwich',  min = 1, max = 2 },
-            { item = 'goldchain', min = 1, max = 1 }
+            { item = 'goldchain', min = 1, max = 1 },
+            { item = 'vpn',       min = 1, max = 1},
         },
         ['chest'] = {
             { item = 'plastic',             min = 1, max = 4 },
@@ -40,7 +41,7 @@ Config.Rewards = {
             { item = 'weed_skunk',          min = 1, max = 5 },
             { item = 'thermite',            min = 1, max = 1 },
             { item = 'cryptostick',         min = 1, max = 1 },
-            { item = 'weapon_combatpistol', min = 1, max = 1 }
+            { item = 'weapon_heavypistol', min = 1, max = 1 }
         },
         ['livingroom'] = {
             { item = 'plastic',      min = 1, max = 4 },
