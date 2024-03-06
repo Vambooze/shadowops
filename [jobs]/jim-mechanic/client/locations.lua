@@ -32,7 +32,7 @@ Config.Locations = {
 			vec2(-191.52, -1341.73)
 		},
 		autoClock = { enter = false, exit = false, },
-		stash = { { coords = vec4(-224.24, -1320.01, 30.89, 3.98), w = 3.6, d = 0.6, }, },
+		stash = { { coords = vec4(-226.32, -1319.86, 30.89, 271.53), w = 3.6, d = 0.6, }, },
 		store = { { coords = vec4(-199.44, -1319.16, 31.11, 359.0), w = 0.85, d = 1.8 }, },
 		crafting = { { coords = vec4(-198.74, -1314.46, 31.09, 270.0), w = 2.8, d = 1.0 }, },
 		clockin = { { coords = vec4(-200.14, -1317.28, 31.08, 270.0), prop = true }, },
@@ -62,7 +62,7 @@ Config.Locations = {
 			vec2(-324.44, -148.96)
 		},
 		autoClock = { enter = false, exit = false, },
-		stash = { { coords = vec4(-346.14, -130.52, 39.01, 340.0), w = 4.0, d = 1.0, }, },
+		stash = { { coords = vec4(-352.82, -129.99, 39.02, 76.54), w = 4.0, d = 1.0, }, },
 		store = { { coords = vec4(-347.9, -133.19, 39.01, 340.0), w = 1.2, d = 0.25, }, },
 		crafting = { { coords = vec4(-340.44, -141.9, 39.01, 255.0), w = 3.2, d = 1.0, }, },
 		clockin = { { coords = vec4(-344.85, -140.35, 39.05, 157.0), prop = true }, },

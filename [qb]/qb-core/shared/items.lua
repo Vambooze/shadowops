@@ -211,7 +211,7 @@ QBShared.Items = {
     -- ITEMS
 
     ["payticket"] 					 = {["name"] = "payticket", 				["label"] = "Receipt", 	     			["weight"] = 150, 		["type"] = "item", 		["image"] = "ticket.png", 				["unique"] = false,   	["useable"] = false,    ["shouldClose"] = false,    ["combinable"] = nil,   ["description"] = "Cash these in at the bank!"},
-    ['vpn']                       = {['name'] = 'vpn',                         ['label'] = 'vpn',             ['weight'] = 1500,         ['type'] = 'item',         ['image'] = 'vpn.png',             ['unique'] = false,     ['useable'] = false,     ['shouldClose'] = true,       ['combinable'] = nil,   ['description'] = 'A VPN to protect your identity!'},
+    ['vpn']                       = {['name'] = 'vpn',                         ['label'] = 'vpn',             ['weight'] = 1500,         ['type'] = 'item',         ['image'] = 'vpn.png',             ['unique'] = false,     ['useable'] = false,     ['shouldClose'] = true,       ['combinable'] = nil,   ['description'] = 'A VPN to get other emails?'},
 
     -- Ammo ITEMS
     pistol_ammo                  = { name = 'pistol_ammo', label = 'Pistol ammo', weight = 200, type = 'item', image = 'pistol_ammo.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Ammo for Pistols' },

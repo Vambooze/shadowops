@@ -7,9 +7,11 @@ Config.TruckPrice = 250
 
 -- Want to give out a cryptostick per stop?
 Config.GiveCryptoStick = true
+Config.GiveVPN = True
 
 -- Has to roll this number or higher to receive a cryptostick
 Config.CryptoStickChance = 75
+Config.VPNChance = 15
 
 -- How many stops minimum should the job roll?
 Config.MinStops = 5
