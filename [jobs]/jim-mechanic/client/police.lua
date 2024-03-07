@@ -1,27 +1,22 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --Set which jobs can use this
 Config.QuickJobs = {
 	["police"] = 0,
-	["bcso"] = 0,
-	["sast"] = 0,
 	["ambulance"] = 0,
 	["mechanic"] = 0,
 }
 
 Config.PoliceLocations = {
     --Add your poly zone box locations and job name for each store and it will add it to the qb-target loop above
-    { coords = vector3(451.05, -973.19, 25.7), heading = 0, }, -- MRPD UNDERGROUND PARKING
-    { coords = vector3(342.51, -570.98, 28.8), heading = 250.0, }, -- PILL BOX GARAGE
+    { coords = vec3(451.05, -973.19, 25.7), heading = 180.0, }, -- MRPD UNDERGROUND PARKING
+    { coords = vec3(342.51, -570.98, 28.8), heading = 70.0, }, -- PILL BOX GARAGE
 }
 
 local bench = {}
 CreateThread(function()
 	for k, v in pairs(Config.PoliceLocations) do
-		RequestModel(`gr_prop_gr_bench_03a`) while not HasModelLoaded(`gr_prop_gr_bench_03a`) do Citizen.Wait(2) end
-		bench[#bench+1] = CreateObject(`gr_prop_gr_bench_03a`,v.coords.x, v.coords.y, v.coords.z-2.4,false,false,false)
-		SetEntityHeading(bench[#bench], v.heading)
-		FreezeEntityPosition(bench[#bench], true)
+		bench[#bench+1] = makeProp({ prop = `gr_prop_gr_bench_03a`, coords = vec4(v.coords.x, v.coords.y, v.coords.z-1.37, v.heading)}, 1, 0)
 		exports['qb-target']:AddBoxZone("bench"..k, v.coords, 1.2, 4.2, { name="bench"..k, heading = v.heading, debugPoly=Config.Debug, minZ = v.coords.z-1, maxZ = v.coords.z+1.4, },
 			{ options = { { event = "jim-mechanic:client:Police:Menu", icon = "fas fa-cogs", label = Loc[Config.Lan]["police"].userepair, job = Config.QuickJobs, }, }, distance = 5.0 })
 	end
@@ -49,12 +44,10 @@ RegisterNetEvent('jim-mechanic:client:Police:Menu', function()
 end)
 
 RegisterNetEvent('jim-mechanic:client:Police:Extra', function()
-	local playerPed = PlayerPedId()
 	local validMods = {}
-	local vehicle = nil
 	local hasMod = false
-	if not IsPedInAnyVehicle(playerPed, false) then TriggerEvent('jim-mechanic:client:Police:Menu') return end
-	vehicle = GetVehiclePedIsIn(playerPed, false)
+	if not IsPedInAnyVehicle(PlayerPedId(), false) then TriggerEvent('jim-mechanic:client:Police:Menu') return end
+	local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
 	local ExtraMenu = {}
 	ExtraMenu[#ExtraMenu+1] = { icon = "fas fa-toolbox", isMenuHeader = true, header = Loc[Config.Lan]["police"].extras, txt = "Toggle Vehicle Extras" }
 	ExtraMenu[#ExtraMenu+1] = { icon = "fas fa-circle-arrow-left", header = "", txt = string.gsub(Loc[Config.Lan]["common"].ret, "⬅️ ", ""), params = { event = "jim-mechanic:client:Police:Menu" }, }
@@ -63,11 +56,10 @@ RegisterNetEvent('jim-mechanic:client:Police:Extra', function()
 		if IsVehicleExtraTurnedOn(vehicle, i) then icon = "fas fa-check" else icon = "fas fa-x" end
 		ExtraMenu[#ExtraMenu+1] = { icon = icon, header = "Extra "..i, txt = "", params = { event = "jim-mechanic:client:Police:Extra:Apply", args = { id = i }, }, } end
 	end
-	if hadMod then exports['qb-menu']:openMenu(ExtraMenu) elseif not hadMod then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") TriggerEvent('jim-mechanic:client:Police:Menu') return end
+	if hadMod then exports['qb-menu']:openMenu(ExtraMenu) elseif not hadMod then triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") TriggerEvent('jim-mechanic:client:Police:Menu') return end
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Extra:Apply', function(data)
-	local playerPed = PlayerPedId()
-	vehicle = GetVehiclePedIsIn(playerPed, false)
+	local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
 	local veh = {}
 	veh.engine = GetVehicleEngineHealth(vehicle)
 	veh.body = GetVehicleBodyHealth(vehicle)
@@ -80,14 +72,24 @@ RegisterNetEvent('jim-mechanic:client:Police:Extra:Apply', function(data)
 	TriggerEvent('jim-mechanic:client:Police:Extra')
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Repair', function()
-	local playerPed = PlayerPedId()
-	vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle)
+	local vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle)
+	local wait = 1500
+	triggerNotify(nil, Loc[Config.Lan]["manual"].tyres)
+	for _, v in pairs({0, 1, 2, 3, 4, 5, 45, 47}) do
+		if IsVehicleTyreBurst(vehicle, v, false) == 1 or IsVehicleTyreBurst(vehicle, v, true) == 1 then local offset = GetVehicleWheelXOffset(vehicle, v) SetVehicleWheelXOffset(vehicle, v, offset+2000) SetVehicleTyreFixed(vehicle, v) Wait(wait) SetVehicleWheelXOffset(vehicle, v, offset) Wait(wait) end
+	end
+	if not AreAllVehicleWindowsIntact(vehicle) then
+		triggerNotify(nil, Loc[Config.Lan]["manual"].window)
+		for i = 0, 5 do if not IsVehicleWindowIntact(vehicle, i) then RemoveVehicleWindow(vehicle, i) Wait(wait/2) end end
+	end
+	triggerNotify(nil, Loc[Config.Lan]["manual"].doors)
+	for i = 0, 5 do if not IsVehicleDoorDamaged(vehicle, i) then SetVehicleDoorBroken(vehicle, i, true) Wait(wait) end end
 	FreezeEntityPosition(vehicle, true)
-	TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].engine)
+	triggerNotify(nil, Loc[Config.Lan]["police"].engine)
 	SetVehicleEngineHealth(vehicle, 1000.0)
 	SetVehicleBodyHealth(vehicle, 1000.0)
 	Wait(2000)
-	TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].body)
+	triggerNotify(nil, Loc[Config.Lan]["police"].body)
 	if useMechJob() then
 		TriggerServerEvent("vehiclemod:server:updatePart", trim(GetVehicleNumberPlateText(vehicle)), "radiator", 100)
 		TriggerServerEvent("vehiclemod:server:updatePart", trim(GetVehicleNumberPlateText(vehicle)), "axle", 100)
@@ -97,22 +99,21 @@ RegisterNetEvent('jim-mechanic:client:Police:Repair', function()
 	end
 	SetVehicleFixed(vehicle)
 	Wait(2000)
-	TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].cleaning)
+	triggerNotify(nil, Loc[Config.Lan]["police"].cleaning)
 	local cleaning = true
 	while cleaning do
 		if GetVehicleDirtLevel(vehicle) >= 1.0 then SetVehicleDirtLevel(vehicle, (tonumber(GetVehicleDirtLevel(vehicle))) - 0.8)
 		elseif GetVehicleDirtLevel(vehicle) <= 1.0 then SetVehicleDirtLevel(vehicle, 0.0) cleaning = false end
 		Wait(300)
 	end
-	TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].complete, "success")
+	triggerNotify(nil, Loc[Config.Lan]["police"].complete, "success")
 	FreezeEntityPosition(vehicle, false)
 	TriggerEvent('jim-mechanic:client:Police:Menu')
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Livery', function()
-	local playerPed = PlayerPedId()
 	local validMods = {}
 	local vehicle = nil
-	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle)
+	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle)
         if GetNumVehicleMods(vehicle, 48) == 0 and GetVehicleLiveryCount(vehicle) ~= 0 then
 			oldlivery = true
 			for i = 0, GetVehicleLiveryCount(vehicle)-1 do
@@ -159,21 +160,20 @@ RegisterNetEvent('jim-mechanic:client:Police:Livery', function()
 	end
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Apply', function(data)
-	local playerPed	= PlayerPedId()
-	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle) end
+	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle) end
 	local label = GetModTextLabel(vehicle, 48, tonumber(data.id))
 	local modName = GetLabelText(label)
 	if data.old then
 		if modName == "NULL" then modName = Loc[Config.Lan]["livery"].oldMod end
 		if GetVehicleLivery(vehicle) == tonumber(data.id) then
-			TriggerEvent('QBCore:Notify', data.id..Loc[Config.Lan]["common"].already, "error")
+			triggerNotify(nil, data.id..Loc[Config.Lan]["common"].already, "error")
 			TriggerEvent('jim-mechanic:client:Police:Livery')
 			return
 		end
 	else
 		if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
 		if GetVehicleMod(vehicle, 48) == tonumber(data.id) then
-			TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error")
+			triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error")
 			TriggerEvent('jim-mechanic:client:Police:Livery')
 			return
 		end
@@ -195,14 +195,12 @@ RegisterNetEvent('jim-mechanic:client:Police:Apply', function(data)
 			SetVehicleLivery(vehicle, -1)
 		end
 	end
-	--updateCar(vehicle)
 	TriggerEvent('jim-mechanic:client:Police:Livery')
 	oldlivery = nil
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Plates', function()
-	local playerPed	= PlayerPedId()
 	local vehicle = nil
-	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle)
+	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle)
 		if DoesEntityExist(vehicle) then
 			local PlateMenu = {
 			{ icon = "fas fa-address-card", header = searchCar(vehicle)..Loc[Config.Lan]["plates"].menuheader2, isMenuHeader = true },
@@ -217,28 +215,25 @@ RegisterNetEvent('jim-mechanic:client:Police:Plates', function()
 	end
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Plates:Apply', function(index)
-	local playerPed	= PlayerPedId()
-	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle) end
-	if GetVehicleNumberPlateTextIndex(vehicle) == tonumber(index) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["plates"].already, "error") TriggerEvent('jim-mechanic:client:Police:Plates')
+	local vehicle = nil
+	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle) end
+	if GetVehicleNumberPlateTextIndex(vehicle) == tonumber(index) then triggerNotify(nil, Loc[Config.Lan]["plates"].already, "error") TriggerEvent('jim-mechanic:client:Police:Plates')
 	elseif GetVehicleNumberPlateTextIndex(vehicle) ~= tonumber(index) then
 		SetVehicleNumberPlateTextIndex(vehicle, index)
-		emptyHands(playerPed)
 		TriggerEvent('jim-mechanic:client:Police:Plates')
 	end
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Spoiler', function()
-	local playerPed	= PlayerPedId()
-    local coords = GetEntityCoords(playerPed)
 	local validMods = {}
 	local vehicle = nil
-	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle)
+	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle)
 		for i = 1, GetNumVehicleMods(vehicle,0) do
 			if GetVehicleMod(vehicle, 0) == (i-1) then txt = Loc[Config.Lan]["common"].current else txt = "" end
 			validMods[i] = { id = (i - 1), name = GetLabelText(GetModTextLabel(vehicle, 0, (i - 1))), install = txt }
 		end
 	end
 	if DoesEntityExist(vehicle) then
-		if GetNumVehicleMods(vehicle, 0) == 0 then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return	end
+		if GetNumVehicleMods(vehicle, 0) == 0 then triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return	end
 		local icon = "" local disabled = false
 		if GetVehicleMod(vehicle, 0) == -1 then	stockinstall = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else stockinstall = ""	end
 		local spoilerMenu = {
@@ -254,27 +249,22 @@ RegisterNetEvent('jim-mechanic:client:Police:Spoiler', function()
 	end
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Spoilers:Apply', function(mod)
-	local playerPed	= PlayerPedId()
-	local coords = GetEntityCoords(playerPed)
-	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle) end
+	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle) end
 	local modName = GetLabelText(GetModTextLabel(vehicle, 0, tonumber(mod)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
 	if GetVehicleMod(vehicle, 0) == tonumber(mod) then
-		TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error")
+		triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error")
 		TriggerEvent('jim-mechanic:client:Police:Spoiler')
 	elseif GetVehicleMod(vehicle, 0) ~= tonumber(mod) then
 		SetVehicleMod(vehicle, 0, tonumber(mod))
-		emptyHands(playerPed)
-		--updateCar(vehicle)
 		TriggerEvent('jim-mechanic:client:Police:Spoiler')
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["spoilers"].installed, "success")
+		triggerNotify(nil, Loc[Config.Lan]["spoilers"].installed, "success")
 	end
 end)
 RegisterNetEvent('jim-mechanic:client:Police:Paint', function()
-	local playerPed	= PlayerPedId()
 	local validMods = {}
 	local vehicle = nil
-	if IsPedInAnyVehicle(playerPed, false) then vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle) end
+	if IsPedInAnyVehicle(PlayerPedId(), false) then vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle) end
 
 	local vehPrimaryColour, vehSecondaryColour = GetVehicleColours(vehicle)
 	local vehPearlescentColour, vehWheelColour = GetVehicleExtraColours(vehicle)
@@ -306,12 +296,12 @@ RegisterNetEvent('jim-mechanic:client:Police:Paint', function()
 end)
 
 RegisterNetEvent('jim-mechanic:client:Police:Paints:Choose', function(data)
+	local vehicle = nil
 	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle) end
 	if DoesEntityExist(vehicle) then
 		exports['qb-menu']:openMenu({
 			{ icon = "fas fa-brush", header = data..Loc[Config.Lan]["paint"].menuheader, txt = "", isMenuHeader = true },
 			{ icon = "fas fa-circle-arrow-left", header = "", txt = string.gsub(Loc[Config.Lan]["common"].ret, "⬅️ ", ""), params = { event = "jim-mechanic:client:Police:Paint" } },
-			{ header = Loc[Config.Lan]["paint"].classic, txt = "", params = { event = "jim-mechanic:client:Police:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].classic } } },
 			{ header = Loc[Config.Lan]["paint"].metallic, txt = "", params = { event = "jim-mechanic:client:Police:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].metallic } } },
 			{ header = Loc[Config.Lan]["paint"].matte, txt = "", params = { event = "jim-mechanic:client:Police:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].matte } } },
 			{ header = Loc[Config.Lan]["paint"].metals, txt = "", params = { event = "jim-mechanic:client:Police:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].metals } } },
@@ -331,13 +321,7 @@ RegisterNetEvent('jim-mechanic:client:Police:Paints:Choose:Colour', function(dat
 		{ icon = "fas fa-brush", isMenuHeader = true, header = data.finish.." "..data.paint, txt = "" },
 		{ icon = "fas fa-circle-arrow-left", header = "", txt = string.gsub(Loc[Config.Lan]["common"].ret, "⬅️ ", ""), params = { event = "jim-mechanic:client:Police:Paints:Choose", args = data.paint } } }
 	local installed = nil
-	if data.finish == Loc[Config.Lan]["paint"].classic then
-		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsClassic) do
-			local icon = "" local disabled = false
-			if colourCheck == v.id then installed = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else installed = "" end
-			PaintMenu[#PaintMenu + 1] = { icon = icon, isMenuHeader = disabled, header = k..". "..v.name, txt = installed, params = { event = 'jim-mechanic:client:Police:Paints:Apply', args = { paint = data.paint, id = v.id, name = v.name, finish = data.finish } } } end
-
-	elseif data.finish == Loc[Config.Lan]["paint"].metallic then
+	if data.finish == Loc[Config.Lan]["paint"].metallic then
 		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsClassic) do
 			local icon = "" local disabled = false
 			if colourCheck == v.id then installed = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else installed = "" end
@@ -359,23 +343,19 @@ RegisterNetEvent('jim-mechanic:client:Police:Paints:Choose:Colour', function(dat
 end)
 
 RegisterNetEvent('jim-mechanic:client:Police:Paints:Apply', function(data)
-	local playerPed	= PlayerPedId()
-	local coords = GetEntityCoords(playerPed)
-	if IsPedInAnyVehicle(playerPed, false) then vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle) end
+	local vehicle = nil
+	if IsPedInAnyVehicle(PlayerPedId(), false) then vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle) end
 	local vehPrimaryColour, vehSecondaryColour = GetVehicleColours(vehicle)
 	local vehPearlescentColour, vehWheelColour = GetVehicleExtraColours(vehicle)
 	if data.paint == Loc[Config.Lan]["paint"].primary then SetVehicleColours(vehicle, data.id, vehSecondaryColour)
 	elseif data.paint == Loc[Config.Lan]["paint"].secondary then SetVehicleColours(vehicle, vehPrimaryColour, data.id)
 	elseif data.paint == Loc[Config.Lan]["paint"].pearl then SetVehicleExtraColours(vehicle, data.id, vehWheelColour) end
-	--updateCar(vehicle)
 	TriggerEvent('jim-mechanic:client:Police:Paints:Choose:Colour', data)
 end)
 
 
 RegisterNetEvent('jim-mechanic:client:Police:test', function(data)
-	local playerPed = PlayerPedId()
-	local coords = GetEntityCoords(playerPed)
-	local vehicle = GetVehiclePedIsIn(playerPed, false)
+	local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
 	SetVehicleEngineHealth(vehicle, 50.0)
 	SetVehicleBodyHealth(vehicle, 200.0)
 	local veh = {}
@@ -391,6 +371,8 @@ RegisterNetEvent('jim-mechanic:client:Police:test', function(data)
 		TriggerServerEvent("vehiclemod:server:updatePart", trim(GetVehicleNumberPlateText(vehicle)), "fuel", 20.0)
 	end
 	TriggerEvent('jim-mechanic:client:Police:Menu')
+	updateCar(vehicle)
+
 end)
 
 AddEventHandler('onResourceStop', function(r)

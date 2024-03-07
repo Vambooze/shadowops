@@ -1,8 +1,9 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Plates
 RegisterNetEvent('jim-mechanic:client:Plates:Custom:Apply', function(index)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
-	if GetVehicleNumberPlateTextIndex(vehicle) == tonumber(index) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["plates"].already, "error") TriggerEvent('jim-mechanic:client:Plates:Custom')
+	if GetVehicleNumberPlateTextIndex(vehicle) == tonumber(index) then triggerNotify(nil, Loc[Config.Lan]["plates"].already, "error") TriggerEvent('jim-mechanic:client:Plates:Custom')
 	elseif GetVehicleNumberPlateTextIndex(vehicle) ~= tonumber(index) then
 		time = math.random(3000,5000)
 		playAnim("anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", time, 8)
@@ -12,11 +13,11 @@ RegisterNetEvent('jim-mechanic:client:Plates:Custom:Apply', function(index)
 			SetVehicleNumberPlateTextIndex(vehicle, index)
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'customplate', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['customplate'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "customplate")
 			else TriggerEvent('jim-mechanic:client:Plates:Custom') end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["plates"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["plates"].installed, "success")
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["plates"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["plates"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "customplate")
 	end
@@ -28,7 +29,7 @@ RegisterNetEvent('jim-mechanic:client:Plates:Apply', function(data)
 	local modName = GetLabelText(GetModTextLabel(vehicle, tonumber(data.mod), tonumber(data.id)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
 	if GetVehicleMod(vehicle, tonumber(data.mod)) == tonumber(data.id) then
-		TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error")
+		triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error")
 		TriggerEvent('jim-mechanic:client:Plates:Choose', data)
 	elseif GetVehicleMod(vehicle, tonumber(data.mod)) ~= tonumber(data.id) then
 		time = math.random(3000,5000)
@@ -38,11 +39,11 @@ RegisterNetEvent('jim-mechanic:client:Plates:Apply', function(data)
 			SetVehicleMod(vehicle, tonumber(data.mod), tonumber(data.id))
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'customplate', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['customplate'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "customplate")
 			else TriggerEvent('jim-mechanic:client:Plates:Choose', data) end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["plates"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["plates"].installed, "success")
 		end, function()
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["plates"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["plates"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "customplate")
 	end
@@ -56,7 +57,7 @@ RegisterNetEvent('jim-mechanic:client:Plates:Check', function()
 	local vehicle = nil
 	if not IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle) end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
 		if GetLabelText(GetModTextLabel(vehicle, 25, GetVehicleMod(vehicle, 25))) == "NULL" then installed1 = Loc[Config.Lan]["common"].stock else installed1 = GetLabelText(GetModTextLabel(vehicle, 25, GetVehicleMod(vehicle, 25))) end
 		if GetLabelText(GetModTextLabel(vehicle, 26, GetVehicleMod(vehicle, 26))) == "NULL" then installed2 = Loc[Config.Lan]["common"].stock else installed2 = GetLabelText(GetModTextLabel(vehicle, 26, GetVehicleMod(vehicle, 26))) end

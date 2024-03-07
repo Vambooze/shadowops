@@ -1,10 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Skirts
 RegisterNetEvent('jim-mechanic:client:Skirts:Apply', function(data)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
 	local modName = GetLabelText(GetModTextLabel(vehicle, tonumber(data.bumperid), tonumber(data.mod)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
-	if GetVehicleMod(vehicle, tonumber(data.bumperid)) == tonumber(data.mod) then TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Skirts:Choose', tonumber(data.bumperid))
+	if GetVehicleMod(vehicle, tonumber(data.bumperid)) == tonumber(data.mod) then triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Skirts:Choose', tonumber(data.bumperid))
 	elseif GetVehicleMod(vehicle, tonumber(data.bumperid)) ~= tonumber(data.mod) then
 		time = math.random(3000,5000)
 		QBCore.Functions.Progressbar("drink_something", Loc[Config.Lan]["common"].installing..modName.."..", time, false, true, { disableMovement = true, disableCarMovement = true, disableMouse = false, disableCombat = true, },
@@ -13,11 +14,11 @@ RegisterNetEvent('jim-mechanic:client:Skirts:Apply', function(data)
 			SetVehicleMod(vehicle, tonumber(data.bumperid), tonumber(data.mod))
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'skirts', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['skirts'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "skirts")
 			else TriggerEvent('jim-mechanic:client:Skirts:Choose', tonumber(data.bumperid)) end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["skirts"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["skirts"].installed, "success")
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["skirts"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["skirts"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "skirts")
 	end
@@ -30,14 +31,14 @@ RegisterNetEvent('jim-mechanic:client:Skirts:Check', function()
 	if not nearPoint(GetEntityCoords(PlayerPedId())) then return end
 	local vehicle = nil
 	if not IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle) end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if lockedCar(vehicle) then return end
 	if DoesEntityExist(vehicle) then
 		if GetLabelText(GetModTextLabel(vehicle, 3, GetVehicleMod(vehicle, 3))) == "NULL" then installed1 = Loc[Config.Lan]["common"].stock else installed1 = GetLabelText(GetModTextLabel(vehicle, 3, GetVehicleMod(vehicle, 3))) end
 		if GetLabelText(GetModTextLabel(vehicle, 9, GetVehicleMod(vehicle, 9))) == "NULL" then installed2 = Loc[Config.Lan]["common"].stock else installed2 = GetLabelText(GetModTextLabel(vehicle, 9, GetVehicleMod(vehicle, 9))) end
 		if GetLabelText(GetModTextLabel(vehicle, 8, GetVehicleMod(vehicle, 8))) == "NULL" then installed3 = Loc[Config.Lan]["common"].stock else installed3 = GetLabelText(GetModTextLabel(vehicle, 8, GetVehicleMod(vehicle, 8))) end
 		if GetNumVehicleMods(vehicle, 3) == 0 and GetNumVehicleMods(vehicle, 9) == 0 and GetNumVehicleMods(vehicle, 8) == 0 then
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error")
+			triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error")
 			return
 		end
 		local SkirtMenu = {

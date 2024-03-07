@@ -1,10 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Roof
 RegisterNetEvent('jim-mechanic:client:RollCage:Apply', function(mod)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
 	local modName = GetLabelText(GetModTextLabel(vehicle, 5, tonumber(mod)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
-	if GetVehicleMod(vehicle, 5) == tonumber(mod) then TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:RollCage:Check')
+	if GetVehicleMod(vehicle, 5) == tonumber(mod) then triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:RollCage:Check')
 	elseif GetVehicleMod(vehicle, 5) ~= tonumber(mod) then
 		time = math.random(3000,5000)
 		QBCore.Functions.Progressbar("drink_something", Loc[Config.Lan]["common"].installing..modName.."..", time, false, true, { disableMovement = true, disableCarMovement = false, disableMouse = false, disableCombat = false, },
@@ -13,11 +14,11 @@ RegisterNetEvent('jim-mechanic:client:RollCage:Apply', function(mod)
 			emptyHands(PlayerPedId())
 			SetVehicleMod(vehicle, 5, tonumber(mod))
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'rollcage', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['rollcage'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "rollcage")
 			else TriggerEvent('jim-mechanic:client:RollCage:Check') end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["rollcage"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["rollcage"].installed, "success")
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["common"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "rollcage")
 	end
@@ -31,14 +32,14 @@ RegisterNetEvent('jim-mechanic:client:RollCage:Check', function()
 	if not nearPoint(GetEntityCoords(PlayerPedId())) then return end
 	local vehicle
 	if not IsPedInAnyVehicle(PlayerPedId(), false) then vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
-		if GetNumVehicleMods(vehicle, 5) == 0 then	TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return end
+		if GetNumVehicleMods(vehicle, 5) == 0 then	triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return end
 		for i = 1, GetNumVehicleMods(vehicle, 5) do
 			if GetVehicleMod(vehicle, 5) == (i-1) then	txt = Loc[Config.Lan]["common"].current else txt = "" end
 			validMods[i] = { id = (i-1), name = GetLabelText(GetModTextLabel(vehicle, 5, (i - 1))), install = txt }
 		end
 	end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	local icon = "" local disabled = false
 	if GetVehicleMod(vehicle, 5) == -1 then stockinstall = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else stockinstall = "" end
 	local RoofMenu = {

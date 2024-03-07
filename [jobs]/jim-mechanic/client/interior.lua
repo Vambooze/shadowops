@@ -1,11 +1,12 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Interior
 RegisterNetEvent('jim-mechanic:client:Interior:Apply', function(data)
 	local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
 	local modName = GetLabelText(GetModTextLabel(vehicle, tonumber(data.bumperid), tonumber(data.mod)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["interior"].stockMod end
 	if GetVehicleMod(vehicle, tonumber(data.bumperid)) == tonumber(data.mod) then
-		TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error")
+		triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error")
 		TriggerEvent('jim-mechanic:client:Interior:Choose', tonumber(data.bumperid))
 	elseif GetVehicleMod(vehicle, tonumber(data.bumperid)) ~= tonumber(data.mod) then
 		time = math.random(3000,5000)
@@ -15,11 +16,11 @@ RegisterNetEvent('jim-mechanic:client:Interior:Apply', function(data)
 			SetVehicleMod(vehicle, tonumber(data.bumperid), tonumber(data.mod))
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'internals', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['internals'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "internals")
 			else TriggerEvent('jim-mechanic:client:Interior:Choose', tonumber(data.bumperid)) end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["interior"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["interior"].installed, "success")
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["interior"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["interior"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "internals")
 	end
@@ -30,7 +31,7 @@ RegisterNetEvent('jim-mechanic:client:Interior:Check', function()
 	if not locationChecks() then return end
 	if not outCar() then return end
 	local vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle)
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
 		installed2 = GetLabelText(GetModTextLabel(vehicle, 28, GetVehicleMod(vehicle, 28)))	if installed2 == "NULL" then installed2 = Loc[Config.Lan]["common"].stock else end
 		installed3 = GetLabelText(GetModTextLabel(vehicle, 29, GetVehicleMod(vehicle, 29)))	if installed3 == "NULL" then installed3 = Loc[Config.Lan]["common"].stock else end
@@ -43,7 +44,7 @@ RegisterNetEvent('jim-mechanic:client:Interior:Check', function()
 
 		local internal = nil
 		for _, v in pairs({ 28, 29, 30, 31, 33, 34, 35, 36 }) do if GetNumVehicleMods(vehicle, v) ~= 0 then internal = true break end end
-		if internal ~= true then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return end
+		if internal ~= true then triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return end
 
 		local InteriorMenu = {
 			{ isMenuHeader = true, icon = "internals", header = searchCar(vehicle)..Loc[Config.Lan]["interior"].menuheader, },

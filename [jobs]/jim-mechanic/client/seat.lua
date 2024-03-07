@@ -1,10 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Seat
 RegisterNetEvent('jim-mechanic:client:Seat:Apply', function(mod)
 	local vehicle = GetVehiclePedIsIn(PlayerPedId(), false) pushVehicle(vehicle)
 	local modName = GetLabelText(GetModTextLabel(vehicle, 32, tonumber(mod)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
-	if GetVehicleMod(vehicle, 32) == tonumber(mod) then TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Seat:Check')
+	if GetVehicleMod(vehicle, 32) == tonumber(mod) then triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Seat:Check')
 	elseif GetVehicleMod(vehicle, 32) ~= tonumber(mod) then
 		time = math.random(3000,5000)
 		for i = 0, 5 do SetVehicleDoorOpen(vehicle, i, false, false) end
@@ -14,11 +15,11 @@ RegisterNetEvent('jim-mechanic:client:Seat:Apply', function(mod)
 			SetVehicleMod(vehicle, 32, tonumber(mod))
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'seat', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['seat'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "seat")
 			else TriggerEvent('jim-mechanic:client:Seat:Check') end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["seat"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["seat"].installed, "success")
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["seat"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["seat"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "seat")
 	end
@@ -38,9 +39,9 @@ RegisterNetEvent('jim-mechanic:client:Seat:Check', function()
 		end
 	end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
-		if GetNumVehicleMods(vehicle, 32) == 0 then	TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return end
+		if GetNumVehicleMods(vehicle, 32) == 0 then	triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return end
 		local icon = "" local disabled = false
 		if GetVehicleMod(vehicle, 32) == -1 then stockinstall = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else stockinstall = ""	end
 		local SeatMenu = {

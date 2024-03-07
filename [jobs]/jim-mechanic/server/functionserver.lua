@@ -1,16 +1,19 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Server:UpdateObject', function() if source ~= '' then return false end QBCore = exports['qb-core']:GetCoreObject() end)
 
 local Previewing = {}
+local xenonColour = {}
 ----Commands
 --[[QBCore.Commands.Add("test", "", {}, false, function(source, args) TriggerServerEvent('jim-mechanic:server:LoadNitrous', trim(GetVehicleNumberPlateText(GetVehiclePedIsIn(source)))) end)]]
 
 QBCore.Commands.Add("preview", Loc[Config.Lan]["servfunction"].checkmods, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:Preview:Menu", source) end)
+QBCore.Commands.Add("checkveh", "Check Performance", {}, false, function(source) TriggerClientEvent("jim-mechanic:client:cuscheck", source) end)
 QBCore.Commands.Add("showodo", "Odometer", {}, false, function(source) TriggerClientEvent("jim-mechanic:ShowOdo", source) end)
-QBCore.Commands.Add("checkdamage", Loc[Config.Lan]["servfunction"].checkdamage, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:Repair:Check", source, -2) end)
+QBCore.Commands.Add("checkdamage", Loc[Config.Lan]["servfunction"].checkdamage, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:Repair:Check", source, true) end)
 QBCore.Commands.Add("checkmods", Loc[Config.Lan]["servfunction"].checkmods, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:Menu:List", source) end)
 QBCore.Commands.Add("flipvehicle", Loc[Config.Lan]["servfunction"].flipvehicle, {}, false, function(source)	TriggerClientEvent("jim-mechanic:flipvehicle", source) end)
 QBCore.Commands.Add("togglesound", Loc[Config.Lan]["servfunction"].togglesound, {}, false, function(source)	TriggerClientEvent("jim-mechanic:togglesound", source) end)
-QBCore.Commands.Add("cleancar", Loc[Config.Lan]["servfunction"].cleancar, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:cleanVehicle", source, false) end)
+QBCore.Commands.Add("cleancar", Loc[Config.Lan]["servfunction"].cleancar, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:cleanVehicle", source, true) end)
 QBCore.Commands.Add("hood", Loc[Config.Lan]["servfunction"].hood, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:openDoor", source, 4) end)
 QBCore.Commands.Add("trunk", Loc[Config.Lan]["servfunction"].trunk, {}, false, function(source) TriggerClientEvent("jim-mechanic:client:openDoor", source, 5) end)
 QBCore.Commands.Add("door", Loc[Config.Lan]["servfunction"].door, {{name="0-3", help="Door ID"}}, false, function(source, args) TriggerClientEvent("jim-mechanic:client:openDoor", source, args[1]) end)
@@ -24,47 +27,47 @@ QBCore.Functions.CreateCallback("jim-mechanic:checkVehicleOwner", function(sourc
 end)
 
 QBCore.Functions.CreateCallback("jim-mechanic:distGrab", function(source, cb, plate)
-	MySQL.Async.fetchAll('SELECT traveldistance FROM player_vehicles WHERE plate = ?', {plate}, function(result)
-		if result[1] and result[1].traveldistance then cb(result[1].traveldistance)
-		else cb("") end
-	end)
+	local result = MySQL.scalar.await('SELECT traveldistance FROM player_vehicles WHERE plate = ?', {plate})
+	if result then cb(result) else cb("") end
 end)
 
 RegisterNetEvent("jim-mechanic:updateVehicle", function(myCar, plate)
-	local result = MySQL.Sync.fetchAll('SELECT mods FROM player_vehicles WHERE plate = ?', { plate })
-	if result[1] then
-		if Config.Debug then print("^5Debug^7: ^3updateVehicle^7: ^2Vehicle Mods^7 - [^6"..plate.."^7]: ^4"..json.encode(myCar).."^7") end
+	local result = MySQL.scalar.await('SELECT mods FROM player_vehicles WHERE plate = ?', {plate})
+	if result then
+		if Config.Debug then print("^5Debug^7: ^3updateVehicle^7: ^2Vehicle Mods^7 - [^6"..plate.."^7]: ^4"..json.encode(myCar).."^7")
+		else print("^5Debug^7: ^3updateVehicle^7: ^2Vehicle Mods^7 - [^6"..plate.."^7]") end
 		MySQL.Async.execute('UPDATE player_vehicles SET mods = ? WHERE plate = ?', { json.encode(myCar), plate })
 	end
 end)
 
 --ODOMETER STUFF
 RegisterNetEvent('jim-mechanic:server:UpdateDrivingDistance', function(plate, DistAdd)
-	local result = MySQL.Sync.fetchAll('SELECT traveldistance FROM player_vehicles WHERE plate = ?', {plate})
-	if result[1] then
-		if Config.Debug then print("^5Debug^7: ^3UpdateDrivingDistance^7: ^2Travel distance ^7- [^6"..plate.."^7]: ^6"..((result[1].traveldistance or 0) + DistAdd).."^7") end
-		MySQL.Async.execute('UPDATE player_vehicles SET traveldistance = ? WHERE plate = ?', {((result[1].traveldistance or 0) + DistAdd), plate})
+	local result = MySQL.scalar.await('SELECT traveldistance FROM player_vehicles WHERE plate = ?', {plate})
+	if result then
+		if Config.Debug then print("^5Debug^7: ^3UpdateDrivingDistance^7: ^2Travel distance ^7- [^6"..plate.."^7]: ^6"..((result or 0) + DistAdd).."^7") end
+		MySQL.Async.execute('UPDATE player_vehicles SET traveldistance = ? WHERE plate = ?', {((result or 0) + DistAdd), plate})
 	end
 end)
 
 --SAVE EXTRA DAMAGES
 RegisterNetEvent('jim-mechanic:server:saveStatus', function(mechDamages, plate)
-	local result = MySQL.Sync.fetchAll('SELECT status FROM player_vehicles WHERE plate = ?', { plate })
-	if result[1] then
+	local result = MySQL.scalar.await('SELECT status FROM player_vehicles WHERE plate = ?', { plate })
+	if result then
 		if Config.Debug then print("^5Debug^7: ^3saveStatus^7: ^2Save Extra Damages^7 - [^6"..plate.."^7]: ^4"..json.encode(mechDamages).."^7") end
 		MySQL.Async.execute('UPDATE player_vehicles SET status = ? WHERE plate = ?', { json.encode(mechDamages) , plate })
 	end
 end)
 --LOAD EXTRA DAMAGES
-RegisterNetEvent('jim-mechanic:server:loadStatus', function(plate)
+RegisterNetEvent('jim-mechanic:server:loadStatus', function(props, vehicle)
+	if props and type(props.headlightColor) == "table" then TriggerEvent("jim-mechanic:server:ChangeXenonColour", vehicle, { props.headlightColor[1], props.headlightColor[2], props.headlightColor[3] }) end
 	if GetResourceState('qb-mechanicjob') ~= "started" then return end
-	TriggerEvent('vehiclemod:server:setupVehicleStatus', plate)
-	local result = MySQL.Sync.fetchAll('SELECT status FROM player_vehicles WHERE plate = ?', { plate })
+	TriggerEvent('vehiclemod:server:setupVehicleStatus', props.plate)
+	local result = MySQL.Sync.fetchAll('SELECT status FROM player_vehicles WHERE plate = ?', { props.plate })
 	if result[1] then
 		local status = json.decode(result[1].status) or {}
 		for _, v in pairs({"radiator", "axle", "brakes", "clutch", "fuel"}) do
-			if Config.Debug then print("^5Debug^7: ^3loadStatus^7: [^6"..plate.."^7] ^2Setting damage of ^6"..v.."^2 to^7: ^4"..(status[v] or 100).."^7") end
-			TriggerEvent("vehiclemod:server:updatePart", plate, v, (status[v] or 100))
+			if Config.Debug then print("^5Debug^7: ^3loadStatus^7: [^6"..props.plate.."^7] ^2Setting damage of ^6"..v.."^2 to^7: ^4"..(status[v] or 100).."^7") end
+			TriggerEvent("vehiclemod:server:updatePart", props.plate, v, (status[v] or 100))
 		end
 	end
 end)
@@ -74,20 +77,36 @@ RegisterNetEvent('jim-mechanic:server:saveStash', function(stashId, items)
 	if items then
 		if Config.Debug then print("^5Debug^7: ^3saveStash^7: ^2Saving stash ^7'^6"..stashId.."^7'") end
 		for slot, item in pairs(items) do item.description = nil end
-		MySQL.Async.insert('INSERT INTO stashitems (stash, items) VALUES (:stash, :items) ON DUPLICATE KEY UPDATE items = :items', {
-			['stash'] = stashId,
-			['items'] = json.encode(items)
-		})
+		local sql = 'INSERT INTO stashitems (stash, items) VALUES (:stash, :items) ON DUPLICATE KEY UPDATE items = :items'
+		if Config.qsinventory then sql = 'INSERT INTO qs_stash (stash, items) VALUES (:stash, :items) ON DUPLICATE KEY UPDATE items = :items' end
+		MySQL.Async.insert(sql, { ['stash'] = stashId, ['items'] = json.encode(items) })
 	end
 end)
 
-RegisterNetEvent("jim-mechanic:server:DupeWarn", function(item)
-	local src = source
+RegisterNetEvent("jim-mechanic:server:DupeWarn", function(item, newsrc)
+	local src = newsrc or source
 	local P = QBCore.Functions.GetPlayer(src)
-	print("^1Player: "..P.PlayerData.charinfo.firstname.." "..P.PlayerData.charinfo.lastname.."["..tostring(src).."] - Tried to remove ('"..item.."') but it wasn't there^7")
+	print("^5DupeWarn: ^1"..P.PlayerData.charinfo.firstname.." "..P.PlayerData.charinfo.lastname.."^7(^1"..tostring(src).."^7) ^2Tried to remove ^7('^3"..item.."^7')^2 but it wasn't there^7")
 	DropPlayer(src, "Attempting to duplicate items")
-	print("^1Player: "..P.PlayerData.charinfo.firstname.." "..P.PlayerData.charinfo.lastname.."["..tostring(src).."] - Dropped from server for item duplicating^7")
+	print("^5DupeWarn: ^1"..P.PlayerData.charinfo.firstname.." "..P.PlayerData.charinfo.lastname.."^7(^1"..tostring(src).."^7) ^2Dropped from server for item duplicating^7")
 end)
+
+local WaxTimer = {}
+RegisterNetEvent("jim-mechanic:server:WaxActivator", function(vehicle, time) WaxTimer[vehicle] = time end)
+if Config.WaxFeatures then
+	CreateThread(function()
+		local wait = 10000
+		while true do
+			Wait(wait)
+			if json.encode(WaxTimer) ~= "[]" then wait = 1000 else wait = 20000 end
+			for veh in pairs(WaxTimer) do
+				WaxTimer[veh] = WaxTimer[veh] - 1
+				TriggerClientEvent("jim-mechanic:client:CarWax:WaxTick", -1, veh)
+				if WaxTimer[veh] <= 0 then WaxTimer[veh] = nil end
+			end
+		end
+	end)
+end
 
 RegisterNetEvent("jim-mechanic:server:preview", function(active, vehicle, plate)
 	local src = source
@@ -125,7 +144,7 @@ end)
 
 QBCore.Functions.CreateUseableItem("mechboard", function(source, item)
 	if item.info["vehlist"] == nil then
-		TriggerClientEvent("QBCore:Notify", source, "The board is empty, don't spawn this item", "error")
+		triggerNotify("MechBoard", "The board is empty, don't spawn this item", "error", source)
 	else
 		TriggerClientEvent("jim-mechanic:client:giveList", source, item)
 	end
@@ -144,8 +163,16 @@ QBCore.Functions.CreateCallback("jim-mechanic:checkCash", function(source, cb)
 	cb(P.Functions.GetMoney("cash"))
 end)
 
-RegisterNetEvent('jim-mechanic:chargeCash', function(cost)
+RegisterNetEvent('jim-mechanic:chargeCash', function(cost, society)
 	QBCore.Functions.GetPlayer(source).Functions.RemoveMoney("cash", cost)
+
+	if Config.Debug then print("^5Debug^7: ^3chargeCash^7: ^2Adding ^7$^6"..(math.ceil(cost - (cost / 4))).." ^2to account ^7'^6"..society.."^7'") end
+
+	if Config.RenewedBanking then
+		exports['Renewed-Banking']:addAccountMoney(society, math.ceil(cost - (cost / 4)))
+	else
+		exports["qb-management"]:AddMoney(society, math.ceil(cost - (cost / 4)))
+	end
 end)
 
 QBCore.Functions.CreateCallback('jim-mechanic:mechCheck', function(source, cb)
@@ -236,4 +263,16 @@ RegisterNetEvent("jim-mechanic:server:discordLog", function(info)
 			info
 		)
 	end
+end)
+
+QBCore.Functions.CreateCallback('jim-mechanic:GetXenonColour', function(source, cb) cb(xenonColour) end)
+
+RegisterNetEvent('jim-mechanic:server:ChangeXenonColour', function(vehicle, newColour)
+	xenonColour[vehicle] = newColour -- Update server side
+	TriggerClientEvent('jim-mechanic:client:ChangeXenonColour', -1, vehicle, newColour) -- Sync the colour per car between players
+end)
+
+RegisterNetEvent('jim-mechanic:server:ChangeXenonStock', function(vehicle)
+	xenonColour[vehicle] = nil -- Clear server side
+	TriggerClientEvent('jim-mechanic:client:ChangeXenonStock', -1, vehicle) -- Sync the colour per car between players
 end)

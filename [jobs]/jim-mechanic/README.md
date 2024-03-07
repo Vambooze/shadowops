@@ -99,6 +99,7 @@ Read this before opening a ticket.
 	6. [QB-MechanicJob](https://github.com/jimathy/jim-mechanicguide#qb-mechanicjob)
 	7. [QB-MechanicJob Optimization](https://github.com/jimathy/jim-mechanicguide#qb-mechanicjob-optimization)
 	8. [Blue Nos Flames](https://github.com/jimathy/jim-mechanicguide#blue-nos-flames--nopixel-style)
+	9. [CodeM NOS Support]()
 
 ------------------
 ## Performance Items
@@ -112,20 +113,23 @@ Read this before opening a ticket.
 - The items classed as performance items include:
 ```
 - car_armor - "Vehicle Armor"
-- brakes1 - "Performance Brakes"
-- brakes2 - "GT Big Brakes"
-- brakes3 - "Competition Brakes"
-- engine1 - "Shonen Engine"
-- engine2 - "V8 Engine"
-- engine3 - "V10 Engine"
-- engine4 - "V12 Engine"
-- suspension1 - "Lowered Suspension"
-- suspension2 - "Street Suspension"
-- suspension3 - "Racing Suspension"
-- suspension4 - "Rally Suspension"
-- transmission1 - "Transmission Lvl 1"
-- transmission2 - "Transmission Lvl 2"
-- transmission3 - "Transmission Lvl 3"
+- brakes1 - "Tier 1 Brakes"
+- brakes2 - "Tier 2 Brakes"
+- brakes3 - "Tier 3 Brakes"
+- engine1 - "Tier 1 Engine"
+- engine2 - "Tier 2 Engine"
+- engine3 - "Tier 3 Engine"
+- engine4 - "Tier 4 Engine"
+- engine5 - "Tier 5 Engine"
+- suspension1 - "Tier 1 Suspension"
+- suspension2 - "Tier 2 Suspension"
+- suspension3 - "Tier 3 Suspension"
+- suspension4 - "Tier 4 Suspension"
+- suspension5 - "Tier 5 Suspension"
+- transmission1 - "Tier 1 Transmission"
+- transmission2 - "Tier 2 Transmission"
+- transmission3 - "Tier 3 Transmission"
+- transmission4 - "Tier 4 Transmission"
 - drifttires - "Drift Tires"
 - bprooftires - "Bulletproof Tires"
 - turbo - "Supercharger Turbo"
@@ -170,6 +174,11 @@ Read this before opening a ticket.
 - ducttape - "Duct Tape" - A configurable repair item
 - mechboard - "Mechanic Sheet" - Given as a list of changes when completing a preview of the vehicle
 - underglow_controller - "Neon Controller"-  Controls underglow style and colour + xenon headlight colours
+- sparetire - For repairing wheels while in the toolbox menu
+- sparkplugs - For repairs
+- carbattery - For repairs
+- axleparts - For repairs
+- newoil - For repairs
 ```
 
 ------------------
@@ -243,9 +252,6 @@ Read this before opening a ticket.
 	- `Config.dutyMessage` - The excuse for why people can't repair while mechanics are on duty.
 	- `Config.repairAnimate` - Animates the repair, better than a progress bar
 	- `Config.repairSpeed` - How fast each repair step takes
-- NOTE: People have reported this file causing issues with removing other qb-target locations in other files
-	- I have no idea how or why.
-	- Removing this file seems to fix it.
 
 ------------------
 ## police.lua / Emergency Repair Benches
@@ -273,6 +279,15 @@ Read this before opening a ticket.
 	- `Config.PreviewPhone = false` will spawn a item `mechboard` which when used will show the list of changes on screen
 - Note: Spawning the `mechboard` item, trying to use it and then asking me why it's telling you not to spawn it shows you haven't read this-
 
+#### To create a discord webhook follow the following steps:
+- Click the gear icon (Edit Channel) of the channel you want to post to.
+- Click Webhooks in the left menu.
+- Click the Create Webhook button.
+- Enter a Name of your choice.
+- Click the Copy button of the Webhook URL.
+- Click the Save button.
+- Paste the Webhook URL in the script you want to use it.
+
 -----------------
 ## Configuration - config.lua
 
@@ -290,7 +305,7 @@ There is little snippets of information on each line for these, but this is a mo
 - Use this if if you are using an older/edited version of qb-menu
 - This is for adding images of inventory items to qb-menu and qb-input.
 - The default would be: `qb-inventory/html/images/`
-- I personally use LJ's inventory system which makes it: `qb-inventory/html/images/`. I imagine other's are pretty similar.
+- I personally use LJ's inventory system which makes it: `lj-inventory/html/images/`. I imagine other's are pretty similar.
 
 ### Config.JimShops
 - Set this to true if you are using my free qb-shops alternative, [jim-shops](https://github.com/jimathy/jim-shops)
@@ -304,6 +319,9 @@ There is little snippets of information on each line for these, but this is a mo
 - This is only used when the odometer is used, toolbox menu and the onscreen milage display.
 	- `true` = distance in Kilometers
 	- `false` = distance in Miles
+
+### Config.Notify
+- This controls which notification system is to be called
 
 ### Config.isVehicleOwned
 - This checks the `player_vehicles` database for if the vehicle is player owned or not.
@@ -380,6 +398,22 @@ There is little snippets of information on each line for these, but this is a mo
 	"bottom-left"
 	"bottom-right"
 ```
+### Config.OdoShowIcons
+- As of v2.9 there is now a "dashboard" feature that shows icons representing the damage
+- Toggling this enables or completely disables these
+
+### Config.OdoAlwaysShowIcons
+- Enable this to show the icons ALL THE TIM, even when parts are not damaged
+
+### Config.OdoIconsToShow
+- Fine control over which icons will show
+- Setting any of these to false will make the icon never be shown
+
+### Config.Chameleon
+- Enabling this enables the chameleon paint features, this requires the files to be installed correctly, disabling this will hide all references to it
+
+### Config.WaxFeatures = true
+- This enables the ability to apply "Wax" to a car, making them stay clean for set amounts of time
 
 ### Config.ManualRepairCost
 - This is the amount to charge people for a repair at the manual repair benches.
@@ -445,18 +479,6 @@ NosBoostPower = {
 ```
 - These values seem a good default, but may need adjusting if you have customised vehicle meta files
 
-### Config.NosBindings
-- Simply, this is the location of the NOS keybindings
-- A handful of people reported "36" just didn't work for them, so this is to make it easier to change
-```lua
-NosBindings = {
-	36, -- Switch mode button - Default: 36 "LEFT CTRL"
-	21, -- Activate NOS/Purge - Default: 21 "LEFT SHIFT"
-	10, -- Boost/Purge UP - Default: 10 "PAGE UP"
-	11, -- Boost/Purge Down - Default: 11 "PAGE DOWN"
-},
-```
-
 ### Config.NitrousUseRate
 - This is how fast the nitrous drains
 - Default - `0.4`
@@ -465,7 +487,7 @@ NosBindings = {
 
 ### Config.NitrousCoolDown
 - This is how long a player has to wait before the boost works again
-- Default - `7000`
+- Default - `7`
 - 7 seconds seems to be enough time for it to cooldown, setting this too low allows some servers players to travel at insane speeds after spamming the button
 - Set to `0` to disable this
 
@@ -530,17 +552,17 @@ RepairEngineCost = 8,
 RepairBody = "plastic",
 RepairBodyCost = 8,
 --
-RepairRadiator = "plastic",
-RepairRadiatorCost = 8,
+RepairRadiator = "newoil",
+RepairRadiatorCost = 1,
 --
-RepairAxle = "steel",
-RepairAxleCost = 8,
+RepairAxle = "axleparts",
+RepairAxleCost = 1,
 --
-RepairBrakes = "iron",
-RepairBrakesCost = 8,
+RepairBrakes = "sparkplugs",
+RepairBrakesCost = 1,
 --
-RepairClutch = "aluminum",
-RepairClutchCost = 8,
+RepairClutch = "carbattery",
+RepairClutchCost = 1,
 --
 RepairFuel = "plastic",
 RepairFuelCost = 8,
@@ -614,7 +636,7 @@ RepairFuelCost = 8,
 - I have tried to include as many default mechanic shops as possible (All Gabz MLO's supported)
 - These are easy to edit, change or remove, make a new polyzone using the commands
 	1. `/pzcreate poly`
-	2.  `/pzadd`
+	2. `/pzadd`
 	3. `/pzfinish`
 - The main building's polyzones are made use of when `Config.LocationRequired = true` enabling this makes it so mechanic items can only used these zones.
 - If you have `Config.RequiresJob = false` then anyone can use the items in this location, setting this config option to `true` makes it so mechanic workers are the only ones who can use them.
@@ -622,22 +644,23 @@ RepairFuelCost = 8,
 ### Explanation of the locations and how to make one
 ```lua
 {	job = "mechanic",
+	autoClockout = true,
 	zones = {
-		vector2(154.69816589355, -3007.0153808594),
-		vector2(120.64015197754, -3006.7275390625),
-		vector2(120.48593902588, -3051.8874511719),
-		vector2(154.61296081543, -3051.5419921875)
+		vec2(154.69816589355, -3007.0153808594),
+		vec2(120.64015197754, -3006.7275390625),
+		vec2(120.48593902588, -3051.8874511719),
+		vec2(154.61296081543, -3051.5419921875)
 	},
-	stash = { { coords = vector3(144.38, -3051.3, 7.04), w = 0.6, d = 3.6, heading = 0.0 }, },
-	store = { { coords = vector3(128.64, -3014.68, 7.04), w = 1.6, d = 3.0, heading = 0.0, }, },
-	crafting = { { coords = vector3(136.71, -3051.29, 7.04), w = 0.6, d = 1.0, heading = 0.0, }, },
-	clockin = { { coords = vector3(145.29, -3012.93, 6.94), heading = 86.0, }, },
-	nosrefill = { { coords = vector4(121.17, -3044.73, 7.04, 268.96) } },
-	garage = { spawn = vector4(163.22, -3009.31, 5.27, 89.72),
-				out = vector4(157.37, -3016.57, 7.04, 179.58),
+	stash = { { coords = vec3(144.38, -3051.3, 7.04), w = 0.6, d = 3.6, heading = 0.0 }, },
+	store = { { coords = vec3(128.64, -3014.68, 7.04), w = 1.6, d = 3.0, heading = 0.0, }, },
+	crafting = { { coords = vec3(136.71, -3051.29, 7.04), w = 0.6, d = 1.0, heading = 0.0, }, },
+	clockin = { { coords = vec3(145.29, -3012.93, 6.94), heading = 86.0, }, },
+	nosrefill = { { coords = vec4(121.17, -3044.73, 7.04, 268.96) } },
+	garage = { spawn = vec4(163.22, -3009.31, 5.27, 89.72),
+				out = vec4(157.37, -3016.57, 7.04, 179.58),
 				list = { "towtruck", "panto", "slamtruck", "cheburek", "utillitruck3" } },
-	payments = { coords = vector3(146.44, -3014.09, 6.94), heading = 195.0, img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png width=150px></p>" },
-	blip = vector3(139.91, -3023.83, 7.04),
+	payments = { coords = vec3(146.44, -3014.09, 6.94), heading = 195.0, img = "<center><p><img src=https://static.wikia.nocookie.net/gtawiki/images/f/f2/GTAV-LSCustoms-Logo.png width=150px></p>" },
+	blip = vec3(139.91, -3023.83, 7.04),
 	bliplabel = "LS Tuner Shop",
 	blipcolor = 81,
 	discordlink = "",
@@ -647,8 +670,10 @@ RepairFuelCost = 8,
 ### Explanation of each part of the location snippet
 - `job`
 	- The job that will work in this building
+- `autoClockout`
+	- Take employees off duty when leaving the polyzone if they were working in this location
 - `zones`
-	- This is a batch of vector2 locations (usually corners of a building) to create a polyzone
+	- This is a batch of vec2 locations (usually corners of a building) to create a polyzone
 - `stash`
 	- Where the job stashes will be accessible
 	- Only appears if `Config.stashCraft` or `Config.stashRepair` are `true`
@@ -662,8 +687,8 @@ RepairFuelCost = 8,
 - `nosrefill`
 	- Where the non-mechanic nos refill station will be
 - `garage` - The "job garage" system that spawns a fresh temporary car
-	- `spawn` - The vector4 location and direction where the spawned vehicle will appear
-	- `out` - The vector4 location and direction of the "parking meter" prop used to access the spawn menu
+	- `spawn` - The vec4 location and direction where the spawned vehicle will appear
+	- `out` - The vec4 location and direction of the "parking meter" prop used to access the spawn menu
 	- `list` - The list of vehicle spawn codes that will appear in the garage's menu
 - `payments`
 	- Location, heading, and job's logo used for access payment scripts (default: [jim-payments](https://github.com/jimathy/jim-payments))
@@ -761,67 +786,76 @@ RepairFuelCost = 8,
 
 ```lua
 --Jim-Mechanic Vehicles
-["mechanic_tools"] 				= {["name"] = "mechanic_tools", 			["label"] = "Mechanic tools", 		    ["weight"] = 0, 		["type"] = "item", 		["image"] = "mechanic_tools.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Needed for vehicle repairs"},
-["toolbox"] 					= {["name"] = "toolbox", 			 	  	["label"] = "Toolbox", 		            ["weight"] = 0, 		["type"] = "item", 		["image"] = "toolbox.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Needed for Performance part removal"},
-["ducttape"] 					= {["name"] = "ducttape", 			 	  	["label"] = "Duct Tape", 		       	["weight"] = 0, 		["type"] = "item", 		["image"] = "bodyrepair.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Good for quick fixes"},
-["mechboard"] 					= {["name"] = "mechboard", 			 	  	["label"] = "Mechanic Sheet", 		   	["weight"] = 0, 		["type"] = "item", 		["image"] = "mechboard.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["mechanic_tools"] =    {["name"] = "mechanic_tools",   ["label"] = "Mechanic tools",		["weight"] = 0, ["type"] = "item",  ["image"] = "mechanic_tools.png",   ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = "Needed for vehicle repairs"},
+	["toolbox"] =           {["name"] = "toolbox",          ["label"] = "Toolbox",				["weight"] = 0, ["type"] = "item",  ["image"] = "toolbox.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = "Needed for Performance part removal"},
+	["ducttape"] =          {["name"] = "ducttape",         ["label"] = "Duct Tape",			["weight"] = 0, ["type"] = "item",  ["image"] = "bodyrepair.png",       ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = "Good for quick fixes"},
+	["mechboard"] =         {["name"] = "mechboard",        ["label"] = "Mechanic Sheet",		["weight"] = 0, ["type"] = "item",  ["image"] = "mechboard.png",        ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
---Performance
-["turbo"] 		 	 		 	= {["name"] = "turbo", 						["label"] = "Supercharger Turbo", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "turbo.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Who doesn't need a 65mm Turbo??"},
-["car_armor"] 					= {["name"] = "car_armor", 					["label"] = "Vehicle Armor", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "armour.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	--Performance
+	["turbo"] =             {["name"] = "turbo",            ["label"] = "Supercharger Turbo",	["weight"] = 0, ["type"] = "item",  ["image"] = "turbo.png",            ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = "Who doesn't need a 65mm Turbo??"},
+	["car_armor"]=          {["name"] = "car_armor",		["label"] = "Vehicle Armor",		["weight"] = 0, ["type"] = "item",  ["image"] = "armour.png",           ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["nos"] 					    = {["name"] = "nos", 			 	  	  	["label"] = "NOS Bottle", 		        ["weight"] = 0, 		["type"] = "item", 		["image"] = "nos.png", 				    ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "A full bottle of NOS"},
-["noscan"] 					    = {["name"] = "noscan", 			 	  	["label"] = "Empty NOS Bottle", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "noscan.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false,  ["combinable"] = nil,   ["description"] = "An Empty bottle of NOS"},
-["noscolour"] 					= {["name"] = "noscolour", 			 	  	["label"] = "NOS Colour Injector", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "noscolour.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = false,  ["combinable"] = nil,   ["description"] = "Make that purge spray"},
+	["nos"]=                {["name"] = "nos",				["label"] = "NOS Bottle",			["weight"] = 0, ["type"] = "item",  ["image"] = "nos.png",              ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = "A full bottle of NOS"},
+	["noscan"]=             {["name"] = "noscan",			["label"] = "Empty NOS Bottle",		["weight"] = 0, ["type"] = "item",  ["image"] = "noscan.png",           ["unique"] = false, ["useable"] = true, ["shouldClose"] = true, ["description"] = "An Empty bottle of NOS"},
+	["noscolour"]=          {["name"] = "noscolour",		["label"] = "NOS Colour Injector",	["weight"] = 0, ["type"] = "item",  ["image"] = "noscolour.png", 		["unique"] = false, ["useable"] = true, ["shouldClose"] = true, ["description"] = "Make that purge spray"},
 
-["engine1"] 				    = {["name"] = "engine1", 			 	  	["label"] = "Shonen Engine",            ["weight"] = 0, 		["type"] = "item", 		["image"] = "shonen.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["engine2"] 				    = {["name"] = "engine2", 			 	  	["label"] = "V8 Engine",        	    ["weight"] = 0, 		["type"] = "item", 		["image"] = "v8engine.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["engine3"] 				    = {["name"] = "engine3", 			 	  	["label"] = "V10 Engine",          		["weight"] = 0, 		["type"] = "item", 		["image"] = "v10engine.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["engine4"] 				    = {["name"] = "engine4", 			 	  	["label"] = "V12 Engine",               ["weight"] = 0, 		["type"] = "item", 		["image"] = "v12engine.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["engine1"]=            {["name"] = "engine1",			["label"] = "Tier 1 Engine",		["weight"] = 0, ["type"] = "item",  ["image"] = "engine1.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["engine2"]=            {["name"] = "engine2",			["label"] = "Tier 2 Engine",		["weight"] = 0, ["type"] = "item",  ["image"] = "engine2.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["engine3"]=            {["name"] = "engine3",			["label"] = "Tier 3 Engine",		["weight"] = 0, ["type"] = "item",  ["image"] = "engine3.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["engine4"]=            {["name"] = "engine4",			["label"] = "Tier 4 Engine",		["weight"] = 0, ["type"] = "item",  ["image"] = "engine4.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["engine5"]=            {["name"] = "engine5",			["label"] = "Tier 5 Engine",		["weight"] = 0, ["type"] = "item",  ["image"] = "engine5.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["transmission1"] 				= {["name"] = "transmission1", 				["label"] = "Transmission Lvl 1",       ["weight"] = 0, 		["type"] = "item", 		["image"] = "transmission1.png",  		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["transmission2"] 				= {["name"] = "transmission2", 				["label"] = "Transmission Lvl 2",       ["weight"] = 0, 		["type"] = "item", 		["image"] = "transmission2.png",  		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["transmission3"] 				= {["name"] = "transmission3",				["label"] = "Transmission Lvl 3",       ["weight"] = 0, 		["type"] = "item", 		["image"] = "transmission3.png",   		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["transmission1"]=      {["name"] = "transmission1",    ["label"] = "Tier 1 Transmission",	["weight"] = 0, ["type"] = "item",  ["image"] = "transmission1.png",    ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["transmission2"]=      {["name"] = "transmission2",	["label"] = "Tier 2 Transmission",	["weight"] = 0, ["type"] = "item",  ["image"] = "transmission2.png",    ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["transmission3"]=      {["name"] = "transmission3",    ["label"] = "Tier 3 Transmission",	["weight"] = 0, ["type"] = "item",  ["image"] = "transmission3.png",    ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["transmission4"]=      {["name"] = "transmission4",	["label"] = "Tier 4 Transmission",	["weight"] = 0, ["type"] = "item",  ["image"] = "transmission4.png",    ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["brakes1"] 					= {["name"] = "brakes1", 			 		["label"] = "Performance Brakes",       ["weight"] = 0, 		["type"] = "item", 		["image"] = "brakes1.png", 		    	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["brakes2"] 					= {["name"] = "brakes2", 			 		["label"] = "GT Big Brakes",            ["weight"] = 0, 		["type"] = "item", 		["image"] = "brakes2.png", 		    	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["brakes3"] 					= {["name"] = "brakes3", 			 		["label"] = "Competition Brakes",       ["weight"] = 0, 		["type"] = "item", 		["image"] = "brakes3.png", 		    	["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["brakes1"]=            {["name"] = "brakes1",			["label"] = "Tier 1 Brakes",		["weight"] = 0, ["type"] = "item",  ["image"] = "brakes1.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["brakes2"]=            {["name"] = "brakes2",			["label"] = "Tier 2 Brakes",		["weight"] = 0, ["type"] = "item",  ["image"] = "brakes2.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["brakes3"]=            {["name"] = "brakes3",			["label"] = "Tier 3 Brakes",		["weight"] = 0, ["type"] = "item",  ["image"] = "brakes3.png",          ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["suspension1"] 				= {["name"] = "suspension1", 				["label"] = "Lowered Suspension", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "suspension1.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["suspension2"] 				= {["name"] = "suspension2",  				["label"] = "Street Suspension",		["weight"] = 0, 		["type"] = "item", 		["image"] = "suspension2.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Street Racing level Suspension"},
-["suspension3"] 				= {["name"] = "suspension3",  				["label"] = "Racing Suspension",		["weight"] = 0, 		["type"] = "item", 		["image"] = "suspension3.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Street Racing level Suspension"},
-["suspension4"] 				= {["name"] = "suspension4",  				["label"] = "Rally Suspension",			["weight"] = 0, 		["type"] = "item", 		["image"] = "suspension4.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "Street Racing level Suspension"},
+	["suspension1"]=        {["name"] = "suspension1",		["label"] = "Tier 1 Suspension",	["weight"] = 0, ["type"] = "item",  ["image"] = "suspension1.png",      ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["suspension2"]=        {["name"] = "suspension2",		["label"] = "Tier 2 Suspension",	["weight"] = 0, ["type"] = "item",  ["image"] = "suspension2.png",      ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["suspension3"]=        {["name"] = "suspension3",		["label"] = "Tier 3 Suspension",	["weight"] = 0, ["type"] = "item",  ["image"] = "suspension3.png",      ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["suspension4"]=        {["name"] = "suspension4",		["label"] = "Tier 4 Suspension",	["weight"] = 0, ["type"] = "item",  ["image"] = "suspension4.png",      ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["suspension5"]=        {["name"] = "suspension5",		["label"] = "Tier 5 Suspension",	["weight"] = 0, ["type"] = "item",  ["image"] = "suspension5.png",      ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["bprooftires"] 				= {["name"] = "bprooftires", 			   	["label"] = "Bulletproof Tires", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "bprooftires.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["drifttires"] 					= {["name"] = "drifttires", 			   	["label"] = "Drift Tires", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "drifttires.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["bprooftires"]=        {["name"] = "bprooftires",		["label"] = "Bulletproof Tires",	["weight"] = 0, ["type"] = "item",  ["image"] = "bprooftires.png",      ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["drifttires"]=         {["name"] = "drifttires",		["label"] = "Drift Tires",			["weight"] = 0, ["type"] = "item",  ["image"] = "drifttires.png",       ["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
---Cosmetics
-["underglow_controller"] 		 = {["name"] = "underglow_controller", 		["label"] = "Neon Controller", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "underglow_controller.png", ["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   	["description"] = "RGB LED Vehicle Remote"},
-["headlights"] 		 	 		 = {["name"] = "headlights", 				["label"] = "Xenon Headlights", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "headlights.png", 			["unique"] = true, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   	["description"] = "8k HID headlights"},
+	--Cosmetics
+	["underglow_controller"]={["name"] = "underglow_controller",["label"] = "Neon Controller",	["weight"] = 0, ["type"] = "item",  ["image"] = "underglow_controller.png", ["unique"] = false, ["useable"] = true, ["shouldClose"] = true, ["description"] = "RGB LED Vehicle Remote"},
+	["headlights"]=         {["name"] = "headlights",       ["label"] = "Xenon Headlights",		["weight"] = 0, ["type"] = "item",  ["image"] = "headlights.png",       ["unique"] = true, 	["useable"] = true, ["shouldClose"] = true, ["description"] = "8k HID headlights"},
 
-["tint_supplies"] 				 = {["name"] = "tint_supplies", 			["label"] = "Tint Supplies", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "tint_supplies.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,    ["description"] = "Supplies for window tinting"},
+	["tint_supplies"]=      {["name"] = "tint_supplies",    ["label"] = "Tint Supplies",		["weight"] = 0, ["type"] = "item",  ["image"] = "tint_supplies.png",    ["unique"] = false, ["useable"] = true, ["shouldClose"] = true, ["description"] = "Supplies for window tinting"},
 
-["customplate"] 				 = {["name"] = "customplate", 				["label"] = "Customized Plates", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "plate.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["hood"] 						 = {["name"] = "hood", 						["label"] = "Vehicle Hood", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "hood.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["roof"] 						 = {["name"] = "roof", 						["label"] = "Vehicle Roof", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "roof.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["spoiler"] 					 = {["name"] = "spoiler", 					["label"] = "Vehicle Spoiler", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "spoiler.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["bumper"] 						 = {["name"] = "bumper", 					["label"] = "Vehicle Bumper", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "bumper.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["skirts"] 						 = {["name"] = "skirts", 					["label"] = "Vehicle Skirts", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "skirts.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["exhaust"] 					 = {["name"] = "exhaust", 					["label"] = "Vehicle Exhaust", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "exhaust.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["seat"] 						 = {["name"] = "seat", 						["label"] = "Seat Cosmetics", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "seat.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["rollcage"] 					 = {["name"] = "rollcage", 					["label"] = "Roll Cage", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "rollcage.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["customplate"]=        {["name"] = "customplate",      ["label"] = "Customized Plates",	["weight"] = 0, ["type"] = "item",  ["image"] = "plate.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["hood"]=               {["name"] = "hood",             ["label"] = "Vehicle Hood",			["weight"] = 0, ["type"] = "item",  ["image"] = "hood.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["roof"]=               {["name"] = "roof",             ["label"] = "Vehicle Roof",			["weight"] = 0, ["type"] = "item",  ["image"] = "roof.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["spoiler"]=            {["name"] = "spoiler",          ["label"] = "Vehicle Spoiler",		["weight"] = 0, ["type"] = "item",  ["image"] = "spoiler.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["bumper"]=             {["name"] = "bumper",           ["label"] = "Vehicle Bumper",		["weight"] = 0, ["type"] = "item",  ["image"] = "bumper.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["skirts"]=             {["name"] = "skirts",           ["label"] = "Vehicle Skirts",		["weight"] = 0, ["type"] = "item",  ["image"] = "skirts.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["exhaust"]=            {["name"] = "exhaust",          ["label"] = "Vehicle Exhaust",		["weight"] = 0, ["type"] = "item",  ["image"] = "exhaust.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["seat"]=               {["name"] = "seat",             ["label"] = "Seat Cosmetics",		["weight"] = 0, ["type"] = "item",  ["image"] = "seat.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["rollcage"]=           {["name"] = "rollcage",         ["label"] = "Roll Cage",			["weight"] = 0, ["type"] = "item",  ["image"] = "rollcage.png", 		["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["rims"] 						 = {["name"] = "rims", 						["label"] = "Custom Wheel Rims", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "rims.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["rims"]=               {["name"] = "rims",             ["label"] = "Custom Wheel Rims",	["weight"] = 0, ["type"] = "item",  ["image"] = "rims.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["livery"] 						 = {["name"] = "livery", 					["label"] = "Livery Roll", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "livery.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["paintcan"] 					 = {["name"] = "paintcan", 					["label"] = "Vehicle Spray Can", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "spraycan.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["tires"] 						 = {["name"] = "tires", 					["label"] = "Drift Smoke Tires",        ["weight"] = 0, 		["type"] = "item", 		["image"] = "tires.png", 	  		    ["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["livery"]=             {["name"] = "livery",           ["label"] = "Livery Roll",			["weight"] = 0, ["type"] = "item",  ["image"] = "livery.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["paintcan"]=           {["name"] = "paintcan",         ["label"] = "Vehicle Spray Can",	["weight"] = 0, ["type"] = "item",  ["image"] = "spraycan.png", 		["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["tires"]=              {["name"] = "tires",            ["label"] = "Drift Smoke Tires",	["weight"] = 0, ["type"] = "item",  ["image"] = "tires.png", 	  		["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["horn"] 						 = {["name"] = "horn", 						["label"] = "Custom Vehicle Horn", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "horn.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["horn"]=               {["name"] = "horn",             ["label"] = "Custom Vehicle Horn",	["weight"] = 0, ["type"] = "item",  ["image"] = "horn.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
-["internals"] 					 = {["name"] = "internals", 				["label"] = "Internal Cosmetics", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "internals.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
-["externals"] 					 = {["name"] = "externals", 				["label"] = "Exterior Cosmetics", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "mirror.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = ""},
+	["internals"] =         {["name"] = "internals",        ["label"] = "Internal Cosmetics",	["weight"] = 0, ["type"] = "item",  ["image"] = "internals.png", 		["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
+	["externals"] =         {["name"] = "externals",        ["label"] = "Exterior Cosmetics",	["weight"] = 0, ["type"] = "item",  ["image"] = "mirror.png", 			["unique"] = true,  ["useable"] = true, ["shouldClose"] = true, ["description"] = ""},
 
+	--Repair Parts
+	["newoil"] =            {["name"] = "newoil",           ["label"] = "Car Oil",				["weight"] = 0, ["type"] = "item",  ["image"] = "caroil.png",           ["unique"] = false, ["useable"] = false,["shouldClose"] = false,["description"] = ""},
+	["sparkplugs"]=         {["name"] = "sparkplugs",       ["label"] = "Spark Plugs",			["weight"] = 0, ["type"] = "item",  ["image"] = "sparkplugs.png",       ["unique"] = false, ["useable"] = false,["shouldClose"] = false,["description"] = ""},
+	["carbattery"]=         {["name"] = "carbattery",       ["label"] = "Car Battery",			["weight"] = 0, ["type"] = "item",  ["image"] = "carbattery.png",       ["unique"] = false, ["useable"] = false,["shouldClose"] = false,["description"] = ""},
+	["axleparts"]=          {["name"] = "axleparts",        ["label"] = "Axle Parts",			["weight"] = 0, ["type"] = "item",  ["image"] = "axleparts.png",        ["unique"] = false, ["useable"] = false,["shouldClose"] = false,["description"] = ""},
+	["sparetire"]=          {["name"] = "sparetire",        ["label"] = "Spare Tire",			["weight"] = 0, ["type"] = "item",  ["image"] = "sparetire.png",        ["unique"] = true,  ["useable"] = false,["shouldClose"] = false,["description"] = ""},
 ```
 
 ## Dependancies
@@ -840,7 +874,7 @@ RepairFuelCost = 8,
 - **This isn't fully required but helps organise multiples of the "mechboard"**
 - The MechBoard item is an item given to the person who uses the preview menu and makes changes
 - To make full use of this item you need to add the ability for the item to show item info in your inventory system
-- I have only done this with `qb-inventory` and `qb-inventory` as they are similar
+- I have only done this with `qb-inventory` and `lj-inventory` as they are similar
 	- `qb-inventory/html/js/app.js`
 
 - Search for "harness" or Scroll down until you find:
@@ -871,6 +905,12 @@ function QBCore.Functions.GetVehicleProperties(vehicle)
         local pearlescentColor, wheelColor = GetVehicleExtraColours(vehicle)
 		local colorPrimary, colorSecondary = GetVehicleColours(vehicle)
 
+        if GetVehicleXenonLightsCustomColor(vehicle) == 1 then
+            local _, r, g, b = GetVehicleXenonLightsCustomColor(vehicle)
+            headlightColor = { r, g, b }
+        else
+            headlightColor = GetVehicleHeadlightsColour(vehicle)
+        end
         if GetIsVehiclePrimaryColourCustom(vehicle) then
             local r, g, b = GetVehicleCustomPrimaryColour(vehicle)
             colorPrimary = { r, g, b, colorPrimary }
@@ -889,11 +929,13 @@ function QBCore.Functions.GetVehicleProperties(vehicle)
         local modLivery = GetVehicleMod(vehicle, 48)
         if GetVehicleMod(vehicle, 48) == -1 and GetVehicleLivery(vehicle) ~= 0 then modLivery = GetVehicleLivery(vehicle) end
         local tireHealth = {}
-        for i = 0, 3 do tireHealth[i] = GetVehicleWheelHealth(vehicle, i) end
         local tireBurstState = {}
-        for i = 0, 5 do tireBurstState[i] = IsVehicleTyreBurst(vehicle, i, false) end
         local tireBurstCompletely = {}
-        for i = 0, 5 do tireBurstCompletely[i] = IsVehicleTyreBurst(vehicle, i, true) end
+        for _, id in pairs({0, 1, 2, 3, 4, 5, 45, 47}) do
+            tireHealth[id] = GetVehicleWheelHealth(vehicle, id, false)
+            tireBurstState[id] = IsVehicleTyreBurst(vehicle, id, false)
+            tireBurstCompletely[id] = IsVehicleTyreBurst(vehicle, id, true)
+        end
         local windowStatus = {}
         for i = 0, 7 do windowStatus[i] = IsVehicleWindowIntact(vehicle, i) == 1 end
         local doorStatus = {}
@@ -922,7 +964,7 @@ function QBCore.Functions.GetVehicleProperties(vehicle)
             windowTint = GetVehicleWindowTint(vehicle),
             windowStatus = windowStatus,
             doorStatus = doorStatus,
-            xenonColor = GetVehicleXenonLightsColour(vehicle),
+            headlightColor = headlightColor,
             neonEnabled = {
                 IsVehicleNeonLightEnabled(vehicle, 0),
                 IsVehicleNeonLightEnabled(vehicle, 1),
@@ -930,7 +972,6 @@ function QBCore.Functions.GetVehicleProperties(vehicle)
                 IsVehicleNeonLightEnabled(vehicle, 3)
             },
             neonColor = table.pack(GetVehicleNeonLightsColour(vehicle)),
-            headlightColor = GetVehicleHeadlightsColour(vehicle),
             interiorColor = GetVehicleInteriorColour(vehicle),
             extras = extras,
             tyreSmokeColor = table.pack(GetVehicleTyreSmokeColor(vehicle)),
@@ -999,10 +1040,8 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
     if DoesEntityExist(vehicle) then
         if props.extras then
             for id, enabled in pairs(props.extras) do
-                if enabled then
-                    SetVehicleExtra(vehicle, tonumber(id), 0)
-                else
-                    SetVehicleExtra(vehicle, tonumber(id), 1)
+                if enabled then SetVehicleExtra(vehicle, tonumber(id), 0)
+                else SetVehicleExtra(vehicle, tonumber(id), 1)
                 end
             end
         end
@@ -1025,7 +1064,7 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
 				colorPrimary = props.color1[4]
 				SetVehicleCustomPrimaryColour(vehicle, props.color1[1], props.color1[2], props.color1[3])
 				SetVehicleColours(vehicle, props.color1[4], colorSecondary)
-           end
+            end
         end
         if props.color2 then
             if type(props.color2) == "number" then
@@ -1033,7 +1072,7 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
 			else
                 SetVehicleCustomSecondaryColour(vehicle, props.color2[1], props.color2[2], props.color2[3])
 				SetVehicleColours(vehicle, colorPrimary, props.color2[4])
-           end
+            end
         end
         if props.pearlescentColor then SetVehicleExtraColours(vehicle, props.pearlescentColor, wheelColor) end
         if props.interiorColor then SetVehicleInteriorColor(vehicle, props.interiorColor) end
@@ -1079,7 +1118,10 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
             SetVehicleNeonLightEnabled(vehicle, 3, props.neonEnabled[4])
         end
 		if props.neonColor then SetVehicleNeonLightsColour(vehicle, props.neonColor[1], props.neonColor[2], props.neonColor[3]) end
-        if props.headlightColor then SetVehicleHeadlightsColour(vehicle, props.headlightColor) end
+        if props.headlightColor then
+            if type(props.headlightColor) == "number" then ClearVehicleXenonLightsCustomColor(vehicle) SetVehicleXenonLightsColor(vehicle, props.headlightColor)
+            else SetVehicleXenonLightsCustomColor(vehicle, props.headlightColor[1], props.headlightColor[2], props.headlightColor[3]) SetVehicleXenonLightsColor(vehicle, -1) end
+        end
         if props.interiorColor then SetVehicleInteriorColour(vehicle, props.interiorColor) end
         if props.wheelSize then SetVehicleWheelSize(vehicle, props.wheelSize) end
         if props.wheelWidth then SetVehicleWheelWidth(vehicle, props.wheelWidth) end
@@ -1107,7 +1149,6 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
         if props.modSmokeEnabled then ToggleVehicleMod(vehicle, 20, props.modSmokeEnabled) end
         if props.modKit21 then SetVehicleMod(vehicle, 21, props.modKit21, false) end
         if props.modXenon then ToggleVehicleMod(vehicle, 22, props.modXenon) end
-        if props.xenonColor then SetVehicleXenonLightsColor(vehicle, props.xenonColor) end
         if props.modFrontWheels then SetVehicleMod(vehicle, 23, props.modFrontWheels, false) end
         if props.modBackWheels then SetVehicleMod(vehicle, 24, props.modBackWheels, false) end
         if props.modCustomTiresF then SetVehicleMod(vehicle, 23, props.modFrontWheels, props.modCustomTiresF) end
@@ -1140,7 +1181,7 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
         if props.liveryRoof then SetVehicleRoofLivery(vehicle, props.liveryRoof) end
 		if props.modDrift then SetDriftTyresEnabled(vehicle, true) end
 		SetVehicleTyresCanBurst(vehicle, not props.modBProofTires)
-		TriggerServerEvent('jim-mechanic:server:loadStatus', props.plate)
+		TriggerServerEvent('jim-mechanic:server:loadStatus', props, VehToNet(vehicle))
     end
 end
 ```
@@ -1148,14 +1189,16 @@ end
 ## QB-MechanicJob
 - **You don't NEED qb-mechaicjob to use Jim-Mechanic but doing so grants extra features**
 - Extra damages will be enabled by default if you use `qb-mechanicjob` and `qb-vehiclefailure`
-- This needs to be added the the main script, but if you **DON'T** want to use qb-mechanicjob but have an updated qb-vehiclefailure
-- Replace this event in qb-vehiclefailure > client.lua.
+- If you **DON'T** want to use `qb-mechanicjob` but want to keep `qb-vehiclefailure`
+- REPLACE this event (DON'T REMOVE) in qb-vehiclefailure > client.lua.
 - This will make it only work if qb-mechanicjob is started.
 
 ```lua
 -- Functions
 local function DamageRandomComponent()
+
 	if GetResourceState('qb-mechanicjob') ~= "started" then return end
+
     local dmgFctr = math.random() + math.random(0, 2)
     local randomComponent = DamageComponents[math.random(1, #DamageComponents)]
     local randomDamage = (math.random() + math.random(0, 1)) * dmgFctr
@@ -1187,6 +1230,14 @@ end
 - [Download the FiveM version of this file](https://www.gta5-mods.com/misc/purple-blue-flames-replace-sp-fivem)
 - UnZip the file
 - Copy the `stream` folder into the `jim-mechanic` folder (next to the fxmanifest.lua)
-- Set `OldFlame = true` in nos.lua
-	- this also changes the default "backfire" effect in my script too, but OldFlame is more visible
+- That's it! The effects are show while boosting and the different styles change between boost levels
 - Restart the script. Done.
+
+## Support for CodeM-Hud
+- Had a few people asking about CodeM hud support for NOS
+- I assume their HUD's are similar and this will work for most
+- Simply add this line at the bottom of the HUD scripts nitro.lua
+```lua
+RegisterNetEvent("hud:client:UpdateNitrous", function(hasnitro, level, show) SendNUIMessage({ type="set_status", statustype = "nitro", value = (level or 0)}) end)
+```
+- This will make `jim-mechanic` trigger the HUD's NOS level changes

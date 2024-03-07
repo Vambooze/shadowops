@@ -1,9 +1,10 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Windows
 RegisterNetEvent('jim-mechanic:client:Windows:Apply', function(data)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
 	if lockedCar(vehicle) then return end
-	if GetVehicleWindowTint(vehicle) == tonumber(data.mod) then TriggerEvent('QBCore:Notify', data.name..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Windows:Check')
+	if GetVehicleWindowTint(vehicle) == tonumber(data.mod) then triggerNotify(nil, data.name..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Windows:Check')
 	elseif GetVehicleWindowTint(vehicle) ~= tonumber(data.mod) then
 		time = math.random(3000,5000)
 		TriggerEvent('animations:client:EmoteCommandStart', {"maid"})
@@ -12,12 +13,12 @@ RegisterNetEvent('jim-mechanic:client:Windows:Apply', function(data)
 			qblog("`tint_supplies - "..QBCore.Shared.Items["tint_supplies"].label.." - "..data.name.."` changed [**"..trim(GetVehicleNumberPlateText(vehicle)).."**]")
 			SetVehicleWindowTint(vehicle, tonumber(data.mod))
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'tint_supplies', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['tint_supplies'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "tint_supplies")
 			else TriggerEvent('jim-mechanic:client:Windows:Check') end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["windows"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["windows"].installed, "success")
 			emptyHands(PlayerPedId(), true)
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["windows"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["windows"].failed, "error")
 			emptyHands(PlayerPedId(), true)
 		end, "tint_supplies")
 	end
@@ -31,7 +32,7 @@ RegisterNetEvent('jim-mechanic:client:Windows:Check', function()
 	local vehicle = nil
 	if not IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = getClosest(GetEntityCoords(PlayerPedId())  ) pushVehicle(vehicle) lookVeh(vehicle) end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
 		if GetVehicleWindowTint(vehicle) == 0 then applied1 = Loc[Config.Lan]["common"].current else applied1 = "" end
 		if GetVehicleWindowTint(vehicle) == 4 then applied2 = Loc[Config.Lan]["common"].current else applied2 = "" end

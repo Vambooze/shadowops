@@ -1,33 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 
-Config.RepairLocations = {
-    --Add your poly zone box locations and job name for each store and it will add it to the qb-target loop above
-    { coords = vector4(121.0, -3047.69, 7.04, 270.11), }, -- TUNERS GARAGE
-	{ coords = vector4(-45.27, -1048.43, 28.4, 250.0), }, -- BENNYS NEXT TO PDM
-	{ coords = vector4(-1164.42, -2018.84, 13.18, 313.67), }, -- AIRPORT LSCUSTOMS
-	{ coords = vector4(1184.09, 2639.45, 37.75, 89.97), }, -- HARMONY
-	{ coords = vector4(103.46, 6620.7, 31.79, 315.31), }, -- BEEKERS GARAGE
-}
-
-local bench = {}
-local Targets = {}
-CreateThread(function()
-	for k, v in pairs(Config.RepairLocations) do
-		loadModel(`gr_prop_gr_bench_03a`)
-		bench[#bench+1] = CreateObject(`gr_prop_gr_bench_03a`,v.coords.x, v.coords.y, v.coords.z-2.4, 0, 0, 0)
-		SetEntityHeading(bench[#bench], v.coords.a-180)
-		FreezeEntityPosition(bench[#bench], true)
-		Targets["repairbench"..k] =
-		exports['qb-target']:AddBoxZone("repairbench"..k, v.coords, 1.2, 4.2, { name="repairbench"..k, heading = v.coords.a, debugPoly=Config.Debug, minZ = v.coords.z-1, maxZ = v.coords.z+1.4, },
-			{ options = { { event = "jim-mechanic:client:Manual:Menu", icon = "fas fa-cogs", label = Loc[Config.Lan]["police"].userepair, }, }, distance = 5.0 })
-	end
-end)
-
-RegisterNetEvent('jim-mechanic:client:Manual:Menu', function()
+RegisterNetEvent('jim-mechanic:client:Manual:Menu', function(data)
 	if not outCar() then return end
 	if Config.requireDutyCheck then
 		local p = promise.new()	QBCore.Functions.TriggerCallback('jim-mechanic:mechCheck', function(cb) p:resolve(cb) end)
-		if Citizen.Await(p) == true then TriggerEvent("QBCore:Notify", Config.dutyMessage, "error") return end
+		if Citizen.Await(p) == true then triggerNotify(nil, Config.dutyMessage, "error") return end
 	end
 	local playerPed = PlayerPedId()
 	local vehicle = GetVehiclePedIsIn(playerPed, false)
@@ -51,7 +29,7 @@ RegisterNetEvent('jim-mechanic:client:Manual:Menu', function()
 			end
 		end
 	else
-		if ManualRepairCostBased then cost = Config.ManualRepairCost
+		if Config.ManualRepairCostBased then cost = Config.ManualRepairCost
 		else cost = Config.ManualRepairCost - math.ceil((health/100) * Config.ManualRepairCost)
 		end
 	end
@@ -75,23 +53,24 @@ RegisterNetEvent('jim-mechanic:client:Manual:Menu', function()
 										icon = seticon,
 										header = Loc[Config.Lan]["police"].repair.." - $"..cost..check,
 										txt = settext,
-										params = { event = "jim-mechanic:client:Manual:Repair", args = { cost = cost, }, } }
+										params = { event = "jim-mechanic:client:Manual:Repair", args = { cost = cost, society = data.society }, } }
 
 		--RepairMenu[#RepairMenu+1] = { icon = "fas fa-magnifying-glass", header = "Preview", txt = "", params = { event = "jim-mechanic:client:Preview:Menu" }, }
 		--RepairMenu[#RepairMenu+1] = { header = "Test", txt = "Vehicle Death Simulator", params = { event = "jim-mechanic:client:Police:test" }, }
 
 	exports['qb-menu']:openMenu(RepairMenu)
 end)
+
 local repairing = false
 RegisterNetEvent('jim-mechanic:client:Manual:Repair', function(data)
 	if repairing then return end
 	repairing = true
 	local playerPed = PlayerPedId()
-	TriggerServerEvent("jim-mechanic:chargeCash", data.cost)
+	TriggerServerEvent("jim-mechanic:chargeCash", data.cost, data.society)
 	local vehicle = GetVehiclePedIsIn(playerPed, false) pushVehicle(vehicle)
 	FreezeEntityPosition(vehicle, true)
 	if Config.repairEngine and Config.repairAnimate then
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].engine)
+		triggerNotify(nil, Loc[Config.Lan]["police"].engine)
 		Wait(10000) -- 10000 = 10 second wait
 		SetVehicleEngineHealth(vehicle, 1000.0)
 		if useMechJob() and Config.repairExtras then
@@ -104,23 +83,23 @@ RegisterNetEvent('jim-mechanic:client:Manual:Repair', function(data)
 	end
 	if Config.repairAnimate then
 		local wait = 1500
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["manual"].tyres)
-		for _, v in pairs({0, 1, 4, 5}) do
-			if IsVehicleTyreBurst(vehicle, v, false) then SetVehicleTyreBurst(vehicle, v, true) SetVehicleTyreFixed(vehicle, v) Wait(wait) end
+		triggerNotify(nil, Loc[Config.Lan]["manual"].tyres)
+		for _, v in pairs({0, 1, 2, 3, 4, 5, 45, 47}) do
+			if IsVehicleTyreBurst(vehicle, v, false) == 1 or IsVehicleTyreBurst(vehicle, v, true) == 1 then local offset = GetVehicleWheelXOffset(vehicle, v) SetVehicleWheelXOffset(vehicle, v, offset+2000) SetVehicleTyreFixed(vehicle, v) Wait(wait) SetVehicleWheelXOffset(vehicle, v, offset) Wait(wait) end
 		end
 		if not AreAllVehicleWindowsIntact(vehicle) then
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["manual"].window)
+			triggerNotify(nil, Loc[Config.Lan]["manual"].window)
 			for i = 0, 5 do if not IsVehicleWindowIntact(vehicle, i) then RemoveVehicleWindow(vehicle, i) Wait(wait/2) end end
 		end
 
-		--[[TriggerEvent("QBCore:Notify", Loc[Config.Lan]["manual"].doors)
-		for i = 0, 5 do if not IsVehicleDoorDamaged(vehicle, i) then SetVehicleDoorBroken(vehicle, i, false) Wait(wait) else print("door "..i.." not found") end end]]
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].body)
+		--[[triggerNotify(nil, Loc[Config.Lan]["manual"].doors)
+		for i = 0, 5 do if not IsVehicleDoorDamaged(vehicle, i) then SetVehicleDoorBroken(vehicle, i, true) Wait(wait) else print("door "..i.." not found") end end]]
+		triggerNotify(nil, Loc[Config.Lan]["police"].body)
 		Wait(wait*2)
 		SetVehicleBodyHealth(vehicle, 1000.0)
 		SetVehicleFixed(vehicle)
-		TriggerEvent('jim-mechanic:client:Manual:Menu')
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].complete, "success")
+		TriggerEvent('jim-mechanic:client:Manual:Menu', { society = data.society })
+		triggerNotify(nil, Loc[Config.Lan]["police"].complete, "success")
 	else
 		QBCore.Functions.Progressbar("drink_something", Loc[Config.Lan]["repair"].repairing, 8000, false, false, { disableMovement = true, disableCarMovement = true, disableMouse = false, disableCombat = false, },
 			{ }, {}, {}, function()
@@ -134,17 +113,12 @@ RegisterNetEvent('jim-mechanic:client:Manual:Repair', function(data)
 				end
 				SetVehicleBodyHealth(vehicle, 1000.0)
 				SetVehicleFixed(vehicle)
-				TriggerEvent('jim-mechanic:client:Manual:Menu')
-				TriggerEvent("QBCore:Notify", Loc[Config.Lan]["police"].complete, "success")
+				TriggerEvent('jim-mechanic:client:Manual:Menu', { society = data.society })
+				triggerNotify(nil, Loc[Config.Lan]["police"].complete, "success")
 			end, function() -- Cancel
 		end, "fas fa-wrench")
 	end
 	FreezeEntityPosition(vehicle, false)
 	repairing = false
 	qblog("Repair Bench used ($**"..data.cost.."**) [**"..trim(GetVehicleNumberPlateText(vehicle)).."**]")
-end)
-
-AddEventHandler('onResourceStop', function(r) if r ~= GetCurrentResourceName() then return end
-	for k in pairs(Targets) do exports['qb-target']:RemoveZone(k) end
-	for i = 1, #bench do DeleteEntity(bench[i])	end
 end)

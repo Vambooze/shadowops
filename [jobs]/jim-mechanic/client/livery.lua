@@ -1,4 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Livery
 RegisterNetEvent('jim-mechanic:client:Livery:Apply', function(data)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
@@ -6,13 +7,13 @@ RegisterNetEvent('jim-mechanic:client:Livery:Apply', function(data)
 	if data.old then
 		if modName == "NULL" then modName = Loc[Config.Lan]["livery"].oldMod end
 		if GetVehicleLivery(vehicle) == tonumber(data.id) then
-			TriggerEvent('QBCore:Notify', data.id..Loc[Config.Lan]["common"].already, "error")
+			triggerNotify(nil, data.id..Loc[Config.Lan]["common"].already, "error")
 			TriggerEvent('jim-mechanic:client:Livery:Check')
 		return end
 	else
 		if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
 		if GetVehicleMod(vehicle, 48) == tonumber(data.id) then
-			TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error")
+			triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error")
 			TriggerEvent('jim-mechanic:client:Livery:Check')
 		return end
 	end
@@ -39,11 +40,11 @@ RegisterNetEvent('jim-mechanic:client:Livery:Apply', function(data)
 		end
 		emptyHands(PlayerPedId())
 		updateCar(vehicle)
-		if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'livery', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['livery'], "remove", 1)
+		if Config.CosmeticRemoval then toggleItem(false, "livery")
 		else TriggerEvent('jim-mechanic:client:Livery:Check') end
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["livery"].installed, "success")
+		triggerNotify(nil, Loc[Config.Lan]["livery"].installed, "success")
 	end, function() -- Cancel
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["livery"].failed, "error")
+		triggerNotify(nil, Loc[Config.Lan]["livery"].failed, "error")
 		emptyHands(PlayerPedId())
 	end, "livery")
 end)
@@ -57,7 +58,8 @@ RegisterNetEvent('jim-mechanic:client:Livery:Check', function()
 	local vehicle = nil
 	local oldlivery = false
 	if not IsPedInAnyVehicle(PlayerPedId(), false) then vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle) end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if lockedCar(vehicle) then return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
     if GetNumVehicleMods(vehicle, 48) == 0 and GetVehicleLiveryCount(vehicle) ~= 0 then
 		oldlivery = true
 		for i = 0, GetVehicleLiveryCount(vehicle)-1 do
@@ -74,7 +76,7 @@ RegisterNetEvent('jim-mechanic:client:Livery:Check', function()
 			validMods[i] = { id = (i - 1), name = modName, install = txt }
 		end
 	end
-	if GetNumVehicleMods(vehicle, 48) == 0 and GetVehicleLiveryCount(vehicle) == -1 then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return end
+	if GetNumVehicleMods(vehicle, 48) == 0 and GetVehicleLiveryCount(vehicle) == -1 then triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return end
 	if DoesEntityExist(vehicle) then
 		local LiveryMenu = {}
 		if oldlivery == true then

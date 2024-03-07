@@ -1,10 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Bumpers
 RegisterNetEvent('jim-mechanic:client:Bumpers:Apply', function(data)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
 	local modName = GetLabelText(GetModTextLabel(vehicle, tonumber(data.bumperid), tonumber(data.mod)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["bumpers"].stockMod end
-	if GetVehicleMod(vehicle, tonumber(data.bumperid)) == tonumber(data.mod) then TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Bumpers:Choose', tonumber(data.bumperid))
+	if GetVehicleMod(vehicle, tonumber(data.bumperid)) == tonumber(data.mod) then triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Bumpers:Choose', tonumber(data.bumperid))
 	elseif GetVehicleMod(vehicle, tonumber(data.bumperid)) ~= tonumber(data.mod) then
 		time = math.random(3000,5000)
 		QBCore.Functions.Progressbar("drink_something", Loc[Config.Lan]["common"].installing..modName, time, false, true, { disableMovement = true, disableCarMovement = true, disableMouse = false, disableCombat = false, },
@@ -13,11 +14,11 @@ RegisterNetEvent('jim-mechanic:client:Bumpers:Apply', function(data)
 			qblog("`bumper - "..QBCore.Shared.Items["bumper"].label.." - "..modName.."` changed [**"..trim(GetVehicleNumberPlateText(vehicle)).."**]")
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'bumper', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['bumper'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "bumper")
 			else TriggerEvent('jim-mechanic:client:Bumpers:Choose', tonumber(data.bumperid)) end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["bumpers"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["bumpers"].installed, "success")
 		end, function()
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["bumpers"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["bumpers"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "bumper")
 	end
@@ -30,9 +31,10 @@ RegisterNetEvent('jim-mechanic:client:Bumpers:Check', function()
 	if not nearPoint(GetEntityCoords(PlayerPedId())) then return end
 	local vehicle
 	if not IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = getClosest(GetEntityCoords(PlayerPedId())) lookVeh(vehicle) end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if lockedCar(vehicle) then return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
-		if GetNumVehicleMods(vehicle, 6) == 0 and GetNumVehicleMods(vehicle, 1) == 0 and GetNumVehicleMods(vehicle, 2) == 0 then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return end
+		if GetNumVehicleMods(vehicle, 6) == 0 and GetNumVehicleMods(vehicle, 1) == 0 and GetNumVehicleMods(vehicle, 2) == 0 then triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return end
 		installed1 = GetLabelText(GetModTextLabel(vehicle, 6, GetVehicleMod(vehicle, 6))) if installed1 == "NULL" then installed1 = Loc[Config.Lan]["common"].stock else end
 		installed2 = GetLabelText(GetModTextLabel(vehicle, 1, GetVehicleMod(vehicle, 1))) if installed2 == "NULL" then installed2 = Loc[Config.Lan]["common"].stock else end
 		installed3 = GetLabelText(GetModTextLabel(vehicle, 2, GetVehicleMod(vehicle, 2))) if installed3 == "NULL" then installed3 = Loc[Config.Lan]["common"].stock else end
@@ -57,7 +59,6 @@ RegisterNetEvent('jim-mechanic:client:Bumpers:Choose', function(mod)
 			validMods[i] = { id = (i - 1), name = GetLabelText(GetModTextLabel(vehicle, mod, (i - 1))), install = txt }
 		end
 	end
-	if lockedCar(vehicle) then return end
 	if DoesEntityExist(vehicle) then
 		local icon = "" local disabled = false
 		if GetVehicleMod(vehicle, tonumber(mod)) == -1 then stockinstall = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true

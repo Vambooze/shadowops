@@ -1,16 +1,17 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Tires
 RegisterNetEvent('jim-mechanic:client:Tires:Apply', function(data)
-	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
+	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle)
 	spraying = true
 	local r,g,b = GetVehicleTyreSmokeColor(vehicle)
 	if r == data.R and g == data.G and b == data.B then
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["smoke"].already, "error")
+		triggerNotify(nil, Loc[Config.Lan]["smoke"].already, "error")
 		TriggerEvent('jim-mechanic:client:Tires:Check')
 	else
 		time = math.random(3000,5000)
 		local fwd = GetEntityForwardVector(PlayerPedId())
-		local coords = GetEntityCoords(PlayerPedId()) + fwd * 0.5 + vector3(0.0, 0.0, -0.5)
+		local coords = GetEntityCoords(PlayerPedId()) + fwd * 0.5 + vec3(0.0, 0.0, -0.5)
 		CreateThread(function()
 			while spraying do
 				RequestNamedPtfxAsset("scr_recartheft")
@@ -30,12 +31,12 @@ RegisterNetEvent('jim-mechanic:client:Tires:Apply', function(data)
 			SetVehicleTyreSmokeColor(vehicle, data.R, data.G, data.B)
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'tires', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['tires'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "tires")
 			else TriggerEvent('jim-mechanic:client:Tires:Check') end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["smoke"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["smoke"].installed, "success")
 			spraying = false
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["smoke"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["smoke"].failed, "error")
 			emptyHands(PlayerPedId())
 			spraying = false
 		end, "tires")
@@ -48,9 +49,18 @@ RegisterNetEvent('jim-mechanic:client:Tires:Check', function()
 	if not inCar() then return end
 	if not nearPoint(GetEntityCoords(PlayerPedId())) then return end
 	local vehicle = nil
-	if not IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle) end
+	if not IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
+	local found = false
+	for _, v in pairs({"wheel_lf","wheel_rf","wheel_lm1","wheel_rm1","wheel_lm2","wheel_rm2","wheel_lm3","wheel_rm3","wheel_lr", "wheel_rr"}) do
+		if #(GetEntityCoords(PlayerPedId()) - GetWorldPositionOfEntityBone(vehicle, GetEntityBoneIndexByName(vehicle, v))) <= 1.2 then
+			lookVeh(GetWorldPositionOfEntityBone(vehicle, GetEntityBoneIndexByName(vehicle, v)))
+			found = true
+			break
+		end
+	end
+	if not found then triggerNotify(nil, Loc[Config.Lan]["common"].nearwheel, "error") return end
 	local r,g,b = GetVehicleTyreSmokeColor(vehicle)
 	local app0, app1, app2, app3, app4, app5, app6, app7, app8, app9, app10, app11, app12, app13, app14, app15 = table.unpack({"","","","","","","","","","","","","","","",})
 	if r == 1 and g == 1 and b == 1 then app1 = Loc[Config.Lan]["common"].current

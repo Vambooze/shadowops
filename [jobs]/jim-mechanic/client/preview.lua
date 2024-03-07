@@ -1,5 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 local previewing = false
 local properties
 
@@ -35,6 +35,8 @@ local function printDifferences(vehicle, properties, newproperties)
 			vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].primary.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].matte..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].matte..")", ["item"] = Loc[Config.Lan]["paint"].primary.." - "..QBCore.Shared.Items["paintcan"].label } end end
 			for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsMetals) do if newproperties["color1"] == v.id then
 			vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].primary.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].metals..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].metals..")", ["item"] = Loc[Config.Lan]["paint"].primary.." - "..QBCore.Shared.Items["paintcan"].label } end end
+			for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsChameleon) do if newproperties["color1"] == v.id then
+			vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].primary.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].chameleon..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].chameleon..")", ["item"] = Loc[Config.Lan]["paint"].primary.." - "..QBCore.Shared.Items["paintcan"].label } end end
 		end
 	end
 	if properties["color2"] ~= newproperties["color2"] then
@@ -45,6 +47,8 @@ local function printDifferences(vehicle, properties, newproperties)
 			vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].secondary.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].matte..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].matte..")", ["item"] = Loc[Config.Lan]["paint"].secondary.." - "..QBCore.Shared.Items["paintcan"].label } end end
 			for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsMetals) do if newproperties["color2"] == v.id then
 			vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].secondary.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].metals..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].metals..")", ["item"] = Loc[Config.Lan]["paint"].secondary.." - "..QBCore.Shared.Items["paintcan"].label } end end
+			for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsChameleon) do if newproperties["color2"] == v.id then
+			vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].secondary.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].chameleon..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].chameleon..")", ["item"] = Loc[Config.Lan]["paint"].secondary.." - "..QBCore.Shared.Items["paintcan"].label } end end
 		end
 	end
 	if properties["pearlescentColor"] ~= newproperties["pearlescentColor"] then
@@ -54,7 +58,9 @@ local function printDifferences(vehicle, properties, newproperties)
 		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].pearl.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].matte..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].matte..")", ["item"] = Loc[Config.Lan]["paint"].pearl.." - "..QBCore.Shared.Items["paintcan"].label } end end
 		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsMetals) do if newproperties["pearlescentColor"] == v.id then
 		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].pearl.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].metals..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].metals..")", ["item"] = Loc[Config.Lan]["paint"].pearl.." - "..QBCore.Shared.Items["paintcan"].label } end end
-	end
+		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsChameleon) do if newproperties["pearlescentColor"] == v.id then
+		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].pearl.." - [ "..v.name.." ("..Loc[Config.Lan]["paint"].chameleon..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].chameleon..")", ["item"] = Loc[Config.Lan]["paint"].pearl.." - "..QBCore.Shared.Items["paintcan"].label } end end
+		end
 	if properties["wheelColor"] ~= newproperties["wheelColor"] then
 		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsClassic) do if newproperties["wheelColor"] == v.id then
 		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].wheel.." Color - [ "..v.name.." ("..Loc[Config.Lan]["paint"].metallic..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].metallic..")", ["item"] = Loc[Config.Lan]["paint"].wheel.." - "..QBCore.Shared.Items["paintcan"].label } end end
@@ -62,7 +68,9 @@ local function printDifferences(vehicle, properties, newproperties)
 		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].wheel.."Color - [ "..v.name.." ("..Loc[Config.Lan]["paint"].matte..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].matte..")", ["item"] = Loc[Config.Lan]["paint"].wheel.." - "..QBCore.Shared.Items["paintcan"].label } end end
 		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsMetals) do if newproperties["wheelColor"] == v.id then
 		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].wheel.."Color - [ "..v.name.." ("..Loc[Config.Lan]["paint"].metals..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].metals..")", ["item"] = Loc[Config.Lan]["paint"].wheel.." - "..QBCore.Shared.Items["paintcan"].label } end end
-	end
+		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsChameleon) do if newproperties["wheelColor"] == v.id then
+		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].wheel.."Color - [ "..v.name.." ("..Loc[Config.Lan]["paint"].chameleon..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].chameleon..")", ["item"] = Loc[Config.Lan]["paint"].wheel.." - "..QBCore.Shared.Items["paintcan"].label } end end
+		end
 	if properties["dashboardColor"] ~= newproperties["dashboardColor"] then
 		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsClassic) do if newproperties["dashboardColor"] == v.id then
 		vehlist[#vehlist+1] = Loc[Config.Lan]["paint"].dashboard.."Color - [ "..v.name.." ("..Loc[Config.Lan]["paint"].metallic..") ]" modlist[#modlist+1] = {['type'] = v.name.." ("..Loc[Config.Lan]["paint"].metallic..")", ["item"] = Loc[Config.Lan]["paint"].dashboard.." - "..QBCore.Shared.Items["paintcan"].label } end end
@@ -84,11 +92,11 @@ local function printDifferences(vehicle, properties, newproperties)
 		originalWheel = GetVehicleWheelType(vehicle)
 		SetVehicleWheelType(vehicle, newproperties["wheels"])
 		if GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))) == "NULL" then
-			vehlist[#vehlist+1] = "Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).."' ("..newproperties["modFrontWheels"]..") ("..name..") ]"
-			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).."' ("..newproperties["modFrontWheels"]..") - "..QBCore.Shared.Items["rims"].label }
+			vehlist[#vehlist+1] = "Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).." ("..newproperties["modFrontWheels"]..") ("..name..") ]"
+			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).." ("..newproperties["modFrontWheels"]..") - "..QBCore.Shared.Items["rims"].label }
 		else
-			vehlist[#vehlist+1] = "Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).."' ("..name..") ]"
-			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).."' ] - "..QBCore.Shared.Items["rims"].label }
+			vehlist[#vehlist+1] = "Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).." ("..name..") ]"
+			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))).." ] - "..QBCore.Shared.Items["rims"].label }
 		end
 		SetVehicleWheelType(vehicle, originalWheel)
 	end
@@ -96,13 +104,13 @@ local function printDifferences(vehicle, properties, newproperties)
 		for i = 1, #wheelCats do if (newproperties["wheels"]+1) == wheelCats[i].id then name = wheelCats[i].name end end
 		originalWheel = GetVehicleWheelType(vehicle)
 		SetVehicleWheelType(vehicle, newproperties["wheels"])
-		--vehlist[#vehlist+1] = "Back Wheels -[ '"..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).."' - ("..name..") ]"
+		--vehlist[#vehlist+1] = "Back Wheels -[ "..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).." - ("..name..") ]"
 		if GetLabelText(GetModTextLabel(vehicle, 23, (newproperties["modFrontWheels"]))) == "NULL" then
-			vehlist[#vehlist+1] = "Back Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).."' ("..newproperties["modBackWheels"]..") ("..name..") ]"
-			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Back Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).."' ("..newproperties["modBackWheels"]..") - "..QBCore.Shared.Items["rims"].label }
+			vehlist[#vehlist+1] = "Back Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).." ("..newproperties["modBackWheels"]..") ("..name..") ]"
+			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Back Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).." ("..newproperties["modBackWheels"]..") - "..QBCore.Shared.Items["rims"].label }
 		else
-			vehlist[#vehlist+1] = "Back Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).."' ("..name..") ]"
-			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Back Wheels - [ '"..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).."' ] - "..QBCore.Shared.Items["rims"].label  }
+			vehlist[#vehlist+1] = "Back Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).." ("..name..") ]"
+			modlist[#modlist+1] = {['type'] = "("..name..")", ["item"] = "Back Wheels - [ "..GetLabelText(GetModTextLabel(vehicle, 24, (newproperties["modBackWheels"]))).." ] - "..QBCore.Shared.Items["rims"].label  }
 		end
 		SetVehicleWheelType(vehicle, originalWheel)
 	end
@@ -266,6 +274,7 @@ local function printDifferences(vehicle, properties, newproperties)
 				newlist = newlist.."<br>"..vehlist[i]
 			end
 			if Config.PhoneMail == "gks" then event = 'gksphone:NewMail'
+			elseif Config.PhoneMail == "qs" then event = 'qs-smartphone:server:sendNewMail'
 			elseif Config.PhoneMail == "qb" then event = 'qb-phone:server:sendNewMail' end
 			TriggerServerEvent(event, {
 				sender = vehplate,
@@ -318,34 +327,34 @@ local function preview(playerPed, vehicle)
 		previewing = true
 		qblog("Used `/preview` in: [**"..trim(GetVehicleNumberPlateText(vehicle)).."**]")
 		TriggerServerEvent("jim-mechanic:server:preview", true, VehToNet(vehicle), trim(GetVehicleNumberPlateText(vehicle)))
+		FreezeEntityPosition(vehicle, true)
 	else
 		return
 	end
 	properties = QBCore.Functions.GetVehicleProperties(vehicle)
 	local startcoords = GetEntityCoords(vehicle)
-	while true do
-		if previewing then
-			if GetIsVehicleEngineRunning(vehicle) then SetVehicleUndriveable(vehicle, true) SetVehicleEngineOn(vehicle, false, true, true) end
-			if #(startcoords - GetEntityCoords(vehicle)) > 3 then previewing = false end
-			if GetPedInVehicleSeat(vehicle, -1) ~= playerPed then previewing = false end
-		elseif not previewing then
+	while previewing do
+		if #(startcoords - GetEntityCoords(vehicle)) > 3 or (GetPedInVehicleSeat(vehicle, -1) ~= playerPed) then previewing = false end
+		if not previewing then
+			previewing = false
+			FreezeEntityPosition(vehicle, false)
 			TriggerServerEvent("jim-mechanic:server:preview", false)
 			local newproperties = QBCore.Functions.GetVehicleProperties(vehicle)
 			QBCore.Functions.SetVehicleProperties(vehicle, properties)
-			TriggerEvent("vehiclekeys:client:SetOwner", trim(GetVehicleNumberPlateText(vehicle)))
-			previewing = false
+			--TriggerEvent("vehiclekeys:client:SetOwner", trim(GetVehicleNumberPlateText(vehicle)))
 			SetVehicleUndriveable(vehicle, false)
 			SetVehicleEngineOn(vehicle, true, false, false)
 			printDifferences(vehicle, properties, newproperties)
 			break
 		end
-		Wait(1000)
+		Wait(2000)
 	end
 end
 
 RegisterNetEvent("jim-mechanic:preview:exploitfix", function(vehicle, resetprop)
 	if Config.Debug then print("^5Debug^7: ^3Preview: ^2Using client to reset vehicle properties of abandoned vehicle^7") end
 	QBCore.Functions.SetVehicleProperties(NetToVeh(vehicle), resetprop)
+	FreezeEntityPosition(NetToVeh(vehicle), false)
 end)
 
 RegisterNetEvent('jim-mechanic:client:Preview:Menu', function()
@@ -538,14 +547,14 @@ RegisterNetEvent('jim-mechanic:client:Preview:Apply', function(data)
 	if data.old then
 		if modName == "NULL" then modName = Loc[Config.Lan]["livery"].oldMod end
 		if GetVehicleLivery(vehicle) == tonumber(data.id) then
-			TriggerEvent('QBCore:Notify', data.id..Loc[Config.Lan]["common"].already, "error")
+			triggerNotify(nil, data.id..Loc[Config.Lan]["common"].already, "error")
 			TriggerEvent('jim-mechanic:client:Preview:Livery')
 			return
 		end
 	else
 		if modName == "NULL" then modName = Loc[Config.Lan]["common"].stock end
 		if GetVehicleMod(vehicle, 48) == tonumber(data.id) then
-			TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error")
+			triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error")
 			TriggerEvent('jim-mechanic:client:Preview:Livery')
 			return
 		end
@@ -595,7 +604,7 @@ end)
 RegisterNetEvent('jim-mechanic:client:Preview:Plates:Apply', function(index)
 	local playerPed	= PlayerPedId()
 	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) end
-	if GetVehicleNumberPlateTextIndex(vehicle) == tonumber(index) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["plates"].already, "error") TriggerEvent('jim-mechanic:client:Preview:Plates')
+	if GetVehicleNumberPlateTextIndex(vehicle) == tonumber(index) then triggerNotify(nil, Loc[Config.Lan]["plates"].already, "error") TriggerEvent('jim-mechanic:client:Preview:Plates')
 	elseif GetVehicleNumberPlateTextIndex(vehicle) ~= tonumber(index) then
 		SetVehicleNumberPlateTextIndex(vehicle, index)
 		emptyHands(playerPed)
@@ -638,6 +647,14 @@ RegisterNetEvent('jim-mechanic:client:Preview:Paint', function()
 		if interiorColor == v.id then interiorColor = v.name end
 		if dashboardColor == v.id then dashboardColor = v.name	end
 	end
+	for _, v in pairs(Loc[Config.Lan].vehicleResprayOptionsChameleon) do
+		if vehPrimaryColour == v.id then vehPrimaryColour = v.name	end
+		if vehSecondaryColour == v.id then vehSecondaryColour = v.name	end
+		if vehPearlescentColour == v.id then vehPearlescentColour = v.name	end
+		if vehWheelColour == v.id then vehWheelColour = v.name	end
+		if interiorColor == v.id then interiorColor = v.name end
+		if dashboardColor == v.id then dashboardColor = v.name	end
+	end
 	if type(vehPrimaryColour) == "number" then vehPrimaryColour = Loc[Config.Lan]["common"].stock end
 	if type(vehSecondaryColour) == "number" then vehSecondaryColour = Loc[Config.Lan]["common"].stock end
 	if type(vehPearlescentColour) == "number" then vehPearlescentColour = Loc[Config.Lan]["common"].stock end
@@ -661,19 +678,22 @@ RegisterNetEvent('jim-mechanic:client:Preview:Paint', function()
 end)
 
 RegisterNetEvent('jim-mechanic:client:Preview:Paints:Choose', function(data)
-	local playerPed	= PlayerPedId()
-	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) end
+	local vehicle = nil
+	if IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = GetVehiclePedIsIn(PlayerPedId(), false) end
 	if DoesEntityExist(vehicle) then
-		exports['qb-menu']:openMenu({
+		local PaintMenu = {
 			{ header = searchCar(vehicle), txt = "Class: "..getClass(vehicle).."<br>"..Loc[Config.Lan]["check"].plate..trim(GetVehicleNumberPlateText(vehicle))..Loc[Config.Lan]["check"].value..searchPrice(vehicle).."<br>"..searchDist(vehicle),
 				params = { event = "jim-mechanic:client:Preview:Camera", args = { data = data, event = "jim-mechanic:client:Preview:Paints:Choose" }, } },
 			{ header = data..Loc[Config.Lan]["paint"].menuheader, txt = "", isMenuHeader = true },
-			{ icon = "fas fa-circle-arrow-left", header = "", txt = string.gsub(Loc[Config.Lan]["common"].ret, "⬅️ ", ""), params = { event = "jim-mechanic:client:Preview:Paint" } },
-			{ header = Loc[Config.Lan]["paint"].classic, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].classic } } },
-			{ header = Loc[Config.Lan]["paint"].metallic, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].metallic } } },
-			{ header = Loc[Config.Lan]["paint"].matte, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].matte } } },
-			{ header = Loc[Config.Lan]["paint"].metals, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].metals } } },
-		})
+			{ icon = "fas fa-circle-arrow-left", header = "", txt = string.gsub(Loc[Config.Lan]["common"].ret, "⬅️ ", ""), params = { event = "jim-mechanic:client:Preview:Paint" } }, }
+		PaintMenu[#PaintMenu+1] = { header = Loc[Config.Lan]["paint"].classic, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].classic } } }
+		PaintMenu[#PaintMenu+1] = { header = Loc[Config.Lan]["paint"].metallic, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].metallic } } }
+		PaintMenu[#PaintMenu+1] = { header = Loc[Config.Lan]["paint"].matte, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].matte } } }
+		PaintMenu[#PaintMenu+1] = { header = Loc[Config.Lan]["paint"].metals, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].metals } } }
+		if Config.Chameleon and (data ~= Loc[Config.Lan]["paint"].interior and data ~= Loc[Config.Lan]["paint"].dashboard) then
+			PaintMenu[#PaintMenu+1] = { header = Loc[Config.Lan]["paint"].chameleon, txt = "", params = { event = "jim-mechanic:client:Preview:Paints:Choose:Colour", args = { paint = data, finish = Loc[Config.Lan]["paint"].chameleon } } }
+		end
+		exports['qb-menu']:openMenu(PaintMenu)
 	end
 end)
 
@@ -715,6 +735,12 @@ RegisterNetEvent('jim-mechanic:client:Preview:Paints:Choose:Colour', function(da
 
 	elseif data.finish == Loc[Config.Lan]["paint"].metals then
 		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsMetals) do
+			local icon = "" local disabled = false
+			if colourCheck == v.id then installed = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else installed = "" end
+			PaintMenu[#PaintMenu + 1] = { icon = icon, isMenuHeader = disabled, header = k..". "..v.name, txt = installed, params = { event = 'jim-mechanic:client:Preview:Paints:Apply', args = { paint = data.paint, id = v.id, name = v.name, finish = data.finish } } } end
+
+	elseif data.finish == Loc[Config.Lan]["paint"].chameleon then
+		for k, v in pairs(Loc[Config.Lan].vehicleResprayOptionsChameleon) do
 			local icon = "" local disabled = false
 			if colourCheck == v.id then installed = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else installed = "" end
 			PaintMenu[#PaintMenu + 1] = { icon = icon, isMenuHeader = disabled, header = k..". "..v.name, txt = installed, params = { event = 'jim-mechanic:client:Preview:Paints:Apply', args = { paint = data.paint, id = v.id, name = v.name, finish = data.finish } } } end
@@ -851,7 +877,7 @@ end)
 RegisterNetEvent('jim-mechanic:client:Preview:Windows:Apply', function(data)
 	local playerPed = PlayerPedId()
 	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) end
-	if GetVehicleWindowTint(vehicle) == tonumber(data.mod) then TriggerEvent('QBCore:Notify', data.name..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Preview:Windows:Check')
+	if GetVehicleWindowTint(vehicle) == tonumber(data.mod) then triggerNotify(nil, data.name..Loc[Config.Lan]["common"].already, "error") TriggerEvent('jim-mechanic:client:Preview:Windows:Check')
 	elseif GetVehicleWindowTint(vehicle) ~= tonumber(data.mod) then
 		SetVehicleWindowTint(vehicle, tonumber(data.mod))
 		TriggerEvent('jim-mechanic:client:Preview:Windows:Check')
@@ -862,7 +888,7 @@ end)
 RegisterNetEvent('jim-mechanic:client:Preview:Windows:Check', function()
 	local playerPed = PlayerPedId()
 	if IsPedInAnyVehicle(playerPed, false) then	vehicle = GetVehiclePedIsIn(playerPed, false) end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
 		local icon = "" local disabled = false
 		if GetVehicleWindowTint(vehicle) == 0 then applied1 = Loc[Config.Lan]["common"].current else applied1 = "" end

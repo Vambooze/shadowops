@@ -1,4 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Horn
 RegisterNetEvent('jim-mechanic:client:Horn:Apply', function(data)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) lookVeh(vehicle)
@@ -11,11 +12,11 @@ RegisterNetEvent('jim-mechanic:client:Horn:Apply', function(data)
 		SetVehicleDoorShut(vehicle, 4, false, false)
 		emptyHands(PlayerPedId())
 		updateCar(vehicle)
-		if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'horn', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['horn'], "remove", 1)
+		if Config.CosmeticRemoval then toggleItem(false, "horn")
 		else TriggerEvent('jim-mechanic:client:Horn:Check') end
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["horns"].installed, "success")
+		triggerNotify(nil, Loc[Config.Lan]["horns"].installed, "success")
 	end, function() -- Cancel
-		TriggerEvent("QBCore:Notify", Loc[Config.Lan]["horns"].failed, "error")
+		triggerNotify(nil, Loc[Config.Lan]["horns"].failed, "error")
 		emptyHands(PlayerPedId())
 		SetVehicleDoorShut(vehicle, 4, false, false)
 	end, "horn")
@@ -36,7 +37,7 @@ RegisterNetEvent('jim-mechanic:client:Horn:Check', function()
 		end
 	end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
 		local icon = "" local disabled = false
 		if GetVehicleMod(vehicle, 14) == -1 then stockinstall = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else stockinstall = "" end

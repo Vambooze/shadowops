@@ -1,8 +1,8 @@
 Loc["fr"] = {
 	["common"] = { --commonly used strings
 		owned = "Le véhicule n'appartient pas a vous,il ne peut pas être modifié",
-		close = "❌ Fermer",
-		ret = "⬅️ Retour",
+		close = "Fermer",
+		ret = "Retour",
 		stock = "Origine", -- Default, Original, whatever word you use for this
 		current = "Actuellement installé",
 		noOptions = "Aucune option disponible pour cet article",
@@ -10,6 +10,8 @@ Loc["fr"] = {
 		amountoption = "nombres d\'options : ",
 		already = "Deja installé ", -- eg. "Stock Bumper already Installed"
 		menuinstalled = " Options] Installé: ", --eg "[4 Options] Installed: Grille 1"
+		nearwheel = "You need to move closer to a wheel",
+		nearengine = "You need to move closer to the engine"
 	},
 	--Performance Items
 	["armour"] = { --armour.lua
@@ -108,7 +110,7 @@ Loc["fr"] = {
 		neonheader3 = "Sous-lueur Color Controls",
 		neonheader4 = "Commandes des phares au xénon",
 		customheader = "RGB personnalisé",
-		customconfrim = "APPLIQUER",
+		customconfirm = "APPLIQUER",
 		neontxt1 = "Contrôle fin de l'éclairage au néon",
 		toggle = "Basculer TOUT",
 		front = "Devant",
@@ -214,6 +216,7 @@ Loc["fr"] = {
 		metallic = "Metallique",
 		matte = "Mat",
 		metals = "Metaux",
+		chameleon = "Chameleon",
 
 		installing = "Installation de la peinture en cours",
 		installed = "Peinture installé avec succès",
@@ -404,8 +407,8 @@ Loc["fr"] = {
 		label44 = "Hydraulique - [ ",
 		label45 = "Antennes - [ ",
 		label46 = "Reservoir d'essence - [ ",
-		label47 = "✅ oui",
-		label48 = "❌ Non",
+		label47 = "Oui",
+		label48 = "Non",
 		label49 = "Voulez-vous supprimer les freins ?",
 		label50 = "Voulez-vous supprimer le moteur ?",
 		label51 = "Voulez-vous supprimer les suspensions ?",
@@ -430,8 +433,11 @@ Loc["fr"] = {
 		brakes = "Freins",
 		clutch = "Embrayage",
 		tank = "Reservoir",
+		replacetire = "Replace Tires",
+		tire = "Wheels",
 
 		repairing = "réparation",
+		changing = "Changing ",
 		repaired = " entièrement réparé",
 		cancel = " Réparation annulée!",
 		nomaterials = "Il n'y a pas assez de matériel dans le coffre-fort",
@@ -461,6 +467,12 @@ Loc["fr"] = {
 		tyres = "Replacing Damaged Tyres",
 		window = "Removing Damaged Windows",
 		doors = "Repairing Doors",
+	},
+	["carwax"] = {
+		head1 = "Clean Vehicle",
+		head2 = "Clean and Wax",
+		head3 = "Clean and Premium Wax",
+		head4 = "Clean and Ultimate Wax",
 	},
 	["extras"] = {
 		clean = "Véhicule propre",
@@ -517,7 +529,7 @@ Loc["fr"] = {
 		{ name = "North Yankton", id = 5 },
 	},
 	vehicleNeonOptions = {
-	    { name = "Blanc", R = 255, G = 255, B = 255 },
+		{ name = "Blanc", R = 255, G = 255, B = 255 },
         { name = "Bleu", R = 2, G = 21, B = 255 },
         { name = "Bleue electrique", R = 3, G = 83, B = 255 },
         { name = "Vert Menthe", R = 0, G = 255, B = 140 },
@@ -530,21 +542,6 @@ Loc["fr"] = {
         { name = "Rose vif", R = 255, G = 5, B = 190 },
         { name = "Violet", R = 35, G = 1, B = 255 },
         { name = "Lumière noire", R = 15, G = 3, B = 255 }
-	},
-	vehicleXenonOptions = {
-		{ name = "Blanc", id = 0 },
-		{ name = "Bleu", id = 1 },
-		{ name = "Bleue electrique", id = 2 },
-		{ name = "Vert menthe", id = 3 },
-		{ name = "Vert lime", id = 4 },
-		{ name = "Jaune", id = 5 },
-		{ name = "OR", id = 6 },
-		{ name = "Orange", id = 7 },
-		{ name = "Rouge", id = 8 },
-		{ name = "Rose", id = 9 },
-		{ name = "Rose vif", id = 10 },
-		{ name = "Violet", id = 11 },
-		{ name = "Lumiere noire", id = 12 }
 	},
 	vehicleHorns = {
 		{ name = "Truck Horn", id = 0 },
@@ -611,7 +608,7 @@ Loc["fr"] = {
 		{ name = "Noir carbone", id = 147 },
 		{ name = "Graphite", id = 1 },
 		{ name = "NoirAnthracite", id = 11 },
-		{ name = "Acier noir", id = 11 },
+		{ name = "Acier noir", id = 2 },
 		{ name = "Acier foncé", id = 3 },
 		{ name = "Argent", id = 4 },
 		{ name = "Argent bleuté", id = 5 },
@@ -712,5 +709,23 @@ Loc["fr"] = {
 		{ name = "Pure OR", id = 158 },
 		{ name = "OR brossé", id = 159 },
 		{ name = "Chrome", id = 120 },
+	},
+	vehicleResprayOptionsChameleon = {
+		{ name = "Monochrome", id = 223 },
+		{ name = "Chromatic Aberration", id = 236 },
+		{ name = "Night & Day", id = 224 },
+		{ name = "The Verlierer", id = 225 },
+		{ name = "Sprunk Extreme", id = 226 },
+		{ name = "Vice City", id = 227 },
+		{ name = "Sunset", id = 233 },
+		{ name = "Temperature", id = 238 },
+		{ name = "Synthwave Nights", id = 228 },
+		{ name = "Four Seasons", id = 229 },
+		{ name = "The Seven", id = 234 },
+		{ name = "Maisonette 9 Throwback", id = 230 },
+		{ name = "Bubblegum", id = 231 },
+		{ name = "Full Rainbow", id = 232 },
+		{ name = "Kamen Rider", id = 235 },
+		{ name = "It's Christmas", id = 237 },
 	},
 }

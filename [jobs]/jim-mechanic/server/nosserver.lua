@@ -1,4 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Server:UpdateObject', function() if source ~= '' then return false end QBCore = exports['qb-core']:GetCoreObject() end)
 
 local VehicleNitrous = { }
 local nosColour = { }
@@ -44,10 +45,13 @@ QBCore.Functions.CreateCallback('jim-mechanic:GetNosLoaded', function(source, cb
 --Database interactions
 RegisterNetEvent('jim-mechanic:database:LoadNitro', function(Plate) MySQL.Async.execute('UPDATE player_vehicles SET noslevel = ?, hasnitro = ? WHERE plate = ?', {100, true, Plate}) end)
 RegisterNetEvent('jim-mechanic:database:UnloadNitro', function(plate) MySQL.Async.execute('UPDATE player_vehicles SET noslevel = ?, hasnitro = ? WHERE plate = ?', {0, false, plate}) end)
-RegisterNetEvent('jim-mechanic:database:UpdateNitroLevel', function(plate, level) MySQL.Async.execute('UPDATE player_vehicles SET noslevel = ? WHERE plate = ?', {level, plate}) end)
+RegisterNetEvent('jim-mechanic:database:UpdateNitroLevel', function(plate, level)
+	if Config.Debug then print("^5Debug^7: ^2Database ^6noslevel^2 updated "..plate.." "..level.."^7") end
+	MySQL.Async.execute('UPDATE player_vehicles SET noslevel = ? WHERE plate = ?', {level, plate})
+end)
 
 --Syncing stuff
-RegisterNetEvent('jim-mechanic:server:SyncPurge', function(netId, enabled) TriggerClientEvent('jim-mechanic:client:SyncPurge', -1, netId, enabled) end)
+RegisterNetEvent('jim-mechanic:server:SyncPurge', function(netId, enabled, size) TriggerClientEvent('jim-mechanic:client:SyncPurge', -1, netId, enabled, size) end)
 RegisterNetEvent('jim-mechanic:server:SyncTrail', function(netId, enabled) TriggerClientEvent('jim-mechanic:client:SyncTrail', -1, netId, enabled) end)
 RegisterNetEvent('jim-mechanic:server:SyncFlame', function(netId, scale) TriggerClientEvent('jim-mechanic:client:SyncFlame', -1, netId, scale) end)
 
