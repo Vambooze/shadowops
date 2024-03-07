@@ -1,8 +1,8 @@
 Loc["de"] = {
 	["common"] = { --commonly used strings
 		owned = "Fahrzeug gehört keinem und kann nicht modifiziert werden",
-		close = "❌ Schließen",
-		ret = "⬅️ Zurück",
+		close = "Schließen",
+		ret = "Zurück",
 		stock = "Standart", -- Default, Original, whatever word you use for this
 		current = "Zurzeit installiert",
 		noOptions = "Keine Optionen für dieses Item",
@@ -10,6 +10,8 @@ Loc["de"] = {
 		amountoption = "Anzahl an Optionen: ",
 		already = " bereits installiert", -- eg. "Stock Bumper already Installed"
 		menuinstalled = " Optionen] installiert: ", --eg "[4 Options] Installed: Grille 1"
+		nearwheel = "You need to move closer to a wheel",
+		nearengine = "You need to move closer to the engine"
 	},
 	--Performance Items
 	["armour"] = { --armour.lua
@@ -108,7 +110,7 @@ Loc["de"] = {
 		neonheader3 = "Untergrundbodenbeleuchtungsteuerung",
 		neonheader4 = "Xenonlichtersteuerung",
 		customheader = "Custom RBG",
-		customconfrim = "ANWENDEN",
+		customconfirm = "ANWENDEN",
 		neontxt1 = "Feinsteuerung der Neonbeleuchtung",
 		toggle = "ALLE AKTIVIEREN",
 		front = "Vorne",
@@ -214,6 +216,7 @@ Loc["de"] = {
 		metallic = "Metallisch",
 		matte = "Matt",
 		metals = "Metall",
+		chameleon = "Chameleon",
 
 		installing = "Erfolgreich Farbe installiert",
 		installed = "Erfolgreich Farbe installiert",
@@ -404,8 +407,8 @@ Loc["de"] = {
 		label44 = "Hydraulics - [ ",
 		label45 = "Aerials - [ ",
 		label46 = "Tank - [ ",
-		label47 = "✅ Ja",
-		label48 = "❌ Nein",
+		label47 = "Ja",
+		label48 = "Nein",
 		label49 = "Willst du die Bremsen entfernen?",
 		label50 = "Willst du den Motor entfernen?",
 		label51 = "Willst du die Federung entfernen?",
@@ -430,8 +433,11 @@ Loc["de"] = {
 		brakes = "Bremsen",
 		clutch = "Kupplung",
 		tank = "Tank",
+		replacetire = "Replace Tires",
+		tire = "Wheels",
 
 		repairing = "Reparieren ",
+		changing = "Changing ",
 		repaired = " völlig repariert",
 		cancel = " Reparatur abgebrochen",
 		nomaterials = "Es gibt nicht genug Materialien im Schrank",
@@ -461,6 +467,12 @@ Loc["de"] = {
 		tyres = "Replacing Damaged Tyres",
 		window = "Removing Damaged Windows",
 		doors = "Repairing Doors",
+	},
+	["carwax"] = {
+		head1 = "Clean Vehicle",
+		head2 = "Clean and Wax",
+		head3 = "Clean and Premium Wax",
+		head4 = "Clean and Ultimate Wax",
 	},
 	["extras"] = {
 		clean = "Fahrzeug Sauber",
@@ -531,21 +543,6 @@ Loc["de"] = {
         { name = "Purple", R = 35, G = 1, B = 255 },
         { name = "Blacklight", R = 15, G = 3, B = 255 }
 	},
-	vehicleXenonOptions = {
-		{ name = "White", id = 0 },
-		{ name = "Blue", id = 1 },
-		{ name = "Electric Blue", id = 2 },
-		{ name = "Mint Green", id = 3 },
-		{ name = "Lime Green", id = 4 },
-		{ name = "Yellow", id = 5 },
-		{ name = "Golden Shower", id = 6 },
-		{ name = "Orange", id = 7 },
-		{ name = "Red", id = 8 },
-		{ name = "Pony Pink", id = 9 },
-		{ name = "Hot Pink", id = 10 },
-		{ name = "Purple", id = 11 },
-		{ name = "Blacklight", id = 12 }
-	},
 	vehicleHorns = {
 		{ name = "Truck Horn", id = 0 },
 		{ name = "Cop Horn", id = 1 },
@@ -611,7 +608,7 @@ Loc["de"] = {
 		{ name = "Carbon Black", id = 147 },
 		{ name = "Graphite", id = 1 },
 		{ name = "Anhracite Black", id = 11 },
-		{ name = "Black Steel", id = 11 },
+		{ name = "Black Steel", id = 2 },
 		{ name = "Dark Steel", id = 3 },
 		{ name = "Silver", id = 4 },
 		{ name = "Bluish Silver", id = 5 },
@@ -712,5 +709,23 @@ Loc["de"] = {
 		{ name = "Pure Gold", id = 158 },
 		{ name = "Brushed Gold", id = 159 },
 		{ name = "Chrome", id = 120 },
+	},
+	vehicleResprayOptionsChameleon = {
+		{ name = "Monochrome", id = 223 },
+		{ name = "Chromatic Aberration", id = 236 },
+		{ name = "Night & Day", id = 224 },
+		{ name = "The Verlierer", id = 225 },
+		{ name = "Sprunk Extreme", id = 226 },
+		{ name = "Vice City", id = 227 },
+		{ name = "Sunset", id = 233 },
+		{ name = "Temperature", id = 238 },
+		{ name = "Synthwave Nights", id = 228 },
+		{ name = "Four Seasons", id = 229 },
+		{ name = "The Seven", id = 234 },
+		{ name = "Maisonette 9 Throwback", id = 230 },
+		{ name = "Bubblegum", id = 231 },
+		{ name = "Full Rainbow", id = 232 },
+		{ name = "Kamen Rider", id = 235 },
+		{ name = "It's Christmas", id = 237 },
 	},
 }

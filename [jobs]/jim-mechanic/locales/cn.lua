@@ -1,8 +1,8 @@
 Loc["cn"] = {
 	["common"] = { --commonly used strings
 		owned = "无法改装没有车主的车",
-		close = "❌ 关闭",
-		ret = "⬅️ 返回",
+		close = "关闭",
+		ret = "返回",
 		stock = "原厂", -- Default, Original, whatever word you use for this
 		current = "当前已安装",
 		noOptions = "此项目没有可用选项",
@@ -10,6 +10,8 @@ Loc["cn"] = {
 		amountoption = "可用数量: ",
 		already = "已安装", -- eg. "Stock Bumper already Installed"
 		menuinstalled = " 个等级] 已安装: ", --eg "[4 Options] Installed: Grille 1"
+		nearwheel = "你需要靠近一个车轮",
+		nearengine = "你需要靠近引擎"
 	},
 	--Performance Items
 	["armour"] = { --armour.lua
@@ -108,7 +110,7 @@ Loc["cn"] = {
 		neonheader3 = "车底灯颜色控制",
 		neonheader4 = "氙气灯控制",
 		customheader = "自定义RBG",
-		customconfrim = "提交",
+		customconfirm = "提交",
 		neontxt1 = "霓虹灯细节控制",
 		toggle = "切换全部",
 		front = "前侧",
@@ -214,6 +216,7 @@ Loc["cn"] = {
 		metallic = "仿金属色",
 		matte = "哑光",
 		metals = "金属色",
+		chameleon = "渐变色",
 
 		installing = "更改喷漆颜色中..",
 		installed = "喷漆颜色更改成功",
@@ -404,8 +407,8 @@ Loc["cn"] = {
 		label44 = "液压泵 - [ ",
 		label45 = "天线 - [ ",
 		label46 = "油箱 - [ ",
-		label47 = "✅ 是",
-		label48 = "❌ 否",
+		label47 = "是",
+		label48 = "否",
 		label49 = "你是否确认要移除刹车套件?",
 		label50 = "你是否确认要移除引擎套件?",
 		label51 = "你是否确认要移除避震套件?",
@@ -430,8 +433,11 @@ Loc["cn"] = {
 		brakes = "刹车",
 		clutch = "离合器",
 		tank = "油箱k",
+		replacetire = "更换轮胎",
+		tire = "车轮",
 
 		repairing = "正在修理",
+		changing = "更换中 ",
 		repaired = "完全修复",
 		cancel = "修复取消!",
 		nomaterials = "仓库里没有足够的材料",
@@ -461,6 +467,12 @@ Loc["cn"] = {
 		tyres = "更换破损轮胎中",
 		window = "移除破损车窗中",
 		doors = "车门修复中",
+	},
+	["carwax"] = {
+		head1 = "清洗车辆",
+		head2 = "清洗和打蜡",
+		head3 = "清洗和高级打蜡",
+		head4 = "清洗和终极打蜡",
 	},
 	["extras"] = {
 		clean = "车辆清理",
@@ -531,21 +543,6 @@ Loc["cn"] = {
         { name = "紫色", R = 35, G = 1, B = 255 },
         { name = "黑光", R = 15, G = 3, B = 255 }
 	},
-	vehicleXenonOptions = {
-		{ name = "白色", id = 0 },
-		{ name = "蓝色", id = 1 },
-		{ name = "电子蓝", id = 2 },
-		{ name = "青绿色", id = 3 },
-		{ name = "翠绿色", id = 4 },
-		{ name = "黄色", id = 5 },
-		{ name = "金色", id = 6 },
-		{ name = "橙色", id = 7 },
-		{ name = "红色", id = 8 },
-		{ name = "小马粉", id = 9 },
-		{ name = "热粉", id = 10 },
-		{ name = "紫色", id = 11 },
-		{ name = "黑光", id = 12 }
-	},
 	vehicleHorns = {
 		{ name = "汽笛", id = 0 },
 		{ name = "警笛", id = 1 },
@@ -611,7 +608,7 @@ Loc["cn"] = {
 		{ name = "炭黑色", id = 147 },
 		{ name = "石墨黑", id = 1 },
 		{ name = "煤黑色", id = 11 },
-		{ name = "黑钢色", id = 11 },
+		{ name = "黑钢色", id = 2 },
 		{ name = "暗钢色", id = 3 },
 		{ name = "银色", id = 4 },
 		{ name = "蓝银", id = 5 },
@@ -712,5 +709,23 @@ Loc["cn"] = {
 		{ name = "纯金色", id = 158 },
 		{ name = "拉丝金", id = 159 },
 		{ name = "铬合金", id = 120 },
+	},
+	vehicleResprayOptionsChameleon = {
+		{ name = "黑白", id = 223 },
+		{ name = "色差", id = 236 },
+		{ name = "昼夜", id = 224 },
+		{ name = "维利尔", id = 225 },
+		{ name = "极度斯普朗克", id = 226 },
+		{ name = "罪恶都市", id = 227 },
+		{ name = "日落", id = 233 },
+		{ name = "温差", id = 238 },
+		{ name = "震波之夜", id = 228 },
+		{ name = "四季", id = 229 },
+		{ name = "老七", id = 234 },
+		{ name = "复古别墅", id = 230 },
+		{ name = "泡泡堂", id = 231 },
+		{ name = "彩虹", id = 232 },
+		{ name = "假面骑士", id = 235 },
+		{ name = "圣诞节", id = 237 },
 	},
 }

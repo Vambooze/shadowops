@@ -1,11 +1,12 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Hood
 RegisterNetEvent('jim-mechanic:client:Hood:Apply', function(data)
 	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle)
 	local modName = GetLabelText(GetModTextLabel(vehicle, 7, tonumber(data.id)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["hood"].stockMod end
 	if GetVehicleMod(vehicle, 7) == tonumber(data.id) then
-		TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["hood"].installed, "error")
+		triggerNotify(nil, modName..Loc[Config.Lan]["hood"].installed, "error")
 		TriggerEvent('jim-mechanic:client:Hood:Check')
 	elseif GetVehicleMod(vehicle, 7) ~= tonumber(data.id) then
 		time = math.random(3000,5000)
@@ -19,11 +20,11 @@ RegisterNetEvent('jim-mechanic:client:Hood:Apply', function(data)
 			SetVehicleDoorShut(vehicle, 4, false)
 			updateCar(vehicle)
 			emptyHands(PlayerPedId())
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'hood', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['hood'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "hood")
 			else TriggerEvent('jim-mechanic:client:Hood:Check') end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["hood"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["hood"].installed, "success")
 		end, function()
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["hood"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["hood"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "hood")
 	end
@@ -43,10 +44,10 @@ RegisterNetEvent('jim-mechanic:client:Hood:Check', function()
 		end
 	end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
 		local icon = "" local disabled = false
-		if GetNumVehicleMods(vehicle, 7) == 0 then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return	end
+		if GetNumVehicleMods(vehicle, 7) == 0 then triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return	end
 		if GetVehicleMod(vehicle, 7) == -1 then stockinstall = Loc[Config.Lan]["common"].current icon = "fas fa-check" disabled = true else stockinstall = "" end
 		local HoodMenu = {
 				{ isMenuHeader = true, icon= "hood", header = searchCar(vehicle)..Loc[Config.Lan]["hood"].menuheader, txt = Loc[Config.Lan]["common"].amountoption..#validMods+1, },

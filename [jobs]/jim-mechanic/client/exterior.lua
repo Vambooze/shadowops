@@ -1,4 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================== Exterior
 RegisterNetEvent('jim-mechanic:client:Exterior:Apply', function(data)
 	local playerPed	= PlayerPedId()
@@ -7,7 +8,7 @@ RegisterNetEvent('jim-mechanic:client:Exterior:Apply', function(data)
 	local modName = GetLabelText(GetModTextLabel(vehicle, tonumber(data.mod), tonumber(data.id)))
 	if modName == "NULL" then modName = Loc[Config.Lan]["exterior"].stockMod end
 	if GetVehicleMod(vehicle, tonumber(data.mod)) == tonumber(data.id) then
-		TriggerEvent('QBCore:Notify', modName..Loc[Config.Lan]["common"].already, "error")
+		triggerNotify(nil, modName..Loc[Config.Lan]["common"].already, "error")
 		TriggerEvent('jim-mechanic:client:Exterior:Choose', data)
 	elseif GetVehicleMod(vehicle, tonumber(data.mod)) ~= tonumber(data.id) then
 		time = math.random(3000,5000)
@@ -17,11 +18,11 @@ RegisterNetEvent('jim-mechanic:client:Exterior:Apply', function(data)
 			SetVehicleMod(vehicle, tonumber(data.mod), tonumber(data.id))
 			emptyHands(PlayerPedId())
 			updateCar(vehicle)
-			if Config.CosmeticRemoval then TriggerServerEvent("QBCore:Server:RemoveItem", 'externals', 1) TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['externals'], "remove", 1)
+			if Config.CosmeticRemoval then toggleItem(false, "externals")
 			else TriggerEvent('jim-mechanic:client:Exterior:Choose', data) end
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["exterior"].installed, "success")
+			triggerNotify(nil, Loc[Config.Lan]["exterior"].installed, "success")
 		end, function() -- Cancel
-			TriggerEvent("QBCore:Notify", Loc[Config.Lan]["exterior"].failed, "error")
+			triggerNotify(nil, Loc[Config.Lan]["exterior"].failed, "error")
 			emptyHands(PlayerPedId())
 		end, "externals")
 	end
@@ -35,7 +36,7 @@ RegisterNetEvent('jim-mechanic:client:Exterior:Check', function()
 	local vehicle = nil
 	if not IsPedInAnyVehicle(PlayerPedId(), false) then	vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle) lookVeh(vehicle) end
 	if lockedCar(vehicle) then return end
-	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].owned, "error") return end
+	if Config.isVehicleOwned and not IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then triggerNotify(nil, Loc[Config.Lan]["common"].owned, "error") return end
 	if DoesEntityExist(vehicle) then
 		local exterior = { 27, 44, 37, 39, 40, 41, 38, 42, 45, 43 }
 		local external = nil
@@ -44,7 +45,7 @@ RegisterNetEvent('jim-mechanic:client:Exterior:Check', function()
 		for i = 0, 20 do
 			if DoesExtraExist(vehicle, i) then hasExtra = true extraCount = extraCount + 1 end
 		end
-		if external ~= true and hasExtra ~= true then TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return end
+		if external ~= true and hasExtra ~= true then triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return end
 		local ExteriorMenu = {
 			{ isMenuHeader = true, icon = "externals", header = searchCar(vehicle)..Loc[Config.Lan]["exterior"].menuheader, },
 			{ icon = "fas fa-circle-xmark", header = "", txt = string.gsub(Loc[Config.Lan]["common"].close, "❌ ", ""), params = { event = "jim-mechanic:client:Menu:Close" } } }
@@ -127,5 +128,6 @@ RegisterNetEvent('jim-mechanic:client:Exterior:Extra:Apply', function(data)
 	Wait(100)
 	SetVehicleEngineHealth(vehicle, veh.engine)
 	SetVehicleBodyHealth(vehicle, veh.body)
+	updateCar(vehicle)
 	TriggerEvent('jim-mechanic:client:Exterior:Extra')
 end)

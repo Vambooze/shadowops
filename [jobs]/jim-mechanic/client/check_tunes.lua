@@ -1,4 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+RegisterNetEvent('QBCore:Client:UpdateObject', function() QBCore = exports['qb-core']:GetCoreObject() end)
 --========================================================= CheckTunes
 local vehicle = nil
 local toolbox = nil
@@ -16,11 +17,11 @@ RegisterNetEvent('jim-mechanic:client:Menu', function()
 	loadAnimDict("anim@heists@narcotics@trash")
 	playAnim("anim@heists@narcotics@trash", "idle", 6000, 8)
 	if not DoesEntityExist(vehicle) then return end
-	if toolbox == nil then toolbox = CreateObject(`v_ind_cs_toolbox4`,0.0, 0.0, 0.0,true, false, false) else emptyHands(PlayerPedId()) end
+	if not toolbox then toolbox = makeProp({prop = `v_ind_cs_toolbox4`, coords = vec4(0,0,0,0)}, 1, 1) else emptyHands(PlayerPedId()) end
 	AttachEntityToEntity(toolbox, ped, GetPedBoneIndex(ped, 57005), 0.20, -0.04, 0.0, 25.0, 270.0, 180.0, true, true, false, true, 1, true)
 	CreateThread(function()
-		Wait(15000)
-		emptyHands(PlayerPedId())
+		Wait(10000)
+		DeleteEntity(toolbox)
 		toolbox = nil
 		unloadAnimDict("anim@heists@narcotics@trash")
 	end)
@@ -32,36 +33,36 @@ RegisterNetEvent('jim-mechanic:client:Menu', function()
 		--Engine--
 		if GetNumVehicleMods(vehicle,11) ~= 0 then -- If engine can be changed
 			if GetVehicleMod(vehicle, 11) == -1 then  -- If Stock
-				modEngine = Loc[Config.Lan]["common"].stock modEngineHead = true
+				modEngine = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 11).."]" modEngineHead = true
 			else local lvl = (GetVehicleMod(vehicle, 11)+1) -- If engine level found
-				modEngine = "<img src=nui://"..Config.img..QBCore.Shared.Items["engine"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["engine"..lvl].label.." [LVL "..lvl.."]"
+				modEngine = "<img src=nui://"..Config.img..QBCore.Shared.Items["engine"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["engine"..lvl].label..": [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 11).."]"
 				modEngineHead = false
 			end
 		else modEngine = Loc[Config.Lan]["check"].unavail modEngineHead = true end
 		--Brakes--
 		if GetNumVehicleMods(vehicle, 12) ~= 0 then
 			if GetVehicleMod(vehicle, 12) == -1 then
-				modBrakes = Loc[Config.Lan]["common"].stock modBrakesHead = true
+				modBrakes = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 12).."]" modBrakesHead = true
 			else local lvl = (GetVehicleMod(vehicle, 12)+1)
-				modBrakes = "<img src=nui://"..Config.img..QBCore.Shared.Items["brakes"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["brakes"..lvl].label.." [LVL "..lvl.."]"
+				modBrakes = "<img src=nui://"..Config.img..QBCore.Shared.Items["brakes"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["brakes"..lvl].label..": [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 12).."]"
 				modBrakesHead = false
 			end
 		else modBrakes = Loc[Config.Lan]["check"].unavail modBrakesHead = true end
 		--Suspension
 		if GetNumVehicleMods(vehicle,15) ~= 0 then
 			if GetVehicleMod(vehicle, 15) == -1 then
-				modSuspension = Loc[Config.Lan]["common"].stock modSuspensionHead = true
+				modSuspension = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 15).."]" modSuspensionHead = true
 			else local lvl = (GetVehicleMod(vehicle, 15)+1)
-				modSuspension = "<img src=nui://"..Config.img..QBCore.Shared.Items["suspension"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["suspension"..lvl].label.." [LVL "..lvl.."]"
+				modSuspension = "<img src=nui://"..Config.img..QBCore.Shared.Items["suspension"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["suspension"..lvl].label..": [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 15).."]"
 				modSuspensionHead = false
 			end
 		else modSuspension = Loc[Config.Lan]["check"].unavail modSuspensionHead = true end
 		--Transmission
 		if GetNumVehicleMods(vehicle,13) ~= 0 then
 			if GetVehicleMod(vehicle, 13) == -1 then
-				modTransmission = Loc[Config.Lan]["common"].stock modTransmissionHead = true
+				modTransmission = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 13).."]" modTransmissionHead = true
 			else local lvl = (GetVehicleMod(vehicle, 13)+1)
-				modTransmission = "<img src=nui://"..Config.img..QBCore.Shared.Items["transmission"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["transmission"..lvl].label
+				modTransmission = "<img src=nui://"..Config.img..QBCore.Shared.Items["transmission"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["transmission"..lvl].label.." [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 13).."]"
 				modTransmissionHead = false
 			end
 		else modTransmission = Loc[Config.Lan]["check"].unavail modTransmissionHead = true end
@@ -84,7 +85,9 @@ RegisterNetEvent('jim-mechanic:client:Menu', function()
 			modXenon = "<img src=nui://"..Config.img..QBCore.Shared.Items["headlights"].image.." width=13px onerror='this.onerror=null; this.remove();'> "..Loc[Config.Lan]["check"].xenoninst
 			modXenonHead = false
 		elseif GetNumVehicleMods(vehicle,11) == 0 then modXenon = Loc[Config.Lan]["check"].unavail modXenonHead = true  end
-		for _, v in pairs(Loc[Config.Lan].vehicleXenonOptions) do if GetVehicleHeadlightsColour(vehicle) == v.id then xenonColor = " ("..v.name..")" else xenonColor = "" end end
+		local custom, r, g, b = GetVehicleXenonLightsCustomColor(vehicle)
+		if custom then xenonColor = "<br>R: "..r.." G: "..g.." B: "..b.." <span style='color:#"..rgbToHex(r, g, b):upper().."; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 0em 0em 0.5em white, 0em 0em 0.5em white'> ⯀ </span>"
+		else xenonColor = "" end
 		--Drift
 		if GetGameBuildNumber() >= 2372 then
 			if GetDriftTyresEnabled(vehicle) == false and GetNumVehicleMods(vehicle,11) ~= 0 then modDrift = Loc[Config.Lan]["check"].notinstall modDriftHead = true
@@ -94,18 +97,14 @@ RegisterNetEvent('jim-mechanic:client:Menu', function()
 			elseif GetNumVehicleMods(vehicle,11) == 0 then modDrift = Loc[Config.Lan]["check"].unavail modDriftHead = true  end
 		end
 		--BulletProof
-		if GetVehicleTyresCanBurst(vehicle) == 1 then modBproof = Loc[Config.Lan]["check"].notinstall modBproofHead = true
-		elseif GetVehicleTyresCanBurst(vehicle) == false and GetNumVehicleMods(vehicle,11) ~= 0 then bprooficon = "bprooftires"
+		if GetVehicleTyresCanBurst(vehicle) == false and GetNumVehicleMods(vehicle,11) ~= 0 then bprooficon = "bprooftires"
 			modBproof = "<img src=nui://"..Config.img..QBCore.Shared.Items["bprooftires"].image.." width=13px onerror='this.onerror=null; this.remove();'> "..Loc[Config.Lan]["check"].tireinst
 			modBproofHead = false
 		elseif GetNumVehicleMods(vehicle,11) == 0 then modBproof = Loc[Config.Lan]["check"].unavail modBproofHead = true  end
 
-		if IsVehicleOwned(trim(GetVehicleNumberPlateText(vehicle))) then
-			local p = promise.new() QBCore.Functions.TriggerCallback('jim-mechanic:GetNosLoaded', function(cb) p:resolve(cb) end) local VehicleNitrous = Citizen.Await(p)
-			if VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))] then
-				local text = "<img src=nui://"..Config.img..QBCore.Shared.Items["nos"].image.." width=13px onerror='this.onerror=null; this.remove();'>"..nosBar(VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))].level).." "..math.floor(VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))].level).."%"
-				CheckMenu[#CheckMenu + 1] = { icon = "nos", header = Loc[Config.Lan]["check"].label58, txt = text, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "nos" } } }
-			end
+		if VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))] then
+			local text = "<img src=nui://"..Config.img..QBCore.Shared.Items["nos"].image.." width=13px onerror='this.onerror=null; this.remove();'>"..nosBar(VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))].level).." "..math.floor(VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))].level).."%"
+			CheckMenu[#CheckMenu + 1] = { icon = "nos", header = Loc[Config.Lan]["check"].label58, txt = text, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "nos" } } }
 		end
 
 		CheckMenu[#CheckMenu + 1] = { icon = "engine"..(GetVehicleMod(vehicle, 11)+1), isMenuHeader = modEngineHead, header = Loc[Config.Lan]["check"].label1, txt = modEngine, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "engine" } } }
@@ -116,20 +115,21 @@ RegisterNetEvent('jim-mechanic:client:Menu', function()
 		CheckMenu[#CheckMenu + 1] = { icon = turicon, isMenuHeader = modTurboHead, header = Loc[Config.Lan]["check"].label6, txt = modTurbo, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "turbo" } } }
 		CheckMenu[#CheckMenu + 1] = { icon = headicon, isMenuHeader = modXenonHead, header = Loc[Config.Lan]["check"].label7, txt = modXenon..xenonColor, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "xenon" } } }
 		if GetGameBuildNumber() >= 2372 then
-			CheckMenu[#CheckMenu + 1] = { icon = drifticon, isMenuHeader = modDriftHead, header = Loc[Config.Lan]["check"].label8, txt = modDrift, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "drift" } } }
+			if GetDriftTyresEnabled(vehicle) == 1 then
+				CheckMenu[#CheckMenu + 1] = { icon = drifticon, isMenuHeader = modDriftHead, header = Loc[Config.Lan]["check"].label8, txt = modDrift, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "drift" } } }
+			end
 		end
-		CheckMenu[#CheckMenu + 1] = { icon = bprooficon, isMenuHeader = modBproofHead, header = Loc[Config.Lan]["check"].label9, txt = modBproof, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "bproof" } } }
-
+		if GetVehicleTyresCanBurst(vehicle) == false then
+			CheckMenu[#CheckMenu + 1] = { icon = bprooficon, isMenuHeader = modBproofHead, header = Loc[Config.Lan]["check"].label9, txt = modBproof, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "bproof" } } }
+		end
 		CheckMenu[#CheckMenu + 1] = { icon = "fas fa-toolbox", header = "", txt = Loc[Config.Lan]["check"].label10, params = { event = "jim-mechanic:client:Menu:List" } }
 
 	exports['qb-menu']:openMenu(CheckMenu)
 end)
 
 RegisterNetEvent('jim-mechanic:client:Menu:List', function()
-	local ped = PlayerPedId()
-	local coords = GetEntityCoords(ped)
-	if not nearPoint(coords) then return end
-	local vehicle = getClosest(coords) pushVehicle(vehicle)
+	if not nearPoint(GetEntityCoords(PlayerPedId())) then return end
+	local vehicle = getClosest(GetEntityCoords(PlayerPedId())) pushVehicle(vehicle)
 
 	local CheckMenu = {
 		{ isMenuHeader = true, header = Loc[Config.Lan]["check"].label11..searchCar(vehicle), txt = Loc[Config.Lan]["check"].label10 },
@@ -179,20 +179,11 @@ RegisterNetEvent('jim-mechanic:client:Menu:List', function()
 	if GetNumVehicleMods(vehicle, 43) ~= 0 then CheckMenu[#CheckMenu + 1] = { isMenuHeader = true, header = "", txt = Loc[Config.Lan]["check"].label45..GetNumVehicleMods(vehicle, 43)..Loc[Config.Lan]["check"].label12, } end
 	if GetNumVehicleMods(vehicle, 45) ~= 0 then CheckMenu[#CheckMenu + 1] = { isMenuHeader = true, header = "", txt = Loc[Config.Lan]["check"].label46..GetNumVehicleMods(vehicle, 45)..Loc[Config.Lan]["check"].label12, } end
 
-	--if GetNumVehicleMods(vehicle, 17) ~= 0 then  = "✅- " else  = false end
-	--if GetNumVehicleMods(vehicle, 18) ~= 0 then  = "✅- " else  = false end
-	--if GetNumVehicleMods(vehicle, 19) ~= 0 then  = "✅- " else  = false end
-	--if GetNumVehicleMods(vehicle, 20) ~= 0 then  = "✅- " else  = false end
-	--if GetNumVehicleMods(vehicle, 21) ~= 0 then  = "✅- " else  = false end
-	--if GetNumVehicleMods(vehicle, 22) ~= false then  = "✅- " else  = false end
-	--if GetNumVehicleMods(vehicle, 23) ~= 0 then  = "✅- " else  = false end
-	--if GetNumVehicleMods(vehicle, 24) ~= 0 then  = "✅- " else  = false end
-
 	local all = { 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 25, 26, 27, 44, 37, 39, 40, 41, 42, 5, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 43, 45 }
 	local mods = nil
 	for _, v in pairs(all) do if GetNumVehicleMods(vehicle, v) ~= 0 then mods = true break end end
 	if GetVehicleLiveryCount(vehicle) ~= -1 then mods = true end
-	if mods then exports['qb-menu']:openMenu(CheckMenu) else TriggerEvent("QBCore:Notify", Loc[Config.Lan]["common"].noOptions, "error") return end
+	if mods then exports['qb-menu']:openMenu(CheckMenu) else triggerNotify(nil, Loc[Config.Lan]["common"].noOptions, "error") return end
 end)
 
 ---BRAKES
@@ -234,5 +225,104 @@ RegisterNetEvent('jim-mechanic:client:Menu:Remove', function(data)
 		{ icon = icon, isMenuHeader = true, header = header },
 		{ icon = "fas fa-circle-check", header = "", txt = string.gsub(Loc[Config.Lan]["check"].label47, "✅ ", ""), params = { event = event } },
 		{ icon = "fas fa-circle-xmark", header = "", txt = string.gsub(Loc[Config.Lan]["check"].label48, "❌ ", ""), params = { event = "jim-mechanic:client:Menu" } } }
+	exports['qb-menu']:openMenu(CheckMenu)
+end)
+
+RegisterNetEvent("jim-mechanic:client:cuscheck", function()
+	local ped = PlayerPedId()
+	local coords = GetEntityCoords(ped)
+	local vehicle
+	if not nearPoint(coords) then return end
+	if not inCar() then return end
+	if not IsPedInAnyVehicle(ped, false) then vehicle = getClosest(coords) pushVehicle(vehicle) end
+	if lockedCar(vehicle) then return end
+	if not DoesEntityExist(vehicle) then return end
+	local CheckMenu = {
+		{ isMenuHeader = true, header = searchCar(vehicle),	txt = "Class: "..getClass(vehicle).."<br>"..Loc[Config.Lan]["check"].plate..trim(GetVehicleNumberPlateText(vehicle))..Loc[Config.Lan]["check"].value..searchPrice(vehicle).."<br>"..searchDist(vehicle)},
+		{ icon = "fas fa-circle-xmark", header = "", txt = string.gsub(Loc[Config.Lan]["common"].close, "❌ ", ""), params = { event = "jim-mechanic:client:Menu:Close" } } }
+		local armicon, turicon, headicon, drifticon, bprooficon = ""
+		--Engine--
+		if GetNumVehicleMods(vehicle,11) ~= 0 then -- If engine can be changed
+			if GetVehicleMod(vehicle, 11) == -1 then  -- If Stock
+				modEngine = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 11).."]"
+			else local lvl = (GetVehicleMod(vehicle, 11)+1) -- If engine level found
+				modEngine = "<img src=nui://"..Config.img..QBCore.Shared.Items["engine"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["engine"..lvl].label..": [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 11).."]"
+			end
+		else modEngine = Loc[Config.Lan]["check"].unavail end
+		--Brakes--
+		if GetNumVehicleMods(vehicle, 12) ~= 0 then
+			if GetVehicleMod(vehicle, 12) == -1 then
+				modBrakes = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 12).."]"
+			else local lvl = (GetVehicleMod(vehicle, 12)+1)
+				modBrakes = "<img src=nui://"..Config.img..QBCore.Shared.Items["brakes"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["brakes"..lvl].label..": [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 12).."]"
+			end
+		else modBrakes = Loc[Config.Lan]["check"].unavail end
+		--Suspension
+		if GetNumVehicleMods(vehicle,15) ~= 0 then
+			if GetVehicleMod(vehicle, 15) == -1 then
+				modSuspension = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 15).."]"
+			else local lvl = (GetVehicleMod(vehicle, 15)+1)
+				modSuspension = "<img src=nui://"..Config.img..QBCore.Shared.Items["suspension"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["suspension"..lvl].label..": [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 15).."]"
+			end
+		else modSuspension = Loc[Config.Lan]["check"].unavail end
+		--Transmission
+		if GetNumVehicleMods(vehicle,13) ~= 0 then
+			if GetVehicleMod(vehicle, 13) == -1 then
+				modTransmission = Loc[Config.Lan]["common"].stock..": [LVL 0 / "..GetNumVehicleMods(vehicle, 13).."]"
+			else local lvl = (GetVehicleMod(vehicle, 13)+1)
+				modTransmission = "<img src=nui://"..Config.img..QBCore.Shared.Items["transmission"..lvl].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["transmission"..lvl].label.." [LVL "..lvl.." / "..GetNumVehicleMods(vehicle, 13).."]"
+			end
+		else modTransmission = Loc[Config.Lan]["check"].unavail end
+		--Armor
+		if GetNumVehicleMods(vehicle, 16) ~= 0 then
+			if (GetVehicleMod(vehicle, 16)+1) == GetNumVehicleMods(vehicle, 16) then armicon = "car_armor"
+				modArmor = "<img src=nui://"..Config.img..QBCore.Shared.Items["car_armor"].image.." width=13px onerror='this.onerror=null; this.remove();'> "..Loc[Config.Lan]["check"].reinforced
+			else modArmor = Loc[Config.Lan]["common"].stock end
+		else modArmor = Loc[Config.Lan]["check"].unavail  end
+		--Turbo
+		if not IsToggleModOn(vehicle, 18) and GetNumVehicleMods(vehicle,11) ~= 0 then modTurbo = Loc[Config.Lan]["check"].notinstall
+		elseif IsToggleModOn(vehicle, 18) then turicon = "turbo"
+			modTurbo = "<img src=nui://"..Config.img..QBCore.Shared.Items["turbo"].image.." width=13px onerror='this.onerror=null; this.remove();'> "..QBCore.Shared.Items["turbo"].label
+		elseif GetNumVehicleMods(vehicle,11) == 0 then modTurbo = Loc[Config.Lan]["check"].unavail end
+		--Xenons
+		if not IsToggleModOn(vehicle, 22) and GetNumVehicleMods(vehicle,11) ~= 0 then modXenon = Loc[Config.Lan]["check"].notinstall
+		elseif IsToggleModOn(vehicle, 22) then headicon = "headlights"
+			modXenon = "<img src=nui://"..Config.img..QBCore.Shared.Items["headlights"].image.." width=13px onerror='this.onerror=null; this.remove();'> "..Loc[Config.Lan]["check"].xenoninst
+		elseif GetNumVehicleMods(vehicle,11) == 0 then modXenon = Loc[Config.Lan]["check"].unavail end
+		local custom, r, g, b = GetVehicleXenonLightsCustomColor(vehicle)
+		if custom then xenonColor = "<br>R: "..r.." G: "..g.." B: "..b.." <span style='color:#"..rgbToHex(r, g, b):upper().."; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 0em 0em 0.5em white, 0em 0em 0.5em white'> ⯀ </span>"
+		else xenonColor = "" end
+		--Drift
+		if GetGameBuildNumber() >= 2372 then
+			if GetDriftTyresEnabled(vehicle) == false and GetNumVehicleMods(vehicle,11) ~= 0 then modDrift = Loc[Config.Lan]["check"].notinstall
+			elseif GetDriftTyresEnabled(vehicle) == 1 then drifticon = "drifttires"
+				modDrift = "<img src=nui://"..Config.img..QBCore.Shared.Items["drifttires"].image.." width=13px onerror='this.onerror=null; this.remove();'> "..Loc[Config.Lan]["check"].tireinst
+			elseif GetNumVehicleMods(vehicle,11) == 0 then modDrift = Loc[Config.Lan]["check"].unavail end
+		end
+		--BulletProof
+		if GetVehicleTyresCanBurst(vehicle) == false and GetNumVehicleMods(vehicle,11) ~= 0 then bprooficon = "bprooftires"
+			modBproof = "<img src=nui://"..Config.img..QBCore.Shared.Items["bprooftires"].image.." width=13px onerror='this.onerror=null; this.remove();'> "..Loc[Config.Lan]["check"].tireinst
+		elseif GetNumVehicleMods(vehicle,11) == 0 then modBproof = Loc[Config.Lan]["check"].unavail end
+
+		if VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))] then
+			local text = "<img src=nui://"..Config.img..QBCore.Shared.Items["nos"].image.." width=13px onerror='this.onerror=null; this.remove();'>"..nosBar(VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))].level).." "..math.floor(VehicleNitrous[trim(GetVehicleNumberPlateText(vehicle))].level).."%"
+			CheckMenu[#CheckMenu + 1] = { icon = "nos", header = Loc[Config.Lan]["check"].label58, txt = text, params = { event = "jim-mechanic:client:Menu:Remove", args = { vehicle = vehicle, mod = "nos" } } }
+		end
+
+		CheckMenu[#CheckMenu + 1] = { icon = "engine"..(GetVehicleMod(vehicle, 11)+1), isMenuHeader = true, header = Loc[Config.Lan]["check"].label1, txt = modEngine }
+		CheckMenu[#CheckMenu + 1] = { icon = "brakes"..(GetVehicleMod(vehicle, 12)+1), isMenuHeader = true, header = Loc[Config.Lan]["check"].label2, txt = modBrakes }
+		CheckMenu[#CheckMenu + 1] = { icon = "suspension"..(GetVehicleMod(vehicle, 15)+1), isMenuHeader = true, header = Loc[Config.Lan]["check"].label3, txt = modSuspension }
+		CheckMenu[#CheckMenu + 1] = { icon = "transmission"..(GetVehicleMod(vehicle, 13)+1), isMenuHeader = true, header = Loc[Config.Lan]["check"].label4, txt = modTransmission }
+		CheckMenu[#CheckMenu + 1] = { icon = armicon, isMenuHeader = true, header = Loc[Config.Lan]["check"].label5, txt = modArmor }
+		CheckMenu[#CheckMenu + 1] = { icon = turicon, isMenuHeader = true, header = Loc[Config.Lan]["check"].label6, txt = modTurbo }
+		CheckMenu[#CheckMenu + 1] = { icon = headicon, isMenuHeader = true, header = Loc[Config.Lan]["check"].label7, txt = modXenon..xenonColor }
+		if GetGameBuildNumber() >= 2372 then
+			if GetDriftTyresEnabled(vehicle) == 1 then
+				CheckMenu[#CheckMenu + 1] = { icon = drifticon, isMenuHeader = modDriftHead, header = Loc[Config.Lan]["check"].label8, txt = modDrift }
+			end
+		end
+		if GetVehicleTyresCanBurst(vehicle) == false then
+			CheckMenu[#CheckMenu + 1] = { icon = bprooficon, isMenuHeader = modBproofHead, header = Loc[Config.Lan]["check"].label9, txt = modBproof }
+		end
 	exports['qb-menu']:openMenu(CheckMenu)
 end)
