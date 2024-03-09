@@ -182,8 +182,27 @@ Locations = {
 		["model"] = {
 			's_m_y_sheriff_01',
 		},
-		["coords"] = { vec4(365.37, -1607.75, 29.29, 302.23), },
+		["coords"] = {
+			vec4(365.37, -1607.75, 29.29, 302.23),
+--			vec4(990.96, 31.8, 71.47, 19.59),
+		},
 		["products"] = Products["police"],
+		["blipsprite"] = 106,
+		["blipcolour"] = 59,
+		["hideblip"] = true,
+	},
+	
+	["ambulance"] = {
+		["label"] = "EMS/Fire Armory",
+		["type"] = "items",
+		["model"] = {
+			's_m_y_fireman_01',
+		},
+		["coords"] = {
+			vec4(196.24, -1645.82, 29.80, 266.15),
+			vec4(351.35, -596.21, 28.85, 18.97),
+		},
+		["products"] = Products["ambulance"],
 		["blipsprite"] = 106,
 		["blipcolour"] = 59,
 		["hideblip"] = true,

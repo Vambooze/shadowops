@@ -158,6 +158,14 @@ Products = {
         { name = "radio", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 } },
         { name = "heavyarmor", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 } },
         { name = "leo-gps", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 } },
+    },
+    ["ambulance"] = {
+        { name = "radio", price = 1, amount = 50,  requiredJob = { ["ambulance"] = 0 }  },
+        { name = "bandage", price = 1, amount = 100,  requiredJob = { ["ambulance"] = 0 }  },
+        { name = "painkillers", price = 1, amount = 50,  requiredJob = { ["ambulance"] = 0 }  },
+        { name = "firstaid", price = 1, amount = 50,   requiredJob = { ["ambulance"] = 0 } },
+        { name = "weapon_flashlight", price = 1, amount = 50,  requiredJob = { ["ambulance"] = 0 } },
+        { name = "weapon_fireextinguisher", price = 1, amount = 50,  requiredJob = { ["ambulance"] = 0 }  },
     }
 
 }
