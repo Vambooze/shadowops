@@ -31,14 +31,23 @@ Config.DurabilityBlockedWeapons = {
 
 
 Config.WeaponAttachments = {
-    ["WEAPON_SNSPISTOL"] = {
+
+    weapon_pistol = {
+        ["suppressor"] = {
+            component = `COMPONENT_AT_PI_SUPP_02`,
+            label = "Suppressor",
+            item = "pistol_suppressor",
+        }
+    },
+    
+    weapon_snspistol = {
         ["extendedclip"] = {
             component = "COMPONENT_SNSPISTOL_CLIP_02",
             label = "Extended Clip",
             item = "pistol_extendedclip",
         },
     },
-    ["WEAPON_VINTAGEPISTOL"] = {
+    weapon_vintagepistol = {
         ["suppressor"] = {
             component = "COMPONENT_AT_PI_SUPP",
             label = "Suppressor",
@@ -50,7 +59,7 @@ Config.WeaponAttachments = {
             item = "pistol_extendedclip",
         },
     },
-    ["WEAPON_MICROSMG"] = {
+    weapon_microsmg = {
         ["suppressor"] = {
             component = "COMPONENT_AT_AR_SUPP_02",
             label = "Suppressor",
@@ -72,14 +81,14 @@ Config.WeaponAttachments = {
             item = "smg_scope",
         },
     },
-    ["WEAPON_MINISMG"] = {
+    weapon_minigun = {
         ["extendedclip"] = {
             component = "COMPONENT_MINISMG_CLIP_02",
             label = "Extended Clip",
             item = "smg_extendedclip",
         },
     },
-    ["WEAPON_COMPACTRIFLE"] = {
+    weapon_compactrifle = {
         ["extendedclip"] = {
             component = "COMPONENT_COMPACTRIFLE_CLIP_02",
             label = "Extended Clip",

@@ -17,13 +17,16 @@ Config.Progressbar = false -- false == 'default'  or ox_lib or esx_progressbar o
 Config.spaceMigration = false
 Config.DefaultOpenKey = "TAB"
 Config.MaxInventoryWeight = 120000
-Config.MaxInventorySlots = 41
+Config.MaxInventorySlots = 40
 Config.MenuSystem = "qb-menu" -- qb-menu or esx_menu_default
-Config.MoneyName = 'cash'
+Config.MoneyName = 'cash' -- money or cash
+Config.ShopMoney = "cash" -- bank or money or cash
+Config.ShopCashorBank = false -- if true, check money in inventory if not money in inventory check in bank || if false, check money in bank
 Config.IntervalSave = 0.15 -- stash
 Config.accounts = { --- config acount money ESX
-    ['money'] = false,
-    ['cash'] = true
+    ['money'] = true,
+    ['black_money'] = true,
+    ['cash'] = false
 }
 Config.ScriptsUse = {
     reepWeed = false,
@@ -47,7 +50,7 @@ Config.TrunkSpace = {
 }
 
 
-Config.SaveStashDecay = false
+Config.SaveStashDecay = true
 
 
 BackEngineVehicles = {

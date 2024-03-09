@@ -417,6 +417,7 @@ if Config.Framework == 'esx' then
 
                     ---- DECAY ITEMS EXAMPLE
                 ['tosti']                           = {['name'] = 'tosti',                             ['label'] = 'Grilled Cheese Sandwich',   ['weight'] = 200,          ['type'] = 'item',         ['image'] = 'tosti.png',                    ['unique'] = false,         ['useable'] = true,     ['shouldClose'] = true,       ['combinable'] = nil, ['decay'] = 1.0 , ['description'] = 'Nice to eat'},
+                ['black_money']                        = {['name'] = 'black_money',                          ['label'] = 'Dinero Negro',                  ['weight'] = 200,          ['type'] = 'item',         ['image'] = 'cash.png',                ['unique'] = false,         ['useable'] = true,     ['shouldClose'] = true,       ['combinable'] = nil,   ['description'] = 'Ammo for EMP Launcher'},
 
     }
 end

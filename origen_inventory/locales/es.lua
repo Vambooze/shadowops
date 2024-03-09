@@ -87,7 +87,8 @@ Lang["es"] = {
         ['hasOwnProperty'] = 'has Own Property'
     
     },
-    notify = {    
+    notify = {   
+        ["inventory_busy"] = "Parece que no puedes abir el inventario", 
         ['load_bullet'] = 'Recargando...',   
         ['ReleaseHostage'] = "Pulsa ~g~G~w~ para soltar, ~r~E ~w~para matarle",
         ['DriftWhileMoving'] ='Debes estar parado para alternar el modo drift',

@@ -3,11 +3,12 @@ game 'gta5'
 
 description 'origen_inventory'
 
-version '1.7.2.1'
+version '1.7.2.4'
 
 shared_scripts {
 	'locales/*.lua',
 	'config.lua',
+	"AutoStart.lua",
 	'shared/*.lua',
 	--'@ox_lib/init.lua'
 }
@@ -58,7 +59,7 @@ lua54 'yes'
 
 dependencies {
     "oxmysql",
-    "qb-core"
+   -- "qb-core"
 }
 
 escrow_ignore {
