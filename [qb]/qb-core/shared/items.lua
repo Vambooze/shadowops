@@ -212,7 +212,7 @@ QBShared.Items = {
 
     ["payticket"] 					 = {["name"] = "payticket", 				["label"] = "Receipt", 	     			["weight"] = 150, 		["type"] = "item", 		["image"] = "ticket.png", 				["unique"] = false,   	["useable"] = false,    ["shouldClose"] = false,    ["combinable"] = nil,   ["description"] = "Cash these in at the bank!"},
     ['vpn']                       = {['name'] = 'vpn',                         ['label'] = 'vpn',             ['weight'] = 1500,         ['type'] = 'item',         ['image'] = 'vpn.png',             ['unique'] = false,     ['useable'] = false,     ['shouldClose'] = true,       ['combinable'] = nil,   ['description'] = 'A VPN to get other emails?'},
-
+    ['rfid_disruptor']              = {['name'] = 'rfid_disruptor',               ['label'] = 'RFID Disruptor',        ['weight'] = 1000,         ['type'] = 'item',      ['image'] = 'rfid_disruptor.png',      ['unique'] = false,      ['useable'] = true,     ['shouldClose'] = false,   ['combinable'] = nil,   ['description'] = ' A Disruptor used for ATM firewalls'},
     -- Ammo ITEMS
     pistol_ammo                  = { name = 'pistol_ammo', label = 'Pistol ammo', weight = 200, type = 'item', image = 'pistol_ammo.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Ammo for Pistols' },
     rifle_ammo                   = { name = 'rifle_ammo', label = 'Rifle ammo', weight = 1000, type = 'item', image = 'rifle_ammo.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Ammo for Rifles' },

@@ -229,6 +229,26 @@ local function PrisonBreak()
 end
 exports('PrisonBreak', PrisonBreak)
 
+local function atmRobbery()
+    local coords = GetEntityCoords(PlayerPedId())
+
+    local dispatchData = {
+        message = locale('atmrobbery'),
+        codeName = 'signrobbery',
+        code = '10-10',
+        icon = 'fab fa-artstation',
+        priority = 2,
+        coords = coords,
+        gender = GetPlayerGender(),
+        street = GetStreetAndZone(coords),
+        alertTime = nil,
+        jobs = { 'leo'}
+    }
+
+    TriggerServerEvent('ps-dispatch:server:notify', dispatchData)
+end
+exports('atmRobbery', atmRobbery)
+
 local function StoreRobbery(camId)
     local coords = GetEntityCoords(cache.ped)
 
