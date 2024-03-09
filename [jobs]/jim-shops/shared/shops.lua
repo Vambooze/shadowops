@@ -176,6 +176,19 @@ Locations = {
 		["blipcolour"] = 2,
 	},
 
+	["police"] = {
+		["label"] = "LEO Armory",
+		["type"] = "items",
+		["model"] = {
+			's_m_y_sheriff_01',
+		},
+		["coords"] = { vec4(365.37, -1607.75, 29.29, 302.23), },
+		["products"] = Products["police"],
+		["blipsprite"] = 106,
+		["blipcolour"] = 59,
+		["hideblip"] = true,
+	},
+
 	["burgershot"] = {
 		["label"] = "Burger Shot",
 		["type"] = "items",

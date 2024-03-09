@@ -140,5 +140,24 @@ Products = {
         { name = "repairkit", price = 100, amount = 50,  requiredJob = { ["mechanic"] = 0 } },
 
     },
+    ["police"] = {
+        { name = "weapon_combatpistol", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 }  },
+        { name = "weapon_pistol_mk2", price = 1, amount = 100,  requiredJob = { ["bcso"] = 2 }  },
+        { name = "weapon_stungun", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 }  },
+        { name = "weapon_pumpshotgun", price = 1, amount = 50,   requiredJob = { ["bcso"] = 4 } },
+        { name = "weapon_carbinerifle", price = 1, amount = 50,  requiredJob = { ["bcso"] = 5 } },
+        { name = "pistol_ammo", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 }  },
+        { name = "shotgun_ammo", price = 1, amount = 100,  requiredJob = { ["bcso"] = 4 }  },
+        { name = "rifle_ammo", price = 1, amount = 50,  requiredJob = { ["bcso"] = 5 }  },
+        { name = "handcuffs", price = 1, amount = 50,   requiredJob = { ["bcso"] = 0 } },
+        { name = "cuffkeys", price = 1, amount = 50,  requiredJob = { ["bcso"] = 50 } },
+        { name = "weapon_flashlight", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 }  },
+        { name = "empty_evidence_bag", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 }  },
+        { name = "ifaks", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 }  },
+        { name = "firstaid", price = 1, amount = 50,   requiredJob = { ["bcso"] = 0 } },
+        { name = "radio", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 } },
+        { name = "heavyarmor", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 } },
+        { name = "leo-gps", price = 1, amount = 50,  requiredJob = { ["bcso"] = 0 } },
+    }
 
 }
