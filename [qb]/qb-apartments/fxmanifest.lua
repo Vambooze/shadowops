@@ -29,3 +29,4 @@ dependencies {
     'qb-interior',
     'qb-weathersync',
 }
+server_scripts { '@mysql-async/lib/MySQL.lua' }
