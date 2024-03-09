@@ -214,6 +214,16 @@ Config.Blips = {
         offset = false,
         flash = false
     },
+    ['atmrobbery'] = {
+        radius = 0,
+        sprite = 427,
+        color = 26,
+        scale = 1.5,
+        length = 2,
+        sound = 'robberysound',
+        offset = false,
+        flash = false
+    },
     ['bankrobbery'] = {
         radius = 0,
         sprite = 500,
