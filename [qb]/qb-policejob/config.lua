@@ -94,7 +94,7 @@ Config.Locations = {
     },
     ["evidence"] = {
         [1] = vector3(472.79, -993.10, 26.27), -- LSPD
-        [2] = vector3(-452.87, 5999.38, 37.00), -- BCSO
+        [2] = vector3(363.07, -1607.25, 29.29), -- BCSO
         [3] = vector3(1817.97, 3672.25, 34.2), -- Sandy
     },
     ["labs"] = {
