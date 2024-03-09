@@ -65,7 +65,7 @@ Products = {
         { name = "weapon_pistol", price = 2500, amount = 5, requiresLicense = {"weapon"}, requiresItem = {"weaponlicense"} },
         { name = "weapon_snspistol", price = 1500, amount = 5, requiresLicense = {"weapon"}, requiresItem = {"weaponlicense"} },
         { name = "weapon_vintagepistol", price = 4000, amount = 5, requiresLicense = {"weapon", "hunting"}, requiresItem = {"weaponlicense", "huntinglicense"} },
-        { name = "pistol_ammo", price = 250, amount = 250,  requiresLicense = {"weapon"}, requiresItem = {"weaponlicense"} },
+        { name = "pistol_ammo", price = 250, amount = 250,  requiresLicense = {"weapon"},select},
     },
     ["coffeeplace"] = {
         { name = "coffee", price = 5, amount = 500 },
