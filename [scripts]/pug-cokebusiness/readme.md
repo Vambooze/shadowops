@@ -1,7 +1,7 @@
 --
 # Installation
 Run the pug_cokebusiness.sql before doing anything else.
-Make sure you have the dependencies installed. (qb-target OR ox_target, qb-inventory OR ox_inventory, qb-menu OR ps-ui OR ox_lib, qb-input OR ps-ui OR ox_lib)
+Make sure you have the dependencies installed. (qb-target OR ox_target, origen_inventory OR ox_inventory, qb-menu OR ps-ui OR ox_lib, qb-input OR ps-ui OR ox_lib)
 Read through the config.lua thoroughly and adjust everything to match your server. (VERY IMPORTANT)
 Adjust the DrugJobNotification() function in open.lua to fit your server (defualt is already setup for base qb-core and esx).
 Adjust the DrugJobDrawText() and DrugJobHideText() functions in open.lua to fit your server (defualt is already setup for base qb-core and esx).
@@ -94,8 +94,8 @@ This completely configurable script consist of:
 Requirements consist of:
 QBCore OR ESX (other frameworks will work but not supported)
 qb-menu OR ox_lib (ps-ui or any qb-menu resource name changed will work)
-qb-target OR ox_target (any qb-inventory resource name changed will work)
-qb-inventory OR ox_inventory OR qs-inventory (any qb-inventory resource name changed will work)
+qb-target OR ox_target (any origen_inventory resource name changed will work)
+origen_inventory OR ox_inventory OR qs-inventory (any origen_inventory resource name changed will work)
 OLD (ESX FRAMEWORKS) ARE NOT SUPPORTED (NO REFUNDS WILL BEGRANTED ON THIS SCRIPT)
 
 4,400 LINES OF CODE

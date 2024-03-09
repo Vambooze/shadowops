@@ -4,7 +4,7 @@ Config = {
 	Debug = false, -- Toggle Debug Mode
 	Lan = "en",
 
-	img = "qb-inventory/html/images/", -- Set this to your inventory
+	img = "origen_inventory/html/images/", -- Set this to your inventory
 
 	Inv = "qb", -- set to "ox" if using OX Inventory
 	Menu = "qb",

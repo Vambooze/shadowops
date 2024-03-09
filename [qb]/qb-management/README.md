@@ -7,7 +7,7 @@ New qb-bossmenu / qb-gangmenu converted into one resource using qb-menu and qb-i
 - [qb-smallresources](https://github.com/qbcore-framework/qb-smallresources) (For the Logs)
 - [qb-input](https://github.com/qbcore-framework/qb-input)
 - [qb-menu](https://github.com/qbcore-framework/qb-menu)
-- [qb-inventory](https://github.com/qbcore-framework/qb-inventory)
+- [origen_inventory](https://github.com/qbcore-framework/origen_inventory)
 - [qb-clothing](https://github.com/qbcore-framework/qb-clothing)
 
 ## Screenshots

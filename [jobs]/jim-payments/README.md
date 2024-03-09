@@ -56,7 +56,7 @@ Stream the prop and add the emote that is provided to rpemotes or dpemotes
 ```
 
 - Add the ticket image to your inventory script:
-- Naviage to `[qb] > qb-inventory > html > images` and add this line
+- Naviage to `[qb] > origen_inventory > html > images` and add this line
 
 ![](https://github.com/jimathy/jim-payments/blob/main/images/ticket.png?raw=true)
 

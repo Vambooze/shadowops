@@ -5,10 +5,10 @@
 Config = {
 	System = {
 		Debug = false, -- Enable to add debug boxes and message.
-		img = "qb-inventory/html/images/", -- Set this to your inventory
+		img = "origen_inventory/html/images/", -- Set this to your inventory
 
 		--- FRAMEWORK OPTIONS ---
-		Inv = "qb", 		-- Supports "qb"	(qb-inventory) -- leave as "qb" for ps-inventory
+		Inv = "qb", 		-- Supports "qb"	(origen_inventory) -- leave as "qb" for ps-inventory
 							-- "ox"				(ox_inventory)
 
 		Menu = "qb",        -- Supports "qb"    (qb-menu)

@@ -3,7 +3,7 @@ Inventory = Inventory or {}
 Inventory = {
     AddItem = function(source, item, amount, metadata, slot)
         local src = source
-        if Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+        if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             if exports[Config.Inventory]:AddItem(src, item, amount, slot or false, metadata or {}) then
                 TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'add', amount)
                 return true
@@ -19,7 +19,7 @@ Inventory = {
 
     RemoveItem = function(source, item, amount, slot)
         local src = source
-        if Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+        if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             if exports[Config.Inventory]:RemoveItem(src, item, amount, slot or nil) then
                 TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'remove', amount)
                 return true
@@ -34,7 +34,7 @@ Inventory = {
         if Config.Inventory == 'ox_inventory' then
             local amt = exports.ox_inventory:Search(source, 'count', item)
             if amt > 0 then return true else return false end
-        elseif Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+        elseif Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             return exports[Config.Inventory]:HasItem(source, item)
         end
     end,
@@ -43,7 +43,7 @@ Inventory = {
         if Config.Inventory == 'ox_inventory' then
             local items = exports.ox_inventory:Search(source, 'slots', item)
             return items
-        elseif Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+        elseif Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             return exports[Config.Inventory]:GetItemsByName(source, item)
         end
     end,
@@ -55,7 +55,7 @@ Inventory = {
                 exports.ox_inventory:RegisterStash(id, name, 30, 100000, true)
             end
             TriggerClientEvent('ox_inventory:openInventory', source, 'player', id)
-        elseif Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+        elseif Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             TriggerEvent("inventory:server:OpenInventory", "stash", id, Config.StashSettings)
             TriggerClientEvent("inventory:client:SetCurrentStash", source, id)
         end
@@ -72,7 +72,7 @@ Inventory = {
                 })
             end
             TriggerClientEvent('ox_inventory:openInventory', source, 'shop', {type = name})
-        elseif Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+        elseif Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             TriggerEvent("inventory:server:OpenInventory", "shop", name, items)
         end
     end,
@@ -85,7 +85,7 @@ Inventory = {
                     exports.ox_inventory:AddItem(plate, v.name, v.amount)
                 end
             end
-        elseif Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+        elseif Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
             TriggerEvent("inventory:server:addTrunkItems", plate, items)
         end
     end,

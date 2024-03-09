@@ -763,7 +763,7 @@ RegisterNetEvent("qb-police:client:openStash", function()
 end)
 
 RegisterNetEvent('qb-police:client:openTrash', function(k)
-    if Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+    if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
         TriggerServerEvent("inventory:server:OpenInventory", "stash", "policetrash", {
             maxweight = 4000000,
             slots = 300,

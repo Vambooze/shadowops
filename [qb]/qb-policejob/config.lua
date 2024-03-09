@@ -22,7 +22,7 @@ Config.PSUIConfig = {numcircle = 2, ms = 9} -- If minigame is ps-ui then choose 
 Config.OXLibConfig = {difficulty = 'medium', inputs = {'w', 'a', 's', 'd'}} -- If minigame is ox_lib then choose difficulty and input characters
 Config.TargetSystem = 'qb-target' -- Target system you want to use : qb-target / qtarget / qb-target
 Config.ContextSystem = 'qb-menu' -- Menu system you want to use : qb-menu / ox_lib
-Config.Inventory = 'qb-inventory' -- Inventory system : qb-inventory, qb-inventory, ox_inventory 
+Config.Inventory = 'origen_inventory' -- Inventory system : origen_inventory, origen_inventory, ox_inventory 
 Config.StashSettings = {maxweight = 4000000, slots = 30,} -- Stash settings for qb / ps inventory
 Config.Debug = false -- Enable / Disable debugpoly 
 

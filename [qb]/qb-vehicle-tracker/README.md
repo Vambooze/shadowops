@@ -16,7 +16,7 @@ vehicletrackertablet        = { name = 'vehicletrackertablet', label = 'Vehicle 
 vehicletrackerscanner       = { name = 'vehicletrackerscanner', label = 'Vehicle Tracker Scanner', weight = 1000, type = 'item', image = 'vehicletrackerscanner.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Scans a vehicle for existence of GPS tracker.'},
 ```
 
-2) Move all images from img/ folder to your inventory image folder. example qb-inventory/html/images
+2) Move all images from img/ folder to your inventory image folder. example origen_inventory/html/images
 
 3) Run **sql/vehicle_trackers.sql** to create the DB table
 

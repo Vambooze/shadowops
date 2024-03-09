@@ -3,7 +3,7 @@ Support Discord : https://discord.gg/AquwCR3CQb
 
 # Installation Guide
 
-Find this in qb-inventory/server/main.lua (or server side of your inventory)
+Find this in origen_inventory/server/main.lua (or server side of your inventory)
 
 ```lua
 		else

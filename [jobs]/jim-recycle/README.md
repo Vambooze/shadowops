@@ -40,7 +40,7 @@ ensure jim-recycle
 ### Item installation
 
 - Add the images to your inventory folder
-  - for example: `[qb] > qb-inventory > html > images`
+  - for example: `[qb] > origen_inventory > html > images`
 - **This script supports automatic installation of items to items.lua with newer QBCore exports**
   - You still need to install images
 - If you're having issues or your core doesn't support this then, put these lines in your items.lua

@@ -30,7 +30,7 @@ escrow_ignore {
 dependicies {
     'qb-radialmenu',
     'qb-target',
-    'qb-inventory',
+    'origen_inventory',
     'ps-ui',
     'PolyZone'
 }

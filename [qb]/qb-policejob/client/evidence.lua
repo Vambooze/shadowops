@@ -254,7 +254,7 @@ RegisterNetEvent('police:client:SelectEvidence', function(Data)
             QBCore.Functions.Notify(Lang:t('error.dont_have_evidence_bag'), 'error')
         else
             local EvidenceBagsMenu = {}
-            if Config.Inventory == 'qb-inventory' or Config.Inventory == 'qb-inventory' then
+            if Config.Inventory == 'origen_inventory' or Config.Inventory == 'origen_inventory' then
                 for _, n in pairs(List) do
                     EvidenceBagsMenu[#EvidenceBagsMenu+1] = {opthead = n.label, optdesc = Lang:t('info.select_for_examine_b', {street = n.info.street, label= n.info.label, slot=n.slot}), opticon = 'caret-right',
                         optparams  = {
