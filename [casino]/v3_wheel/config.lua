@@ -73,15 +73,15 @@ Config.WheelPrices = {
         ["goldchain"] = 2,
     },
     ["3"] = {
-		["casinochips"] = 5000,
+		["casinochips"] = 2500,
         ["goldchain"] = 1,
     },
     ["4"] = {
-        ["casinochips"] = 10000,
+        ["casinochips"] = 5000,
         ["goldchain"] = 2,
     },
     ["5"] = {
-		["casinochips"] = 15000,
+		["casinochips"] = 7500,
         ["goldchain"] = 5,
     },
 }

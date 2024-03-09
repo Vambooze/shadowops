@@ -102,12 +102,12 @@ Config.AuthorizedVehicles = { -- Grade is key, don't add same vehicle in multipl
 
 Config.Items = { -- Grade is key, don't add same item in multiple grades. Higher rank can see lower
     [0] = {
-        { name = 'radio',                   price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'bandage',                 price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'painkillers',             price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'firstaid',                price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'weapon_flashlight',       price = 0, amount = 50, info = {}, type = 'item' },
-        { name = 'weapon_fireextinguisher', price = 0, amount = 50, info = {}, type = 'item' },
+        { name = 'radio',                   price = 1, amount = 50, info = {}, type = 'item' },
+        { name = 'bandage',                 price = 1, amount = 50, info = {}, type = 'item' },
+        { name = 'painkillers',             price = 1, amount = 50, info = {}, type = 'item' },
+        { name = 'firstaid',                price = 1, amount = 50, info = {}, type = 'item' },
+        { name = 'weapon_flashlight',       price = 1, amount = 50, info = {}, type = 'item' },
+        { name = 'weapon_fireextinguisher', price = 1, amount = 50, info = {}, type = 'item' },
     }
 }
 
