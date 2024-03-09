@@ -1,57 +1,41 @@
 Config = Config or {}
 
 -- Open scoreboard key
-Config.OpenKey = 'F10' -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+Config.OpenKey = 'HOME' -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+
+Config.Toggle = true -- If this is false the scoreboard stays open only when you hold the OpenKey button, if this is true the scoreboard will be openned and closed with the OpenKey button
 
 -- Max Server Players
-Config.MaxPlayers = GetConvarInt('sv_maxclients', 64) -- It returns 48 if it cant find the Convar Int
+Config.MaxPlayers = GetConvarInt('sv_maxclients', 48) -- It returns 48 if it cant find the Convar Int
 
 -- Minimum Police for Actions
 Config.IllegalActions = {
     ["storerobbery"] = {
-        minimum = 3,
+        minimumPolice = 2,
         busy = false,
+        label = "Store Robbery",
     },
-    ["atmrobbery"] = {
-        minimum = 3,
+    ["bankrobbery"] = {
+        minimumPolice = 3,
         busy = false,
-    },
-    ["houserobbery"] = {
-        minimum = 4,
-        busy = false,
-    },
-    ["banktruck"] = {
-        minimum = 4,
-        busy = false,
+        label = "Bank Robbery"
     },
     ["jewellery"] = {
-        minimum = 4,
+        minimumPolice = 2,
         busy = false,
+        label = "Jewellery"
     },
-    ["Fleeca"] = {
-        minimum = 4,
+    ["pacific"] = {
+        minimumPolice = 5,
         busy = false,
+        label = "Pacific Bank"
     },
-    ["Paleto"] = {
-        minimum = 5,
+    ["paleto"] = {
+        minimumPolice = 4,
         busy = false,
-    },
-    ["Pacific"] = {
-        minimum = 8,
-        busy = false,
-    },
+        label = "Paleto Bay Bank"
+    }
 }
-
--- Current Cops Online
-Config.CurrentCops = 0
-Config.currentSasp = 0
-Config.currentSaspr = 0
-Config.currentBcso = 0
-Config.currentHayes = 0
-Config.currentTuner = 0
-
--- Current Ambulance / Doctors Online`
-Config.CurrentAmbulance = 0
 
 -- Show ID's for all players or Opted in Staff
 Config.ShowIDforALL = false

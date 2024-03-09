@@ -1,59 +1,59 @@
-QBScoreboard = {};
-
-$(document).ready(function () {
-  window.addEventListener("message", function (event) {
-    switch (event.data.action) {
-      case "open":
-        QBScoreboard.Open(event.data);
-        break;
-      case "close":
-        QBScoreboard.Close();
-        break;
-    }
-  });
+window.addEventListener("message", (event) => {
+  switch (event.data.action) {
+    case "open":
+      Open(event.data);
+      break;
+    case "close":
+      Close();
+      break;
+    case "setup":
+      Setup(event.data);
+      break;
+  }
 });
 
-QBScoreboard.Open = function (data) {
+const Open = (data) => {
   $(".scoreboard-block").fadeIn(150);
-  $("#total-players").html(
-    "<p>" + data.players + " of " + data.maxPlayers + "</p>"
-  );
-  $("#total-cops").html(
-    "<p>" + data.currentCops + "</p>"
-  );
-  $("#total-ems").html(
-    "<p>" + data.currentAmbulance + "</p>"
-  );
-  $("#total-sasp").html(
-    "<p>" + data.currentSasp + "</p>"
-  );
-  $("#total-saspr").html(
-    "<p>" + data.currentSaspr + "</p>"
-  );
-  $("#total-bcso").html(
-    "<p>" + data.currentBcso + "</p>"
-  );
-  $("#total-hayes").html(
-    "<p>" + data.currentHayes + "</p>"
-  );
-  $("#total-tuner").html(
-    "<p>" + data.currentTuner + "</p>"
-  );
+  $("#total-players").html("<p>" + data.players + " of " + data.maxPlayers + "</p>");
 
-  $.each(data.requiredCops, function (i, category) {
+  $.each(data.requiredCops, (i, category) => {
     var beam = $(".scoreboard-info").find('[data-type="' + i + '"]');
     var status = $(beam).find(".info-beam-status");
 
-    if (category.busy) {
-      $(status).html('<i class="fas fa-clock"></i>');
-    } if (data.currentCops >= category.minimum) {
-      $(status).html('<i class="fas fa-check"></i>');
-    } else {
-      $(status).html('<i class="fas fa-times"></i>');
-    }
+    // For anyone wondering, this does work, you can leave the brackets out if you have just one line of code to execute
+    if (category.busy)
+      $(status).html('<i style="color:orange;" class="fas fa-circle"></i>');
+    else if (data.currentCops >= category.minimumPolice)
+      $(status).html('<i style="color:green;" class="fas fa-circle"></i>');
+    else
+      $(status).html('<i style="color:red;" class="fas fa-circle"></i>');
   });
 };
 
-QBScoreboard.Close = function () {
+const Close = () => {
   $(".scoreboard-block").fadeOut(150);
+};
+
+const Setup = (data) => {
+  let scoreboardHtml = "";
+  $.each(data.items, (index, value) => {
+    scoreboardHtml += `
+      <div class="scoreboard-info-beam" data-type=${index}>
+        <div class="info-beam-title">
+            <p> ${value}</p>
+        </div>
+        <div class="info-beam-status"></div>
+      </div>
+    `;
+  });
+  scoreboardHtml += `
+
+    <div class="scoreboard-info-beam">
+      <div class="info-beam-title-players">
+        <p>Total Players</p>
+      </div>
+      <div class="info-beam-TextStatus" id="total-players" style="color: #ededed;"></div>
+    </div>
+  `;
+  $(".scoreboard-info").html(scoreboardHtml);
 };

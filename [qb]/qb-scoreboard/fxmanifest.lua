@@ -3,6 +3,7 @@ game 'gta5'
 
 description 'QB-Scoreboard'
 version '1.0.0'
+Author 'DVs Scrips'
 
 ui_page 'html/ui.html'
 
