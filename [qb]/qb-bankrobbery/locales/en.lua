@@ -2,10 +2,12 @@ local Translations = {
     success = {
         success_message = "Successful",
         fuses_are_blown = "The fuses have been blown",
-        door_has_opened = "The door has opened"
+        door_has_opened = "The door has opened",
+        thermite_success = "You got the circuit board!"
     },
     error = {
         cancel_message = "Cancelled",
+        thermite_fail = "You failed to get the circuit board.",
         safe_too_strong = "Looks like the safe lock is too strong...",
         missing_item = "You're missing an item...",
         bank_already_open = "The bank is already open...",

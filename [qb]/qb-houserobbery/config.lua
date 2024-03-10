@@ -49,8 +49,7 @@ Config.Rewards = {
             { item = 'diamond_ring', min = 1, max = 1 },
             { item = 'goldchain',    min = 1, max = 1 },
             { item = 'cryptostick',  min = 1, max = 1 },
-            { item = 'crocodile_clips',       min = 1, max = 1 },
-            { item = 'electronickit',     min = 1, max = 1 },
+            { item = 'trojan_usb',     min = 1, max = 1 },
             { item = 'pistol_ammo',  min = 1, max = 3 }
         }
     }

@@ -354,9 +354,11 @@ RegisterNetEvent('bank:UseThermite', function()
                             exports['ps-ui']:Thermite(function(success)
                                 if success then
                                     print("success")
+                                    QBCore.Functions.Notify(Lang:t("success.thermite_success"), "success")
                                     TriggerServerEvent('qb-bankrobbery:server:AddThermite')
                                 else
                                     print("fail")
+                                    QBCore.Functions.Notify(Lang:t("error.thermite_fail"), "error")
                                 end
                              end, 10, 5, 3) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks
 
