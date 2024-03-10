@@ -19,59 +19,6 @@ local function SetDisplay(bool)
     })
 end
 
--- new function
-local function CheckAuth(spawnData, playerJob, playerGang)
-    local authorized = false
-    if spawnData.job then
-        -- Handle job being string or array
-        if type(spawnData.job) == 'table' then
-            for _, job in ipairs(spawnData.job) do
-                if job == playerJob.name then
-                    authorized = true
-                    break
-                end
-            end
-        else
-            if spawnData.job == playerJob.name then
-                authorized = true
-            end
-        end
-    elseif spawnData.jobType then
-        -- Handle jobType being string or array
-        if type(spawnData.jobType) == 'table' then
-            for _, job in ipairs(spawnData.jobType) do
-                if job == playerJob.name then
-                    authorized = true
-                    break
-                end
-            end
-        else
-            if spawnData.jobType == playerJob.type then
-                authorized = true
-            end
-        end
-    elseif spawnData.gang then
-        -- Handle gang being string or array
-        if type(spawnData.gang) == 'table' then
-            for _, gang in ipairs(spawnData.gang) do
-                if gang == playerGang.name then
-                    authorized = true
-                    break
-                end
-            end
-      else
-          if spawnData.gang == playerGang.name then
-              authorized = true
-          end
-      end
-    else
-        -- No restriction
-        authorized = true
-    end
-    return authorized
-end
-
-
 -- Events
 
 RegisterNetEvent('qb-spawn:client:openUI', function(value)
@@ -92,29 +39,15 @@ RegisterNetEvent('qb-houses:client:setHouseConfig', function(houseConfig)
     Config.Houses = houseConfig
 end)
 
--- replace event
 RegisterNetEvent('qb-spawn:client:setupSpawns', function(cData, new, apps)
     if not new then
-      local locations = {}
-      local PlayerJob = QBCore.Functions.GetPlayerData().job
-      local PlayerGang = QBCore.Functions.GetPlayerData().gang
-      for spawnPoint, data in pairs(QB.Spawns) do
-          local canAccess = CheckAuth(data, PlayerJob, PlayerGang)
-            if canAccess then
-                locations[spawnPoint] = {
-                    coords = data.coords,
-                    location = data.location,
-                    label = data.label
-                }
-            end
-        end
         QBCore.Functions.TriggerCallback('qb-spawn:server:getOwnedHouses', function(houses)
             local myHouses = {}
             if houses ~= nil then
                 for i = 1, (#houses), 1 do
-                    myHouses[#myHouses + 1] = {
+                    myHouses[#myHouses+1] = {
                         house = houses[i].house,
-                        label = Houses[houses[i].house].adress,
+                        label = Config.Houses[houses[i].house].adress,
                     }
                 end
             end
@@ -122,16 +55,14 @@ RegisterNetEvent('qb-spawn:client:setupSpawns', function(cData, new, apps)
             Wait(500)
             SendNUIMessage({
                 action = "setupLocations",
-                locations = locations,
+                locations = QB.Spawns,
                 houses = myHouses,
-                isNew = new
             })
         end, cData.citizenid)
     elseif new then
         SendNUIMessage({
             action = "setupAppartements",
             locations = apps,
-            isNew = new
         })
     end
 end)
