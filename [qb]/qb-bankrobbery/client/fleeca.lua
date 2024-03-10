@@ -272,7 +272,7 @@ RegisterNetEvent('bank:UseThermite', function()
                         }, false)
                         loadAnimDict("anim@gangops@facility@servers@")
                         TaskPlayAnim(ped, 'anim@gangops@facility@servers@', 'hotwire', 3.0, 3.0, -1, 1, 0, false, false, false)
-                        QBCore.Functions.Progressbar("hack_gate", Lang:t("general.connecting_hacking_device"), math.random(5000, 10000), false, true, {
+                        QBCore.Functions.Progressbar("hack_gate", Lang:t("general.thermite"), math.random(5000, 10000), false, true, {
                             disableMovement = true,
                             disableCarMovement = true,
                             disableMouse = false,

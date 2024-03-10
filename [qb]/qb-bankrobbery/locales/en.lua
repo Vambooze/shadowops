@@ -19,6 +19,7 @@ local Translations = {
     general = {
         breaking_open_safe = "Breaking the safe open...",
         connecting_hacking_device = "Connecting the hacking device...",
+        thermite = "Setting up Thermite!...",
         fleeca_robbery_alert = "Fleeca bank robbery attempt",
         paleto_robbery_alert = "Blain County Savings bank robbery attempt",
         pacific_robbery_alert = "Pacific Standard Bank robbery attempt",
