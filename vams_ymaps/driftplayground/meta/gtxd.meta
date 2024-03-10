@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapParentTxds>
+ <txdRelationships>
+  <Item>
+   <parent>driftplayground1</parent>
+   <child>driftplayground</child>
+  </Item>
+  <Item>
+   <parent>driftplayground2</parent>
+   <child>driftplayground1</child>
+  </Item>
+  <Item>
+   <parent>driftplayground3</parent>
+   <child>driftplayground2</child>
+  </Item>
+  <Item>
+   <parent>driftplayground4</parent>
+   <child>driftplayground3</child>
+  </Item>
+ </txdRelationships>
+</CMapParentTxds>
