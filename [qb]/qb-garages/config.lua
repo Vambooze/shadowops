@@ -78,7 +78,7 @@ Config.SharedGangGarages = false -- Allow shared gang garages, if false, the pla
 Config.AllowParkingAnyonesVehicle = false -- Allow anyones vehicle to be stored in the garage, if false, only vehicles you own can be stored in the garage (supports only public garages)
 Config.AllowParkingFromOutsideVehicle = true -- Allow parking from outside the vehicle, if false, you have to be inside the vehicle to park it
 Config.VehicleParkDistance = 2.0 -- Distance from the player to the vehicle to park it, radial option will dissapear beyond this distance
-Config.GlobalParking = false -- if true, you can access your cars from any garage, if false, you can only access your cars from the garage you stored them in
+Config.GlobalParking = true -- if true, you can access your cars from any garage, if false, you can only access your cars from the garage you stored them in
 Config.SpawnVehiclesServerside = true -- REQUIRES THE ABSOLUTE LATEST VERSION OF QBCORE, OR MAKE SURE YOU HAVE THESE: https://github.com/qbcore-framework/qb-core/blob/81ffd872319d2eb8e496c3b3faaf37e791912c84/server/events.lua#L252
 -- Only relevant if AllowSpawningFromAnywhere = false
 Config.SpawnAtFreeParkingSpot = false -- Will spawn at the closest free parking spot if you walk up to a occupied parking spot (basically you have to walk up close to a parking lot but it does not matter if there is a vehicle blocking the spawn as it will spawn at the closest free parking spot)
@@ -1187,6 +1187,61 @@ Config.Garages = {
             vector4(403.52, -1617.11, 29.29, 37.82)
         },
 
+    },
+    ['driftgarage'] = {
+        ['Zone'] = {
+            ['Shape'] = {
+                vector2(3883.46, -37.04),
+                vector2(3897.07, -27.68),
+                vector2(3878.34, -5.64),
+                vector2(3878.34, -5.64),
+            },
+
+        },
+        label = 'Parking',
+        showBlip = false,
+        blipcoords = vector3(3879.90, -21.26, 13.15),
+        blipName = 'Public Parking',
+        blipNumber = 357,
+        type = 'public',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Parking',
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(3883.32, -32.49, 12.89, 309.66),
+            vector4(3891.59, -25.52, 12.89, 131.15),
+            vector4(3884.97, -18.01, 13.13, 132.01),
+            vector4(3877.27, -24.58, 13.14, 314.23)
+        },
+           
+    },
+
+    ['driftgarageland'] = {
+        ['Zone'] = {
+            ['Shape'] = {
+                vector2(2774.47, -718.46),
+                vector2(2773.95, -707.79),
+                vector2(2781.02, -705.42),
+                vector2(2785.04, -715.94),
+            },
+
+        },
+        label = 'Parking',
+        showBlip = false,
+        blipcoords = vector3(3879.90, -21.26, 13.15),
+        blipName = 'Public Parking',
+        blipNumber = 357,
+        type = 'public',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Parking',
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(2780.54, -715.32, 5.34, 112.63),
+            vector4(2780.02, -712.83, 5.39, 93.01),
+            vector4(2779.20, -709.93, 5.36, 87.50),
+            vector4(2778.84, -707.51, 5.38, 88.37)
+        },
+           
     },
     
 }
