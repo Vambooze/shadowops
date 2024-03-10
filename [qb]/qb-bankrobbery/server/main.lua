@@ -359,6 +359,27 @@ RegisterNetEvent('qb-bankrobbery:server:SetStationStatus', function(key, isHit)
     end
 end)
 
+
+RegisterNetEvent('qb-bankrobbery:server:removeThermite', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    if not Player then return end
+    Player.Functions.RemoveItem('Thermite', 1)
+
+end)
+
+ RegisterNetEvent('qb-bankrobbery:server:AddThermite', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    Player.Functions.AddItem('electronickit', 1)
+    TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["electronickit"], "add")
+    Player.Functions.AddItem('trojan_usb', 1)
+    TriggerClientEvent('inventory:client:ItemBox', src, Items[item], "add", amount)
+    print("testing")
+end)
+
+
+
 RegisterNetEvent('qb-bankrobbery:server:removeElectronicKit', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)

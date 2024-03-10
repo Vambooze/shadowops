@@ -72,6 +72,7 @@ Config.PowerStations = {
     }
 }
 
+
 Config.SmallBanks = {
     [1] = {
         ["label"] = "Lol",

