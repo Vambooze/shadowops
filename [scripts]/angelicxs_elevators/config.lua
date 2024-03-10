@@ -5,7 +5,7 @@ Config = {}
 Config.UseESX = false						-- Use ESX Framework
 Config.UseQBCore = true					-- Use QBCore Framework (Ignored if Config.UseESX = true)
 
-Config.UseThirdEye = true				-- If true uses third eye.
+Config.UseThirdEye = false				-- If true uses third eye.
 Config.ThirdEyeName = 'qb-target' 			-- Name of third eye aplication
 Config.Use3DText = true                        -- Use 3D text to interact
 Config.NHMenu = false						-- Use NH-Context [https://github.com/whooith/nh-context]
@@ -14,7 +14,7 @@ Config.OXLib = false						-- Use the OX_lib (Ignored if Config.NHInput or Config
 Config.ElevatorWaitTime = 3					-- How many seconds until the player arrives at their floor
 
 Config.Notify = {
-	enabled = true,							-- Display hint notification?
+	enabled = false,							-- Display hint notification?
 	distance = 3.0,							-- Distance from elevator that the hint will show
 	message = "Target the elevator to use"	-- Text of the hint notification
 }
@@ -84,5 +84,16 @@ Config.Elevators = {
 			coords = vector3(323.48, -583.35, 28.85), heading = 36.8, level = "Floor 0", label = "Lower Level",
 			
 		},
+	},
+	DriftMapElevator = {	
+		{
+			coords = vector3(2786.71, -710.17, 4.94), heading = 36.8, level = "Land", label = "Land",
+
+		},
+		{
+			coords = vector3(3899.31, -40.90, 12.48), heading = 36.8, level = "Island", label = "Island",
+			
+		},
+
 	}
 }
