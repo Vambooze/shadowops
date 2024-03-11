@@ -28,13 +28,14 @@ QBShared.Gangs = {
             ['3'] = { name = 'Boss', isboss = true },
         },
     },
-    cartel = {
-        label = 'Cartel',
+    trf = {
+        label = 'TRF Mafia',
         grades = {
             ['0'] = { name = 'Recruit' },
-            ['1'] = { name = 'Enforcer' },
-            ['2'] = { name = 'Shot Caller' },
-            ['3'] = { name = 'Boss', isboss = true },
+            ['1'] = { name = 'Muscle' },
+            ['2'] = { name = 'Enforcer' },
+            ['3'] = { name = 'Shot Caller' },
+            ['4'] = { name = 'Boss', isboss = true },
         },
     },
     families = {

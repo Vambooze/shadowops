@@ -54,8 +54,8 @@ Config.GangMenus = {
     ['vagos'] = {
         vector3(0, 0, 0),
     },
-    ['cartel'] = {
-        vector3(0, 0, 0),
+    ['trf'] = {
+        vector3(1398.29, 1156.80, 114.33),
     },
     ['families'] = {
         vector3(0, 0, 0),
@@ -63,9 +63,9 @@ Config.GangMenus = {
 }
 
 Config.GangMenuZones = {
-    --[[
-    ['gangname'] = {
-        { coords = vector3(0.0, 0.0, 0.0), length = 0.0, width = 0.0, heading = 0.0, minZ = 0.0, maxZ = 0.0 },
+    
+    ['trg'] = {
+        { coords = vector3(1398.29, 1156.80, 114.33), length = 2.0, width = 2.0, heading = 100.24, minZ = 114.33, maxZ = 116.0 },
     },
-    ]]
+    
 }
