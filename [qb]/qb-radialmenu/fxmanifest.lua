@@ -1,20 +1,19 @@
 fx_version 'cerulean'
 game 'gta5'
-lua54 'yes'
-author 'Kakarot'
-description 'Allows players quick access to a menu for various actions'
-version '1.2.0'
+
+description 'QB-RadialMenu'
+version '1.0.0'
 
 ui_page 'html/index.html'
 
 shared_scripts {
     'config.lua',
     '@qb-core/shared/locale.lua',
-    'locales/en.lua',
-    'locales/*.lua'
+    'locales/en.lua' -- Change this to your preferred language
 }
 
 client_scripts {
+    'client/blips.lua',
     'client/main.lua',
     'client/clothing.lua',
     'client/trunk.lua',
@@ -32,3 +31,5 @@ files {
     'html/js/main.js',
     'html/js/RadialMenu.js',
 }
+
+lua54 'yes'

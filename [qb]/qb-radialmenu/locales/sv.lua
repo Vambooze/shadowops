@@ -31,14 +31,14 @@ local Translations = {
     },
     general = {
         command_description = "Öppna Radialmeny",
-        push_stretcher_button = "[E] - Putta bår",
+        push_stretcher_button = "~g~E~w~ - Putta bår",
         stop_pushing_stretcher_button = "~g~E~w~ - Sluta putta",
-        lay_stretcher_button = "[G] - Ligg på båren",
+        lay_stretcher_button = "~g~G~w~ - Ligg på båren",
         push_position_drawtext = "Putta här",
-        get_off_stretcher_button = "[G] - Kliv av båren",
-        get_out_trunk_button = "[E] Hoppa ut ur bagageutrymmet",
-        close_trunk_button = "[G] Stäng bagageluckan",
-        open_trunk_button = "[G] Öppna bagageluckan",
+        get_off_stretcher_button = "~g~G~w~ - Kliv av båren",
+        get_out_trunk_button = "[~g~E~w~] Hoppa ut ur bagageutrymmet",
+        close_trunk_button = "[~g~G~w~] Stäng bagageluckan",
+        open_trunk_button = "[~g~G~w~] Öppna bagageluckan",
         getintrunk_command_desc = "Hoppa in i bagageutrymmet",
         putintrunk_command_desc = "Stoppa spelare i bagageutrymmet"
     },
@@ -52,10 +52,7 @@ local Translations = {
     },
 }
 
-if GetConvar('qb_locale', 'en') == 'sv' then
-    Lang = Locale:new({
-        phrases = Translations,
-        warnOnMissing = true,
-        fallbackLang = Lang,
-    })
-end
+Lang = Locale:new({
+    phrases = Translations,
+    warnOnMissing = true
+})

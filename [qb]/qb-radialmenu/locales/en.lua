@@ -18,9 +18,6 @@ local Translations = {
         already_in_trunk = "You're already in the trunk",
         someone_in_trunk = "Someone is already in the trunk"
     },
-    progress = {
-        flipping_car = "Flipping vehicle.."
-    },
     success = {
         extra_activated = "Extra %{extra} has been activated",
         entered_trunk = "You're in the trunk"
@@ -34,14 +31,14 @@ local Translations = {
     },
     general = {
         command_description = "Open Radial Menu",
-        push_stretcher_button = "[E] - Push Stretcher",
+        push_stretcher_button = "~g~E~w~ - Push Stretcher",
         stop_pushing_stretcher_button = "~g~E~w~ - Stop Pushing",
-        lay_stretcher_button = "[G] - Lay On Stretcher",
+        lay_stretcher_button = "~g~G~w~ - Lay On Stretcher",
         push_position_drawtext = "Push Here",
-        get_off_stretcher_button = "[G] - Get Off Stretcher",
-        get_out_trunk_button = "[E] Get out of the trunk",
-        close_trunk_button = "[G] Close the trunk",
-        open_trunk_button = "[G] Open the trunk",
+        get_off_stretcher_button = "~g~G~w~ - Get Off Stretcher",
+        get_out_trunk_button = "[~g~E~w~] Get out of the trunk",
+        close_trunk_button = "[~g~G~w~] Close the trunk",
+        open_trunk_button = "[~g~G~w~] Open the trunk",
         getintrunk_command_desc = "Get In Trunk",
         putintrunk_command_desc = "Put Player In Trunk"
     },
@@ -55,7 +52,7 @@ local Translations = {
     },
 }
 
-Lang = Lang or Locale:new({
+Lang = Locale:new({
     phrases = Translations,
     warnOnMissing = true
 })
