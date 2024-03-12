@@ -5,8 +5,8 @@ Config.Hints = {
         ['Coords'] = vector4(-1105.76, 2696.59, 18.61, 217.91),
         ['Hints'] = {
           [1] = 'My Buissness is really going down!',
-          [2] = "I don't see anyone here. Why is that?",
-          [3] = 'I am having a huge loss',
+          [2] = "Man this gun store is really run down!",
+          [3] = 'This noise from the air base is to loud!',
         },
         ['Anim'] = 'WORLD_HUMAN_LEANING',
     },
@@ -14,7 +14,7 @@ Config.Hints = {
         ['Coords'] = vector4(3613.34, 5034.35, 9.68, 54.54),
         ['Hints'] = {
           [1] = "I see the City's first light from this house",
-          [2] = "I can't sleep with all these lights round round....",
+          [2] = "I can't sleep with all these lights round and around....",
           [3] = 'Someone please repair my house',
         },
         ['Anim'] = 'WORLD_HUMAN_BINOCULARS',
@@ -31,7 +31,7 @@ Config.Hints = {
     [4] = {
         ['Coords'] = vector4(-2175.64, 4294.85, 49.06, 244.7),
         ['Hints'] = {
-          [1] = 'Wanna Hook?',
+          [1] = 'Wanna Hook...ies?',
           [2] = 'I love Dolphins',
           [3] = "Let's eat with the sea?",
         },
@@ -59,7 +59,7 @@ Config.Hints = {
         ['Coords'] = vector4(-2016.94, -363.38, 48.11, 201.25),
         ['Hints'] = {
           [1] = "Where's my car?",
-          [2] = 'Jetty I hear!',
+          [2] = 'What a nice view of the ocean and beach houses!',
           [3] = 'Park it hear.',
         },
         ['Anim'] = 'WORLD_HUMAN_SMOKING',
@@ -86,7 +86,7 @@ Config.ItemName = 'vpn' -- name of needed item
 Config.Interval = 1 -- in hours (interval between mails)
 Config.Ped = 'g_m_m_chicold_01' -- ped that will spawn
 Config.FirstMailAfter = 10 -- in minutes (time after first mail come after server/script starts/restarts)
-Config.PedDisappear = 10 -- in minutes (time in which spawned ped disapppear should not be more than Config.Interval eg Config.Interval = 1 (hrs) than this should be max 59 (min))
+Config.PedDisappear = 59 -- in minutes (time in which spawned ped disapppear should not be more than Config.Interval eg Config.Interval = 1 (hrs) than this should be max 59 (min))
 Config.UseGame = true -- use Memory Game
 
 Config.Limit = false -- To have limit in Shop
@@ -116,7 +116,7 @@ Config.Tier1Items = {
     items = {
         [1] = {
             name = "trojan_usb",
-            price = 500,
+            price = 2000,
             amount = 5,
             amount2 = 5, -- keep same as amount (Necessary) All Items
             info = {},
@@ -124,22 +124,40 @@ Config.Tier1Items = {
             slot = 1,
         },
         [2] = {
-            name = "weapon_heavypistol",
-            price = 500,
-            amount = 5,
-            amount2 = 5,
+            name = "thermite",
+            price = 350,
+            amount = 50,
+            amount2 = 50,
             info = {},
             type = "item",
             slot = 2,
         },
         [3] = {
-            name = "weapon_bat",
-            price = 500,
+            name = "weapon_heavypistol",
+            price = 2500,
             amount = 5,
             amount2 = 5,
             info = {},
             type = "item",
             slot = 3,
+        },
+        [4] = {
+            name = "weapon_pistol50",
+            price = 5000,
+            amount = 5,
+            amount2 = 5,
+            info = {},
+            type = "item",
+            slot = 4,
+        },
+        [5] = {
+            name = "pistol_ammo",
+            price = 250,
+            amount = 50,
+            amount2 = 50,
+            info = {},
+            type = "item",
+            slot = 5,
         },
     },
 }
@@ -159,7 +177,7 @@ Config.Tier2Items = {
         },
         [2] = {
             name = "pistol_ammo",
-            price = 100,
+            price = 250,
             amount = 10,
             amount2 = 10,
             info = {},
