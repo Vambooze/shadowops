@@ -901,6 +901,30 @@ Config.Garages = {
         
     },
 
+    ['trf'] = {
+        ['Zone'] = {
+            ['Shape'] = { --polygon that surrounds the parking area
+                vector2(1398.86, 1115.07),
+                vector2(1398.64, 1122.10),
+                vector2(1414.89, 1122.13),
+                vector2(1415.31, 1114.88)
+            },
+          
+            debug = false,
+        },
+        label = 'TRF Mafia',
+        type = 'gang',
+        vehicleCategories = {'car', 'motorcycle', 'other'},
+        drawText = 'Bennys',
+        gang = 'trf',
+        debug = false,
+        ['ParkingSpots'] = {
+            vector4(1410.71, 1118.20, 114.84, 88.67)
+        }
+    
+        
+    },
+
     ['mechanic2'] = {
         ['Zone'] = {
             ['Shape'] = { --polygon that surrounds the parking area
