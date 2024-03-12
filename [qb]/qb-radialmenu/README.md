@@ -1,19 +1,8 @@
-# md-radialmenu
-Radial Menu based on qb-radialmenu (https://github.com/qbcore-framework/qb-radialmenu)
+# qb-radialmenu
+Radial Menu Used With QB-Core :arrows_counterclockwise:
 
-Join our discord for support: https://disocrd.gg/d9S2rS8ejy
-
-## Requirements
-- [QBCore Framework](https://github.com/qbcore-framework)
-
-## Installation
-- Juat add `md-radialmenu` to your resources folder
-- change the name of the folder to `qb-radialmenu` if want qb exports to work
-
-## MD STORE
-- Discord: https://disocrd.gg/d9S2rS8ejy
-- Tebex: https://mdstore.tebex.io/
-
+**Now using FontAwesome Icons!**
+To change icons get the name from [FontAwesome](https://fontawesome.com/v5.0/icons?d=gallery&p=2&s=brands,light,regular,solid&m=free) (v5) and use the icon's name in the config.lua for the icon (no `fa-` or `#` just the name like `arrow-right`)
 
 # License
 
