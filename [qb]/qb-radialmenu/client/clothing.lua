@@ -698,18 +698,18 @@ local Extras = {
 	["Shirt"] = {
 		Drawable = 11,
 		Table = {
-			Standalone = true, male = 252, female = 74,
+			Standalone = true, male = -1, female = 74,
 			Extra = {
-				{Drawable = 8, Id = 15, Tex = 0, Name = "Extra Undershirt"},
-				{Drawable = 3, Id = 15, Tex = 0, Name = "Extra Gloves"},
-				{Drawable = 10, Id = 0, Tex = 0, Name = "Extra Decals"},
+				{Drawable = 8, Id = -1, Tex = 0, Name = "Extra Undershirt"},
+				{Drawable = 3, Id = 17, Tex = 0, Name = "Extra Gloves"},
+				{Drawable = 10, Id = -1, Tex = 0, Name = "Extra Decals"},
 				}
 			},
 		Emote = {Dict = "clothingtie", Anim = "try_tie_negative_a", Move = 51, Dur = 1200}
 	},
 	["Pants"] = {
 		Drawable = 4,
-		Table = {Standalone = true, male = 61, female = 14},
+		Table = {Standalone = true, male = 100, female = 14},
 		Emote = {Dict = "re@construction", Anim = "out_of_breath", Move = 51, Dur = 1300}
 	},
 	["Bagoff"] = {
@@ -846,8 +846,8 @@ function ToggleClothing(whic, extra)
 					LastEquipped[which] = Cur
 					SetPedComponentVariation(Ped, Toggle.Drawable, Table, 0, 0)
 					if Toggle.Table.Extra then
-						local extraToggled = Toggle.Table.Extra
-						for _, v in pairs(extraToggled) do
+						Extras = Toggle.Table.Extra
+						for _, v in pairs(Extras) do
 							local ExtraCur = {Drawable = GetPedDrawableVariation(Ped, v.Drawable),  Texture = GetPedTextureVariation(Ped, v.Drawable), Id = v.Drawable}
 							SetPedComponentVariation(Ped, v.Drawable, v.Id, v.Tex, 0)
 							LastEquipped[v.Name] = ExtraCur
@@ -862,8 +862,8 @@ function ToggleClothing(whic, extra)
 				SetPedComponentVariation(Ped, Toggle.Drawable, Last.Drawable, Last.Texture, 0)
 				LastEquipped[which] = false
 				if Toggle.Table.Extra then
-					local extraToggled = Toggle.Table.Extra
-					for _, v in pairs(extraToggled) do
+					Extras = Toggle.Table.Extra
+					for _, v in pairs(Extras) do
 						if LastEquipped[v.Name] then
 							Last = LastEquipped[v.Name]
 							SetPedComponentVariation(Ped, Last.Id, Last.Drawable, Last.Texture, 0)

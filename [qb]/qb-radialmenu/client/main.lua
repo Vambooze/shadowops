@@ -7,20 +7,8 @@ local vehicleIndex = nil
 
 local DynamicMenuItems = {}
 local FinalMenuItems = {}
-local newMenuItems = {}
-local controlsToToggle = {24,0,1,2, 142, 257, 346} -- if not using toggle
-local inNewMenu = false
-
 -- Functions
-local function newMenu(data)
-    newMenuItems = {}
-    SendNUIMessage({
-        action = "setRadialMenu",
-        data = data
-    })
-    newMenuItems = data
-    inNewMenu = true
-end
+
 local function deepcopy(orig) -- modified the deep copy function from http://lua-users.org/wiki/CopyTable
     local orig_type = type(orig)
     local copy
@@ -67,16 +55,14 @@ local function RemoveOption(id)
 end
 
 local function SetupJobMenu()
-    local JobInteractionCheck = PlayerData.job.name
-    if PlayerData.job.type == "leo" then JobInteractionCheck = "police" end
     local JobMenu = {
         id = 'jobinteractions',
         title = 'Work',
         icon = 'briefcase',
         items = {}
     }
-    if Config.JobInteractions[JobInteractionCheck] and next(Config.JobInteractions[JobInteractionCheck]) and PlayerData.job.onduty then
-        JobMenu.items = Config.JobInteractions[JobInteractionCheck]
+    if Config.JobInteractions[PlayerData.job.name] and next(Config.JobInteractions[PlayerData.job.name]) then
+        JobMenu.items = Config.JobInteractions[PlayerData.job.name]
     end
 
     if #JobMenu.items == 0 then
@@ -91,56 +77,19 @@ end
 
 local function SetupVehicleMenu()
     local VehicleMenu = {
-        id = 'vehicle',
-        title = 'Vehicle',
+        id = 'control',
+        title = 'Car Control',
         icon = 'car',
-        items = {}
+        type = 'client',
+        event = 'vehcontrol:openExternal',
+        shouldClose = true,
     }
 
     local ped = PlayerPedId()
     local Vehicle = GetVehiclePedIsIn(ped) ~= 0 and GetVehiclePedIsIn(ped) or getNearestVeh()
-    if Vehicle ~= 0 then
-        VehicleMenu.items[#VehicleMenu.items+1] = Config.VehicleDoors
-        if Config.EnableExtraMenu then VehicleMenu.items[#VehicleMenu.items+1] = Config.VehicleExtras end
+   
 
-        if not IsVehicleOnAllWheels(Vehicle) then
-            VehicleMenu.items[#VehicleMenu.items+1] = {
-                id = 'vehicle-flip',
-                title = 'Flip Vehicle',
-                icon = 'car-burst',
-                type = 'client',
-                event = 'qb-radialmenu:flipVehicle',
-                shouldClose = true
-            }
-        end
-
-        if IsPedInAnyVehicle(ped) then
-            local seatIndex = #VehicleMenu.items+1
-            VehicleMenu.items[seatIndex] = deepcopy(Config.VehicleSeats)
-
-            local seatTable = {
-                [1] = Lang:t("options.driver_seat"),
-                [2] = Lang:t("options.passenger_seat"),
-                [3] = Lang:t("options.rear_left_seat"),
-                [4] = Lang:t("options.rear_right_seat"),
-            }
-
-            local AmountOfSeats = GetVehicleModelNumberOfSeats(GetEntityModel(Vehicle))
-            for i = 1, AmountOfSeats do
-                local newIndex = #VehicleMenu.items[seatIndex].items+1
-                VehicleMenu.items[seatIndex].items[newIndex] = {
-                    id = i - 2,
-                    title = seatTable[i] or Lang:t("options.other_seats"),
-                    icon = 'caret-up',
-                    type = 'client',
-                    event = 'qb-radialmenu:client:ChangeSeat',
-                    shouldClose = false,
-                }
-            end
-        end
-    end
-
-    if #VehicleMenu.items == 0 then
+    if Vehicle == 0 then                 --fixed for new vehcontrol
         if vehicleIndex then
             RemoveOption(vehicleIndex)
             vehicleIndex = nil
@@ -170,7 +119,7 @@ local function selectOption(t, t2)
 end
 
 local function IsPoliceOrEMS()
-    return (PlayerData.job.name == "police" or PlayerData.job.type == "leo" or PlayerData.job.name == "ambulance")
+    return (PlayerData.job.name == "police" or PlayerData.job.name == "ambulance")
 end
 
 local function IsDowned()
@@ -184,7 +133,7 @@ local function SetupRadialMenu()
                 [1] = {
                     id = 'emergencybutton2',
                     title = Lang:t("options.emergency_button"),
-                    icon = 'circle-exclamation',
+                    icon = 'exclamation-circle',
                     type = 'client',
                     event = 'police:client:SendPoliceEmergencyAlert',
                     shouldClose = true,
@@ -200,54 +149,22 @@ local function SetupRadialMenu()
     end
 end
 
-local function controlToggle(bool)
-    for i = 1, #controlsToToggle,1 do
-        if bool then
-            exports['qb-smallresources']:addDisableControls(controlsToToggle[i])
-        else
-            exports['qb-smallresources']:removeDisableControls(controlsToToggle[i])
-        end
-    end
-end
-
-
 local function setRadialState(bool, sendMessage, delay)
-        -- Menuitems have to be added only once
-    if Config.UseWhilstWalking then
-        if bool then
-            SetupRadialMenu()
-            PlaySoundFrontend(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", 1)
-            controlToggle(true)
-        else
-            controlToggle(false)
-        end
-        SetNuiFocus(bool, bool)
-        SetNuiFocusKeepInput(bool, true)
+    -- Menuitems have to be added only once
+
+    if bool then
+        TriggerEvent('qb-radialmenu:client:onRadialmenuOpen')
+        SetupRadialMenu()
     else
-        if bool then
-            TriggerEvent('qb-radialmenu:client:onRadialmenuOpen')
-            SetupRadialMenu()
-        else
-            TriggerEvent('qb-radialmenu:client:onRadialmenuClose')
-        end
-        SetNuiFocus(bool, bool)
+        TriggerEvent('qb-radialmenu:client:onRadialmenuClose')
     end
-    if not inRadialMenu and bool then
-        SendNUIMessage({
-            action = "setVisible",
-            data = true
-        })
-    else
-        SendNUIMessage({
-            action = "setVisible",
-            data = false
-        })
-        inNewMenu = false
-    end
+
+    SetNuiFocus(bool, bool)
     if sendMessage then
         SendNUIMessage({
-            action = "setRadialMenu",
-            data = FinalMenuItems
+            action = "ui",
+            radial = bool,
+            items = FinalMenuItems
         })
     end
     if delay then Wait(500) end
@@ -255,21 +172,15 @@ local function setRadialState(bool, sendMessage, delay)
 end
 
 -- Command
-local function radialmenutoggle()
-    if ((IsDowned() and IsPoliceOrEMS()) or not IsDowned()) and not PlayerData.metadata["ishandcuffed"] and not IsPauseMenuActive() then
-        setRadialState(not inRadialMenu, true)
-        SetCursorLocation(0.5, 0.5)
-    end
-end
 
 RegisterCommand('radialmenu', function()
-    if not Config.Toggle then
-        radialmenutoggle()
+    if ((IsDowned() and IsPoliceOrEMS()) or not IsDowned()) and not PlayerData.metadata["ishandcuffed"] and not IsPauseMenuActive() and not inRadialMenu then
+        setRadialState(true, true)
+        SetCursorLocation(0.5, 0.5)
     end
+end)
 
-end, false)
-
-RegisterKeyMapping('radialmenu', Lang:t("general.command_description"), 'keyboard', Config.Keybind)
+RegisterKeyMapping('radialmenu', Lang:t("general.command_description"), 'keyboard', 'F1')
 
 -- Events
 
@@ -388,83 +299,31 @@ RegisterNetEvent('qb-radialmenu:client:ChangeSeat', function(data)
     end
 end)
 
-RegisterNetEvent('qb-radialmenu:flipVehicle', function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
-    QBCore.Functions.Progressbar("pick_grape", Lang:t("progress.flipping_car"), Config.Fliptime, false, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    }, {}, {}, {}, function() -- Done
-        local vehicle = getNearestVeh()
-        SetVehicleOnGroundProperly(vehicle)
-        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    end, function() -- Cancel
-        QBCore.Functions.Notify(Lang:t("task.cancel_task"), "error")
-        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-    end)
-end)
-
 -- NUI Callbacks
 
-RegisterNUICallback('closeRadial', function(data,cb)
-    setRadialState(false, false)
+RegisterNUICallback('closeRadial', function(data, cb)
+    setRadialState(false, false, data.delay)
     cb('ok')
 end)
 
 RegisterNUICallback('selectItem', function(inData, cb)
-    local index = inData.index
-    local selectedButton = inData.selectedButton
-    local itemData = {}
-    if selectedButton then 
-        if not inNewMenu then
-            itemData = FinalMenuItems[index+1].items[selectedButton+1]
-        else
-            itemData = newMenuItems[index+1].items[selectedButton+1]
+    local itemData = inData.itemData
+    local found, action, data = selectOption(FinalMenuItems, itemData)
+    if data and found then
+        if action then
+            action(data)
+        elseif data.type == 'client' then
+            TriggerEvent(data.event, data)
+        elseif data.type == 'server' then
+            TriggerServerEvent(data.event, data)
+        elseif data.type == 'command' then
+            ExecuteCommand(data.event)
+        elseif data.type == 'qbcommand' then
+            TriggerServerEvent('QBCore:CallCommand', data.event, data)
         end
-    else
-        if not inNewMenu then
-            itemData = FinalMenuItems[index+1]
-        else
-            itemData = newMenuItems[index+1]
-        end
-    end
-    if itemData.items then
-        newMenu(itemData.items)
-        return
-    end
-    -- local itemData = inData.itemData
-    if itemData then
-        if itemData.action then
-            -- itemData.action(itemData)
-            print("action not supported", itemData.action)
-        elseif itemData.type == 'client' then
-            TriggerEvent(itemData.event, itemData)
-        elseif itemData.type == 'server' then
-            TriggerServerEvent(itemData.event, itemData)
-        elseif itemData.type == 'command' then
-            ExecuteCommand(itemData.event)
-        elseif itemData.type == 'qbcommand' then
-            TriggerServerEvent('QBCore:CallCommand', itemData.event, itemData)
-        end
-    end
-
-    if itemData.shouldClose then
-        setRadialState(false, false)
     end
     cb('ok')
 end)
 
 exports('AddOption', AddOption)
 exports('RemoveOption', RemoveOption)
-local function checkkeypress()
-    Wait(0)
-    if IsControlJustReleased(0, Config.ToggleKeybind) then
-        radialmenutoggle()
-    end
-    Wait(0)
-    SetTimeout(0, checkkeypress())
-end
-if Config.Toggle then
-    checkkeypress()
-end

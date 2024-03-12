@@ -1,19 +1,17 @@
-# md-radialmenu
-Radial Menu based on qb-radialmenu (https://github.com/qbcore-framework/qb-radialmenu)
+# qb-radialmenu
+NoPixel Inpired radial menu with css changes and changes to the menu's events/configuration.
 
-Join our discord for support: https://disocrd.gg/d9S2rS8ejy
+# Dependencies
+qb-core (https://github.com/qbcore-framework/qb-core)
 
-## Requirements
-- [QBCore Framework](https://github.com/qbcore-framework)
+veh-control (https://github.com/Manvaril/vehcontrol)
 
-## Installation
-- Juat add `md-radialmenu` to your resources folder
-- change the name of the folder to `qb-radialmenu` if want qb exports to work
+# Preview
+https://medal.tv/games/gta-v/clips/nNNM16zG4tF3_/d1337SFErMFM?invite=cr-MSxUQnAsNDIxNDM3MTcs
 
-## MD STORE
-- Discord: https://disocrd.gg/d9S2rS8ejy
-- Tebex: https://mdstore.tebex.io/
+# Credits
 
+https://github.com/KevinGirardx/qb-radialmenu
 
 # License
 

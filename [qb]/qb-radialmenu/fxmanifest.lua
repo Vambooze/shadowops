@@ -1,18 +1,35 @@
 fx_version 'cerulean'
 game 'gta5'
-author 'MD Dtore'
+
+description 'QB-RadialMenu'
 version '1.0.0'
 
-ui_page 'web/index.html'
-files {'web/index.html', 'web/**/*'}
+ui_page 'html/index.html'
 
-server_script 'server/*.lua'
-client_script 'client/*.lua'
 shared_scripts {
     'config.lua',
     '@qb-core/shared/locale.lua',
-    'locales/en.lua',
-    'locales/*.lua'
+    'locales/en.lua' -- Change this to your preferred language
 }
 
-server_script '@oxmysql/lib/MySQL.ts'
+client_scripts {
+    'client/blips.lua',
+    'client/main.lua',
+    'client/clothing.lua',
+    'client/trunk.lua',
+    'client/stretcher.lua'
+}
+
+server_scripts {
+    'server/trunk.lua',
+    'server/stretcher.lua'
+}
+
+files {
+    'html/index.html',
+    'html/css/main.css',
+    'html/js/main.js',
+    'html/js/RadialMenu.js',
+}
+
+lua54 'yes'
