@@ -172,4 +172,29 @@ QBShared.Jobs = {
 			['3'] = { name = 'CEO', isboss = true, payment = 400 },
         },
 	},
+	["pizzeria"] = {
+        label = "Pizzeria",
+        offDutyPay = false,
+        defaultDuty = false,
+        grades = {
+            ['0'] = {
+                name = 'Worker',
+                payment = 175,
+            },
+            ['1'] = {
+                name = 'Assistant Manager',
+                payment = 225,
+            },
+            ['2'] = {
+                name = 'Manager',
+                isboss = true,
+                payment = 275,
+            },
+			['3'] = {
+                name = 'Owner',
+                isboss = true,
+                payment = 350,
+            },
+        },
+    },
 }
