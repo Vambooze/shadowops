@@ -85,7 +85,7 @@ Config.ItemName = 'vpn' -- name of needed item
 
 Config.Interval = 1 -- in hours (interval between mails)
 Config.Ped = 'g_m_m_chicold_01' -- ped that will spawn
-Config.FirstMailAfter = 10 -- in minutes (time after first mail come after server/script starts/restarts)
+Config.FirstMailAfter = 1 -- in minutes (time after first mail come after server/script starts/restarts)
 Config.PedDisappear = 59 -- in minutes (time in which spawned ped disapppear should not be more than Config.Interval eg Config.Interval = 1 (hrs) than this should be max 59 (min))
 Config.UseGame = true -- use Memory Game
 
