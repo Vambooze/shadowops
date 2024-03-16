@@ -166,6 +166,20 @@ Products = {
         { name = "firstaid", price = 1, amount = 50,   requiredJob = { ["ambulance"] = 0 } },
         { name = "weapon_flashlight", price = 1, amount = 50,  requiredJob = { ["ambulance"] = 0 } },
         { name = "weapon_fireextinguisher", price = 1, amount = 50,  requiredJob = { ["ambulance"] = 0 }  },
+    },
+    ["pizzashop"] = {
+        { name = "butter", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "flour", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "milk", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "salt", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "tomatosauce", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "slicedjalapenos", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "slicedpepperoni", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "gratedcheese", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "kurkakola", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "water_bottle", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
+        { name = "tosti", price = 1, amount = 50,  requiredJob = { ["pizzathis"] = 0 }  },
     }
+
 
 }

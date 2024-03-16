@@ -31,7 +31,7 @@ Config = {
 
 	Overrides = {
 		Peds = true, -- Set to true if you want Shops to have Peds
-		Limit = true, -- Enable this to add Stash features, This adds limits to items and gets refilled at each restart
+		Limit = false, -- Enable this to add Stash features, This adds limits to items and gets refilled at each restart
 
 		ApGov = false, -- Add support for AP-Goverment Tax
 

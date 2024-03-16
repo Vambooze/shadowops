@@ -93,73 +93,8 @@ exports['qb-target']:AddBoxZone('sz-pizzajob:bossmenu', vector3(794.97, -767.02,
 })
 
 -- Make Fries
-exports['qb-target']:AddBoxZone('sz-pizzajob:makefries', vector3(-577.76, -414.56, 34.27), 0.6, 0.7, {
-    name = 'sz-pizzajob:makefries',
-    heading = 357.83,
-    debugPoly = Config.Debug,
-    minZ = 33.50,
-    maxZ = 35.50,
-}, {
-    options = {
-        {
-            num = 1,
-            type = 'client',
-            event = 'sz-pizzajob:client:friesmenu',
-            icon = 'fas fa-utensils',
-            label = 'Make Fries',
-            job = 'pizzathis',
-            drawColor = {255, 255, 255, 255},
-            successDrawColor = {30, 144, 255, 255},
-        }
-    },
-    distance = 1,
-})
 
--- Fridge
-exports['qb-target']:AddBoxZone('sz-pizzajob:openfridge', vector3(-568.76, -414.03, 35.60), 1.4, 0.2, {
-    name = 'sz-pizzajob:openfridge',
-    heading = 182.53,
-    debugPoly = Config.Debug,
-    minZ = 34.50,
-    maxZ = 36.50,
-}, {
-    options = {
-        {
-            num = 1,
-            type = 'client',
-            event = 'sz-pizzajob:client:OpenFridge',
-            icon = 'fas fa-snowflake',
-            label = 'Open Fridge',
-            job = 'pizzathis',
-            drawColor = {255, 255, 255, 255},
-            successDrawColor = {30, 144, 255, 255},
-        }
-    },
-    distance = 1,
-})
 
--- Staff Fridge
-exports['qb-target']:AddBoxZone('sz-pizzajob:staff_fridge', vector3(799.77, -758.79, 31.27), 0.8, 0.8, {
-    name = 'sz-pizzajob:staff_fridge',
-    heading = 0,
-    debugPoly = Config.Debug,
-    minZ = 30.17,
-    maxZ = 32.17,
-}, {
-    options = {
-        {
-            num = 1,
-            type = 'client',
-            event = 'sz-pizzajob:client:OpenStaffFridge',
-            icon = 'fas fa-snowflake',
-            label = 'Open Fridge',
-            job = 'pizzathis',
-            drawColor = {255, 255, 255, 255},
-            successDrawColor = {30, 144, 255, 255},
-        }
-    },
-    distance = 1,
-})
 
 
 -- Make Dough
@@ -277,28 +212,6 @@ exports['qb-target']:AddBoxZone('sz-pizzajob:useoven', vector3(-563.68, -413.80,
     distance = 1,
 })
 
--- Toppings
-exports['qb-target']:AddBoxZone('sz-pizzajob:toppings', vector3(-572.57, -414.64, 33.95), 0.55, 0.85, {
-    name = 'sz-pizzajob:toppings',
-    heading = 3.55,
-    debugPoly = Config.Debug,
-    minZ = 32.73,
-    maxZ = 34.98,
-}, {
-    options = {
-        {
-            num = 1,
-            type = 'client',
-            event = 'sz-pizzajob:client:toppingsmenu',
-            icon = 'fas fa-hand-holding',
-            label = 'Pizza Toppings',
-            job = 'pizzathis',
-            drawColor = {255, 255, 255, 255},
-            successDrawColor = {30, 144, 255, 255},
-        }
-    },
-    distance = 1,
-})
 
 -- Make Pizza
 exports['qb-target']:AddBoxZone('sz-pizzajob:makepizza', vector3(-576.19, -414.50, 34.09), 0.4, 0.4, {
@@ -347,7 +260,7 @@ exports['qb-target']:AddBoxZone('sz-pizzajob:boxpizza', vector3(-574.93, -410.88
 })
 
 -- Make Wine
-exports['qb-target']:AddBoxZone('sz-pizzajob:makewine', vector3(-579.19, -414.55, 34.17), 0.9, 0.4, {
+exports['qb-target']:AddBoxZone('sz-pizzajob:makewine', vector3(-568.74, -414.29, 34.99), 0.9, 0.4, {
     name = 'sz-pizzajob:makewine',
     heading = 3.22,
     debugPoly = Config.Debug,
@@ -369,51 +282,9 @@ exports['qb-target']:AddBoxZone('sz-pizzajob:makewine', vector3(-579.19, -414.55
     distance = 1.3,
 })
 
--- Cupboard
-exports['qb-target']:AddBoxZone('sz-pizzajob:cupboard', vector3(-583.31, -413.01, 33.89), 1.4, 0.2, {
-    name = 'sz-pizzajob:cupboard',
-    heading = 269.05,
-    debugPoly = Config.Debug,
-    minZ = 32.68,
-    maxZ = 34.08,
-}, {
-    options = {
-        {
-            num = 1,
-            type = 'client',
-            event = 'sz-pizzajob:client:OpenCupboard',
-            icon = 'fas fa-door-open',
-            label = 'Open Cupboard',
-            job = 'pizzathis',
-            drawColor = {255, 255, 255, 255},
-            successDrawColor = {30, 144, 255, 255},
-        }
-    },
-    distance = 1,
-})
 
 -- Cold Drinks
-exports['qb-target']:AddBoxZone('sz-pizzajob:colddrinks', vector3(-574.42, -414.41, 34.19), 0.75, 0.5, {
-    name = 'sz-pizzajob:OpenColdDrink',
-    heading = 6.38,
-    debugPoly = Config.Debug,
-    minZ = 32.53,
-    maxZ = 35.23,
-}, {
-    options = {
-        {
-            num = 1,
-            type = 'client',
-            event = 'sz-pizzajob:client:OpenColdDrink',
-            icon = 'fas fa-snowflake',
-            label = 'Cold Drinks',
-            job = 'pizzathis',
-            drawColor = {255, 255, 255, 255},
-            successDrawColor = {30, 144, 255, 255},
-        }
-    },
-    distance = 1.5,
-})
+
 
 -- Till 1
 exports['qb-target']:AddBoxZone('sz-pizzajob:till1', vector3(-571.1104736, -410.1440734, 34.98688888), 0.55, 0.3, {

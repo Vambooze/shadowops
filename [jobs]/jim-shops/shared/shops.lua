@@ -334,6 +334,18 @@ Locations = {
         ["products"] = Products["mechanic"],
 		["hideblip"] = true,
     },
+	["pizzashop"] = {
+		["label"] = "Burger Shot",
+		["type"] = "items",
+		["model"] = {
+			's_m_m_linecook',
+		},
+		["coords"] = { vec4(-578.03, -409.16, 34.92, 94.22), },
+		["products"] = Products["pizzashop"],
+		["blipsprite"] = 106,
+		["blipcolour"] = 59,
+		["hideblip"] = true,
+	},
 }
 
 --if Gabz locations are enabled, override their coords with these
