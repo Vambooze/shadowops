@@ -12,13 +12,13 @@ local function hasItems(items)
     return false
 end
 
-local blip = AddBlipForCoord(805.11, -751.4)
+local blip = AddBlipForCoord(-569.58, -409.78)
 SetBlipSprite(blip, 267)
 SetBlipDisplay(blip, 6)
 SetBlipScale(blip, 0.7)
 SetBlipColour(blip, 1)
 BeginTextCommandSetBlipName('STRING')
-AddTextComponentString('PizzaThis')
+AddTextComponentString('Pizza')
 EndTextCommandSetBlipName(blip)
 
 function QBCore.Functions.Progressbar(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel) --not sure what this is here for unless youre trying to create a global progressbar
@@ -47,9 +47,9 @@ end
 
 -- Targets
 -- Duty
-exports['qb-target']:AddBoxZone('sz-pizzajob:duty', vector3(-580.24, -407.85, 34.92), 0.4, 0.4, {
+exports['qb-target']:AddBoxZone('sz-pizzajob:duty', vector3(-580.28, -407.83, 34.92), 0.2, 0.4, {
     name = 'sz-pizzajob:duty',
-    heading = 2.20,
+    heading = 1.80,
     debugPoly = Config.Debug,
     minZ = 34.02,
     maxZ = 35.42,
@@ -121,7 +121,7 @@ exports['qb-target']:AddBoxZone('sz-pizzajob:makedough', vector3(-582.04, -414.6
 })
 
 -- Prepare Pizza
-exports['qb-target']:AddBoxZone('sz-pizzajob:makepizzabase', vector3(-571.52, -414.27, 34.07), 0.6, 1.9, {
+exports['qb-target']:AddBoxZone('sz-pizzajob:makepizzabase', vector3(-576.19, -414.50, 34.09), 0.6, 1.9, {
     name = 'sz-pizzajob:makepizzabase',
     heading = 359.50,
     debugPoly = Config.Debug,
@@ -213,8 +213,9 @@ exports['qb-target']:AddBoxZone('sz-pizzajob:useoven', vector3(-563.68, -413.80,
 })
 
 
+
 -- Make Pizza
-exports['qb-target']:AddBoxZone('sz-pizzajob:makepizza', vector3(-576.19, -414.50, 34.09), 0.4, 0.4, {
+exports['qb-target']:AddBoxZone('sz-pizzajob:makepizza', vector3(-571.52, -414.27, 34.07), 0.4, 0.4, {
     name = 'sz-pizzajob:makepizza',
     heading = 1.76,
     debugPoly = Config.Debug,
