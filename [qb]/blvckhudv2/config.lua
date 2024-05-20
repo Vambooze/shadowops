@@ -3,10 +3,10 @@
 Config = {}
 Config.Framework = "newqb" -- newqb, oldqb, esx
 Config.Mysql = "oxmysql" -- mysql-async, ghmattimysql, oxmysql
-Config.DefaultHud = "radial" -- Default hud when player first login avaliable huds [radial, classic, text]
+Config.DefaultHud = "classic" -- Default hud when player first login avaliable huds [radial, classic, text]
 Config.DefaultSpeedUnit = "mph" -- Default speed unit when player first login avaliable speed units [kmh, mph]
 Config.HudSettingsCommand = 'hud' -- Command for open hud settings
-Config.DisplayMapOnWalk = false -- true - Show map when walking | false - Hide map when walking
+Config.DisplayMapOnWalk = true -- true - Show map when walking | false - Hide map when walking
 Config.DisplayRealTime = false -- if you set this to true will show the real time according to player local time | if false it will show the game time
 Config.EnableSpamNotification = true -- Spam preventation for seatbelt, cruise etc.
 Config.EnableDateDisplay = false -- Determines if display date or nor
