@@ -24,7 +24,7 @@ RegisterNetEvent('sd-warehouse:client:checkitem', function()
 		else
 			QBCore.Functions.Notify('You do not have the required equipment.', "error")
 		end
-	end, 'thermite_h')
+	end, 'thermite')
 
 end)
 
@@ -279,7 +279,7 @@ function firsthack()
     ClearPedTasks(ped)
     DeleteObject(bomb)
     StopParticleFxLooped(effect, 0)
-    TriggerServerEvent("QBCore:Server:RemoveItem", "thermite_h", 1) 
+    TriggerServerEvent("QBCore:Server:RemoveItem", "thermite", 1) 
 end 
 
 -- Particles 

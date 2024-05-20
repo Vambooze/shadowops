@@ -26,7 +26,7 @@ end
 -- Change this to your dispatch script if needed
 function CallPoliceForDrugPlaneTooHigh(model)
 	if Config.DispatchScript == "ps-dispatch" then
-    	exports[Config.DispatchScript]:PlaneTooHigh(Vehicle)
+    	exports[Config.DispatchScript]:SuspiciousActivity(Vehicle)
 	else
 		-- Put your dispatch code here if you are not using ps-dispatch
 	end

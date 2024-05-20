@@ -1,14 +1,14 @@
 Config = Config or {}
-Config.UseMethCooldown = true -- true/false
+Config.UseMethCooldown = false -- true/false
 Config.CoolDown = 10 --- Cooldown until can start next run default is 10 minutes
 Config.CopNeeded = 0 -- Cops needed to do the runs
-Config.PoliceJobName = 'police'
+Config.PoliceJobName = 'bcso'
 Config.Dispatch = 'ps-dispatch'  -- ps-dispatch / cd-dispatch  (type of dispatch you use)
 Config.PedHash = `g_m_y_lost_02` -- Ped model of the starting ped
 Config.PedPos = vector4(923.02, -1304.02, 26.07, 215.21) -- Starting ped location
 Config.Notify = 'phone' -- can be phone/qb (this is what notifications you want to use for the run)
 Config.Phone = 'qb' -- qb / gks
-Config.MinRep = 3 -- Rep given at the end ( this is a random between Config.MinRep and Config.MaxRep)
+Config.MinRep = 0 -- Rep given at the end ( this is a random between Config.MinRep and Config.MaxRep)
 Config.MaxRep = 5
 Config.LevelRep = 100-- Amount of reputation needed to get higher rewards etc
 Config.StartItem = 'meth'-- Item needed to start the runs
