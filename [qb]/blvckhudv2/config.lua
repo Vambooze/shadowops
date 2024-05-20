@@ -4,7 +4,7 @@ Config = {}
 Config.Framework = "newqb" -- newqb, oldqb, esx
 Config.Mysql = "oxmysql" -- mysql-async, ghmattimysql, oxmysql
 Config.DefaultHud = "radial" -- Default hud when player first login avaliable huds [radial, classic, text]
-Config.DefaultSpeedUnit = "kmh" -- Default speed unit when player first login avaliable speed units [kmh, mph]
+Config.DefaultSpeedUnit = "mph" -- Default speed unit when player first login avaliable speed units [kmh, mph]
 Config.HudSettingsCommand = 'hud' -- Command for open hud settings
 Config.DisplayMapOnWalk = false -- true - Show map when walking | false - Hide map when walking
 Config.DisplayRealTime = false -- if you set this to true will show the real time according to player local time | if false it will show the game time
@@ -168,7 +168,7 @@ Config.UseLegacyFuel = true --Enable this if you use legacy fuel
 
 Config.GetVehicleFuel = function(vehicle) -- you can change LegacyFuel export if you use another fuel system 
     if Config.UseLegacyFuel then
-        return exports["LegacyFuel"]:GetFuel(vehicle)
+        return exports["ps-fuel"]:GetFuel(vehicle)
     else
         return GetVehicleFuelLevel(vehicle)
     end
