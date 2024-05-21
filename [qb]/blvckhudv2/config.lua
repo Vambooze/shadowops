@@ -75,8 +75,8 @@ Config.WaterMarkLogo = "https://remote-tools-images.s3.amazonaws.com/invisible-d
 Config.LogoWidth = "120px"
 Config.LogoHeight = "100px"
 Config.EnableId = false -- Determines if display server id or nor
-Config.EnableWatermarkCash = false -- Determines if display cash or nor
-Config.EnableWatermarkBankMoney = false -- Determines if display bank money or nor
+Config.EnableWatermarkCash = true -- Determines if display cash or nor
+Config.EnableWatermarkBankMoney = true -- Determines if display bank money or nor
 Config.EnableWatermarkJob = false -- Determines if display job or nor
 Config.EnableWatermarkWeaponImage = true -- Determines if display weapon image or nor
 Config.EnableWaterMarkHud = true -- Determines if right-top hud is enabled or not
@@ -178,7 +178,7 @@ end
 
 Config.UseStress = true -- if you set this to false the stress hud will be removed
 Config.StressWhitelistJobs = { -- Add here jobs you want to disable stress 
-    -- 'police', 'ambulance'
+     'bcso', 'ambulance'
 }
 
 Config.WhitelistedWeaponStress = {
