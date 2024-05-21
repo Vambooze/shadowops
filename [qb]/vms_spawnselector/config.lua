@@ -31,7 +31,7 @@ Config.Hud = {
     end
 }
 
-Config.WeatherSync = "cd_easytime" -- "cd_easytime", "qb-weathersync", "vSync"
+Config.WeatherSync = "qb-weathersync" -- "cd_easytime", "qb-weathersync", "vSync"
 Config.Weather = 'CLEAR' -- weather type
 Config.Time = {hour = 20, minutes = 0}
 
@@ -51,15 +51,16 @@ Config.Spawns = {
         address = "New Empire Way",
     },
     [3] = {
-        camCoords = vector3(-1249.22, -1469.2, 10.6),
-        spawnCoords = vector4(-1265.34, -1481.28, 3.33, 286.73),
-        label = "Beach",
-        address = "Aguja St.",
+        camCoords = vector3(165.29, -990.47, 32.50),
+        spawnCoords = vector4(162.42, -981.92, 29.60, 149.78),
+        label = "Legion Square",
+        address = "Vespucci Blvd",
     },
     [4] = {
         camCoords = vector3(1113.8, 2680.31, 46.42),
         spawnCoords = vector4(1138.84, 2672.44, 37.13, 89.32),
         label = "Sandy Shores",
+        jobType = "leo",
         address = "Route 68",
     },
     [5] = {

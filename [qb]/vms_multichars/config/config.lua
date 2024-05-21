@@ -36,6 +36,20 @@ Config.ChangeCharacterPoint = {
 		color = 2,
 		scale = 1.0,
 		name = "Character Selector"
+	},
+	enable = true,
+	coords = vector3(363.68, -1598.48, 29.30),
+	marker = {
+		id = 2,
+		rgba = {255, 215, 25, 100},
+		size = vec(0.75, 0.75, 0.75),
+		rotate = true
+	},
+	blip = {
+		sprite = 480,
+		color = 2,
+		scale = 1.0,
+		name = "Character Selector"
 	}
 }
 

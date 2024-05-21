@@ -13,7 +13,7 @@ Configuration = {
     UseQuasarInventory = false,
     
     NPC = {
-        {x = -542.96, y = -207.84, z = 37.64, h = 219.12, ped},
+        {x = -554.8, y = -184.27, z = 38.22, h = 209.08, ped},
         -- {x = 1533.12, y = -2116.28, z = 76.8, h = 219.12, ped}
     },
 
@@ -34,12 +34,12 @@ Configuration = {
 Target = {
     UseTarget = true, 
 
-    Coords = vector3(-542.96, -207.84, 37.64),
+    Coords = vector3(-554.8, -184.27, 38.22),
 
     TargetExport = 'qtarget',
 
     ["Home"] = {
-        Text = 'WORK CENTRE', 
+        Text = 'WORK CENTER', 
         Icon = 'fa fa-briefcase'        
     },
 
