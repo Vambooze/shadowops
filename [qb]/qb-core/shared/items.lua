@@ -1318,6 +1318,10 @@ vehicletrackerscanner       = { name = 'vehicletrackerscanner', label = 'Vehicle
     ["uncookedjalapenoandpepperonipizza"]=        {["name"] = "uncookedjalapenoandpepperonipizza",		["label"] = "Uncooked Jalapeno & Pepperoni Pizza",	["weight"] = 1000, ["type"] = "item",  ["image"] = "uncookedjalapenoandpepperonipizza.png",      ["unique"] = false,  ["useable"] = false, ["shouldClose"] = false, ["description"] = "Jalapeno & Pepperoni Pizza"},
     ["jalapenoandpepperonipizzabox"]=        {["name"] = "jalapenoandpepperonipizzabox",		["label"] = "Jalapeno & Pepperoni Pizza",	["weight"] = 1000, ["type"] = "item",  ["image"] = "pizzabox.png",      ["unique"] = false,  ["useable"] = true, ["shouldClose"] = true, ["description"] = "Smell that?"},
     ["slicedjalapenos"]=        {["name"] = "slicedjalapenos",		["label"] = "Sliced Jalapenos",	["weight"] = 1000, ["type"] = "item",  ["image"] = "slicedjalapenos.png",      ["unique"] = false,  ["useable"] = false, ["shouldClose"] = false, ["description"] = "Sliced Jalapenos"},
+    ["car_door"] 					 	 = {["name"] = "car_door", 			  	  		["label"] = "car door", 			["weight"] = 2000, 		["type"] = "item", 		["image"] = "car_door.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = ""},
+    ["car_hood"] 					 	 = {["name"] = "car_hood", 			  	  		["label"] = "car_hood", 			["weight"] = 2000, 		["type"] = "item", 		["image"] = "car_hood.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = ""},
+    ["car_trunk"] 					 	 = {["name"] = "car_trunk", 			  	  	["label"] = "car_trunk", 			["weight"] = 2000, 		["type"] = "item", 		["image"] = "car_trunk.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = ""},
+    ["mdlaptop"] 					 	 = {["name"] = "mdlaptop", 			  	  	    ["label"] = "Car Boost Laptop",     ["weight"] = 2000, 		["type"] = "item", 		["image"] = "mansionlaptop.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = false, ["combinable"] = nil,   ["description"] = ""},
 
 }
 
