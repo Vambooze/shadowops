@@ -6,20 +6,20 @@ Config = {}
 
 Config.Core = "QB-Core" -- "ESX" / "QB-Core"
 Config.CoreExport = function()
-    return exports['es_extended']:getSharedObject() -- ESX
-    -- return exports['qb-core']:GetCoreObject() -- QB-CORE
+    --return exports['es_extended']:getSharedObject() -- ESX
+    return exports['qb-core']:GetCoreObject() -- QB-CORE
 end
 
 Config.Notification = function(message, time, type)
     if type == "error" then
       --  exports['vms_notify']:Notification('SPAWN SELECTOR', message, time, '#f52a2a', 'fa-solid fa-map-pin')
-       ESX.ShowNotification(message)
-        -- QBCore.Functions.Notify(message, 'error', time)
+      -- ESX.ShowNotification(message)
+        QBCore.Functions.Notify(message, 'error', time)
     end
 end
 
 Config.Translate = {
-    ['cannot_spawn_on_dead'] = "Estas inconsciente, debes renacer en la última ubicación."
+    ['cannot_spawn_on_dead'] = "You are dead, you must respawn in your last location"
 }
 
 Config.Hud = {

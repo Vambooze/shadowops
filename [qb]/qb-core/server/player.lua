@@ -109,6 +109,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.charinfo.account = PlayerData.charinfo.account or QBCore.Functions.CreateAccountNumber()
     -- Metadata
     PlayerData.metadata = PlayerData.metadata or {}
+    PlayerData.metadata['carboosting'] = PlayerData.metadata['carboosting'] or 0
     PlayerData.metadata['hunger'] = PlayerData.metadata['hunger'] or 100
     PlayerData.metadata['methruns'] = PlayerData.metadata['methruns'] or 0
     PlayerData.metadata['thirst'] = PlayerData.metadata['thirst'] or 100
